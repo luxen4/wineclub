@@ -403,7 +403,7 @@ namespace proyectovinos
         private void pictureBox2_BackgroundImageChanged(object sender, EventArgs e)
         {
             haCambiado = true;
-            MessageBox.Show("Ha cambiado");
+            // MessageBox.Show("Ha cambiado"); 
         }
     }
 }

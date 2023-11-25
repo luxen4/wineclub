@@ -101,7 +101,7 @@ namespace proyectovinos.Empleados
         private void pictureBox1_BackgroundImageChanged(object sender, EventArgs e)
         {
             haCambiado = true;
-            MessageBox.Show("Ha cambiado");
+            //MessageBox.Show("Ha cambiado");
         }
 
         private int n_id_rollempleado = 0;
