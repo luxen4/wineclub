@@ -1,0 +1,982 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D357473A-5E13-45D4-9B17-6D0D363CD92B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>proyectovinos</RootNamespace>
+    <AssemblyName>proyectovinos</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>E4A2CC8B073C4D3BD2F3BEFB29C78BB3DAE9C034</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>proyectovinos_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.32.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\MySQL\MySQL Installer for Windows\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.7.0.0\lib\net462\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=7.0.0.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.7.0.2\lib\net462\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Articulo\Class_Articulo.cs" />
+    <Compile Include="Articulo\Class_ArticuloAperturaForms.cs" />
+    <Compile Include="Articulo\Form_TodosArticulosVinoII.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulo\Form_TodosArticulosVinoII.Designer.cs">
+      <DependentUpon>Form_TodosArticulosVinoII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Articulo\Form_EliminarArticuloVino.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulo\Form_EliminarArticuloVino.Designer.cs">
+      <DependentUpon>Form_EliminarArticuloVino.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Articulo\Form_HabilitarArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulo\Form_HabilitarArticulos.Designer.cs">
+      <DependentUpon>Form_HabilitarArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\catalogacion\Class_Catalogacion.cs" />
+    <Compile Include="Caracteristicas\catalogacion\Class_CatalogacionAperturaForms.cs" />
+    <Compile Include="Caracteristicas\catalogacion\Form_TodasCatalogacionesII.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\catalogacion\Form_TodasCatalogacionesII.Designer.cs">
+      <DependentUpon>Form_TodasCatalogacionesII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\catalogacion\deprecado\Form_EliminarCatalogacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\catalogacion\deprecado\Form_EliminarCatalogacion.Designer.cs">
+      <DependentUpon>Form_EliminarCatalogacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\catalogacion\deprecado\Form_HabilitarCatalogacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\catalogacion\deprecado\Form_HabilitarCatalogacion.Designer.cs">
+      <DependentUpon>Form_HabilitarCatalogacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\clasesvino\Class_ClaseVino.cs" />
+    <Compile Include="Caracteristicas\clasesvino\Class_ClaseVinoAperturaForms.cs" />
+    <Compile Include="Caracteristicas\clasesvino\Form_TodasClasesVino.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\clasesvino\Form_TodasClasesVino.Designer.cs">
+      <DependentUpon>Form_TodasClasesVino.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_EliminarClaseVino.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_EliminarClaseVino.Designer.cs">
+      <DependentUpon>Form_EliminarClaseVino.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_HabilitarClaseVino.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_HabilitarClaseVino.Designer.cs">
+      <DependentUpon>Form_HabilitarClaseVino.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\contenido\Class_Contenido.cs" />
+    <Compile Include="Caracteristicas\contenido\Class_ContenidoAperturaForms.cs" />
+    <Compile Include="Caracteristicas\contenido\Form_TodosContenidosII.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\contenido\Form_TodosContenidosII.Designer.cs">
+      <DependentUpon>Form_TodosContenidosII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\contenido\deprecado\Form_EliminarContenido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\contenido\deprecado\Form_EliminarContenido.Designer.cs">
+      <DependentUpon>Form_EliminarContenido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\contenido\deprecado\Form_HabilitarContenido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\contenido\deprecado\Form_HabilitarContenido.Designer.cs">
+      <DependentUpon>Form_HabilitarContenido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\contenido\deprecado\Form_ModificarContenido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\contenido\deprecado\Form_ModificarContenido.Designer.cs">
+      <DependentUpon>Form_ModificarContenido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\contenido\deprecado\Form_TodosContenidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\contenido\deprecado\Form_TodosContenidos.Designer.cs">
+      <DependentUpon>Form_TodosContenidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\denominacion\Class_DenominacionAperturaForms.cs" />
+    <Compile Include="Caracteristicas\denominacion\Form_TodasDenominacionesII.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\denominacion\Form_TodasDenominacionesII.Designer.cs">
+      <DependentUpon>Form_TodasDenominacionesII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\denominacion\deprecado\Form_EliminarDenominacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\denominacion\deprecado\Form_EliminarDenominacion.Designer.cs">
+      <DependentUpon>Form_EliminarDenominacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\denominacion\deprecado\Form_HabilitarDenominacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\denominacion\deprecado\Form_HabilitarDenominacion.Designer.cs">
+      <DependentUpon>Form_HabilitarDenominacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\empaquetado\Class_EmpaquetadoAperturaForms.cs" />
+    <Compile Include="Caracteristicas\empaquetado\deprecado\Form_EliminarEmpaquetado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\empaquetado\deprecado\Form_EliminarEmpaquetado.Designer.cs">
+      <DependentUpon>Form_EliminarEmpaquetado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\empaquetado\deprecado\Form_HabilitarEmpaquetados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\empaquetado\deprecado\Form_HabilitarEmpaquetados.Designer.cs">
+      <DependentUpon>Form_HabilitarEmpaquetados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\empaquetado\deprecado\Form_ModificarEmpaquetado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\empaquetado\deprecado\Form_ModificarEmpaquetado.Designer.cs">
+      <DependentUpon>Form_ModificarEmpaquetado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\empaquetado\deprecado\Form_TodosEmpaquetados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\empaquetado\deprecado\Form_TodosEmpaquetados.Designer.cs">
+      <DependentUpon>Form_TodosEmpaquetados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\empaquetado\Form_TodosEmpaquetadosII.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\empaquetado\Form_TodosEmpaquetadosII.Designer.cs">
+      <DependentUpon>Form_TodosEmpaquetadosII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\proveedor\Class_Proveedor.cs" />
+    <Compile Include="Caracteristicas\proveedor\Class_ProveedorAperturaForms.cs" />
+    <Compile Include="Caracteristicas\proveedor\Form_TodosProveedoresII.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\proveedor\Form_TodosProveedoresII.Designer.cs">
+      <DependentUpon>Form_TodosProveedoresII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\proveedor\deprecado\Form_EliminarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\proveedor\deprecado\Form_EliminarProveedor.Designer.cs">
+      <DependentUpon>Form_EliminarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\proveedor\deprecado\Form_HabilitarProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\proveedor\deprecado\Form_HabilitarProveedores.Designer.cs">
+      <DependentUpon>Form_HabilitarProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\tipouva\Class_TipoUva.cs" />
+    <Compile Include="Caracteristicas\tipouva\Class_TipoUvaAperturaForms.cs" />
+    <Compile Include="Caracteristicas\tipouva\Form_EliminarTipoUva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\tipouva\Form_EliminarTipoUva.Designer.cs">
+      <DependentUpon>Form_EliminarTipoUva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\tipouva\Form_HabilitarTipoUva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\tipouva\Form_HabilitarTipoUva.Designer.cs">
+      <DependentUpon>Form_HabilitarTipoUva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\tipouva\Form_ModificarTipoUva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\tipouva\Form_ModificarTipoUva.Designer.cs">
+      <DependentUpon>Form_ModificarTipoUva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\tipouva\Form_TodosTiposUva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\tipouva\Form_TodosTiposUva.Designer.cs">
+      <DependentUpon>Form_TodosTiposUva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\variedaduva\Class1.cs" />
+    <Compile Include="Caracteristicas\variedaduva\Class_VariedadUvaAperturaForms.cs" />
+    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_EliminarVariedadUva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_EliminarVariedadUva.Designer.cs">
+      <DependentUpon>Form_EliminarVariedadUva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_HabilitarVariedadUva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_HabilitarVariedadUva.Designer.cs">
+      <DependentUpon>Form_HabilitarVariedadUva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_ModificarVariedadUva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_ModificarVariedadUva.Designer.cs">
+      <DependentUpon>Form_ModificarVariedadUva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_TodasVariedadesUva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_TodasVariedadesUva.Designer.cs">
+      <DependentUpon>Form_TodasVariedadesUva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\variedaduva\Form_TodasVariedadesUvaII.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\variedaduva\Form_TodasVariedadesUvaII.Designer.cs">
+      <DependentUpon>Form_TodasVariedadesUvaII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClaseCompartida.cs" />
+    <Compile Include="ConexionBD.cs" />
+    <Compile Include="CumplimentarPictureBoxes.cs" />
+    <Compile Include="Consultas.cs" />
+    <Compile Include="CumplimentarTexts.cs" />
+    <Compile Include="Empleados\Class_Empleado.cs" />
+    <Compile Include="Empleados\Class_EmpleadoAperturaForms.cs" />
+    <Compile Include="Empleados\Form_EliminarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleados\Form_EliminarEmpleado.Designer.cs">
+      <DependentUpon>Form_EliminarEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empleados\Form_HabilitarEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleados\Form_HabilitarEmpleados.Designer.cs">
+      <DependentUpon>Form_HabilitarEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empleados\Form_ModificarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleados\Form_ModificarEmpleado.Designer.cs">
+      <DependentUpon>Form_ModificarEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empleados\Form_TodosEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleados\Form_TodosEmpleados.Designer.cs">
+      <DependentUpon>Form_TodosEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empleados\usuariocontrasena\Form_ModificarEmpleadoUsuarioContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleados\usuariocontrasena\Form_ModificarEmpleadoUsuarioContrasena.Designer.cs">
+      <DependentUpon>Form_ModificarEmpleadoUsuarioContrasena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\AlmacenProveedor\Class_AlmacenProveedor.cs" />
+    <Compile Include="Movimientos\AlmacenTienda\Class_AlmacenTienda.cs" />
+    <Compile Include="Movimientos\AlmacenTienda\Class_AlmacenTiendaAperturaForms.cs" />
+    <Compile Include="Movimientos\Class_Movimientos.cs" />
+    <Compile Include="Movimientos\Class_Proveedor.cs" />
+    <Compile Include="Movimientos\Form_ExistenciasRotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movimientos\Form_ExistenciasRotas.Designer.cs">
+      <DependentUpon>Form_ExistenciasRotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\comprasproveedores\Crystal_TodasComprasProveedores.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Crystal_TodasComprasProveedores.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\comprasproveedores\Report_TodasComprasProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\comprasproveedores\Report_TodasComprasProveedores.Designer.cs">
+      <DependentUpon>Report_TodasComprasProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ExistenciasArticulosAlmacenTienda\CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\ExistenciasArticulosAlmacenTienda\Informe_ExistenciasAlmacenTienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ExistenciasArticulosAlmacenTienda\Informe_ExistenciasAlmacenTienda.Designer.cs">
+      <DependentUpon>Informe_ExistenciasAlmacenTienda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CumplimentarListas.cs" />
+    <Compile Include="CumplimentarComboboxes.cs" />
+    <Compile Include="AperturaFormulariosArticulo.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\TodosArticulos\CrystalReport_TodosArticulos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport_TodosArticulos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\TodosArticulos\CrystalReport_TodasVentasSocios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport_TodasVentasSocios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\TodosArticulos\Report_InventarioArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\TodosArticulos\Report_InventarioArticulos.Designer.cs">
+      <DependentUpon>Report_InventarioArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\TodosArticulos\Report_TodasVentasSocios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\TodosArticulos\Report_TodasVentasSocios.Designer.cs">
+      <DependentUpon>Report_TodasVentasSocios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Articulo\Form_ModificarArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulo\Form_ModificarArticulo.Designer.cs">
+      <DependentUpon>Form_ModificarArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\AlmacenTienda\Form_Movimiento_AlmacenTienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movimientos\AlmacenTienda\Form_Movimiento_AlmacenTienda.Designer.cs">
+      <DependentUpon>Form_Movimiento_AlmacenTienda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Articulo\Form_TodosArticulosVino.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulo\Form_TodosArticulosVino.Designer.cs">
+      <DependentUpon>Form_TodosArticulosVino.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Roles\Class_Roll.cs" />
+    <Compile Include="Roles\Class_RollAperturaForms.cs" />
+    <Compile Include="Roles\Form_EliminarRoll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Roles\Form_EliminarRoll.Designer.cs">
+      <DependentUpon>Form_EliminarRoll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Roles\Form_HabilitarRoll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Roles\Form_HabilitarRoll.Designer.cs">
+      <DependentUpon>Form_HabilitarRoll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Roles\Form_ModificarRoll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Roles\Form_ModificarRoll.Designer.cs">
+      <DependentUpon>Form_ModificarRoll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Roles\Form_TodosRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Roles\Form_TodosRoles.Designer.cs">
+      <DependentUpon>Form_TodosRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Socios\Class_SocioAperturaForms.cs" />
+    <Compile Include="Socios\Class_Socio.cs" />
+    <Compile Include="Socios\Form_HabilitarSocios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Socios\Form_HabilitarSocios.Designer.cs">
+      <DependentUpon>Form_HabilitarSocios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Socios\Form_TodosSocios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Socios\Form_TodosSocios.Designer.cs">
+      <DependentUpon>Form_TodosSocios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Socios\Form_EliminarSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Socios\Form_EliminarSocio.Designer.cs">
+      <DependentUpon>Form_EliminarSocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Socios\Form_ModificarSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Socios\Form_ModificarSocio.Designer.cs">
+      <DependentUpon>Form_ModificarSocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\proveedor\deprecado\Form_TodosProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\proveedor\deprecado\Form_TodosProveedores.Designer.cs">
+      <DependentUpon>Form_TodosProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Logueo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Logueo.Designer.cs">
+      <DependentUpon>Form_Logueo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Articulo\Form_NuevoArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Articulo\Form_NuevoArticulo.Designer.cs">
+      <DependentUpon>Form_NuevoArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNuevoEstuche.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNuevoEstuche.Designer.cs">
+      <DependentUpon>FormNuevoEstuche.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAmpliacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAmpliacion.Designer.cs">
+      <DependentUpon>FormAmpliacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\AlmacenProveedor\Form_CompraArticulosProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movimientos\AlmacenProveedor\Form_CompraArticulosProveedor.Designer.cs">
+      <DependentUpon>Form_CompraArticulosProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentasDevolucionesSocio\Form_ModificarPreciosLineaCompraProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentasDevolucionesSocio\Form_ModificarPreciosLineaCompraProveedor.Designer.cs">
+      <DependentUpon>Form_ModificarPreciosLineaCompraProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\AlmacenProveedor\Class_AlmacenProveedorAperturaForms.cs" />
+    <Compile Include="VentasDevolucionesSocio\Class_VentasDevolucionesAperturaForms.cs" />
+    <Compile Include="VentasDevolucionesSocio\Class_VentasDevolucionesSocio.cs" />
+    <Compile Include="VentasDevolucionesSocio\Form_DevolucionSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentasDevolucionesSocio\Form_DevolucionSocio.Designer.cs">
+      <DependentUpon>Form_DevolucionSocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentasDevolucionesSocio\Form_InformeVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentasDevolucionesSocio\Form_InformeVentas.Designer.cs">
+      <DependentUpon>Form_InformeVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\catalogacion\deprecado\Form_ModificarCatalogacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\catalogacion\deprecado\Form_ModificarCatalogacion.Designer.cs">
+      <DependentUpon>Form_ModificarCatalogacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_ModificarClaseVino.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_ModificarClaseVino.Designer.cs">
+      <DependentUpon>Form_ModificarClaseVino.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\denominacion\deprecado\Form_ModificarDenominacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\denominacion\deprecado\Form_ModificarDenominacion.Designer.cs">
+      <DependentUpon>Form_ModificarDenominacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\proveedor\Form_ModificarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\proveedor\Form_ModificarProveedor.Designer.cs">
+      <DependentUpon>Form_ModificarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\AlmacenTienda\Form_Movimiento_TiendaAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movimientos\AlmacenTienda\Form_Movimiento_TiendaAlmacen.Designer.cs">
+      <DependentUpon>Form_Movimiento_TiendaAlmacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\proveedor\Form_NuevoProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\proveedor\Form_NuevoProveedor.Designer.cs">
+      <DependentUpon>Form_NuevoProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Socios\Form_NuevoSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Socios\Form_NuevoSocio.Designer.cs">
+      <DependentUpon>Form_NuevoSocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\catalogacion\deprecado\Form_TodasCatalogaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\catalogacion\deprecado\Form_TodasCatalogaciones.Designer.cs">
+      <DependentUpon>Form_TodasCatalogaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_TodasClasesVino .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_TodasClasesVino .Designer.cs">
+      <DependentUpon>Form_TodasClasesVino .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\denominacion\deprecado\Form_TodasDenominaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\denominacion\deprecado\Form_TodasDenominaciones.Designer.cs">
+      <DependentUpon>Form_TodasDenominaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentasDevolucionesSocio\Form_VentaSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentasDevolucionesSocio\Form_VentaSocio.Designer.cs">
+      <DependentUpon>Form_VentaSocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\AlmacenProveedor\Form_DevolucionArticulosProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movimientos\AlmacenProveedor\Form_DevolucionArticulosProveedor.Designer.cs">
+      <DependentUpon>Form_DevolucionArticulosProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilidades.cs" />
+    <EmbeddedResource Include="Articulo\Form_TodosArticulosVinoII.resx">
+      <DependentUpon>Form_TodosArticulosVinoII.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Articulo\Form_EliminarArticuloVino.resx">
+      <DependentUpon>Form_EliminarArticuloVino.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Articulo\Form_HabilitarArticulos.resx">
+      <DependentUpon>Form_HabilitarArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Articulo\Form_ModificarArticulo.resx">
+      <DependentUpon>Form_ModificarArticulo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\catalogacion\Form_TodasCatalogacionesII.resx">
+      <DependentUpon>Form_TodasCatalogacionesII.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\catalogacion\deprecado\Form_EliminarCatalogacion.resx">
+      <DependentUpon>Form_EliminarCatalogacion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\catalogacion\deprecado\Form_HabilitarCatalogacion.resx">
+      <DependentUpon>Form_HabilitarCatalogacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\clasesvino\deprecado\Form_EliminarClaseVino.resx">
+      <DependentUpon>Form_EliminarClaseVino.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\clasesvino\deprecado\Form_HabilitarClaseVino.resx">
+      <DependentUpon>Form_HabilitarClaseVino.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\clasesvino\Form_TodasClasesVino.resx">
+      <DependentUpon>Form_TodasClasesVino.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\contenido\deprecado\Form_EliminarContenido.resx">
+      <DependentUpon>Form_EliminarContenido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\contenido\deprecado\Form_HabilitarContenido.resx">
+      <DependentUpon>Form_HabilitarContenido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\contenido\deprecado\Form_ModificarContenido.resx">
+      <DependentUpon>Form_ModificarContenido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\contenido\deprecado\Form_TodosContenidos.resx">
+      <DependentUpon>Form_TodosContenidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\contenido\Form_TodosContenidosII.resx">
+      <DependentUpon>Form_TodosContenidosII.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\denominacion\deprecado\Form_EliminarDenominacion.resx">
+      <DependentUpon>Form_EliminarDenominacion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\denominacion\deprecado\Form_HabilitarDenominacion.resx">
+      <DependentUpon>Form_HabilitarDenominacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\denominacion\Form_TodasDenominacionesII.resx">
+      <DependentUpon>Form_TodasDenominacionesII.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\empaquetado\deprecado\Form_EliminarEmpaquetado.resx">
+      <DependentUpon>Form_EliminarEmpaquetado.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\empaquetado\deprecado\Form_HabilitarEmpaquetados.resx">
+      <DependentUpon>Form_HabilitarEmpaquetados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\empaquetado\deprecado\Form_ModificarEmpaquetado.resx">
+      <DependentUpon>Form_ModificarEmpaquetado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\empaquetado\deprecado\Form_TodosEmpaquetados.resx">
+      <DependentUpon>Form_TodosEmpaquetados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\empaquetado\Form_TodosEmpaquetadosII.resx">
+      <DependentUpon>Form_TodosEmpaquetadosII.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\proveedor\deprecado\Form_EliminarProveedor.resx">
+      <DependentUpon>Form_EliminarProveedor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\proveedor\deprecado\Form_HabilitarProveedores.resx">
+      <DependentUpon>Form_HabilitarProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\proveedor\Form_TodosProveedoresII.resx">
+      <DependentUpon>Form_TodosProveedoresII.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\tipouva\Form_EliminarTipoUva.resx">
+      <DependentUpon>Form_EliminarTipoUva.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\tipouva\Form_HabilitarTipoUva.resx">
+      <DependentUpon>Form_HabilitarTipoUva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\tipouva\Form_ModificarTipoUva.resx">
+      <DependentUpon>Form_ModificarTipoUva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\tipouva\Form_TodosTiposUva.resx">
+      <DependentUpon>Form_TodosTiposUva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_EliminarVariedadUva.resx">
+      <DependentUpon>Form_EliminarVariedadUva.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_HabilitarVariedadUva.es-ES.resx">
+      <DependentUpon>Form_HabilitarVariedadUva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_HabilitarVariedadUva.resx">
+      <DependentUpon>Form_HabilitarVariedadUva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_HabilitarVariedadUva.zu-ZA.resx">
+      <DependentUpon>Form_HabilitarVariedadUva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_ModificarVariedadUva.resx">
+      <DependentUpon>Form_ModificarVariedadUva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_TodasVariedadesUva.resx">
+      <DependentUpon>Form_TodasVariedadesUva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\variedaduva\Form_TodasVariedadesUvaII.resx">
+      <DependentUpon>Form_TodasVariedadesUvaII.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleados\Form_EliminarEmpleado.resx">
+      <DependentUpon>Form_EliminarEmpleado.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleados\Form_HabilitarEmpleados.resx">
+      <DependentUpon>Form_HabilitarEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleados\Form_ModificarEmpleado.resx">
+      <DependentUpon>Form_ModificarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleados\Form_TodosEmpleados.resx">
+      <DependentUpon>Form_TodosEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleados\usuariocontrasena\Form_ModificarEmpleadoUsuarioContrasena.resx">
+      <DependentUpon>Form_ModificarEmpleadoUsuarioContrasena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Logueo.resx">
+      <DependentUpon>Form_Logueo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movimientos\Form_ExistenciasRotas.resx">
+      <DependentUpon>Form_ExistenciasRotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\comprasproveedores\Crystal_TodasComprasProveedores.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Crystal_TodasComprasProveedores.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\comprasproveedores\Report_TodasComprasProveedores.resx">
+      <DependentUpon>Report_TodasComprasProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ExistenciasArticulosAlmacenTienda\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ExistenciasArticulosAlmacenTienda\Informe_ExistenciasAlmacenTienda.resx">
+      <DependentUpon>Informe_ExistenciasAlmacenTienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\TodosArticulos\CrystalReport_TodosArticulos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport_TodosArticulos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\TodosArticulos\CrystalReport_TodasVentasSocios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport_TodasVentasSocios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\TodosArticulos\Report_InventarioArticulos.resx">
+      <DependentUpon>Report_InventarioArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\TodosArticulos\Report_TodasVentasSocios.resx">
+      <DependentUpon>Report_TodasVentasSocios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Articulo\Form_NuevoArticulo.resx">
+      <DependentUpon>Form_NuevoArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNuevoEstuche.resx">
+      <DependentUpon>FormNuevoEstuche.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAmpliacion.resx">
+      <DependentUpon>FormAmpliacion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movimientos\AlmacenProveedor\Form_CompraArticulosProveedor.resx">
+      <DependentUpon>Form_CompraArticulosProveedor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Roles\Form_EliminarRoll.resx">
+      <DependentUpon>Form_EliminarRoll.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Roles\Form_HabilitarRoll.resx">
+      <DependentUpon>Form_HabilitarRoll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Roles\Form_ModificarRoll.resx">
+      <DependentUpon>Form_ModificarRoll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Roles\Form_TodosRoles.resx">
+      <DependentUpon>Form_TodosRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Socios\Form_HabilitarSocios.resx">
+      <DependentUpon>Form_HabilitarSocios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentasDevolucionesSocio\Form_DevolucionSocio.resx">
+      <DependentUpon>Form_DevolucionSocio.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Socios\Form_EliminarSocio.resx">
+      <DependentUpon>Form_EliminarSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentasDevolucionesSocio\Form_InformeVentas.resx">
+      <DependentUpon>Form_InformeVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\catalogacion\deprecado\Form_ModificarCatalogacion.resx">
+      <DependentUpon>Form_ModificarCatalogacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\clasesvino\deprecado\Form_ModificarClaseVino.resx">
+      <DependentUpon>Form_ModificarClaseVino.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\denominacion\deprecado\Form_ModificarDenominacion.resx">
+      <DependentUpon>Form_ModificarDenominacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\proveedor\Form_ModificarProveedor.resx">
+      <DependentUpon>Form_ModificarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Socios\Form_ModificarSocio.resx">
+      <DependentUpon>Form_ModificarSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movimientos\AlmacenTienda\Form_Movimiento_TiendaAlmacen.resx">
+      <DependentUpon>Form_Movimiento_TiendaAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movimientos\AlmacenTienda\Form_Movimiento_AlmacenTienda.resx">
+      <DependentUpon>Form_Movimiento_AlmacenTienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\proveedor\Form_NuevoProveedor.resx">
+      <DependentUpon>Form_NuevoProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Socios\Form_NuevoSocio.resx">
+      <DependentUpon>Form_NuevoSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\catalogacion\deprecado\Form_TodasCatalogaciones.resx">
+      <DependentUpon>Form_TodasCatalogaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\clasesvino\deprecado\Form_TodasClasesVino .resx">
+      <DependentUpon>Form_TodasClasesVino .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\denominacion\deprecado\Form_TodasDenominaciones.resx">
+      <DependentUpon>Form_TodasDenominaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Articulo\Form_TodosArticulosVino.resx">
+      <DependentUpon>Form_TodosArticulosVino.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\proveedor\deprecado\Form_TodosProveedores.resx">
+      <DependentUpon>Form_TodosProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Socios\Form_TodosSocios.resx">
+      <DependentUpon>Form_TodosSocios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentasDevolucionesSocio\Form_ModificarPreciosLineaCompraProveedor.resx">
+      <DependentUpon>Form_ModificarPreciosLineaCompraProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentasDevolucionesSocio\Form_VentaSocio.resx">
+      <DependentUpon>Form_VentaSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movimientos\AlmacenProveedor\Form_DevolucionArticulosProveedor.resx">
+      <DependentUpon>Form_DevolucionArticulosProveedor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="proyectovinos_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reportes\FacturasSocios\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
