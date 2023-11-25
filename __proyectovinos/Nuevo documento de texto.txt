@@ -1,0 +1,17 @@
+
+
+
+
+
+
+select * from ventasocio v
+
+inner join lineaventasocio l on l.id_ventasocio=v.id_ventasocio
+inner join articulo a on a.id_articulo=l.id_articulo
+inner join catalogacion c on a.id_catalogacion=c.id_catalogacion
+inner join clasevino cl on a.id_clasevino=cl.id_clasevino
+inner join denominacion d on a.id_denominacion=d.id_denominacion
+inner join empaquetado e on a.id_empaquetado=e.id_empaquetado
+inner join formatocontenido f on a.id_formatocontenido=f.id_formatocoNtenido
+inner join proveedor p on a.id_proveedor=p.id_proveedor
+inner join socio s on v.id_socio=s.id_socio WHERE v.ref='{?parametro}';
