@@ -78,7 +78,9 @@ namespace proyectovinos
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.CenterToScreen();
+            this.CenterToScreen();    
+
+
 
             if (Application.OpenForms["Form_Logueo"] != null)
             {
