@@ -404,6 +404,12 @@ namespace proyectovinos
         {
             haCambiado = true;
             // MessageBox.Show("Ha cambiado"); 
+
+
+
+
+
+
         }
     }
 }
