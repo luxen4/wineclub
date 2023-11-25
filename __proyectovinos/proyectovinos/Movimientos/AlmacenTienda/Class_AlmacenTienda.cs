@@ -28,13 +28,13 @@ namespace proyectovinos.Movimientos.AlmacenTienda
                     "  precioventa=convert( '" + precioventa + "', decimal (7,2))" +
                     " WHERE ref =  '" + refLinea + "' ";
 
-                MessageBox.Show(selectQuery);
+                // MessageBox.Show(selectQuery);
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
                 conexionBD.Open();
                 reader = comando.ExecuteReader();
 
-                MessageBox.Show("Datos en línea modificados");
+                // MessageBox.Show("Datos en línea modificados");
             }
 
             catch (MySqlException ex) { MessageBox.Show(ex.Message); }
@@ -82,7 +82,7 @@ namespace proyectovinos.Movimientos.AlmacenTienda
                 MessageBox.Show(ex.Message);
                 Consultas consultas = new Consultas();
                 string refe = consultas.obtenerCualquierRefDesdeId("ref","articulo","id_artículo",id_articulo);
-                MessageBox.Show("Artículo con ref: " + refe  + ", no insertada!");
+                MessageBox.Show("Artículo con ref: " + refe  + ", no insertado!");
 
                 conexionBD.Close();
                 return false;
@@ -155,7 +155,12 @@ namespace proyectovinos.Movimientos.AlmacenTienda
         }
 
 
-        // Método que devuelve la información de una linea de Compra a proveedor
+        //      
+        /// <summary>
+        /// Método que devuelve la información de una linea de Compra a proveedor   .
+        /// </summary>
+        /// <param name="id_articulo">The identifier articulo.</param>
+        /// <param name="combo_reflinea">The combo reflinea.</param>
         public void refrescarComboboxLineaCompraProveedor(int id_articulo, ComboBox combo_reflinea)
         {
             ConexionBD con = new ConexionBD();

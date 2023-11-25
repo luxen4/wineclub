@@ -51,7 +51,8 @@ namespace proyectovinos.Empleados
 
                 if (!Directory.Exists(folderPath))
                 {
-                    Directory.CreateDirectory(folderPath); MessageBox.Show("Crea Directorio");
+                    Directory.CreateDirectory(folderPath); 
+                    // MessageBox.Show("Crea Directorio");
                     Console.WriteLine(folderPath);
 
                     if (pictureBox1.Image != null)
@@ -159,7 +160,7 @@ namespace proyectovinos.Empleados
                     " and apellido1='" + cascos[1] + "'" +
                     " and apellido2='" + cascos[2] + "'";
 
-                MessageBox.Show(selectQuery);
+                // MessageBox.Show(selectQuery);
 
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
@@ -187,7 +188,7 @@ namespace proyectovinos.Empleados
 
             if (primeravez == 1)
             {
-                string refe = e.Item.Text; MessageBox.Show("Referencia empleado " + refe);
+                string refe = e.Item.Text; // MessageBox.Show("Referencia empleado " + refe);
 
                 ConexionBD con = new ConexionBD();
                 string cadenaConexion = con.conexion();

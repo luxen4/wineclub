@@ -28,14 +28,14 @@ namespace proyectovinos.Movimientos
             {
                 string selectQuery = "insert into bajaexistencias (id_bajaexistencias, ref, id_empleado, id_ubicacion, id_lineacompraproveedor,unidades, fecha) " +
                     "values (" + id_bajaexistencias + ",'" + refe + "'," + id_empleado + ",  " + id_ubicacion + ", " + id_lineacompraproveedor + "," + unidades + ", '" + fechacompra + "')";
-                MessageBox.Show(selectQuery);
+                // MessageBox.Show(selectQuery);
 
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
                 conexionBD.Open();
                 reader = comando.ExecuteReader();
 
-                MessageBox.Show("Registro Insertado");
+                MessageBox.Show(ClaseCompartida.msgInsertado);
                 conexionBD.Close();
 
             }
@@ -68,7 +68,7 @@ namespace proyectovinos.Movimientos
                 conexionBD.Open();
                 reader = comando.ExecuteReader();
 
-                MessageBox.Show("Registro Modificado en almacén");
+                 MessageBox.Show("Existencias de la linea modificadas en almacén");
             }
 
             catch (MySqlException ex) { MessageBox.Show(ex.Message); }

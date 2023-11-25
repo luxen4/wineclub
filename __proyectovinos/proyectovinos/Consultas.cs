@@ -266,7 +266,13 @@ namespace proyectovinos
 
 
 
-        // Método que devuelve el id máximo de una tabla de la base de datos
+              
+        /// <summary>
+        /// Método que devuelve el id máximo de una tabla de la base de datos.
+        /// </summary>
+        /// <param name="nombreId_Atributo">The nombre identifier atributo.</param>
+        /// <param name="nombreTabla">The nombre tabla.</param>
+        /// <returns></returns>
         public int idMax(string nombreId_Atributo, string nombreTabla)
         {
             int id = 0; 
@@ -348,11 +354,13 @@ namespace proyectovinos
         }
 
 
-
-
-
-
-        //Método que elimina cualquier Registro desde su referencia
+        /// <summary>
+        /// Método que elimina cualquier Registro desde su referencia   
+        /// </summary>
+        /// <param name="tabla">The tabla.</param>
+        /// <param name="whereAtributo">The where atributo.</param>
+        /// <param name="valorAtributo">The valor atributo.</param>
+        /// <returns></returns>
         internal bool eliminarCaracteristica(string tabla, string whereAtributo, string valorAtributo)
         {
             ConexionBD con = new ConexionBD();

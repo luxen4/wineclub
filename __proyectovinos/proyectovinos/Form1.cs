@@ -80,8 +80,6 @@ namespace proyectovinos
         {
             this.CenterToScreen();    
 
-
-
             if (Application.OpenForms["Form_Logueo"] != null)
             {
                 Application.OpenForms["Form_Logueo"].Activate();
@@ -237,10 +235,10 @@ namespace proyectovinos
 
         private void deslogueo()
         {
+            // No es llamado de ningúna parte
             MessageBox.Show("Deslogueo!");
             duenoToolStripMenuItem.Enabled = false;
             artículosToolStripMenuItem.Enabled = false;
-
         }
 
 

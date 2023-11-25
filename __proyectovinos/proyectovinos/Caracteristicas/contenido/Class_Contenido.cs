@@ -50,14 +50,15 @@ namespace proyectovinos.Caracteristicas.contenido
                 string selectQuery = "insert into formatocontenido ( id_formatocontenido , ref, nombre, contenido, activo) " +
                     "values (" + id_predeterminado +
                     ", '" + text_nuevareferencia.Text +
-                    "'," + "'" + text_nuevonombre.Text + "','" + text_nuevocontenido.Text + "', '1')"; MessageBox.Show(selectQuery);
+                    "'," + "'" + text_nuevonombre.Text + "','" + text_nuevocontenido.Text + "', '1')"; 
+                // MessageBox.Show(selectQuery);
 
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
                 conexionBD.Open();
                 reader = comando.ExecuteReader();
 
-                MessageBox.Show("Registro Insertado");
+                // MessageBox.Show("Registro Insertado");
                 conexionBD.Close();
 
                 return true;

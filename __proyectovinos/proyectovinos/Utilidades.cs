@@ -18,11 +18,16 @@ namespace proyectovinos
     internal class Utilidades
     {
 
-        
-       
 
 
-        // Método que devuelve la fecha preparada para introducir en mysql (se recibe desde un dataPicker)   
+
+
+        // Método que devuelve la fecha preparada para introducir en mysql (se recibe desde un dataPicker)           
+        /// <summary>
+        /// Preparación de fecha.
+        /// </summary>
+        /// <param name="fecha">The fecha.</param>
+        /// <returns>fechacompra(*2023/12/31)</returns>
         public string preparacionFecha(string fecha)
         {
 

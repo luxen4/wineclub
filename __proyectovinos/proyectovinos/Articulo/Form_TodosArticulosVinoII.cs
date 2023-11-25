@@ -71,8 +71,13 @@ namespace proyectovinos.Articulo
         {
             articuloAperturaForm.modificarArticuloVino();
         }
-        
-        // Método que elimina un artículo si no se ha comprado a proveedor 
+
+        //      
+        /// <summary>
+        /// Método que elimina un artículo si no se ha comprado a proveedor   
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
                 if (check_seguro.Checked)
@@ -130,8 +135,7 @@ namespace proyectovinos.Articulo
             {
                 string selectQuery = "SELECT count(id_articulo) as numregistros from ubicacionlineacompraproveedor " +
                     "where id_articulo = " + id_articulo + " ;";
-
-                MessageBox.Show(selectQuery);
+                    // MessageBox.Show(selectQuery);
 
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);

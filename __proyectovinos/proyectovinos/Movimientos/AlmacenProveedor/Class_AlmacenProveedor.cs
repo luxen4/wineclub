@@ -11,7 +11,14 @@ namespace proyectovinos.Movimientos.AlmacenProveedor
     internal class Class_AlmacenProveedor
     {
 
-        // Método que registra la compra de un Artículo a un Proveedor
+        //     
+        /// <summary>
+        /// Método que registra la compra de un Artículo a un Proveedor.    
+        /// </summary>
+        /// <param name="id_predeterminado">The identifier predeterminado.</param>
+        /// <param name="id_empleado">The identifier empleado.</param>
+        /// <param name="referenciaCompra">The referencia compra.</param>
+        /// <param name="fechacompra">The fechacompra.</param>
         public void registrarCompraProveedor(int id_predeterminado, int id_empleado, string referenciaCompra, string fechacompra)
         {
 
@@ -35,7 +42,7 @@ namespace proyectovinos.Movimientos.AlmacenProveedor
                 conexionBD.Open();
                 reader = comando.ExecuteReader();
 
-                MessageBox.Show("Compras de Proveedores Registradas!");
+                MessageBox.Show("Las Compras de Proveedores han sido registradas!");
             }
             catch (MySqlException ex) { MessageBox.Show(ex.Message); }
             finally { conexionBD.Close(); }
@@ -43,7 +50,14 @@ namespace proyectovinos.Movimientos.AlmacenProveedor
 
 
 
-        // Método que registra la devolución a un Proveedor
+        //   
+        /// <summary>
+        /// Método que registra la devolución a un Proveedor.
+        /// </summary>
+        /// <param name="id_empleado">The identifier empleado.</param>
+        /// <param name="id_lineacompraproveedor">The identifier lineacompraproveedor.</param>
+        /// <param name="unidades">The unidades.</param>
+        /// <param name="fechacompra">The fechacompra.</param>
         public void registrarDevolucionProveedor(int id_empleado, int id_lineacompraproveedor, int unidades, string fechacompra)
         {
 
@@ -69,8 +83,7 @@ namespace proyectovinos.Movimientos.AlmacenProveedor
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Ya se encuentra un registro igual!");
-
+                MessageBox.Show(ClaseCompartida.msgComuniqueseConAdministrador);
             }
             finally { conexionBD.Close(); }
         }

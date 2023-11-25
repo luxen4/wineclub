@@ -147,7 +147,7 @@ namespace proyectovinos.ArticuloVino
                 string selectQuery = "select " + atributo_precio + " as precio  from lineacompraproveedor " +
                     " where ref ='" + refLinea + "' ";
 
-                 MessageBox.Show(selectQuery);
+                 // MessageBox.Show(selectQuery);
 
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);

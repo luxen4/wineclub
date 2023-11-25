@@ -39,6 +39,7 @@ namespace proyectovinos
         public static string msgArticulosTipo = " artículos de este tipo...¡No se puede eliminar!";
         public static string msgRegistroIgual = "Ya se encuentra un registro igual";
         public static string msgErrorGeneral = "Error no identificado!";
+        public static string msgComuniqueseConAdministrador = "Ha habido un problema, comuníquese con el administrador!";
 
 
         public static string alojamientoarchivos="local";
