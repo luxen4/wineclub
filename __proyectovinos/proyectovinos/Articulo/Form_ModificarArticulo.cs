@@ -353,8 +353,6 @@ namespace proyectovinos
             id_catalogacion = consultas.obtenerCualquierId("id_catalogacion", "catalogacion", "nombre", comboBox_filtronombrecatalogacion.Text);
         }
 
-    
-
         private void comboBox_nombreempaquetado_SelectedIndexChanged(object sender, EventArgs e)
         {
             id_empaquetado = consultas.obtenerCualquierId("id_empaquetado", "empaquetado", "nombre", comboBox_nombreempaquetado.Text);
@@ -404,13 +402,6 @@ namespace proyectovinos
         {
             haCambiado = true;
             // MessageBox.Show("Ha cambiado"); 
-
-
-
-
-             
-
-
         }
     }
 }

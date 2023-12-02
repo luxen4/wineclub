@@ -74,15 +74,24 @@
             this.artículosInhabilitadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.groupBox3);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.comboBox_nombreempaquetado);
@@ -98,7 +107,7 @@
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Location = new System.Drawing.Point(6, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1502, 462);
+            this.groupBox1.Size = new System.Drawing.Size(1330, 607);
             this.groupBox1.TabIndex = 65;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Todos Articulos Habilitados";
@@ -107,7 +116,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(1091, 42);
+            this.label7.Location = new System.Drawing.Point(1084, 45);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 115;
@@ -207,10 +216,10 @@
             this.columnHeader26});
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(228, 61);
+            this.listView1.Location = new System.Drawing.Point(223, 61);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1268, 394);
+            this.listView1.Size = new System.Drawing.Size(1100, 540);
             this.listView1.TabIndex = 67;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -229,22 +238,22 @@
             // columnHeader15
             // 
             this.columnHeader15.Text = "Clase de Vino";
-            this.columnHeader15.Width = 92;
+            this.columnHeader15.Width = 125;
             // 
             // columnHeader16
             // 
             this.columnHeader16.Text = "Proveedor";
-            this.columnHeader16.Width = 137;
+            this.columnHeader16.Width = 154;
             // 
             // columnHeader17
             // 
             this.columnHeader17.Text = "Catalogación";
-            this.columnHeader17.Width = 125;
+            this.columnHeader17.Width = 109;
             // 
             // columnHeader18
             // 
             this.columnHeader18.Text = "Denominación";
-            this.columnHeader18.Width = 129;
+            this.columnHeader18.Width = 136;
             // 
             // columnHeader19
             // 
@@ -254,37 +263,37 @@
             // columnHeader20
             // 
             this.columnHeader20.Text = "Formato";
-            this.columnHeader20.Width = 103;
+            this.columnHeader20.Width = 85;
             // 
             // columnHeader21
             // 
-            this.columnHeader21.Text = "Min Almacén";
-            this.columnHeader21.Width = 75;
+            this.columnHeader21.Text = "Min.";
+            this.columnHeader21.Width = 35;
             // 
             // columnHeader22
             // 
-            this.columnHeader22.Text = "Max. Almacén";
-            this.columnHeader22.Width = 84;
+            this.columnHeader22.Text = "Max.";
+            this.columnHeader22.Width = 35;
             // 
             // columnHeader23
             // 
-            this.columnHeader23.Text = "Min. Tienda";
-            this.columnHeader23.Width = 69;
+            this.columnHeader23.Text = "Min.";
+            this.columnHeader23.Width = 35;
             // 
             // columnHeader24
             // 
-            this.columnHeader24.Text = "Max. Tienda";
-            this.columnHeader24.Width = 71;
+            this.columnHeader24.Text = "Max.";
+            this.columnHeader24.Width = 35;
             // 
             // columnHeader25
             // 
-            this.columnHeader25.Text = "E. Almacén";
-            this.columnHeader25.Width = 68;
+            this.columnHeader25.Text = "Almacén";
+            this.columnHeader25.Width = 54;
             // 
             // columnHeader26
             // 
-            this.columnHeader26.Text = "E. Tienda";
-            this.columnHeader26.Width = 59;
+            this.columnHeader26.Text = "Tienda";
+            this.columnHeader26.Width = 46;
             // 
             // combo_nombreproveedor
             // 
@@ -321,9 +330,9 @@
             this.groupBox2.Controls.Add(this.text_unidadesalmacen);
             this.groupBox2.Controls.Add(this.text_refarticulo);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Location = new System.Drawing.Point(6, 296);
+            this.groupBox2.Location = new System.Drawing.Point(6, 430);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(216, 160);
+            this.groupBox2.Size = new System.Drawing.Size(211, 171);
             this.groupBox2.TabIndex = 104;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Deshabilitar";
@@ -331,7 +340,7 @@
             // btn_deshabilitar
             // 
             this.btn_deshabilitar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_deshabilitar.BackgroundImage")));
-            this.btn_deshabilitar.Location = new System.Drawing.Point(43, 121);
+            this.btn_deshabilitar.Location = new System.Drawing.Point(43, 128);
             this.btn_deshabilitar.Name = "btn_deshabilitar";
             this.btn_deshabilitar.Size = new System.Drawing.Size(125, 23);
             this.btn_deshabilitar.TabIndex = 77;
@@ -346,7 +355,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(4, 53);
+            this.label3.Location = new System.Drawing.Point(4, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 68;
@@ -356,7 +365,7 @@
             // 
             this.check_seguro.AutoSize = true;
             this.check_seguro.BackColor = System.Drawing.Color.Transparent;
-            this.check_seguro.Location = new System.Drawing.Point(64, 98);
+            this.check_seguro.Location = new System.Drawing.Point(64, 105);
             this.check_seguro.Name = "check_seguro";
             this.check_seguro.Size = new System.Drawing.Size(87, 17);
             this.check_seguro.TabIndex = 78;
@@ -370,7 +379,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(58, 53);
+            this.label5.Location = new System.Drawing.Point(58, 60);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 70;
@@ -383,7 +392,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(111, 54);
+            this.label6.Location = new System.Drawing.Point(111, 61);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 13);
             this.label6.TabIndex = 102;
@@ -392,7 +401,7 @@
             // text_unidadestienda
             // 
             this.text_unidadestienda.Enabled = false;
-            this.text_unidadestienda.Location = new System.Drawing.Point(64, 69);
+            this.text_unidadestienda.Location = new System.Drawing.Point(64, 76);
             this.text_unidadestienda.Name = "text_unidadestienda";
             this.text_unidadestienda.Size = new System.Drawing.Size(44, 20);
             this.text_unidadestienda.TabIndex = 71;
@@ -400,15 +409,15 @@
             // text_empaquetado
             // 
             this.text_empaquetado.Enabled = false;
-            this.text_empaquetado.Location = new System.Drawing.Point(114, 69);
+            this.text_empaquetado.Location = new System.Drawing.Point(114, 76);
             this.text_empaquetado.Name = "text_empaquetado";
-            this.text_empaquetado.Size = new System.Drawing.Size(97, 20);
+            this.text_empaquetado.Size = new System.Drawing.Size(91, 20);
             this.text_empaquetado.TabIndex = 103;
             // 
             // text_unidadesalmacen
             // 
             this.text_unidadesalmacen.Enabled = false;
-            this.text_unidadesalmacen.Location = new System.Drawing.Point(7, 69);
+            this.text_unidadesalmacen.Location = new System.Drawing.Point(7, 76);
             this.text_unidadesalmacen.Name = "text_unidadesalmacen";
             this.text_unidadesalmacen.Size = new System.Drawing.Size(45, 20);
             this.text_unidadesalmacen.TabIndex = 69;
@@ -416,16 +425,16 @@
             // text_refarticulo
             // 
             this.text_refarticulo.Enabled = false;
-            this.text_refarticulo.Location = new System.Drawing.Point(131, 19);
+            this.text_refarticulo.Location = new System.Drawing.Point(131, 26);
             this.text_refarticulo.Name = "text_refarticulo";
-            this.text_refarticulo.Size = new System.Drawing.Size(80, 20);
+            this.text_refarticulo.Size = new System.Drawing.Size(74, 20);
             this.text_refarticulo.TabIndex = 101;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Location = new System.Drawing.Point(74, 22);
+            this.label13.Location = new System.Drawing.Point(74, 29);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(59, 13);
             this.label13.TabIndex = 100;
@@ -448,7 +457,7 @@
             this.actualizarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1520, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1339, 24);
             this.menuStrip1.TabIndex = 66;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -499,12 +508,67 @@
             this.actualizarToolStripMenuItem.Text = "Actualizar";
             this.actualizarToolStripMenuItem.Click += new System.EventHandler(this.actualizarToolStripMenuItem_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(6, 19);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(199, 45);
+            this.textBox1.TabIndex = 117;
+            this.textBox1.Text = "Detalles y notas sobre el producto...";
+            // 
+            // button4
+            // 
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
+            this.button4.Location = new System.Drawing.Point(43, 72);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(125, 23);
+            this.button4.TabIndex = 118;
+            this.button4.Text = "Ficha del Artículo";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Location = new System.Drawing.Point(1160, 45);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(40, 13);
+            this.label9.TabIndex = 119;
+            this.label9.Text = "Tienda";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.button4);
+            this.groupBox3.Enabled = false;
+            this.groupBox3.Location = new System.Drawing.Point(6, 309);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(211, 101);
+            this.groupBox3.TabIndex = 120;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Información";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Location = new System.Drawing.Point(1240, 45);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 13);
+            this.label8.TabIndex = 121;
+            this.label8.Text = "Existencias";
+            // 
             // Form_TodosArticulosVino
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1520, 494);
+            this.ClientSize = new System.Drawing.Size(1339, 635);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -521,6 +585,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -572,5 +638,10 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ToolStripMenuItem actualizarToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }

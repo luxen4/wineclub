@@ -132,11 +132,6 @@ namespace proyectovinos
         }
 
 
-      
-
-
-
-
 
         // Refrescar Comboboxes
 
@@ -145,7 +140,6 @@ namespace proyectovinos
         {
 
             combo_articulovino.Items.Clear();
-
 
             // Saber qué id_proveedor se ha seleccionado
             int id_proveedor = consultas.obtenerCualquierId("id_proveedor", "proveedor", "nombre", combo_proveedor.Text);
@@ -159,7 +153,6 @@ namespace proyectovinos
             {
                 string selectQuery = "select ref from articulo where id_proveedor = " + id_proveedor + " order by ref asc";
                 conexionBD.Open();
-                //MessageBox.Show(selectQuery);
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
                 MySqlDataReader reader = command.ExecuteReader();
 
@@ -179,8 +172,6 @@ namespace proyectovinos
             {
                 conexionBD.Close(); 
             }
-
-
         }
 
 
@@ -222,8 +213,6 @@ namespace proyectovinos
                 conexionBD.Close(); 
             }
         }
-
-
 
 
 
@@ -370,7 +359,7 @@ namespace proyectovinos
 
         }
 
-
+        // Función que refresca el combo de compra de proveedor
         public void refrescarComboRefCompraProveedor2(int id_articulo, ComboBox comboBox_refcompraproveedor)
         {
             comboBox_refcompraproveedor.Items.Clear();
@@ -417,7 +406,6 @@ namespace proyectovinos
                     " inner join ubicacionlineacompraproveedor as ub on ub.id_compraproveedor=com.id_compraproveedor " +
                     " where ub.id_articulo= " + id_articulo + "";
 
-                MessageBox.Show("ojoooooo " + selectQuery);
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
                 MySqlDataReader reader = command.ExecuteReader();
@@ -515,12 +503,7 @@ namespace proyectovinos
                     " where ub.id_articulo = '" + id_articulo + "' " +
                     " and ub.existencias > 0 " +
                     " and ub.id_ubicacion = 2 order by l.ref asc";
-
-
-
-
-
-                MessageBox.Show(selectQuery);
+                //MessageBox.Show(selectQuery);
 
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
@@ -552,7 +535,7 @@ namespace proyectovinos
                     " inner join lineacompraproveedor as l on l.id_compraproveedor = c.id_compraproveedor" +
                     " where l.id_articulo = " + id_articulo + " order by l.ref asc";
 
-                MessageBox.Show(selectQuery);
+                //MessageBox.Show(selectQuery);
 
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);

@@ -259,8 +259,6 @@ namespace proyectovinos
             cumpCombo.refrescarCombo("nombre", "clasevino", combo_clasedevino);
         }
 
-
-
         private void combo_proveedor_MouseClick(object sender, MouseEventArgs e)
         {
             cumpCombo.refrescarCombo("nombre", "proveedor", combo_proveedor);
@@ -291,15 +289,12 @@ namespace proyectovinos
             cumpCombo.refrescarCombo("nombre", "empaquetado", combo_empaquetado);
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         private void button10_Click(object sender, EventArgs e)
         {
             Class_ClaseVinoAperturaForms claseVino = new Class_ClaseVinoAperturaForms();
-            claseVino.todasClasesVino();
+            claseVino.todasClasesVinoII();
+            // claseVino.todasClasesVino();
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -311,13 +306,15 @@ namespace proyectovinos
         private void button13_Click(object sender, EventArgs e)
         {
             Class_DenominacionAperturaForms denominacion = new Class_DenominacionAperturaForms();
-            denominacion.todasDenominaciones();
+            //denominacion.todasDenominaciones();
+            denominacion.todasDenominacionesII();
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
             Class_ContenidoAperturaForms contenido = new Class_ContenidoAperturaForms();
-            contenido.todosContenidos();
+            //contenido.todosContenidos();
+            contenido.todosContenidosII();
         }
 
         private void button15_Click(object sender, EventArgs e)

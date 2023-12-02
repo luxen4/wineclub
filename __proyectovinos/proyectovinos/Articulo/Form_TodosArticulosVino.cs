@@ -17,6 +17,7 @@ using proyectovinos;
 using proyectovinos.ArticuloVino;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Image = System.Drawing.Image;
+using ListViewItem = System.Windows.Forms.ListViewItem;
 
 namespace proyectovinos
 {
@@ -42,8 +43,6 @@ namespace proyectovinos
         CumplimentarComboboxes combos = new CumplimentarComboboxes();
        
 
-      
-
         private void Form_TodosArticulosVino_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
@@ -58,8 +57,6 @@ namespace proyectovinos
                 articulo.articuloSeleccionado(e, text_refarticulo, listView1, text_unidadesalmacen, text_unidadestienda, text_empaquetado, pictureBox1);
             }
         }
-
-
 
 
     // Para apertura de formularios
@@ -95,8 +92,6 @@ namespace proyectovinos
                 articulo.limpiarCampos(text_unidadesalmacen, text_unidadestienda, text_empaquetado, check_seguro, pictureBox1);
 
                 limpiarcampos();
-
-              
             }
             else
             {
@@ -104,13 +99,17 @@ namespace proyectovinos
             }
         }
 
-  
-
-     
-
 
         private void listView1_ItemChecked_1(object sender, ItemCheckedEventArgs e)
         {
+            foreach (ListViewItem item in listView1.Items)
+            {
+                if (item != e.Item) // Verificar si el elemento no es el actualmente seleccionado
+                {
+                    item.Checked = false; // Deseleccionar todos los demás elementos
+                }
+            }
+
             if (cargaLista == true)
             {
                 referencia = e.Item.Text;
@@ -141,7 +140,7 @@ namespace proyectovinos
 
 
 
-        //Combos
+        //Combos: cuando se selecciona uno de ellos, los demás se ponen en modo predeterminado
         private void combo_nombreproveedor_SelectedIndexChanged(object sender, EventArgs e)
         {//
             comboBox_nombrecatalogacion.Text = "Seleccione";
@@ -165,6 +164,8 @@ namespace proyectovinos
 
 
         //Botones
+
+        // Función que refresca el listview de articulos filtrando por proveedor
         private void button1_Click_1(object sender, EventArgs e)
         {//
             limpiarcampos();
@@ -174,7 +175,7 @@ namespace proyectovinos
         }
 
 
-
+        // Función que refresca el listview de articulos filtrando por catalogación
         private void button2_Click(object sender, EventArgs e)
         {//
             limpiarcampos();
@@ -182,6 +183,8 @@ namespace proyectovinos
             articulo.listaArticulos_Filtrados("id_catalogacion", id_catalogacion, listView1, '1');
             cargaLista = true;
         }
+
+        // Función que refresca el listview de articulos filtrando por empaquetado
         private void button3_Click(object sender, EventArgs e)
         {//
             limpiarcampos();
@@ -191,7 +194,7 @@ namespace proyectovinos
         }
 
 
-
+        // Función que deja los campos en modo predeterminado
         private void limpiarcampos()
         {
             text_refarticulo.Text = "";
@@ -208,14 +211,7 @@ namespace proyectovinos
         }
        
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            /*limpiarcampos();
-            cargaLista = false;
-            articulo.cumplimentarListaArticulos(listView1, '1');
-            cargaLista = true;*/
-        }
-
+        // Función que actualiza el listview de artículos habilitados
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             limpiarcampos();

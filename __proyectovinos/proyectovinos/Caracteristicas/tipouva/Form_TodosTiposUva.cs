@@ -59,15 +59,21 @@ namespace proyectovinos.Caracteristicas.tipouva
             {
                 if (text_nombrenuevo.Text != "" && text_referencianueva.Text != "")
                 {
-                    string nombreVariedadUva = combo_variedaduvanuevo.Text;
-                    int id_variedaduva = consultas.obtenerCualquierId("id_variedaduva", "variedaduva", "nombre",nombreVariedadUva);
+                    if (combo_variedaduvanuevo.Text == "Seleccione")
+                    {
+                        MessageBox.Show("Seleecione la variedad de uva");
+                    }
+                    else { 
+                        string nombreVariedadUva = combo_variedaduvanuevo.Text;
+                        int id_variedaduva = consultas.obtenerCualquierId("id_variedaduva", "variedaduva", "nombre",nombreVariedadUva);
 
-                    tipoUva.insertTipoUva(id_tipouva, text_referencianueva.Text, text_nombrenuevo.Text, id_variedaduva,'1');
-                    tipoUva.cumplimentarListaTipoUva(listView1,'1');// No tocar que tiene estructura propia
-                    combo_variedaduvanuevo.Text = "Seleccione";
+                        tipoUva.insertTipoUva(id_tipouva, text_referencianueva.Text, text_nombrenuevo.Text, id_variedaduva,'1');
+                        tipoUva.cumplimentarListaTipoUva(listView1,'1');// No tocar que tiene estructura propia
+                        combo_variedaduvanuevo.Text = "Seleccione";
 
-                    ut.limpiarCampos(text_nombrenuevo, text_referencianueva, text_referenciadeshabilitar, text_nombredeshabilitar, check_seguronuevo, check_segurodeshabilitar);
-                    id_tipouva = consultas.referenciaPredeterminada(id_tabla, tabla, "TU", text_referencianueva);
+                        ut.limpiarCampos(text_nombrenuevo, text_referencianueva, text_referenciadeshabilitar, text_nombredeshabilitar, check_seguronuevo, check_segurodeshabilitar);
+                        id_tipouva = consultas.referenciaPredeterminada(id_tabla, tabla, "TU", text_referencianueva);
+                    }
                 }
                 else
                 {
@@ -107,18 +113,23 @@ namespace proyectovinos.Caracteristicas.tipouva
         {
             Class_VariedadUvaAperturaForms variedad = new Class_VariedadUvaAperturaForms();
             variedad.todasVariedadesUva();
+            //variedad.todasVariedadesUvaII();
         }
 
+
+        //
         private void combo_variedaduvanuevo_Click(object sender, EventArgs e)
         {
             CumplimentarComboboxes cumplimentar = new CumplimentarComboboxes();
             cumplimentar.refrescarCombo("nombre", "variedaduva", combo_variedaduvanuevo);
         }
 
+        // Apertuta formulario todos artículos
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_ArticuloAperturaForms articulo = new Class_ArticuloAperturaForms();
-            articulo.todosArticulosVinoII(); this.Close();
+            articulo.todosArticulosVino();
+            //articulo.todosArticulosVinoII();
         }
     }
 }
