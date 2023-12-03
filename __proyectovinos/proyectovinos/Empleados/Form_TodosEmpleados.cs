@@ -56,8 +56,6 @@ namespace proyectovinos.Empleados
             id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencia);
             cargaLista = false;
 
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -111,11 +109,9 @@ namespace proyectovinos.Empleados
                     empleado.cumplimentarlistasListaEmpleados(listView1, '1');
                     cargaLista = false;
                     id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencia);
-                    
 
                     limpiarCampos();
                 }
-
             }
         }
 
@@ -183,18 +179,20 @@ namespace proyectovinos.Empleados
             }
         }
 
+
+        // Enlaces del Menu-Strip para abrir otros formularios
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            empleadoAperturaForms.eliminarEmpleado(); this.Close();
+            empleadoAperturaForms.eliminarEmpleado(); 
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            empleadoAperturaForms.modificarEmpleado(); this.Close();
+            empleadoAperturaForms.modificarEmpleado(); 
         }
         private void empleadosInhabilitadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            empleadoAperturaForms.empleadosInhabilitados(); this.Close();
+            empleadoAperturaForms.empleadosInhabilitados(); 
         }
 
 
@@ -237,8 +235,6 @@ namespace proyectovinos.Empleados
                     }
                 }
             }
-            
-
         }
 
 
@@ -269,14 +265,14 @@ namespace proyectovinos.Empleados
                                     ",  " + id_rollempleado + "" +
                                     ", '1'" + ")";
 
-                MessageBox.Show(selectQuery);
+                // MessageBox.Show(selectQuery);
 
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
                 conexionBD.Open();
                 reader = comando.ExecuteReader();
 
-                MessageBox.Show("Nuevo Empleado listo!");
+                MessageBox.Show("Nuevo Empleado incorporado!");
               
             }
             catch (MySqlException ex)
@@ -284,7 +280,6 @@ namespace proyectovinos.Empleados
                 MessageBox.Show("No insertado"); 
                 conexionBD.Close();  
                 return false;
-            
             }
             finally { 
                

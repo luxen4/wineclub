@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_NuevoSocio));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.text_referencia = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.text_provincia = new System.Windows.Forms.TextBox();
             this.text_localidad = new System.Windows.Forms.TextBox();
@@ -55,8 +57,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.imageList_fotosocio = new System.Windows.Forms.ImageList(this.components);
-            this.text_referencia = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -95,6 +95,24 @@
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nuevo Socio";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Location = new System.Drawing.Point(193, 218);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 13);
+            this.label8.TabIndex = 64;
+            this.label8.Text = "Referencia";
+            // 
+            // text_referencia
+            // 
+            this.text_referencia.Enabled = false;
+            this.text_referencia.Location = new System.Drawing.Point(258, 215);
+            this.text_referencia.Name = "text_referencia";
+            this.text_referencia.Size = new System.Drawing.Size(69, 20);
+            this.text_referencia.TabIndex = 65;
             // 
             // checkBox1
             // 
@@ -255,6 +273,9 @@
             this.text_nombre.Name = "text_nombre";
             this.text_nombre.Size = new System.Drawing.Size(144, 20);
             this.text_nombre.TabIndex = 31;
+            this.text_nombre.TextChanged += new System.EventHandler(this.text_nombre_TextChanged);
+            this.text_nombre.Enter += new System.EventHandler(this.txtFocus);
+            this.text_nombre.Leave += new System.EventHandler(this.txtLeave);
             // 
             // label7
             // 
@@ -325,24 +346,6 @@
             this.imageList_fotosocio.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList_fotosocio.ImageStream")));
             this.imageList_fotosocio.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList_fotosocio.Images.SetKeyName(0, "Adrian Laya.jpg");
-            // 
-            // text_referencia
-            // 
-            this.text_referencia.Enabled = false;
-            this.text_referencia.Location = new System.Drawing.Point(258, 215);
-            this.text_referencia.Name = "text_referencia";
-            this.text_referencia.Size = new System.Drawing.Size(69, 20);
-            this.text_referencia.TabIndex = 65;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(193, 218);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 13);
-            this.label8.TabIndex = 64;
-            this.label8.Text = "Referencia";
             // 
             // button1
             // 

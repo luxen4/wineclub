@@ -9,11 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web.WebPages;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using Control = System.Windows.Forms.Control;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace proyectovinos
 {
@@ -41,6 +44,35 @@ namespace proyectovinos
             this.CenterToScreen();
             id_socio = consultas.referenciaPredeterminada(nombreid, tabla, refPredeterminada, text_referencia);
         }
+
+        
+        private void txtLeave(object sender, EventArgs e) {
+            /*MessageBox.Show("estoy");
+            foreach (Control ctrl in groupBox2.Controls) {
+                if (ctrl is TextBox && ctrl.Name == "text_nombre" && ctrl.Text.IsEmpty())
+                {
+                    // ctrl.BackColor = Color.FromArgb(79, 129, 189);
+                    // ctrl.BackColor = Color.Red;
+                }
+            }*/
+        }
+
+
+        private void txtFocus(object sender, EventArgs e)
+        {
+            /*MessageBox.Show("estoy");
+            foreach (Control ctrl in groupBox2.Controls)
+            {
+                if (ctrl is TextBox && ctrl.Name == "text_nombre")
+                {
+                    ctrl.BackColor = Color.FromArgb(251, 251, 247);
+                }
+                
+            }*/
+        }
+        
+
+
 
 
 
@@ -91,6 +123,11 @@ namespace proyectovinos
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void text_nombre_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

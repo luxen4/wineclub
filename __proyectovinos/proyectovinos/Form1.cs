@@ -80,7 +80,7 @@ namespace proyectovinos
         private void Form1_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();    
-
+            /*
             if (Application.OpenForms["Form_Logueo"] != null)
             {
                 Application.OpenForms["Form_Logueo"].Activate();
@@ -90,7 +90,9 @@ namespace proyectovinos
                 formularioLogueo = new Form_Logueo();
                 // formularioLogueo.MdiParent = this;
                 formularioLogueo.Show();
-            }
+            }*/
+
+
             /*
             if (radio_archivoslocal.Checked) {
                 ClaseCompartida.alojamientoarchivos = "local";
@@ -100,7 +102,7 @@ namespace proyectovinos
 
         }
 
-
+        /*
         private void button1_Click(object sender, EventArgs e)
         {
             DialogResult opcionSeleccionada = MessageBox.Show("Realmente desea salir?", "Aviso", MessageBoxButtons.YesNo);
@@ -108,31 +110,7 @@ namespace proyectovinos
             {
                 Application.Exit();
             }
-        }
-
-        /// <summary>
-        /// Apertura del Formulario de logueo de usuario.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["Form_Logueo"] != null)
-            {
-                Application.OpenForms["Form_Logueo"].Activate();
-            }
-            else
-            {
-                formularioLogueo = new Form_Logueo();
-                //formulario.MdiParent = this;
-                formularioLogueo.Show();
-            }
-
-            menuStrip1.Enabled = true;
-
-        }
-
-
+        }*/
         private void verTodasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_ClaseVinoAperturaForms clasevinoAperturaForms = new Class_ClaseVinoAperturaForms();
@@ -187,7 +165,8 @@ namespace proyectovinos
 
             if (ClaseCompartida.roll == "Dependiente")
             {
-                button_entrar.Enabled = false;
+                //button_entrar.Enabled = false;
+                loguinToolStripMenuItem.Enabled=false;
                 dependienteToolStripMenuItem.Enabled = true;
                 perfilToolStripMenuItem.Enabled = true;
 
@@ -195,14 +174,16 @@ namespace proyectovinos
             else if (ClaseCompartida.roll == "Dueño")
             {
 
-                button_entrar.Enabled = false;
+                //button_entrar.Enabled = false;
+                loguinToolStripMenuItem.Enabled = false;
                 duenoToolStripMenuItem.Enabled = true;
                 perfilToolStripMenuItem.Enabled = true;
 
             }
             else if (ClaseCompartida.roll == "Encargado")
             {
-                button_entrar.Enabled = false;
+                //button_entrar.Enabled = false;
+                loguinToolStripMenuItem.Enabled = false;
                 encargadoToolStripMenuItem.Enabled = true;
                 perfilToolStripMenuItem.Enabled = true;
             }
@@ -230,7 +211,8 @@ namespace proyectovinos
             toolStripStatusLabel1.Text = "";
             toolStripStatusLabel2.Text = "";
 
-            button_entrar.Enabled = true;
+            //button_entrar.Enabled = true;
+            loguinToolStripMenuItem.Enabled = true;
             //deslogueo();
         }
 
@@ -240,6 +222,24 @@ namespace proyectovinos
             MessageBox.Show("Deslogueo!");
             duenoToolStripMenuItem.Enabled = false;
             artículosToolStripMenuItem.Enabled = false;
+
+            encargadoToolStripMenuItem.Enabled = false;
+            dependienteToolStripMenuItem.Enabled = false;
+            perfilToolStripMenuItem.Enabled = false;
+            ClaseCompartida.nombre = "";
+            ClaseCompartida.apellido1 = "";
+            ClaseCompartida.apellido2 = "";
+            ClaseCompartida.contrasena = "";
+            ClaseCompartida.usuario = "";
+            ClaseCompartida.refe = "";
+            ClaseCompartida.roll = "";
+
+            toolStripStatusLabel1.Text = "";
+            toolStripStatusLabel2.Text = "";
+
+            //button_entrar.Enabled = true;
+            loguinToolStripMenuItem.Enabled = true;
+            //deslogueo();
         }
 
 
@@ -321,7 +321,7 @@ namespace proyectovinos
             apertura.todosEmpaquetadosII();
         }
 
-        Form_ExistenciasRotas formularioExistenciasRotas;
+        
 
 
 
@@ -345,32 +345,8 @@ namespace proyectovinos
 
         private void toolStripStatusLabel4_Click(object sender, EventArgs e)
         {
-            // Deslogueo 
-            duenoToolStripMenuItem.Enabled = false;
-            artículosToolStripMenuItem.Enabled = false;
-
-
-
-            ClaseCompartida.nombre = "";
-            ClaseCompartida.apellido1 = "";
-            ClaseCompartida.apellido2 = "";
-            ClaseCompartida.contrasena = "";
-            ClaseCompartida.usuario = "";
-            ClaseCompartida.refe = "";
-            ClaseCompartida.roll = "";
-
-            toolStripStatusLabel1.Text = "";
-            toolStripStatusLabel2.Text = "";
-
-            button_entrar.Enabled = true;
-            //deslogueo();
+            deslogueo();
         }
-
-
-
-
-
-
 
 
         // Modificar Usuario y Contraseña
@@ -382,29 +358,7 @@ namespace proyectovinos
 
         private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            // Deslogueo 
-            duenoToolStripMenuItem.Enabled = false;
-            encargadoToolStripMenuItem.Enabled = false;
-            dependienteToolStripMenuItem.Enabled = false;
-            perfilToolStripMenuItem.Enabled = false;
-
-            //artículosToolStripMenuItem.Enabled = false;
-
-
-
-            ClaseCompartida.nombre = "";
-            ClaseCompartida.apellido1 = "";
-            ClaseCompartida.apellido2 = "";
-            ClaseCompartida.contrasena = "";
-            ClaseCompartida.usuario = "";
-            ClaseCompartida.refe = "";
-            ClaseCompartida.roll = "";
-
-            toolStripStatusLabel1.Text = "";
-            toolStripStatusLabel2.Text = "";
-
-            button_entrar.Enabled = true;
-            //deslogueo();
+            deslogueo();
         }
 
         private void radioButton2_MouseClick(object sender, MouseEventArgs e)
@@ -459,16 +413,7 @@ namespace proyectovinos
 
         private void modificarStockUbicaciónToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms["Form_ExistenciasRotas"] != null)
-            {
-                Application.OpenForms["Form_ExistenciasRotas"].Activate();
-            }
-            else
-            {
-                formularioExistenciasRotas = new Form_ExistenciasRotas();
-                //formulario.MdiParent = this;
-                formularioExistenciasRotas.Show();
-            }
+            almacenTiendaAperturaForms.existenciasRotas();
         }
 
         private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -661,20 +606,58 @@ namespace proyectovinos
             rol.todosRoles();
         }
 
-        private void artículosMásVendidosToolStripMenuItem_Click_1(object sender, EventArgs e)
+
+        private void aaaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["Form_Logueo"] != null)
+            {
+                Application.OpenForms["Form_Logueo"].Activate();
+            }
+            else
+            {
+                formularioLogueo = new Form_Logueo();
+                //formulario.MdiParent = this;
+                formularioLogueo.Show();
+            }
+
+            menuStrip1.Enabled = true;
+        }
+
+        private void sALIRToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            DialogResult opcionSeleccionada = MessageBox.Show("Realmente desea salir?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void button_entrar_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void devolucionesDeEmpleadosToolStripMenuItem1_Click(object sender, EventArgs e)
+        /// <summary> Para si pongo el botón en medio
+        /// Apertura del Formulario de logueo de usuario.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /*
+        private void button1_Click_1(object sender, EventArgs e)
         {
+            if (Application.OpenForms["Form_Logueo"] != null)
+            {
+                Application.OpenForms["Form_Logueo"].Activate();
+            }
+            else
+            {
+                formularioLogueo = new Form_Logueo();
+                //formulario.MdiParent = this;
+                formularioLogueo.Show();
+            }
 
-        }
-
-        private void ventasDeEmpleadosToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
+            menuStrip1.Enabled = true;
+        }*/
     }
 }
 

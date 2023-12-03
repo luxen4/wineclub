@@ -108,10 +108,6 @@ namespace proyectovinos.Empleados
             // Return a base 64 encoded string of the Hash value
             return (Convert.ToBase64String(byteHash));
         }
-
-
-
-
         
         // Método que devuelve el id_empleado desde su nombre y apellidos
         public int obtener_id_Empleado(string referencia)
@@ -292,7 +288,6 @@ namespace proyectovinos.Empleados
 
                 while (reader.Read())
                 {
-
                     id_empleado = Int32.Parse(reader.GetString("id"));
                 }
             }
@@ -312,7 +307,7 @@ namespace proyectovinos.Empleados
         }
 
 
-
+        // Función que cumplimenta una lista de empleados
         internal void cumplimentarlistasListaEmpleados(ListView listView1, char activo)
         {
                 listView1.Items.Clear();
@@ -346,11 +341,9 @@ namespace proyectovinos.Empleados
                         itemAgregar.SubItems.Add(reader.GetString("nombreroll"));
                         listView1.Items.Add(itemAgregar);
                     }
-
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
                 finally { conexionBD.Close(); }
-            
         }
     }
 }

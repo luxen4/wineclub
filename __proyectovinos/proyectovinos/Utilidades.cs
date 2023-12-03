@@ -182,8 +182,6 @@ namespace proyectovinos
             text_nuevonombre.Text = "";
             text_nuevareferencia.Text = "";
         }
-
-
         
 
         internal void checkMarcadoEliminar(bool cargaLista, ItemCheckedEventArgs e, string tabla, TextBox text_referenciaeliminar, TextBox text_nombreeliminar)
@@ -201,7 +199,7 @@ namespace proyectovinos
             }
         }
 
-        
+        // Función que elimina una característica de un artículo
         // General para todas
         internal bool controladorEliminarCaracteristica(CheckBox check_seguroeliminar, TextBox text_referenciaeliminar, TextBox text_nombreeliminar, string id_tabla, string tabla, ListView listView1)
         {
@@ -238,8 +236,6 @@ namespace proyectovinos
                 return false;
             }
         }
-
-
 
 
         // Método que deja los campos para el formulario de eliminar en modo predeterminado
@@ -331,9 +327,6 @@ namespace proyectovinos
         }
 
 
-
-
-
         // Método que elimina la carpeta de un Empleado (prueba con proveedores tb)
         internal void eliminarCarpeta(string carpeta, int id_)
         {
@@ -342,7 +335,7 @@ namespace proyectovinos
             try
             {
                 Directory.Delete(folderPath, true);
-                MessageBox.Show("Directorio eliminado: " + folderPath);
+                //MessageBox.Show("Directorio eliminado: " + folderPath);
 
             }
             catch (Exception ex)
