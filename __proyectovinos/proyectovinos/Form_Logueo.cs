@@ -57,41 +57,32 @@ namespace proyectovinos
         // see https://es.stackoverflow.com/questions/10750/como-usar-una-variable-de-un-formulario-de-c-en-otro
        
 
-        // Consultar a base de datos where usuario and contrasena
+        // Función que comprueva el usuario y la contraseña
         private void button_login_Click(object sender, EventArgs e)
         {
             string usuarioBox = textBox_usuario.Text;
             string contrasenaBox = textBox_contrasena.Text;
  
-            string passwordEncriptadoForm = class_Empleado.encriptarSHA1(contrasenaBox);  
-            //MessageBox.Show(passwordEncriptadoForm);
-            string[] session = datosLogueo(usuarioBox, passwordEncriptadoForm);
-           // MessageBox.Show(session[1]);
+            string passwordEncriptadoForm = class_Empleado.encriptarSHA1(contrasenaBox);    //MessageBox.Show(passwordEncriptadoForm);
+            string[] session = datosLogueo(usuarioBox, passwordEncriptadoForm);             // MessageBox.Show(session[1]);
 
-            
             if (session!=null) { 
-           
-
-            if (passwordEncriptadoForm == session[2])
-            {
+                if (passwordEncriptadoForm == session[2])
+                {
                     MessageBox.Show("Usuario válido.");
                     ClaseCompartida.nombre = session[0];
                     ClaseCompartida.usuario = session[1];
                     ClaseCompartida.contrasena = session[2];
                     ClaseCompartida.roll = session[3];
                     ClaseCompartida.refe = session[4];
-
                     // Form1.variableCompartida = "Adriana";
-
-
                 }
-            else
-            {
-                MessageBox.Show("Acceso denegado.");
+                else
+                {
+                    MessageBox.Show("Acceso denegado.");
+                }
+                this.Close();
             }
-            this.Close();
-            }
-            
         }
 
 

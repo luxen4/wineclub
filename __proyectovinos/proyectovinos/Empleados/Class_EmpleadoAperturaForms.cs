@@ -63,14 +63,14 @@ namespace proyectovinos.Empleados
         // Método que abre el formulario de Articulos inhabilitados con posibilidad de habilitarlos
         public void empleadosInhabilitados()
         {
-            Form_HabilitarEmpleados form;
+            Form_ElimiarEmpleados form;
             if (Application.OpenForms["Form_HabilitarEmpleados"] != null)
             {
                 Application.OpenForms["Form_HabilitarEmpleados"].Activate();
             }
             else
             {
-                form = new Form_HabilitarEmpleados();
+                form = new Form_ElimiarEmpleados();
                 //formulario.MdiParent = this;
                 form.Show();
             }

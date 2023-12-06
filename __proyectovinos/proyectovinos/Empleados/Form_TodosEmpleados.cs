@@ -50,12 +50,10 @@ namespace proyectovinos.Empleados
         private void Form_TodosEmpleados_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
-            empleado.cumplimentarlistasListaEmpleados(listView1, '1');
-            cumplimentar.refrescarCombo("nombre", "rollempleado", combo_roll);
-
-            id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencia);
-            cargaLista = false;
-
+            this.Top = this.Top + 20;
+            habilitarToolStripMenuItem.Enabled = false;
+            eliminarToolStripMenuItem.Enabled = false;
+            referencia = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -116,6 +114,7 @@ namespace proyectovinos.Empleados
         }
 
 
+        // Función que deja todos los campos en modo predeterminado
         private void button5_Click(object sender, EventArgs e)
         {
             text_nombre.Text = "";
@@ -129,28 +128,165 @@ namespace proyectovinos.Empleados
             combo_roll.Text = "Seleccione";
         }
 
-
-        // Metodo para Presentación
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        // Función que carga la lista de todos empleados activos
+        private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (checkBox1.Checked==true) {
-                text_nombre.Text = "Aoito";
-                text_apellido1.Text = "Pérez";
-                text_apellido2.Text = "Martínez";
-                text_telefono.Text = "606999999";
-                text_email.Text = "aoito@aoito.com";
-                // dateTime_fechanacimiento.Text = "26/07/2023 16:59";
-                radio_hombre.Checked = true;
-                dateTime_fechanacimiento.Text = "1970/04/26";
-                combo_roll.Text = "Dependiente";
-                pictureBox1.Image = Image.FromFile(ClaseCompartida.carpetaimg_absoluta + "empleados/aoito.jpg");
-            }
+            empleado.cumplimentarlistasListaEmpleados(listView1, '1');
+            cumplimentar.refrescarCombo("nombre", "rollempleado", combo_roll);
+            id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencia);
+            cargaLista = false;
+            referencia = "";
+        }
+
+        private void check_demo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (check_demo.Checked==true) {
+                generaEmpleadoDemo(); }
             else {
                 limpiarCampos();
             }
-
-
         }
+
+        private void generaEmpleadoDemo()
+        {
+            id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencia);
+            text_nombre.Text = "Aoito";
+            text_apellido1.Text = "Pérez";
+            text_apellido2.Text = "Martínez";
+            text_telefono.Text = "606999999";
+            text_email.Text = "aoito@aoito.com";
+            // dateTime_fechanacimiento.Text = "26/07/2023 16:59";
+            radio_hombre.Checked = true;
+            dateTime_fechanacimiento.Text = "1970/04/26";
+            combo_roll.Text = "Dependiente";
+            pictureBox1.Image = Image.FromFile(ClaseCompartida.carpetaimg_absoluta + "empleados/aoito.jpg");
+        }
+
+        private void deshabilitarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (referencia != "")
+            {
+                // Pregunta
+                DialogResult opcionSeleccionada = MessageBox.Show("Realmente desea deshabilitar el empleado?", "Aviso", MessageBoxButtons.YesNo);
+
+                if (opcionSeleccionada == DialogResult.Yes)
+                {
+                    ut.habilitarOnOff_Caracteristica(tabla, "ref", text_referenciadeshabilitar.Text, '0');
+                    empleado.cumplimentarlistasListaEmpleados(listView1, '1');
+                }
+                else {
+                    MessageBox.Show("Tenga cuidado!");
+                }
+            }
+            else {
+                MessageBox.Show("No ha seleccionado una referencia");
+            }
+}
+
+        private void refrescaLista(char activo)
+        {
+            listView1.Items.Clear();
+            cargaLista = true;
+            empleado.cumplimentarlistasListaEmpleados(listView1, activo);
+            cumplimentar.refrescarCombo("nombre", "rollempleado", combo_roll);
+            id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencia);
+            cargaLista = false;
+        }
+
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            refrescaLista('1');
+            actualizarToolStripMenuItem.Enabled = true;
+            deshabilitarToolStripMenuItem.Enabled = true;
+            habilitarToolStripMenuItem.Enabled = false;
+            eliminarToolStripMenuItem.Enabled = false;
+            referencia = "";
+        }
+
+        private void eliminarToolStripMenuItem_Click_1(object sender, EventArgs e)
+        { 
+            if (referencia != "")
+            {
+                // Pregunte si está seguro de eliminar y si es sí que lo elimine
+                DialogResult opcionSeleccionada = MessageBox.Show("Realmente desea eliminar el empleado?", "Aviso", MessageBoxButtons.YesNo);
+
+                if (opcionSeleccionada == DialogResult.Yes)
+                {
+                    bool eliminado = consultas.eliminarCaracteristica(tabla, "ref", referencia);
+                    if (eliminado == true)
+                    {
+                        //que refresque 
+                        refrescaLista('0');
+                        // Eliminar su carpeta (repetido de Proveedor que se podría sacar a función y ahorrar código)
+                        if (eliminado == true)
+                        {
+                            string folderPath = ClaseCompartida.carpetaimg_absoluta + "empleados/" + id_empleado;
+                            try
+                            {
+                                Directory.Delete(folderPath, true);
+                                // MessageBox.Show("Directorio eliminado: " + folderPath);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("The process failed: {0}", ex.Message);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se ha eliminado, consulte con el administrador!");
+                        }
+
+                        pictureBox1.Image = null;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Tenga cuidado");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No ha seleccionado una referencia");
+            }
+        }
+
+        private void habilitarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (referencia != "")
+            {
+                // Pregunte si está seguro de eliminar y si es sí que lo elimine
+                DialogResult opcionSeleccionada = MessageBox.Show("Realmente desea habilitar el empleado?", "Aviso", MessageBoxButtons.YesNo);
+                if (opcionSeleccionada == DialogResult.Yes)
+                {
+                    consultas.habilitarDesabilitarCualquierReferencia(tabla, "ref", referencia, '1');
+                    listView1.Items.Clear();
+                    empleado.cumplimentarlistasListaEmpleados(listView1, '0');
+                    limpiarCampos();
+                }
+                else
+                {
+                    MessageBox.Show("No se hace nada");
+                }
+            }
+            else {
+                MessageBox.Show("No ha seleccionado una referencia");
+            }
+            
+            referencia = "";
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            refrescaLista('0');
+            actualizarToolStripMenuItem.Enabled = false;
+            habilitarToolStripMenuItem.Enabled = true;
+            deshabilitarToolStripMenuItem.Enabled=false;
+            eliminarToolStripMenuItem.Enabled = true;
+            referencia = "";
+        }
+
 
         private void button2_Click(object sender, EventArgs e)
         {

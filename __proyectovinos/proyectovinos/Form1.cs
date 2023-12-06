@@ -154,72 +154,36 @@ namespace proyectovinos
 
 
 
-        public bool primeraVez = true;
+        //public bool primeraVez = true;
 
+        // Función que habilita y deshabilita enlaces de menú según el logueo de cada usuario
         private void Form1_MouseHover(object sender, EventArgs e)
         {
-
             toolStripStatusLabel1.Text = "Usuario: " + ClaseCompartida.nombre + " " + ClaseCompartida.apellido1 + " " + ClaseCompartida.apellido2;
             toolStripStatusLabel2.Text = "Cargo: " + ClaseCompartida.roll;
 
-
             if (ClaseCompartida.roll == "Dependiente")
             {
-                //button_entrar.Enabled = false;
-                loguinToolStripMenuItem.Enabled=false;
                 dependienteToolStripMenuItem.Enabled = true;
                 perfilToolStripMenuItem.Enabled = true;
-
+                loguinToolStripMenuItem.Text = "Log Out";
             }
             else if (ClaseCompartida.roll == "Dueño")
             {
-
-                //button_entrar.Enabled = false;
-                loguinToolStripMenuItem.Enabled = false;
                 duenoToolStripMenuItem.Enabled = true;
                 perfilToolStripMenuItem.Enabled = true;
-
+                loguinToolStripMenuItem.Text = "Log Out";
             }
             else if (ClaseCompartida.roll == "Encargado")
             {
-                //button_entrar.Enabled = false;
-                loguinToolStripMenuItem.Enabled = false;
                 encargadoToolStripMenuItem.Enabled = true;
                 perfilToolStripMenuItem.Enabled = true;
+                loguinToolStripMenuItem.Text = "Log Out";
             }
-
-
-        }
-
-
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-            // Deslogueo 
-            duenoToolStripMenuItem.Enabled = false;
-            artículosToolStripMenuItem.Enabled = false;
-
-
-
-            ClaseCompartida.nombre = "";
-            ClaseCompartida.apellido1 = "";
-            ClaseCompartida.apellido2 = "";
-            ClaseCompartida.contrasena = "";
-            ClaseCompartida.usuario = "";
-            ClaseCompartida.refe = "";
-            ClaseCompartida.roll = "";
-
-            toolStripStatusLabel1.Text = "";
-            toolStripStatusLabel2.Text = "";
-
-            //button_entrar.Enabled = true;
-            loguinToolStripMenuItem.Enabled = true;
-            //deslogueo();
         }
 
         private void deslogueo()
         {
-            // No es llamado de ningúna parte
-            MessageBox.Show("Deslogueo!");
             duenoToolStripMenuItem.Enabled = false;
             artículosToolStripMenuItem.Enabled = false;
 
@@ -237,9 +201,8 @@ namespace proyectovinos
             toolStripStatusLabel1.Text = "";
             toolStripStatusLabel2.Text = "";
 
-            //button_entrar.Enabled = true;
             loguinToolStripMenuItem.Enabled = true;
-            //deslogueo();
+            loguinToolStripMenuItem.Text = "Log In";
         }
 
 
@@ -358,7 +321,7 @@ namespace proyectovinos
 
         private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            deslogueo();
+            //deslogueo();
         }
 
         private void radioButton2_MouseClick(object sender, MouseEventArgs e)
@@ -609,6 +572,21 @@ namespace proyectovinos
 
         private void aaaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // menuStrip1.Enabled = true;
+
+            if (loguinToolStripMenuItem.Text == "Log In") {
+                // Se loguea
+                logueo();
+            } else if (loguinToolStripMenuItem.Text == "Log Out") {
+                // se desloguea
+                MessageBox.Show("leslogueo");
+                deslogueo();
+            }
+        }
+
+
+        private void logueo()
+        {
             if (Application.OpenForms["Form_Logueo"] != null)
             {
                 Application.OpenForms["Form_Logueo"].Activate();
@@ -619,8 +597,6 @@ namespace proyectovinos
                 //formulario.MdiParent = this;
                 formularioLogueo.Show();
             }
-
-            menuStrip1.Enabled = true;
         }
 
         private void sALIRToolStripMenuItem2_Click(object sender, EventArgs e)

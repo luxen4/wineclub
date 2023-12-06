@@ -27,7 +27,6 @@ namespace proyectovinos.Empleados
             this.Close();
         }
 
-
         string carpetaempleadoAnterior = "";
         CumplimentarComboboxes cumplimentarComboboxes=new CumplimentarComboboxes();
         CumplimentarPictureBoxes cumplimentarPictureBoxes= new CumplimentarPictureBoxes();
@@ -41,6 +40,7 @@ namespace proyectovinos.Empleados
         private void Form_ModificarEmpleado_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
+            this.Top = this.Top + 20;
             cumplimentarComboboxes.cumplimentarComboNombreEmpleado(comboBox_empleado);
             cumplimentarComboboxes.refrescarCombo("nombre","rollempleado",combo_roll);
         }
@@ -94,6 +94,10 @@ namespace proyectovinos.Empleados
         private string n_referencia = "", n_nombre = "", n_apellido1 = "", n_apellido2 = "",
             n_telefono = "", n_email = "", n_sexo = "", fechanacimiento = "", cargo = "";
 
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private bool haCambiado=false;
 

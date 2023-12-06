@@ -54,13 +54,14 @@ namespace proyectovinos.Empleados
                     Directory.CreateDirectory(folderPath); 
                     // MessageBox.Show("Crea Directorio");
                     Console.WriteLine(folderPath);
-
+                    
                     if (pictureBox1.Image != null)
-                    {
+                    {MessageBox.Show("Estoy");
                         pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "empleados/" + id_empleado + "/perfil/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                     }
                     else
                     {
+                        MessageBox.Show("Estoyyy");
                         pictureBox1.Image = Image.FromFile(ClaseCompartida.carpetaimg_absoluta + "empleados/empleadopredeterminada.jpg");
                         pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "empleados/" + id_empleado + "/perfil/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                     }
@@ -337,7 +338,10 @@ namespace proyectovinos.Empleados
                         itemAgregar.SubItems.Add(reader.GetString("telefono"));
                         itemAgregar.SubItems.Add(reader.GetString("email"));
                         itemAgregar.SubItems.Add(reader.GetString("sexo"));
-                        itemAgregar.SubItems.Add(reader.GetString("fechanacimiento"));
+
+                        string [] cascos = reader.GetString("fechanacimiento").Split(' ');
+                        // itemAgregar.SubItems.Add(reader.GetString("fechanacimiento"));
+                        itemAgregar.SubItems.Add(cascos[0]);
                         itemAgregar.SubItems.Add(reader.GetString("nombreroll"));
                         listView1.Items.Add(itemAgregar);
                     }
@@ -345,5 +349,38 @@ namespace proyectovinos.Empleados
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
                 finally { conexionBD.Close(); }
         }
+
+
+
+
+        public void implementarPictureBoxEmpleado(int id_empleado, PictureBox pictureBox1)
+        {
+            try
+            {
+                // Local_absoluta
+                string folderPath = ClaseCompartida.carpetaimg_absoluta + "empleados/" + id_empleado + "/perfil/foto1.jpg";
+
+                using (StreamReader stream = new StreamReader(folderPath))
+
+                {
+                    pictureBox1.Image = Image.FromStream(stream.BaseStream);
+                }
+            }
+            catch (Exception ex)
+            {
+                string folderPath = ClaseCompartida.carpetaimg_absoluta + "empleados/empleadopredeterminada.jpg";
+
+                using (StreamReader stream = new StreamReader(folderPath))
+                {
+                    pictureBox1.Image = Image.FromStream(stream.BaseStream);
+                }
+            }
+        }
+
+
+
+
+
+
     }
 }
