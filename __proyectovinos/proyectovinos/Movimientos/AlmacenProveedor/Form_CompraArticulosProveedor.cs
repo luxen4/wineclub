@@ -49,6 +49,7 @@ namespace proyectovinos
         private void Form_CompraArticuloVino_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
+            this.Top = this.Top + 19;
             cumpCombo.refrescarCombo("ref", "articulo", combo_refarticulo);
             id_predeterminado = consultas.referenciaPredeterminada("id_compraproveedor", "compraproveedor", refPredeterminada, text_refcompraproveedor);
             refCompraProveedor = refPredeterminada + id_predeterminado;
@@ -61,38 +62,7 @@ namespace proyectovinos
         {
             refProveedor = consultas.obtenerCualquierRefDesdeNombre("ref", "proveedor", "nombre", nombreProveedor);
             id_proveedor = consultas.obtenerCualquierId("id_proveedor", "proveedor", "ref", refProveedor);
-            cumplimentarPictureBoxes.cumplimentarPictureBoxProveedor(id_proveedor, pictureBox2);
-        }
-
-      
-
-
-    // Método que compra Articulos al Proveedor
-        private void btn_comprar_Click(object sender, EventArgs e)
-        {
-            if (listView1.Items.Count == 0)
-            {
-                MessageBox.Show("list vacio");
-                btn_comprar.Enabled = false;
-            }
-            else { 
-            }
-                int id_empleado = 1;
-
-                // fecha de la compra
-                DateTime fechaActual = DateTime.Now;
-                string fechaFormateada = ut.fechaTimeStam(fechaActual);
-
-                // Registrar Compra al Proveedor
-                almacenProveedor.registrarCompraProveedor(id_predeterminado, id_empleado, refCompraProveedor, fechaFormateada);  // ok
-               
-
-                recorrerListaCompraProveedor(id_predeterminado);
-            
-                limpiarCampos();
-                listView1.Items.Clear();
-                id_predeterminado = consultas.referenciaPredeterminada("id_compraproveedor", "compraproveedor", refPredeterminada, text_refcompraproveedor);
-                refCompraProveedor = refPredeterminada + id_predeterminado;
+            // cumplimentarPictureBoxes.cumplimentarPictureBoxProveedor(id_proveedor, pictureBox2);
         }
 
 
@@ -175,9 +145,6 @@ namespace proyectovinos
             }
         }
 
-
-
-
         // Método que deja los valores predeterminados de los campos
         private void limpiarCampos()
         {
@@ -194,9 +161,10 @@ namespace proyectovinos
             numericUpDown_unidadesacomprar.Value = 0;
             numericUpDown_preciocoste.Value = 0;
             numeric_cantidad.Value = 0;
-            pictureBox1.Image = null;
-            pictureBox2.Image = null;
+            pictureBox1.Image = null;   
         }
+
+
 
 
 
@@ -309,6 +277,34 @@ namespace proyectovinos
 
         }
 
+        // Función que hace la compra de artículos a proveedores
+        private void cOMPRARToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView1.Items.Count == 0)
+            {
+                MessageBox.Show("No tiene en la lista cargado ningún artículo");
+                // btn_comprar.Enabled = false;
+            }
+            else
+            {
+                int id_empleado = 1;
+
+                // fecha de la compra
+                DateTime fechaActual = DateTime.Now;
+                string fechaFormateada = ut.fechaTimeStam(fechaActual);
+
+                // Registrar Compra al Proveedor
+                almacenProveedor.registrarCompraProveedor(id_predeterminado, id_empleado, refCompraProveedor, fechaFormateada);  // ok
+
+                recorrerListaCompraProveedor(id_predeterminado);
+
+                listView1.Items.Clear();
+                id_predeterminado = consultas.referenciaPredeterminada("id_compraproveedor", "compraproveedor", refPredeterminada, text_refcompraproveedor);
+                refCompraProveedor = refPredeterminada + id_predeterminado;
+                limpiarCampos();
+            }
+        }
+
         private void combo_refarticulo_SelectedIndexChanged(object sender, EventArgs e)
         {
             refArticulo = combo_refarticulo.Text;
@@ -316,8 +312,9 @@ namespace proyectovinos
 
             nombreProveedor = consultas.obtenerCualquierNombre("id_proveedor","proveedor","ref",refArticulo);
             id_proveedor = consultas.obtenerCualquierId("id_proveedor","articulo","ref",refArticulo);
-            cumplimentarPictureBoxes.cumplimentarPictureBoxProveedor(id_proveedor, pictureBox2);
+            //cumplimentarPictureBoxes.cumplimentarPictureBoxProveedor(id_proveedor, pictureBox2);
             id_articulo = consultas.obtenerCualquierId("id_articulo", "articulo", "ref", refArticulo);
+
 
             //
             string[] nombres = consultas.nombresCaracteristicas(refArticulo);
@@ -327,6 +324,7 @@ namespace proyectovinos
             text_catalogacion.Text = nombres[3];
             text_formatocontenido.Text = nombres[4];   
             text_empaquetado.Text = nombres[5];
+
        
             //
 

@@ -207,115 +207,27 @@ namespace proyectovinos
         // 6 Método que registra la compra a un Socio 
         private void button2_Click(object sender, EventArgs e)
         {
-            int id_predeterminado = consultas.idMax("id_ventasocio", "ventasocio") + 1;
+          
+        }
 
-            // id_empleado
-            string refEmpleado = ClaseCompartida.refe;
-            id_empleado = consultas.obtenerCualquierId("id_empleado","empleado","ref", refEmpleado);
+        private void mostrarFactura(string refVent)
+        {
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Quiere mostrar la factura?", "Aviso", MessageBoxButtons.YesNo);
 
-            // id_socio
-            string refSocio = combo_refsocio.Text;
-            id_socio = consultas.obtenerCualquierId("id_socio","socio","ref",refSocio);
-
-            // fecha de la compra
-            DateTime fechaActual = DateTime.Now;
-            string fechaFormateada = ut.fechaTimeStam(fechaActual);
-
-            bool insertadoVentaSocio = consultaSocios.registrarVentaSocio(id_predeterminado, id_empleado, id_socio, fechaFormateada);
-
-
-
-            bool insertadoLineaVenta = true;
-
-            if (combo_refsocio.Text != "Seleccione")
+            if (opcionSeleccionada == DialogResult.Yes)
             {
-                for (int i = 0; i < listView1.Items.Count; i++)
-                {
-                    int id_lineaventasocio = consultas.idMax("id_lineaventasocio", "lineaventasocio") + 1;
-                    int id_ventasocio = consultas.idMax("id_ventasocio", "ventasocio");
-                    int id_compraproveedor = consultas.obtenerCualquierId("id_compraproveedor","lineacompraproveedor","ref",refLinea);
-
-                    refArticulo = listView1.Items[i].SubItems[0].Text;
-                    id_articulo = consultas.obtenerCualquierId("id_articulo","articulo","ref",refArticulo);
-
-                    int unidadesAcomprar = Int32.Parse(listView1.Items[i].SubItems[4].Text);
-
-                    // Precio Venta por artículo, no meto el total ya que escaparía el precio de venta del artículo en ese momento 
-                    string precioVentaTexto = listView1.Items[i].SubItems[5].Text;
-                    precioVentaTexto = precioVentaTexto.Replace(",", ".");
-
-                    insertadoLineaVenta = insertarLineaVentaSocio(id_lineaventasocio, id_ventasocio, id_compraproveedor, id_articulo, unidadesAcomprar, precioVentaTexto);
-
-
-                        //Resta de existencias en tienda
-                        if (insertadoLineaVenta == true)
-                        {
-                            string unidadesArticuloTexto = listView1.Items[i].SubItems[4].Text;
-
-                            // Existencias en tienda
-                            string refLinea = listView1.Items[i].SubItems[1].Text;
-                            int id_lineacompraproveedor = consultas.obtenerCualquierId("id_lineacompraproveedor", "lineacompraproveedor", "ref", refLinea);
-
-                            int unidadesTienda = articulo.existenciasTiendaArticulo(id_lineacompraproveedor, id_articulo);
-                            int totalExistenciasTienda = unidadesTienda - Int32.Parse(unidadesArticuloTexto);
-
-                            // Ajuste existencias en tienda
-                            Class_AlmacenTienda almacenTienda = new Class_AlmacenTienda();
-                            almacenTienda.ajusteExistenciasCualquierUbicacion(id_lineacompraproveedor, totalExistenciasTienda, id_articulo, "tienda");
-
-                        }
-                        else {
-                            MessageBox.Show("Línea de venta no insertada");
-                            insertadoLineaVenta = false;
-                            break;  // si pasa aquí, también que elimine la venta a socio pués está realizada pero sin linea de venta
-
-                        }
-                }
-
-                string refVent = "";
-                
-                // Si inserta que haga factura
-                if (insertadoVentaSocio == true && insertadoLineaVenta==true)
-                {
-                    // Si lo inserta ya podemos crear el pdf de la factura
-                    MessageBox.Show("Guardando factura");
-                    Class_VentasDevolucionesSocio vent = new Class_VentasDevolucionesSocio();
-                    refVent = consultas.obtenerCualquierRefDesdeId("ref","ventasocio","id_ventasocio", id_predeterminado);
-                    vent.mostrarFactura(refVent);
-
-                    // ver la factura
-                    if (check_mostrarfactura.Checked)
-                    {
-                        //Load PDF File for viewing
-                        Process.Start(ClaseCompartida.carpetafacturas_absoluta + refVent + ".pdf");
-                    }
-                    else
-                    {
-                        MessageBox.Show("No muestra factura");
-                    }
-                }
-
-                // Emitir el ticket, leer el ListView
-
-
-                aPdf(refVent);
-
-                limpiarCampos();
-
-                listView1.Items.Clear();
-                combo_reflinea.Enabled=false;
-
+                    //Load PDF File for viewing
+                    MessageBox.Show("Esttttoyyyy" + ClaseCompartida.carpetafacturas_absoluta + refVent + ".pdf");
+                    Process.Start(ClaseCompartida.carpetafacturas_absoluta + refVent + ".pdf");
             }
             else
             {
-                MessageBox.Show("Seleccione Sócio");
+                MessageBox.Show("No muestra factura");
             }
-
-
-
+            
         }
 
-       
+
         // Método que inserta una linea de compra al proveedor
         private bool insertarLineaVentaSocio(int id_lineaventasocio, int id_ventasocio, int id_compraproveedor, int id_articulo, int unidades, string precioventaTexto)
         {
@@ -458,12 +370,14 @@ namespace proyectovinos
             //Specify file name of the PDF file
             string filename = ClaseCompartida.carpetafacturas_absoluta + refVenta +"_Modelo2.pdf";
          
+
+
             //Save PDF File
-            document.Save(filename);
+            //document.Save(filename);
 
 
             //Load PDF File for viewing
-            Process.Start(filename);
+            //Process.Start(filename);
 
 
             // https://procodeguide.com/dotnet/create-pdf-file-in-csharp-net/
@@ -547,6 +461,108 @@ namespace proyectovinos
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+
+
+        }
+
+        private void tERMINARCOMPRAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int id_predeterminado = consultas.idMax("id_ventasocio", "ventasocio") + 1;
+
+            // id_empleado
+            string refEmpleado = ClaseCompartida.refe;
+            id_empleado = consultas.obtenerCualquierId("id_empleado", "empleado", "ref", refEmpleado);
+
+            // id_socio
+            string refSocio = combo_refsocio.Text;
+            id_socio = consultas.obtenerCualquierId("id_socio", "socio", "ref", refSocio);
+
+            // fecha de la compra
+            DateTime fechaActual = DateTime.Now;
+            string fechaFormateada = ut.fechaTimeStam(fechaActual);
+
+            bool insertadoVentaSocio = consultaSocios.registrarVentaSocio(id_predeterminado, id_empleado, id_socio, fechaFormateada);
+
+
+
+            bool insertadoLineaVenta = true;
+
+            if (combo_refsocio.Text != "Seleccione")
+            {
+                for (int i = 0; i < listView1.Items.Count; i++)
+                {
+                    int id_lineaventasocio = consultas.idMax("id_lineaventasocio", "lineaventasocio") + 1;
+                    int id_ventasocio = consultas.idMax("id_ventasocio", "ventasocio");
+                    int id_compraproveedor = consultas.obtenerCualquierId("id_compraproveedor", "lineacompraproveedor", "ref", refLinea);
+
+                    refArticulo = listView1.Items[i].SubItems[0].Text;
+                    id_articulo = consultas.obtenerCualquierId("id_articulo", "articulo", "ref", refArticulo);
+
+                    int unidadesAcomprar = Int32.Parse(listView1.Items[i].SubItems[4].Text);
+
+                    // Precio Venta por artículo, no meto el total ya que escaparía el precio de venta del artículo en ese momento 
+                    string precioVentaTexto = listView1.Items[i].SubItems[5].Text;
+                    precioVentaTexto = precioVentaTexto.Replace(",", ".");
+
+                    insertadoLineaVenta = insertarLineaVentaSocio(id_lineaventasocio, id_ventasocio, id_compraproveedor, id_articulo, unidadesAcomprar, precioVentaTexto);
+
+
+                    //Resta de existencias en tienda
+                    if (insertadoLineaVenta == true)
+                    {
+                        string unidadesArticuloTexto = listView1.Items[i].SubItems[4].Text;
+
+                        // Existencias en tienda
+                        string refLinea = listView1.Items[i].SubItems[1].Text;
+                        int id_lineacompraproveedor = consultas.obtenerCualquierId("id_lineacompraproveedor", "lineacompraproveedor", "ref", refLinea);
+
+                        int unidadesTienda = articulo.existenciasTiendaArticulo(id_lineacompraproveedor, id_articulo);
+                        int totalExistenciasTienda = unidadesTienda - Int32.Parse(unidadesArticuloTexto);
+
+                        // Ajuste existencias en tienda
+                        Class_AlmacenTienda almacenTienda = new Class_AlmacenTienda();
+                        almacenTienda.ajusteExistenciasCualquierUbicacion(id_lineacompraproveedor, totalExistenciasTienda, id_articulo, "tienda");
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Línea de venta no insertada");
+                        insertadoLineaVenta = false;
+                        break;  // si pasa aquí, también que elimine la venta a socio pués está realizada pero sin linea de venta
+
+                    }
+                }
+
+                string refVent = "";
+
+                // Si inserta que haga factura
+                if (insertadoVentaSocio == true && insertadoLineaVenta == true)
+                {
+                    // Si lo inserta ya podemos crear el pdf de la factura
+                    MessageBox.Show("Guardando factura");
+                    Class_VentasDevolucionesSocio vent = new Class_VentasDevolucionesSocio();
+                    refVent = consultas.obtenerCualquierRefDesdeId("ref", "ventasocio", "id_ventasocio", id_predeterminado);
+                    vent.mostrarFactura(refVent);
+                    mostrarFactura(refVent);
+
+                }
+
+                // Emitir el ticket, leer el ListView
+
+
+                aPdf(refVent);
+
+                limpiarCampos();
+
+                listView1.Items.Clear();
+                combo_reflinea.Enabled = false;
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccione Sócio");
+            }
+
 
 
         }

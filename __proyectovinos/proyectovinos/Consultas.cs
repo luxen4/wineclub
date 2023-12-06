@@ -97,6 +97,7 @@ namespace proyectovinos
             try
             {
                 string selectQuery = "select " + refe + " as ref from " + nombreTabla + " where " + whereAtributo + " = " + valorAtributo + " ";
+                MessageBox.Show(selectQuery);
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
                 MySqlDataReader reader = command.ExecuteReader();
@@ -371,7 +372,7 @@ namespace proyectovinos
             try
             {
                 string selectQuery = "delete from " + tabla + " WHERE " + whereAtributo + " = " + "'" + valorAtributo + "'";
-
+                MessageBox.Show(selectQuery);
 
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;

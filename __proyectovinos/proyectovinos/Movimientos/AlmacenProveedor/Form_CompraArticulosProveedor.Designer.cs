@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_CompraArticulosProveedor));
-            this.button2 = new System.Windows.Forms.Button();
             this.text_formatocontenido = new System.Windows.Forms.TextBox();
             this.text_empaquetado = new System.Windows.Forms.TextBox();
             this.text_unidadesalmacen = new System.Windows.Forms.TextBox();
@@ -43,11 +42,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.numericUpDown_preciocoste = new System.Windows.Forms.NumericUpDown();
-            this.btn_comprar = new System.Windows.Forms.Button();
             this.dateTimePicker_fechacompra = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label_referencia = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.text_refcompraproveedor = new System.Windows.Forms.TextBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -67,8 +66,6 @@
             this.text_denominacion = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.text_refcompraproveedor = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -81,6 +78,8 @@
             this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.cOMPRARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_cantidad)).BeginInit();
@@ -91,41 +90,30 @@
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.Location = new System.Drawing.Point(738, 530);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 32;
-            this.button2.Text = "Cerrar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // text_formatocontenido
             // 
             this.text_formatocontenido.Enabled = false;
-            this.text_formatocontenido.Location = new System.Drawing.Point(114, 69);
+            this.text_formatocontenido.Location = new System.Drawing.Point(435, 17);
             this.text_formatocontenido.Name = "text_formatocontenido";
-            this.text_formatocontenido.Size = new System.Drawing.Size(124, 20);
+            this.text_formatocontenido.Size = new System.Drawing.Size(114, 20);
             this.text_formatocontenido.TabIndex = 100;
             // 
             // text_empaquetado
             // 
             this.text_empaquetado.Enabled = false;
-            this.text_empaquetado.Location = new System.Drawing.Point(114, 95);
+            this.text_empaquetado.Location = new System.Drawing.Point(642, 17);
             this.text_empaquetado.Name = "text_empaquetado";
-            this.text_empaquetado.Size = new System.Drawing.Size(124, 20);
+            this.text_empaquetado.Size = new System.Drawing.Size(113, 20);
             this.text_empaquetado.TabIndex = 45;
             // 
             // text_unidadesalmacen
             // 
             this.text_unidadesalmacen.Enabled = false;
-            this.text_unidadesalmacen.Location = new System.Drawing.Point(114, 17);
+            this.text_unidadesalmacen.Location = new System.Drawing.Point(164, 17);
             this.text_unidadesalmacen.Name = "text_unidadesalmacen";
             this.text_unidadesalmacen.Size = new System.Drawing.Size(41, 20);
             this.text_unidadesalmacen.TabIndex = 33;
@@ -133,7 +121,7 @@
             // text_unidadestienda
             // 
             this.text_unidadestienda.Enabled = false;
-            this.text_unidadestienda.Location = new System.Drawing.Point(114, 41);
+            this.text_unidadestienda.Location = new System.Drawing.Point(274, 17);
             this.text_unidadestienda.Name = "text_unidadestienda";
             this.text_unidadestienda.Size = new System.Drawing.Size(41, 20);
             this.text_unidadestienda.TabIndex = 43;
@@ -158,9 +146,9 @@
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.numericUpDown_preciocoste);
-            this.groupBox3.Location = new System.Drawing.Point(184, 217);
+            this.groupBox3.Location = new System.Drawing.Point(184, 205);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(461, 62);
+            this.groupBox3.Size = new System.Drawing.Size(766, 74);
             this.groupBox3.TabIndex = 48;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Comprar";
@@ -172,7 +160,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Location = new System.Drawing.Point(251, 18);
+            this.label15.Location = new System.Drawing.Point(375, 22);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(68, 13);
             this.label15.TabIndex = 87;
@@ -180,9 +168,8 @@
             // 
             // numeric_cantidad
             // 
-            this.numeric_cantidad.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.numeric_cantidad.DecimalPlaces = 2;
-            this.numeric_cantidad.Location = new System.Drawing.Point(255, 29);
+            this.numeric_cantidad.Location = new System.Drawing.Point(378, 34);
             this.numeric_cantidad.Name = "numeric_cantidad";
             this.numeric_cantidad.Size = new System.Drawing.Size(60, 20);
             this.numeric_cantidad.TabIndex = 88;
@@ -190,7 +177,7 @@
             // button1
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.Location = new System.Drawing.Point(354, 26);
+            this.button1.Location = new System.Drawing.Point(449, 31);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 106;
@@ -201,7 +188,7 @@
             // numericUpDown_unidadesacomprar
             // 
             this.numericUpDown_unidadesacomprar.Enabled = false;
-            this.numericUpDown_unidadesacomprar.Location = new System.Drawing.Point(72, 30);
+            this.numericUpDown_unidadesacomprar.Location = new System.Drawing.Point(196, 34);
             this.numericUpDown_unidadesacomprar.Name = "numericUpDown_unidadesacomprar";
             this.numericUpDown_unidadesacomprar.Size = new System.Drawing.Size(45, 20);
             this.numericUpDown_unidadesacomprar.TabIndex = 41;
@@ -213,7 +200,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(69, 16);
+            this.label4.Location = new System.Drawing.Point(193, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 13);
             this.label4.TabIndex = 3;
@@ -226,7 +213,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(172, 16);
+            this.label8.Location = new System.Drawing.Point(296, 20);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 13);
             this.label8.TabIndex = 36;
@@ -237,25 +224,14 @@
             this.numericUpDown_preciocoste.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.numericUpDown_preciocoste.DecimalPlaces = 2;
-            this.numericUpDown_preciocoste.Location = new System.Drawing.Point(174, 30);
+            this.numericUpDown_preciocoste.Location = new System.Drawing.Point(298, 34);
             this.numericUpDown_preciocoste.Name = "numericUpDown_preciocoste";
             this.numericUpDown_preciocoste.Size = new System.Drawing.Size(63, 20);
             this.numericUpDown_preciocoste.TabIndex = 37;
             // 
-            // btn_comprar
-            // 
-            this.btn_comprar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_comprar.BackgroundImage")));
-            this.btn_comprar.Location = new System.Drawing.Point(615, 530);
-            this.btn_comprar.Name = "btn_comprar";
-            this.btn_comprar.Size = new System.Drawing.Size(117, 23);
-            this.btn_comprar.TabIndex = 30;
-            this.btn_comprar.Text = "Comprar";
-            this.btn_comprar.UseVisualStyleBackColor = true;
-            this.btn_comprar.Click += new System.EventHandler(this.btn_comprar_Click);
-            // 
             // dateTimePicker_fechacompra
             // 
-            this.dateTimePicker_fechacompra.Location = new System.Drawing.Point(597, 19);
+            this.dateTimePicker_fechacompra.Location = new System.Drawing.Point(739, 51);
             this.dateTimePicker_fechacompra.Name = "dateTimePicker_fechacompra";
             this.dateTimePicker_fechacompra.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker_fechacompra.TabIndex = 98;
@@ -264,7 +240,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(515, 25);
+            this.label7.Location = new System.Drawing.Point(657, 57);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 13);
             this.label7.TabIndex = 99;
@@ -274,7 +250,7 @@
             // 
             this.label_referencia.AutoSize = true;
             this.label_referencia.BackColor = System.Drawing.Color.Transparent;
-            this.label_referencia.Location = new System.Drawing.Point(8, 22);
+            this.label_referencia.Location = new System.Drawing.Point(789, 28);
             this.label_referencia.Name = "label_referencia";
             this.label_referencia.Size = new System.Drawing.Size(66, 13);
             this.label_referencia.TabIndex = 100;
@@ -283,18 +259,30 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.text_refcompraproveedor);
+            this.groupBox2.Controls.Add(this.dateTimePicker_fechacompra);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.groupBox8);
+            this.groupBox2.Controls.Add(this.label_referencia);
             this.groupBox2.Controls.Add(this.groupBox7);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.groupBox6);
             this.groupBox2.Controls.Add(this.pictureBox1);
-            this.groupBox2.Controls.Add(this.pictureBox2);
-            this.groupBox2.Location = new System.Drawing.Point(83, 12);
+            this.groupBox2.Location = new System.Drawing.Point(12, 31);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(653, 290);
+            this.groupBox2.Size = new System.Drawing.Size(956, 290);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Compra Artículos a Proveedor";
+            // 
+            // text_refcompraproveedor
+            // 
+            this.text_refcompraproveedor.Enabled = false;
+            this.text_refcompraproveedor.Location = new System.Drawing.Point(861, 25);
+            this.text_refcompraproveedor.Name = "text_refcompraproveedor";
+            this.text_refcompraproveedor.Size = new System.Drawing.Size(78, 20);
+            this.text_refcompraproveedor.TabIndex = 101;
+            this.text_refcompraproveedor.Tag = "...";
             // 
             // groupBox8
             // 
@@ -308,9 +296,9 @@
             this.groupBox8.Controls.Add(this.label23);
             this.groupBox8.Controls.Add(this.label24);
             this.groupBox8.Controls.Add(this.label25);
-            this.groupBox8.Location = new System.Drawing.Point(401, 87);
+            this.groupBox8.Location = new System.Drawing.Point(184, 146);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(244, 124);
+            this.groupBox8.Size = new System.Drawing.Size(766, 53);
             this.groupBox8.TabIndex = 136;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Existencias";
@@ -321,11 +309,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(8, 72);
+            this.label21.Location = new System.Drawing.Point(381, 20);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(98, 13);
+            this.label21.Size = new System.Drawing.Size(48, 13);
             this.label21.TabIndex = 65;
-            this.label21.Text = "Formato/Contenido";
+            this.label21.Text = "Formato:";
             // 
             // label22
             // 
@@ -334,11 +322,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.AutoSize = true;
             this.label22.BackColor = System.Drawing.Color.Transparent;
-            this.label22.Location = new System.Drawing.Point(64, 20);
+            this.label22.Location = new System.Drawing.Point(107, 20);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(48, 13);
+            this.label22.Size = new System.Drawing.Size(51, 13);
             this.label22.TabIndex = 2;
-            this.label22.Text = "Almacén";
+            this.label22.Text = "Almacén:";
             // 
             // label23
             // 
@@ -347,11 +335,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.AutoSize = true;
             this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Location = new System.Drawing.Point(66, 44);
+            this.label23.Location = new System.Drawing.Point(226, 20);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(40, 13);
+            this.label23.Size = new System.Drawing.Size(43, 13);
             this.label23.TabIndex = 42;
-            this.label23.Text = "Tienda";
+            this.label23.Text = "Tienda:";
             // 
             // label24
             // 
@@ -359,11 +347,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(36, 98);
+            this.label24.Location = new System.Drawing.Point(565, 20);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(73, 13);
+            this.label24.Size = new System.Drawing.Size(76, 13);
             this.label24.TabIndex = 44;
-            this.label24.Text = "Empaquetado";
+            this.label24.Text = "Empaquetado:";
             // 
             // label25
             // 
@@ -381,7 +369,7 @@
             this.groupBox7.Controls.Add(this.combo_refarticulo);
             this.groupBox7.Location = new System.Drawing.Point(184, 19);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(341, 62);
+            this.groupBox7.Size = new System.Drawing.Size(205, 62);
             this.groupBox7.TabIndex = 135;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Selección";
@@ -389,7 +377,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(228, 24);
+            this.pictureBox3.Location = new System.Drawing.Point(6, 19);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(51, 32);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -403,7 +391,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Location = new System.Drawing.Point(89, 19);
+            this.label11.Location = new System.Drawing.Point(60, 14);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 13);
             this.label11.TabIndex = 114;
@@ -412,7 +400,7 @@
             // combo_refarticulo
             // 
             this.combo_refarticulo.FormattingEnabled = true;
-            this.combo_refarticulo.Location = new System.Drawing.Point(92, 35);
+            this.combo_refarticulo.Location = new System.Drawing.Point(63, 30);
             this.combo_refarticulo.Name = "combo_refarticulo";
             this.combo_refarticulo.Size = new System.Drawing.Size(130, 21);
             this.combo_refarticulo.TabIndex = 113;
@@ -432,7 +420,7 @@
             this.groupBox6.Controls.Add(this.label14);
             this.groupBox6.Location = new System.Drawing.Point(184, 88);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(211, 123);
+            this.groupBox6.Size = new System.Drawing.Size(766, 52);
             this.groupBox6.TabIndex = 134;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Características";
@@ -440,7 +428,7 @@
             // text_clasevino
             // 
             this.text_clasevino.Enabled = false;
-            this.text_clasevino.Location = new System.Drawing.Point(92, 46);
+            this.text_clasevino.Location = new System.Drawing.Point(274, 20);
             this.text_clasevino.Name = "text_clasevino";
             this.text_clasevino.Size = new System.Drawing.Size(113, 20);
             this.text_clasevino.TabIndex = 64;
@@ -449,7 +437,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Location = new System.Drawing.Point(19, 102);
+            this.label10.Location = new System.Drawing.Point(569, 24);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 13);
             this.label10.TabIndex = 144;
@@ -468,7 +456,7 @@
             // text_catalogacion
             // 
             this.text_catalogacion.Enabled = false;
-            this.text_catalogacion.Location = new System.Drawing.Point(92, 97);
+            this.text_catalogacion.Location = new System.Drawing.Point(642, 19);
             this.text_catalogacion.Name = "text_catalogacion";
             this.text_catalogacion.Size = new System.Drawing.Size(113, 20);
             this.text_catalogacion.TabIndex = 53;
@@ -476,15 +464,15 @@
             // text_proveedor
             // 
             this.text_proveedor.Enabled = false;
-            this.text_proveedor.Location = new System.Drawing.Point(94, 20);
+            this.text_proveedor.Location = new System.Drawing.Point(92, 20);
             this.text_proveedor.Name = "text_proveedor";
-            this.text_proveedor.Size = new System.Drawing.Size(111, 20);
+            this.text_proveedor.Size = new System.Drawing.Size(113, 20);
             this.text_proveedor.TabIndex = 113;
             // 
             // text_denominacion
             // 
             this.text_denominacion.Enabled = false;
-            this.text_denominacion.Location = new System.Drawing.Point(92, 71);
+            this.text_denominacion.Location = new System.Drawing.Point(435, 20);
             this.text_denominacion.Name = "text_denominacion";
             this.text_denominacion.Size = new System.Drawing.Size(113, 20);
             this.text_denominacion.TabIndex = 55;
@@ -496,11 +484,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Location = new System.Drawing.Point(29, 49);
+            this.label13.Location = new System.Drawing.Point(211, 23);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(57, 13);
+            this.label13.Size = new System.Drawing.Size(60, 13);
             this.label13.TabIndex = 63;
-            this.label13.Text = "Clase Vino";
+            this.label13.Text = "Clase Vino:";
             // 
             // label14
             // 
@@ -509,42 +497,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Location = new System.Drawing.Point(57, 74);
+            this.label14.Location = new System.Drawing.Point(400, 23);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(29, 13);
             this.label14.TabIndex = 54;
             this.label14.Text = "D.O.";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(538, 20);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(107, 69);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 107;
-            this.pictureBox2.TabStop = false;
-            // 
-            // text_refcompraproveedor
-            // 
-            this.text_refcompraproveedor.Enabled = false;
-            this.text_refcompraproveedor.Location = new System.Drawing.Point(80, 19);
-            this.text_refcompraproveedor.Name = "text_refcompraproveedor";
-            this.text_refcompraproveedor.Size = new System.Drawing.Size(78, 20);
-            this.text_refcompraproveedor.TabIndex = 101;
-            this.text_refcompraproveedor.Tag = "...";
-            // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox4.Controls.Add(this.text_refcompraproveedor);
             this.groupBox4.Controls.Add(this.listView1);
-            this.groupBox4.Controls.Add(this.label_referencia);
-            this.groupBox4.Controls.Add(this.dateTimePicker_fechacompra);
-            this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Location = new System.Drawing.Point(12, 308);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(805, 216);
+            this.groupBox4.Size = new System.Drawing.Size(956, 190);
             this.groupBox4.TabIndex = 105;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Listado de Compra";
@@ -565,9 +530,9 @@
             this.columnHeader2});
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(6, 45);
+            this.listView1.Location = new System.Drawing.Point(6, 19);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(791, 158);
+            this.listView1.Size = new System.Drawing.Size(944, 166);
             this.listView1.TabIndex = 106;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -577,32 +542,32 @@
             // columnHeader8
             // 
             this.columnHeader8.Text = "Ref. Artículo";
-            this.columnHeader8.Width = 72;
+            this.columnHeader8.Width = 100;
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "Clase de Vino";
-            this.columnHeader9.Width = 79;
+            this.columnHeader9.Width = 121;
             // 
             // columnHeader12
             // 
             this.columnHeader12.Text = "Denominación";
-            this.columnHeader12.Width = 128;
+            this.columnHeader12.Width = 156;
             // 
             // columnHeader11
             // 
             this.columnHeader11.Text = "Catalogación";
-            this.columnHeader11.Width = 88;
+            this.columnHeader11.Width = 114;
             // 
             // columnHeader14
             // 
             this.columnHeader14.Text = "Formato";
-            this.columnHeader14.Width = 72;
+            this.columnHeader14.Width = 98;
             // 
             // columnHeader13
             // 
             this.columnHeader13.Text = "Empaquetado";
-            this.columnHeader13.Width = 95;
+            this.columnHeader13.Width = 97;
             // 
             // columnHeader19
             // 
@@ -612,7 +577,7 @@
             // columnHeader20
             // 
             this.columnHeader20.Text = "PVP coste";
-            this.columnHeader20.Width = 58;
+            this.columnHeader20.Width = 62;
             // 
             // columnHeader1
             // 
@@ -622,20 +587,39 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Precio Venta";
-            this.columnHeader2.Width = 78;
+            this.columnHeader2.Width = 80;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cOMPRARToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(980, 24);
+            this.menuStrip1.TabIndex = 106;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // cOMPRARToolStripMenuItem
+            // 
+            this.cOMPRARToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cOMPRARToolStripMenuItem.Image")));
+            this.cOMPRARToolStripMenuItem.Margin = new System.Windows.Forms.Padding(870, 0, 0, 0);
+            this.cOMPRARToolStripMenuItem.Name = "cOMPRARToolStripMenuItem";
+            this.cOMPRARToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.cOMPRARToolStripMenuItem.Text = "COMPRAR";
+            this.cOMPRARToolStripMenuItem.Click += new System.EventHandler(this.cOMPRARToolStripMenuItem_Click);
             // 
             // Form_CompraArticulosProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(825, 561);
+            this.ClientSize = new System.Drawing.Size(980, 501);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.btn_comprar);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Form_CompraArticulosProveedor";
             this.Text = "WINE CLUB";
@@ -647,6 +631,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_unidadesacomprar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_preciocoste)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.groupBox7.ResumeLayout(false);
@@ -654,15 +639,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox text_formatocontenido;
         private System.Windows.Forms.TextBox text_empaquetado;
         private System.Windows.Forms.TextBox text_unidadesalmacen;
@@ -675,7 +660,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown numericUpDown_preciocoste;
-        private System.Windows.Forms.Button btn_comprar;
         private System.Windows.Forms.DateTimePicker dateTimePicker_fechacompra;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label_referencia;
@@ -696,7 +680,6 @@
         private System.Windows.Forms.TextBox text_catalogacion;
         private System.Windows.Forms.TextBox text_denominacion;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox combo_refarticulo;
@@ -714,5 +697,7 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem cOMPRARToolStripMenuItem;
     }
 }

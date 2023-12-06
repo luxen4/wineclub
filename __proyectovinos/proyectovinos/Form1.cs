@@ -579,7 +579,6 @@ namespace proyectovinos
                 logueo();
             } else if (loguinToolStripMenuItem.Text == "Log Out") {
                 // se desloguea
-                MessageBox.Show("leslogueo");
                 deslogueo();
             }
         }

@@ -78,6 +78,8 @@ namespace proyectovinos.VentasDevoluciones
             return id_lineacompraproveedor;
         }
 
+
+        // Función que compone una factura de venta de socio
         internal void mostrarFactura(string refVen) { 
         
 
@@ -101,7 +103,80 @@ namespace proyectovinos.VentasDevoluciones
                     Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
 
 
-                PdfPTable table = new PdfPTable(3);
+
+
+
+
+            
+            // Cargar la imagen desde un archivo (reemplaza la ruta con la ruta de tu imagen)
+            string rutaImagen = "C:/imagen.png";
+            Image imagen = Image.GetInstance(rutaImagen);
+
+            // Ajustar el tamaño de la imagen si es necesario
+            imagen.ScaleToFit(PageSize.A4.Width, PageSize.A4.Height);
+
+
+            /*
+            // Establecer la posición de la imagen en la página (coordenadas X y Y en puntos)
+            float posicionX = 10; // Posición horizontal en puntos
+            float posicionY = 10; // Posición vertical en puntos
+            imagen.SetAbsolutePosition(posicionX, posicionY);*/
+
+
+
+
+
+            // Establecer medidas específicas para la imagen (ancho y alto en puntos)
+            float anchoImagen = 90; // Ancho en puntos
+            float altoImagen = 90; // Alto en puntos
+            imagen.ScaleAbsolute(anchoImagen, altoImagen);
+
+            // Definir la posición de la imagen en la esquina superior izquierda (coordenadas X e Y en puntos)
+            float posicionX = 20; // Posición horizontal en puntos (esquina izquierda)
+            float posicionY = PageSize.A4.Height - altoImagen; // Posición vertical en puntos (esquina superior)
+
+
+            int num = Convert.ToInt32(posicionY) - 70;
+
+            posicionY = Convert.ToSingle(num);
+
+
+            MessageBox.Show(posicionY.ToString());
+            imagen.SetAbsolutePosition(posicionX, posicionY);
+
+
+
+
+            /*
+            // Establecer medidas específicas para la imagen (ancho y alto en puntos)
+            float anchoImagen = 60; // Ancho en puntos
+            float altoImagen = 60; // Alto en puntos
+            imagen.ScaleAbsolute(anchoImagen, altoImagen);
+            */
+
+
+
+
+
+            // Agregar la imagen al documento
+            doc.Add(imagen);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            PdfPTable table = new PdfPTable(3);
                 table.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
 
 
@@ -154,7 +229,7 @@ namespace proyectovinos.VentasDevoluciones
                 Paragraph paraHeader_1 = new Paragraph("Factura");
                 paraHeader_1.Alignment = Element.ALIGN_CENTER;
                 paraHeader_1.Font.Size = 25;
-                paraHeader_1.SpacingAfter = 10f;
+                paraHeader_1.SpacingAfter = 50f;
                 doc.Add(paraHeader_1);
 
                 table = new PdfPTable(3);
@@ -169,7 +244,7 @@ namespace proyectovinos.VentasDevoluciones
 
                 //leave a gap before and after the table
                 table.SpacingBefore = 30f;
-                table.SpacingAfter = 30f;
+                table.SpacingAfter = 5f;
 
                 table.HorizontalAlignment = 1;
 

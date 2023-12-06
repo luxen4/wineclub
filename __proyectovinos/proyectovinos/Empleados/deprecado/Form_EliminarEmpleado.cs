@@ -118,6 +118,7 @@ namespace proyectovinos.Empleados
                             consultas.eliminarCaracteristica(tabla, "ref", text_referenciaeliminar.Text);
                             return true;
                         }
+                        
                     }
                     else
                     {

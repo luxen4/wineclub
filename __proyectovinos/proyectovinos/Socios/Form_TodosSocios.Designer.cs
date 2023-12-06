@@ -51,8 +51,12 @@
             this.pROVEEDORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sociosInhabilitadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.habilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deshabilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,9 +69,9 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.listView1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 29);
+            this.groupBox1.Location = new System.Drawing.Point(12, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1171, 334);
+            this.groupBox1.Size = new System.Drawing.Size(956, 466);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Todos los Socios Habilitados";
@@ -85,6 +89,7 @@
             this.groupBox2.TabIndex = 81;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Deshabilitar Socio";
+            this.groupBox2.Visible = false;
             // 
             // button_eliminar
             // 
@@ -102,7 +107,7 @@
             // 
             this.text_nombreapellidos.Location = new System.Drawing.Point(6, 34);
             this.text_nombreapellidos.Name = "text_nombreapellidos";
-            this.text_nombreapellidos.Size = new System.Drawing.Size(154, 20);
+            this.text_nombreapellidos.Size = new System.Drawing.Size(148, 20);
             this.text_nombreapellidos.TabIndex = 82;
             // 
             // label5
@@ -159,7 +164,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(172, 17);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(994, 311);
+            this.listView1.Size = new System.Drawing.Size(778, 443);
             this.listView1.TabIndex = 10;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -167,23 +172,23 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Referencia";
-            this.columnHeader1.Width = 77;
+            this.columnHeader1.Text = "Ref.";
+            this.columnHeader1.Width = 55;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Nombre";
-            this.columnHeader2.Width = 80;
+            this.columnHeader2.Width = 83;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Apellidos";
-            this.columnHeader3.Width = 120;
+            this.columnHeader3.Width = 112;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Sexo";
-            this.columnHeader4.Width = 70;
+            this.columnHeader4.Width = 56;
             // 
             // columnHeader5
             // 
@@ -193,35 +198,39 @@
             // columnHeader6
             // 
             this.columnHeader6.Text = "Teléfono";
-            this.columnHeader6.Width = 85;
+            this.columnHeader6.Width = 76;
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "Localidad";
-            this.columnHeader9.Width = 150;
+            this.columnHeader9.Width = 80;
             // 
             // columnHeader10
             // 
             this.columnHeader10.Text = "Provincia";
-            this.columnHeader10.Width = 100;
+            this.columnHeader10.Width = 69;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "email";
-            this.columnHeader7.Width = 150;
+            this.columnHeader7.Width = 110;
             // 
             // columnHeader8
             // 
-            this.columnHeader8.Text = "Recibir info";
-            this.columnHeader8.Width = 75;
+            this.columnHeader8.Text = "R. info";
+            this.columnHeader8.Width = 70;
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pROVEEDORESToolStripMenuItem});
+            this.pROVEEDORESToolStripMenuItem,
+            this.actualizarToolStripMenuItem,
+            this.habilitarToolStripMenuItem,
+            this.deshabilitarToolStripMenuItem,
+            this.eliminarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1186, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(980, 24);
             this.menuStrip1.TabIndex = 19;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -229,9 +238,7 @@
             // 
             this.pROVEEDORESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoToolStripMenuItem,
-            this.modificarToolStripMenuItem,
-            this.sociosInhabilitadosToolStripMenuItem,
-            this.eliminarToolStripMenuItem});
+            this.modificarToolStripMenuItem});
             this.pROVEEDORESToolStripMenuItem.Name = "pROVEEDORESToolStripMenuItem";
             this.pROVEEDORESToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.pROVEEDORESToolStripMenuItem.Text = "SOCIOS";
@@ -250,26 +257,70 @@
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
-            // sociosInhabilitadosToolStripMenuItem
+            // actualizarToolStripMenuItem
             // 
-            this.sociosInhabilitadosToolStripMenuItem.Name = "sociosInhabilitadosToolStripMenuItem";
-            this.sociosInhabilitadosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.sociosInhabilitadosToolStripMenuItem.Text = "Socios Deshabilitados";
-            this.sociosInhabilitadosToolStripMenuItem.Click += new System.EventHandler(this.sociosInhabilitadosToolStripMenuItem_Click);
+            this.actualizarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("actualizarToolStripMenuItem.Image")));
+            this.actualizarToolStripMenuItem.Name = "actualizarToolStripMenuItem";
+            this.actualizarToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.actualizarToolStripMenuItem.Text = "Actualizar";
+            this.actualizarToolStripMenuItem.Click += new System.EventHandler(this.actualizarToolStripMenuItem_Click);
+            // 
+            // habilitarToolStripMenuItem
+            // 
+            this.habilitarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("habilitarToolStripMenuItem.Image")));
+            this.habilitarToolStripMenuItem.Name = "habilitarToolStripMenuItem";
+            this.habilitarToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.habilitarToolStripMenuItem.Text = "Habilitar";
+            this.habilitarToolStripMenuItem.Click += new System.EventHandler(this.habilitarToolStripMenuItem_Click);
+            // 
+            // deshabilitarToolStripMenuItem
+            // 
+            this.deshabilitarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deshabilitarToolStripMenuItem.Image")));
+            this.deshabilitarToolStripMenuItem.Name = "deshabilitarToolStripMenuItem";
+            this.deshabilitarToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
+            this.deshabilitarToolStripMenuItem.Text = "Deshabilitar";
+            this.deshabilitarToolStripMenuItem.Click += new System.EventHandler(this.deshabilitarToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
             // 
+            this.eliminarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("eliminarToolStripMenuItem.Image")));
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
-            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(868, 7);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(94, 17);
+            this.radioButton2.TabIndex = 115;
+            this.radioButton2.Text = "Deshabilitados";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(784, 7);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(77, 17);
+            this.radioButton1.TabIndex = 116;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Habilitados";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // Form_TodosSocios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1186, 368);
+            this.ClientSize = new System.Drawing.Size(980, 509);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -312,7 +363,11 @@
         private System.Windows.Forms.TextBox text_nombreapellidos;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox check_seguro;
-        private System.Windows.Forms.ToolStripMenuItem sociosInhabilitadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem actualizarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem habilitarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deshabilitarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

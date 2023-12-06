@@ -79,14 +79,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox_perfilsocio = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mOVIMIENTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deAlmacénATiendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pRESENTACIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargaArticulo1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargaArticulo2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.check_mostrarfactura = new System.Windows.Forms.CheckBox();
+            this.tERMINARCOMPRAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_cantidad)).BeginInit();
@@ -117,7 +116,7 @@
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Location = new System.Drawing.Point(9, 35);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(841, 534);
+            this.groupBox2.Size = new System.Drawing.Size(841, 576);
             this.groupBox2.TabIndex = 40;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Venta a Socio";
@@ -408,7 +407,7 @@
             this.groupBox3.Controls.Add(this.listView1);
             this.groupBox3.Location = new System.Drawing.Point(6, 309);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(826, 217);
+            this.groupBox3.Size = new System.Drawing.Size(826, 259);
             this.groupBox3.TabIndex = 103;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Listado de Compra";
@@ -430,7 +429,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(8, 19);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(812, 192);
+            this.listView1.Size = new System.Drawing.Size(812, 234);
             this.listView1.TabIndex = 48;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -635,22 +634,12 @@
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
-            // button2
-            // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.Location = new System.Drawing.Point(688, 588);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(162, 23);
-            this.button2.TabIndex = 63;
-            this.button2.Text = "Terminar Compra";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mOVIMIENTOSToolStripMenuItem,
-            this.pRESENTACIONToolStripMenuItem});
+            this.pRESENTACIONToolStripMenuItem,
+            this.tERMINARCOMPRAToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(859, 24);
@@ -695,16 +684,14 @@
             this.cargaArticulo2ToolStripMenuItem.Text = "Carga Articulo 2 ";
             this.cargaArticulo2ToolStripMenuItem.Click += new System.EventHandler(this.cargaArticulo2ToolStripMenuItem_Click);
             // 
-            // check_mostrarfactura
+            // tERMINARCOMPRAToolStripMenuItem
             // 
-            this.check_mostrarfactura.AutoSize = true;
-            this.check_mostrarfactura.BackColor = System.Drawing.Color.Transparent;
-            this.check_mostrarfactura.Location = new System.Drawing.Point(689, 570);
-            this.check_mostrarfactura.Name = "check_mostrarfactura";
-            this.check_mostrarfactura.Size = new System.Drawing.Size(100, 17);
-            this.check_mostrarfactura.TabIndex = 66;
-            this.check_mostrarfactura.Text = "Mostrar Factura";
-            this.check_mostrarfactura.UseVisualStyleBackColor = false;
+            this.tERMINARCOMPRAToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tERMINARCOMPRAToolStripMenuItem.Image")));
+            this.tERMINARCOMPRAToolStripMenuItem.Margin = new System.Windows.Forms.Padding(300, 0, 0, 0);
+            this.tERMINARCOMPRAToolStripMenuItem.Name = "tERMINARCOMPRAToolStripMenuItem";
+            this.tERMINARCOMPRAToolStripMenuItem.Size = new System.Drawing.Size(145, 20);
+            this.tERMINARCOMPRAToolStripMenuItem.Text = "TERMINAR COMPRA";
+            this.tERMINARCOMPRAToolStripMenuItem.Click += new System.EventHandler(this.tERMINARCOMPRAToolStripMenuItem_Click);
             // 
             // Form_VentaSocio
             // 
@@ -713,8 +700,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(859, 615);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.check_mostrarfactura);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -781,7 +766,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox text_formatocontenido;
@@ -806,6 +790,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox text_proveedor;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.CheckBox check_mostrarfactura;
+        private System.Windows.Forms.ToolStripMenuItem tERMINARCOMPRAToolStripMenuItem;
     }
 }

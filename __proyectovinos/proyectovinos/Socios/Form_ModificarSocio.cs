@@ -24,6 +24,7 @@ namespace proyectovinos
         Consultas consultas = new Consultas();
         Class_Socio socio = new Class_Socio();
         Class_Socio consulta = new Class_Socio();
+        CumplimentarComboboxes combos = new CumplimentarComboboxes();
 
         private string referencia = "";
         private int id_socio = 0;
@@ -35,6 +36,7 @@ namespace proyectovinos
         private void Form_ModificarSocio_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
+            combos.cumplimenterComboboxSocio(combo_socio);
         }
 
 
@@ -62,11 +64,13 @@ namespace proyectovinos
             }
         }
 
-
+               
+        /// <summary>
+        /// Función que modifica los registros de un socio  
+        /// </summary>
+        /// <returns></returns>
         private bool modificarSocio()
         {
-
-            
             string newRef = text_referencianueva.Text;
             string newNombre = text_nombrenuevo.Text;
             string newApellidos = text_apellidosnuevo.Text;
@@ -95,10 +99,6 @@ namespace proyectovinos
                 newRecibirInfo = "No";
             }
 
-
-
-
-
             ConexionBD con = new ConexionBD();
             string cadenaConexion = con.conexion();
             MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
@@ -119,7 +119,8 @@ namespace proyectovinos
                     " recibir_info='" + newRecibirInfo + "'" +
 
 
-                    " WHERE ref = " + "'" + refSocio + "' "; MessageBox.Show(selectQuery);
+                    " WHERE ref = " + "'" + refSocio + "' "; 
+                // MessageBox.Show(selectQuery);
 
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
@@ -134,6 +135,7 @@ namespace proyectovinos
             catch (MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
+                MessageBox.Show("La referencia ya se encuentra asignada a otro usuario \n ...pruebe con otra!");
                 conexionBD.Close();
                 return false;
             }
@@ -146,23 +148,17 @@ namespace proyectovinos
 
         private bool camposVacios()
         {
-            if (  text_referencia.Text == "" || 
-            text_nombrenuevo.Text == "" || text_nif.Text == "" || text_telefono.Text == "" ||
-            text_apellidosnuevo.Text == "" || text_localidad.Text == "" || text_provincia.Text == "" ||
-            text_referencianueva.Text == "" || text_email.Text == "") {
-
+            if (  combo_socio.Text == "Seleccione") {
                 return false;
             }
             else { 
-            return true;
+                return true;
             }
-            
-        
         }
 
         private void limpiarCampos()
         {
-            text_referencia.Text = "";
+            combo_socio.Text = "Seleccione";
             text_nombrenuevo.Text = ""; text_nif.Text = ""; text_telefono.Text = "";
             text_apellidosnuevo.Text = ""; text_localidad.Text = ""; text_provincia.Text = "";
             text_referencianueva.Text = ""; text_email.Text = ""; check_recibirinfo.Checked = false;
@@ -172,10 +168,9 @@ namespace proyectovinos
         private string refSocio = "";
 
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private void combo_socio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            refSocio = text_referencia.Text;
+            refSocio = combo_socio.Text;
             id_socio = consultas.obtenerCualquierId("id_socio", "socio", "ref", refSocio);
             socio.agregarImagenPictureBoxSocio(id_socio, pictureBox1);
 
@@ -208,8 +203,6 @@ namespace proyectovinos
             {
                 radio_mujer.Checked = true;
             }
-
-
 
         }
     }

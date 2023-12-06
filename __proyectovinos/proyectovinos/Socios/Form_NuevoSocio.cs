@@ -120,11 +120,6 @@ namespace proyectovinos
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void text_nombre_TextChanged(object sender, EventArgs e)
         {
 
@@ -163,6 +158,7 @@ namespace proyectovinos
             }
         }
 
+        // Función que inserta un socio
         private bool insertarSocio()
         {
             ConexionBD con = new ConexionBD();
@@ -177,7 +173,7 @@ namespace proyectovinos
                                     "values (" + id_socio + ", '" + refSocio + "','" + nombre + "' ,'" + apellidos + "'," +
                                     "'" + localidad + "','" + provincia + "','" + sexo + "','" + nif + "'," +
                                     "'" + telefono + "','" + email + "','" + recibirInfo + "' ,'1')";
-                MessageBox.Show(selectQuery);
+                // MessageBox.Show(selectQuery);
 
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
@@ -197,8 +193,9 @@ namespace proyectovinos
             }
         }
 
+        // Función que guarda la imagen de socio en su carpeta 
         private void salvarImagenEnCarpetaSocio2(int id_socio)
-        {
+        {   // (podría hacerse genérica con proveedor o empleado)
             try
             {
                 // string folderPath = @"C:\MyFoldera";
@@ -267,11 +264,6 @@ namespace proyectovinos
             //AperturaFormulariosArticulo apertura=new AperturaFormulariosArticulo();
             //apertura.todaVentas();
         }
-
-
-
-   
-
     }
 }
 

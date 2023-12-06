@@ -102,7 +102,6 @@ namespace proyectovinos
         // Bloque que rellena el combobox de referencia de Socio
         public void cumplimenterComboboxSocio(ComboBox combo_socio)
         {
-        
             string cadenaConexion = con.conexion();
             MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
 

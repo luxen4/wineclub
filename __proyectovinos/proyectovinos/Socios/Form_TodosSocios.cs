@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using proyectovinos.ArticuloVino;
 using proyectovinos.Socios;
 
 namespace proyectovinos
@@ -34,8 +35,9 @@ namespace proyectovinos
         private void Form_TodosSocios_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
-            socio.cumplimentarListaSocios(listView1,'1');
-            primeravez = 1;
+            this.Top = this.Top + 10;
+            habilitarToolStripMenuItem.Enabled = false;
+            eliminarToolStripMenuItem.Enabled = false;
         }
 
       
@@ -73,18 +75,16 @@ namespace proyectovinos
 
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            if (primeravez == 1)
-            {
-                referencia = e.Item.Text;
-                id_socio = consultas.obtenerCualquierId("id_socio","socio","ref",referencia);
-                int index = e.Item.Index;
-                string nombre = listView1.Items[index].SubItems[1].Text;
-                string apellido1 = listView1.Items[index].SubItems[2].Text;
-                string apellido2 = listView1.Items[index].SubItems[3].Text;
+            referencia = e.Item.Text;
+            id_socio = consultas.obtenerCualquierId("id_socio","socio","ref",referencia);
+            int index = e.Item.Index;
+            string nombre = listView1.Items[index].SubItems[1].Text;
+            string apellido1 = listView1.Items[index].SubItems[2].Text;
+            string apellido2 = listView1.Items[index].SubItems[3].Text;
 
-                text_nombreapellidos.Text = nombre + " " + apellido1 + " " + apellido2;
-                socio.agregarImagenPictureBoxSocio(id_socio, pictureBox1);
-            }
+            text_nombreapellidos.Text = nombre + " " + apellido1 + " " + apellido2;
+            socio.agregarImagenPictureBoxSocio(id_socio, pictureBox1);
+            
         }
 
 
@@ -108,6 +108,126 @@ namespace proyectovinos
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             socioAperturaForms.eliminarSocio(); this.Close();
+        }
+
+        private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            socio.cumplimentarListaSocios(listView1, '1');
+            primeravez = 1;
+        }
+
+        private void habilitarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (referencia != "")
+            {
+                // Pregunte si está seguro de eliminar y si es sí que lo elimine
+                DialogResult opcionSeleccionada = MessageBox.Show("Realmente desea habilitar este socio?", "Aviso", MessageBoxButtons.YesNo);
+
+                if (opcionSeleccionada == DialogResult.Yes)
+                {
+                    consultas.habilitarDesabilitarCualquierReferencia(tabla, "ref", referencia, '1');
+                    listView1.Items.Clear();
+                    socio.cumplimentarListaSocios(listView1, '0');
+                    limpiarCampos();
+                }
+                else {
+                    MessageBox.Show("Tenga cuidado");
+                }
+            }
+            else
+            {
+                MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
+            }
+            referencia = "";
+        }
+
+        private void deshabilitarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (referencia != "")
+            {
+                // Pregunte si está seguro de eliminar y si es sí que lo elimine
+                DialogResult opcionSeleccionada = MessageBox.Show("Realmente desea deshabilitar este socio?", "Aviso", MessageBoxButtons.YesNo);
+
+                if (opcionSeleccionada == DialogResult.Yes)
+                {
+                    consultas.habilitarDesabilitarCualquierReferencia(tabla, "ref", referencia, '0');
+                    listView1.Items.Clear();
+                    socio.cumplimentarListaSocios(listView1, '1');
+                    limpiarCampos();
+                }
+                else
+                {
+                    MessageBox.Show("Tenga cuidado");
+                }
+
+            }else{
+                MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
+            }
+            referencia = "";
+        }
+
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (referencia != "")
+            {
+                // Pregunte si está seguro de eliminar y si es sí que lo elimine
+                DialogResult opcionSeleccionada = MessageBox.Show("Realmente desea eliminar este socio?", "Aviso", MessageBoxButtons.YesNo);
+
+                if (opcionSeleccionada == DialogResult.Yes)
+                { 
+                    int id = consultas.obtenerCualquierId("id_socio", tabla, "ref", referencia);
+
+                    Class_Articulo articulo = new Class_Articulo();
+                    int existencias = articulo.existeArticuloConCaracteristica("id_ventasocio", "ventasocio", "id_socio", id);
+
+                    if (existencias > 0)
+                    {
+                        MessageBox.Show(existencias + ClaseCompartida.msgArticulosTipo);
+                    }
+                    else
+                    {
+                        bool eliminado = consultas.eliminarCaracteristica(tabla, "ref", referencia);
+                        if (eliminado == true)
+                        {
+                            consultas.habilitarDesabilitarCualquierReferencia(tabla, "ref", referencia, '0');
+                            listView1.Items.Clear();
+                            socio.cumplimentarListaSocios(listView1, '0');
+                            limpiarCampos();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Tenga cuidado");
+                }
+            }
+            else
+            {
+                MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
+            }
+            
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            socio.cumplimentarListaSocios(listView1, '1');
+            habilitarToolStripMenuItem.Enabled = false;
+            deshabilitarToolStripMenuItem.Enabled = true;
+            eliminarToolStripMenuItem.Enabled = false;
+            actualizarToolStripMenuItem.Enabled = true;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            socio.cumplimentarListaSocios(listView1, '0');
+            habilitarToolStripMenuItem.Enabled=true;
+            deshabilitarToolStripMenuItem.Enabled = false;
+            eliminarToolStripMenuItem.Enabled=true;
+            actualizarToolStripMenuItem.Enabled=false;
         }
     }
 }
