@@ -296,9 +296,6 @@ namespace proyectovinos.ArticuloVino
         }
 
 
-
-
-
         // Método que Registra una nueva linea de proveedor en una ubicación
         public void nuevaExistenciaAlmacenTienda(int id_ubicacion, int id_lineacompraproveedor, int id_articulo, int existencias)
         {

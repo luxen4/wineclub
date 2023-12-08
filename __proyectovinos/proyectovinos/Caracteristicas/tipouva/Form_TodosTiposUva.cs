@@ -112,8 +112,9 @@ namespace proyectovinos.Caracteristicas.tipouva
         private void button17_Click(object sender, EventArgs e)
         {
             Class_VariedadUvaAperturaForms variedad = new Class_VariedadUvaAperturaForms();
-            variedad.todasVariedadesUva();
+            //variedad.todasVariedadesUva();
             //variedad.todasVariedadesUvaII();
+            variedad.todasVariedadesUvaIII();
         }
 
 

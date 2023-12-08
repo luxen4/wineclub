@@ -111,29 +111,29 @@ namespace proyectovinos
 
         internal void habilitarOnOff_Caracteristica( string tabla, string whereAtributo, string valorAtributo, char activo)
         {
-                ConexionBD con = new ConexionBD();
-                string cadenaConexion = con.conexion();
-                MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
-                MySqlDataReader reader = null;
+            ConexionBD con = new ConexionBD();
+            string cadenaConexion = con.conexion();
+            MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
+            MySqlDataReader reader = null;
 
-                try
-                {
-                    //string selectQuery = "delete from " + tabla + " WHERE " + whereAtributo + " = " + "'" + valorAtributo + "'";
-                    string selectQuery = "update " + tabla + " SET " + "activo= '" + activo + "' WHERE " + whereAtributo + " = " + "'" + valorAtributo + "' ";
+            try
+            {
+                //string selectQuery = "delete from " + tabla + " WHERE " + whereAtributo + " = " + "'" + valorAtributo + "'";
+                string selectQuery = "update " + tabla + " SET " + "activo= '" + activo + "' WHERE " + whereAtributo + " = " + "'" + valorAtributo + "' ";
               
 
-                    MySqlCommand comando = new MySqlCommand(selectQuery);
-                    comando.Connection = conexionBD;
-                    conexionBD.Open();
-                    reader = comando.ExecuteReader();
-                    MessageBox.Show(ClaseCompartida.msgModificado);
+                MySqlCommand comando = new MySqlCommand(selectQuery);
+                comando.Connection = conexionBD;
+                conexionBD.Open();
+                reader = comando.ExecuteReader();
+                MessageBox.Show(ClaseCompartida.msgModificado);
 
-                }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally { conexionBD.Close(); }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally { conexionBD.Close(); }
         }
 
 

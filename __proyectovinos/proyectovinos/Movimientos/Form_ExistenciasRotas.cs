@@ -61,39 +61,7 @@ namespace proyectovinos.Movimientos
             alm.refLineasCompraProveedor(id_compraproveedor, id_articulo, combo_reflineacompraproveedor);
         }
   
-       
 
-
-        private void button_anadir_Click(object sender, EventArgs e)
-        {
-            int id_empleado = consultas.obtenerCualquierId("id_empleado", "empleado", "ref", ClaseCompartida.refe);
-            int unidades = Int32.Parse(numeric_cantidad.Text);
-
-            // fecha de la compra
-            DateTime fechaActual = DateTime.Now;
-            string fechaFormateada = ut.fechaTimeStam(fechaActual);
-
-            if (radio_almacen.Checked)
-            {
-                id_ubicacion = 1;
-                existencias = Int32.Parse(text_unidadesalmacen.Text);
-                existencias = existencias - Int32.Parse(numeric_cantidad.Text);
-            }
-            else if(radio_tienda.Checked){
-                id_ubicacion = 2;
-                existencias = Int32.Parse(text_unidadestienda.Text);
-                existencias = existencias - Int32.Parse(numeric_cantidad.Text);
-            }
-
-            id_predeterminado = consultas.referenciaPredeterminada("id_bajaexistencias", "bajaexistencias", refPredeterminada, text_refcompraproveedor);
-            
-            mov.registroBajaExistenciasUbicacion(id_predeterminado, id_empleado, id_ubicacion,id_lineacompraproveedor,unidades, fechaFormateada);
-            mov.ajusteExistenciasUbicacion(id_lineacompraproveedor, existencias, id_ubicacion);
-
-            limpiarCampos();
-            numeric_cantidad.Value = 0;
-
-        }
         CumplimentarPictureBoxes cumplimentarPictureBoxes = new CumplimentarPictureBoxes();
         CumplimentarComboboxes cumplimentarComboboxes = new CumplimentarComboboxes();
 
@@ -157,28 +125,16 @@ namespace proyectovinos.Movimientos
             text_preciocoste.Text = precioCoste.ToString();
         }
 
-        private void limpiarCampos()
-        {
-            combo_refcompraproveedor.Text = "Seleccione";
-            text_proveedor.Text = "";
-            combo_refarticulo.Text = "Seleccione";
-            text_clasevino.Text = "";
-            combo_reflineacompraproveedor.Text = "";
-            text_denominacion.Text = "";
-            text_formatocontenido.Text = "";
-            text_empaquetado.Text = "";
-            text_catalogacion.Text = "";
-            text_unidadesalmacen.Text = "";
-            text_unidadestienda.Text = "";
-            
-            text_empaquetado.Text = "";
-            pictureBox1.Image = null;
 
-            combo_reflineacompraproveedor.Enabled = false;
+        private void limpiarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
         }
 
+        // Función que comprueba las existencias de un artículo antes de darlas de baja
         private void numeric_cantidad_ValueChanged(object sender, EventArgs e)
         {
+            MessageBox.Show(numeric_cantidad.Value.ToString());
             int unidadesDevolver = Int32.Parse(numeric_cantidad.Value.ToString());
 
 
@@ -198,6 +154,47 @@ namespace proyectovinos.Movimientos
 
         }
 
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+            DialogResult opcionSeleccionada = MessageBox.Show("Realmente desea dara de baja las existencias de este artículo?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
+            {
+                int id_empleado = consultas.obtenerCualquierId("id_empleado", "empleado", "ref", ClaseCompartida.refe);
+                int unidades = Int32.Parse(numeric_cantidad.Text);
+
+                // fecha de la compra
+                DateTime fechaActual = DateTime.Now;
+                string fechaFormateada = ut.fechaTimeStam(fechaActual);
+
+                if (radio_almacen.Checked)
+                {
+                    id_ubicacion = 1;
+                    existencias = Int32.Parse(text_unidadesalmacen.Text);
+                    existencias = existencias - Int32.Parse(numeric_cantidad.Text);
+                }
+                else if (radio_tienda.Checked)
+                {
+                    id_ubicacion = 2;
+                    existencias = Int32.Parse(text_unidadestienda.Text);
+                    existencias = existencias - Int32.Parse(numeric_cantidad.Text);
+                }
+
+                id_predeterminado = consultas.referenciaPredeterminada("id_bajaexistencias", "bajaexistencias", refPredeterminada, text_refcompraproveedor);
+
+                mov.registroBajaExistenciasUbicacion(id_predeterminado, id_empleado, id_ubicacion, id_lineacompraproveedor, unidades, fechaFormateada);
+                mov.ajusteExistenciasUbicacion(id_lineacompraproveedor, existencias, id_ubicacion);
+
+                limpiarCampos();
+                numeric_cantidad.Value = 0;
+
+            }
+            else {
+                MessageBox.Show("Tenga cuidado!");
+            }
+           
+        }
 
         private bool comprobar(int unidadesDevolver, TextBox textBox) {
 
@@ -212,7 +209,6 @@ namespace proyectovinos.Movimientos
             {
                 decimal total = numeric_cantidad.Value * Decimal.Parse(text_preciocoste.Text.ToString());
                 text_total.Text = total.ToString();
-                button_anadir.Enabled = true;
                 return true;
             }
              
@@ -220,6 +216,28 @@ namespace proyectovinos.Movimientos
             
             return false;
         
+        }
+
+
+        // Función que pone todos los campos en modo predeterminado
+        private void limpiarCampos()
+        {
+            combo_refcompraproveedor.Text = "Seleccione";
+            text_proveedor.Text = "";
+            combo_refarticulo.Text = "Seleccione";
+            text_clasevino.Text = "";
+            combo_reflineacompraproveedor.Text = "";
+            text_denominacion.Text = "";
+            text_formatocontenido.Text = "";
+            text_empaquetado.Text = "";
+            text_catalogacion.Text = "";
+            text_unidadesalmacen.Text = "";
+            text_unidadestienda.Text = "";
+
+            text_empaquetado.Text = "";
+            pictureBox1.Image = null;
+
+            combo_reflineacompraproveedor.Enabled = false;
         }
 
 

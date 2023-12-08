@@ -258,11 +258,6 @@ namespace proyectovinos.VentasDevoluciones
                 doc.Add(table);
 
 
-
-
-
-
-
                 table = new PdfPTable(5);
                 table.TotalWidth = 600f;  //actual width of table in points
                                           //table.LockedWidth = true; //fix the absolute width of the table

@@ -216,8 +216,10 @@ namespace proyectovinos
 
         private void tipoDeUvaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /*Class_TipoUvaAperturaForms apertura = new Class_TipoUvaAperturaForms();
+            apertura.todosTiposUva();*/
             Class_TipoUvaAperturaForms apertura = new Class_TipoUvaAperturaForms();
-            apertura.todosTiposUva();
+            apertura.todosTiposUvaII();
         }
 
         private void catalogaciónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -296,8 +298,10 @@ namespace proyectovinos
 
         private void variedadDeUvaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /*Class_VariedadUvaAperturaForms var = new Class_VariedadUvaAperturaForms();
+            var.todasVariedadesUvaII();*/
             Class_VariedadUvaAperturaForms var = new Class_VariedadUvaAperturaForms();
-            var.todasVariedadesUvaII();
+            var.todasVariedadesUvaIII();
         }
 
         private void toolStripStatusLabel3_Click(object sender, EventArgs e)
@@ -541,8 +545,9 @@ namespace proyectovinos
 
         private void todasVariedadesDeUvaIIToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Class_VariedadUvaAperturaForms var = new Class_VariedadUvaAperturaForms();
-            var.todasVariedadesUva();
+            Class_VariedadUvaAperturaForms variedad = new Class_VariedadUvaAperturaForms();
+            // var.todasVariedadesUva();
+            variedad.todasVariedadesUvaIII();
         }
 
         private void aRTICULOSToolStripMenuItem_Click(object sender, EventArgs e)
@@ -610,6 +615,27 @@ namespace proyectovinos
         private void button_entrar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void loguinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["Form_Logueo"] != null)
+            {
+                Application.OpenForms["Form_Logueo"].Activate();
+            }
+            else
+            {
+                formularioLogueo = new Form_Logueo();
+                //formulario.MdiParent = this;
+                formularioLogueo.Show();
+            }
+
+            menuStrip1.Enabled = true;
+        }
+
+        private void toolStripStatusLabel3_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         /// <summary> Para si pongo el botón en medio

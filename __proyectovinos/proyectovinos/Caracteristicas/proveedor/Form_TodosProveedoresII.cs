@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using proyectovinos.ArticuloVino;
 
 namespace proyectovinos.Caracteristicas.proveedor
 {
@@ -64,31 +65,65 @@ namespace proyectovinos.Caracteristicas.proveedor
         // Eliminar carpeta proveedor
         private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            bool eliminado = ut.controladorEliminarCaracteristica(check_seguro, text_referenciaseleccionada, 
-                text_nombreseleccionado, nombreId, tabla, listView1);
 
-            // Eliminar su carpeta
-            if (eliminado == true)
+            DialogResult opcionSeleccionada = MessageBox.Show("Quiere eliminar el registro?", "Aviso", MessageBoxButtons.YesNo);
+
+            if (referencia != "")
             {
-                string folderPath = ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor;
-                try
+                if (opcionSeleccionada == DialogResult.Yes)
                 {
-                    Directory.Delete(folderPath, true);
-                    MessageBox.Show("Directorio eliminado: " + folderPath);
 
+                    /*bool eliminado = ut.controladorEliminarCaracteristica(check_seguro, text_referenciaseleccionada,
+                    text_nombreseleccionado, nombreId, tabla, listView1);*/
+
+
+                    Consultas consultas = new Consultas();
+                    int id = consultas.obtenerCualquierId(nombreId, tabla, "ref", referencia);
+
+                    Class_Articulo articulo = new Class_Articulo();
+                    int existencias = articulo.existeArticuloConCaracteristica("id_articulo", "articulo", "id_articulo", id);
+
+                    if (existencias > 0)
+                    {
+                        MessageBox.Show(existencias + ClaseCompartida.msgArticulosTipo);
+                    }
+                    else
+                    {
+                       bool eliminado = consultas.eliminarCaracteristica(tabla, "ref", referencia);     
+                        
+                        // Eliminar su carpeta
+                        if (eliminado == true)
+                        {
+                            string folderPath = ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor;
+                            try
+                            {
+                                Directory.Delete(folderPath, true);
+                                MessageBox.Show("Directorio eliminado: " + folderPath);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("The process failed: {0}", ex.Message);
+                            }
+
+                            ut.limpiarCamposEliminar(text_referenciaseleccionada, text_nombreseleccionado, check_seguro);
+                            prov.cumplimentarListaProveedores(listView1, '0');
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se ha eliminado, consulte con el administrador!");
+                        }
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("The process failed: {0}", ex.Message);
+                    MessageBox.Show("Tenga Cuidado");
                 }
-
-                ut.limpiarCamposEliminar(text_referenciaseleccionada, text_nombreseleccionado, check_seguro);
-                prov.cumplimentarListaProveedores(listView1, '0');
             }
             else
             {
-                MessageBox.Show("No se ha eliminado, consulte con el administrador!");
+                MessageBox.Show("Selecione una referencia");
             }
+            deseleccionarChecks();
         }
 
 
@@ -139,25 +174,45 @@ namespace proyectovinos.Caracteristicas.proveedor
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (text_nombreseleccionado.Text != "")
+            DialogResult opcionSeleccionada = MessageBox.Show("Quiere deshabilitar el registro?", "Aviso", MessageBoxButtons.YesNo);
+
+            if (referencia != "")
             {
-                if (check_seguro.Checked)
+                if (opcionSeleccionada == DialogResult.Yes)
                 {
-                    // string nombre = textBox_nombreproveedor.Text;
+                     // string nombre = textBox_nombreproveedor.Text;
                     consultas.habilitarDesabilitarCualquierReferencia(tabla, "ref", referencia, '0');
                     prov.cumplimentarListaProveedores(listView1, '1');
                     prov.limpiezaCampos(check_seguro, text_nombreseleccionado,  pictureBox1);
                     text_referenciaseleccionada.Text = "";
                     check_seguro.Checked = false;
                 }
-                else
-                {
-                    MessageBox.Show(ClaseCompartida.msgCasillaSeguro);
+                else {
+                    MessageBox.Show("Tenga cuidado");
                 }
             }
-            else
+            else {
+                MessageBox.Show("Selecione una referencia");
+            }
+
+            deseleccionarChecks();
+
+           
+
+        }
+
+        private void deseleccionarChecks()
+        {
+            referencia = "";
+            // Recorrer todos los controles en el formulario
+            foreach (Control control in Controls)
             {
-                MessageBox.Show(ClaseCompartida.msgSelectRegistro);
+                // Verificar si el control es un CheckBox
+                if (control is CheckBox checkBox)
+                {
+                    // Establecer la propiedad Checked en false para deseleccionarlo
+                    checkBox.Checked = false;
+                }
             }
         }
 
@@ -168,9 +223,12 @@ namespace proyectovinos.Caracteristicas.proveedor
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void habilitarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (text_nombreseleccionado.Text != "")
+
+            DialogResult opcionSeleccionada = MessageBox.Show("Quiere deshabilitar el registro?", "Aviso", MessageBoxButtons.YesNo);
+
+            if (referencia != "")
             {
-                if (check_seguro.Checked)
+                if (opcionSeleccionada == DialogResult.Yes)
                 {
                     string nombre = text_nombreseleccionado.Text;
                     consultas.habilitarDesabilitarCualquierReferencia(tabla, "ref", referencia, '1');
@@ -181,14 +239,12 @@ namespace proyectovinos.Caracteristicas.proveedor
                 }
                 else
                 {
-                    MessageBox.Show(ClaseCompartida.msgCasillaSeguro);
+                    MessageBox.Show("Selecione una referencia");
                 }
-                
+
+                deseleccionarChecks();
             }
-            else
-            {
-                MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
-            }
+
         }
 
         private void nuevoToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -199,6 +255,33 @@ namespace proyectovinos.Caracteristicas.proveedor
         private void guardarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             proveedorAperturaForms.modificarProveedor();
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            // Cuando se seleccione el radiobutton que muestre los habilitados
+            prov.cumplimentarListaProveedores(listView1, '1');
+            habilitarToolStripMenuItem.Enabled = false;
+            desahilitarToolStripMenuItem.Enabled = true;
+            actualizarToolStripMenuItem.Enabled = true;
+            eliminarToolStripMenuItem1.Enabled = false;
+            cargarlista = true;
+
+            limpiarCampos();
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            // Cuando se seleccione el radiobutton que muestre los deshabilitados
+            cargarlista = false;
+            prov.cumplimentarListaProveedores(listView1, '0');
+            eliminarToolStripMenuItem1.Enabled = true;
+            habilitarToolStripMenuItem.Enabled = true;
+            desahilitarToolStripMenuItem.Enabled = false;
+            actualizarToolStripMenuItem.Enabled = false;
+            cargarlista = true;
+
+            limpiarCampos();
         }
     }
 }

@@ -79,9 +79,9 @@
             this.groupBox_nueva.Controls.Add(this.button_nueva);
             this.groupBox_nueva.Controls.Add(this.label3);
             this.groupBox_nueva.Enabled = false;
-            this.groupBox_nueva.Location = new System.Drawing.Point(374, 179);
+            this.groupBox_nueva.Location = new System.Drawing.Point(269, 185);
             this.groupBox_nueva.Name = "groupBox_nueva";
-            this.groupBox_nueva.Size = new System.Drawing.Size(472, 68);
+            this.groupBox_nueva.Size = new System.Drawing.Size(453, 68);
             this.groupBox_nueva.TabIndex = 112;
             this.groupBox_nueva.TabStop = false;
             // 
@@ -89,7 +89,7 @@
             // 
             this.check_seguronuevo.AutoSize = true;
             this.check_seguronuevo.BackColor = System.Drawing.Color.Transparent;
-            this.check_seguronuevo.Location = new System.Drawing.Point(366, 19);
+            this.check_seguronuevo.Location = new System.Drawing.Point(343, 21);
             this.check_seguronuevo.Name = "check_seguronuevo";
             this.check_seguronuevo.Size = new System.Drawing.Size(98, 17);
             this.check_seguronuevo.TabIndex = 100;
@@ -125,7 +125,7 @@
             // 
             this.button_nueva.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_nueva.BackgroundImage")));
             this.button_nueva.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_nueva.Location = new System.Drawing.Point(366, 38);
+            this.button_nueva.Location = new System.Drawing.Point(343, 40);
             this.button_nueva.Name = "button_nueva";
             this.button_nueva.Size = new System.Drawing.Size(100, 23);
             this.button_nueva.TabIndex = 59;
@@ -147,9 +147,9 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.listView1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 27);
+            this.groupBox1.Location = new System.Drawing.Point(12, 36);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(356, 321);
+            this.groupBox1.Size = new System.Drawing.Size(251, 321);
             this.groupBox1.TabIndex = 110;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Denominaciones";
@@ -164,7 +164,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(6, 19);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(344, 296);
+            this.listView1.Size = new System.Drawing.Size(240, 296);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -186,7 +186,7 @@
             this.actualizarToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(850, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(730, 24);
             this.menuStrip2.TabIndex = 114;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -209,9 +209,9 @@
             this.groupBox5.Controls.Add(this.label6);
             this.groupBox5.Controls.Add(this.check_segurohabilitardeshabilitareliminar);
             this.groupBox5.Controls.Add(this.textBox_nombre);
-            this.groupBox5.Location = new System.Drawing.Point(374, 61);
+            this.groupBox5.Location = new System.Drawing.Point(269, 67);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(472, 89);
+            this.groupBox5.Size = new System.Drawing.Size(453, 89);
             this.groupBox5.TabIndex = 115;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "...";
@@ -284,7 +284,7 @@
             // 
             this.check_segurohabilitardeshabilitareliminar.AutoSize = true;
             this.check_segurohabilitardeshabilitareliminar.BackColor = System.Drawing.Color.Transparent;
-            this.check_segurohabilitardeshabilitareliminar.Location = new System.Drawing.Point(366, 35);
+            this.check_segurohabilitardeshabilitareliminar.Location = new System.Drawing.Point(343, 35);
             this.check_segurohabilitardeshabilitareliminar.Name = "check_segurohabilitardeshabilitareliminar";
             this.check_segurohabilitardeshabilitareliminar.Size = new System.Drawing.Size(98, 17);
             this.check_segurohabilitardeshabilitareliminar.TabIndex = 86;
@@ -303,7 +303,7 @@
             // 
             this.radioButton_deshabilitado.AutoSize = true;
             this.radioButton_deshabilitado.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton_deshabilitado.Location = new System.Drawing.Point(457, 38);
+            this.radioButton_deshabilitado.Location = new System.Drawing.Point(352, 44);
             this.radioButton_deshabilitado.Name = "radioButton_deshabilitado";
             this.radioButton_deshabilitado.Size = new System.Drawing.Size(94, 17);
             this.radioButton_deshabilitado.TabIndex = 64;
@@ -316,7 +316,7 @@
             this.radioButton_habilitado.AutoSize = true;
             this.radioButton_habilitado.BackColor = System.Drawing.Color.Transparent;
             this.radioButton_habilitado.Checked = true;
-            this.radioButton_habilitado.Location = new System.Drawing.Point(374, 38);
+            this.radioButton_habilitado.Location = new System.Drawing.Point(269, 44);
             this.radioButton_habilitado.Name = "radioButton_habilitado";
             this.radioButton_habilitado.Size = new System.Drawing.Size(77, 17);
             this.radioButton_habilitado.TabIndex = 65;
@@ -335,9 +335,9 @@
             this.groupBox_modificar.Controls.Add(this.button_modificar);
             this.groupBox_modificar.Controls.Add(this.label5);
             this.groupBox_modificar.Enabled = false;
-            this.groupBox_modificar.Location = new System.Drawing.Point(374, 280);
+            this.groupBox_modificar.Location = new System.Drawing.Point(269, 286);
             this.groupBox_modificar.Name = "groupBox_modificar";
-            this.groupBox_modificar.Size = new System.Drawing.Size(472, 68);
+            this.groupBox_modificar.Size = new System.Drawing.Size(453, 68);
             this.groupBox_modificar.TabIndex = 116;
             this.groupBox_modificar.TabStop = false;
             // 
@@ -345,7 +345,7 @@
             // 
             this.checkBox_seguromodificar.AutoSize = true;
             this.checkBox_seguromodificar.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox_seguromodificar.Location = new System.Drawing.Point(366, 19);
+            this.checkBox_seguromodificar.Location = new System.Drawing.Point(343, 23);
             this.checkBox_seguromodificar.Name = "checkBox_seguromodificar";
             this.checkBox_seguromodificar.Size = new System.Drawing.Size(98, 17);
             this.checkBox_seguromodificar.TabIndex = 100;
@@ -380,7 +380,7 @@
             // 
             this.button_modificar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_modificar.BackgroundImage")));
             this.button_modificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_modificar.Location = new System.Drawing.Point(366, 38);
+            this.button_modificar.Location = new System.Drawing.Point(343, 42);
             this.button_modificar.Name = "button_modificar";
             this.button_modificar.Size = new System.Drawing.Size(100, 23);
             this.button_modificar.TabIndex = 59;
@@ -402,7 +402,7 @@
             // 
             this.check_nueva.AutoSize = true;
             this.check_nueva.BackColor = System.Drawing.Color.Transparent;
-            this.check_nueva.Location = new System.Drawing.Point(374, 166);
+            this.check_nueva.Location = new System.Drawing.Point(269, 172);
             this.check_nueva.Name = "check_nueva";
             this.check_nueva.Size = new System.Drawing.Size(129, 17);
             this.check_nueva.TabIndex = 117;
@@ -414,7 +414,7 @@
             // 
             this.check_modificar.AutoSize = true;
             this.check_modificar.BackColor = System.Drawing.Color.Transparent;
-            this.check_modificar.Location = new System.Drawing.Point(374, 267);
+            this.check_modificar.Location = new System.Drawing.Point(269, 273);
             this.check_modificar.Name = "check_modificar";
             this.check_modificar.Size = new System.Drawing.Size(140, 17);
             this.check_modificar.TabIndex = 118;
@@ -427,7 +427,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(850, 352);
+            this.ClientSize = new System.Drawing.Size(730, 378);
             this.Controls.Add(this.check_modificar);
             this.Controls.Add(this.check_nueva);
             this.Controls.Add(this.groupBox_modificar);

@@ -324,6 +324,12 @@
     <Compile Include="Caracteristicas\tipouva\Form_TodosTiposUva.Designer.cs">
       <DependentUpon>Form_TodosTiposUva.cs</DependentUpon>
     </Compile>
+    <Compile Include="Caracteristicas\tipouva\Form_TodosTiposUvaII.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\tipouva\Form_TodosTiposUvaII.Designer.cs">
+      <DependentUpon>Form_TodosTiposUvaII.cs</DependentUpon>
+    </Compile>
     <Compile Include="Caracteristicas\variedaduva\Class1.cs" />
     <Compile Include="Caracteristicas\variedaduva\Class_VariedadUvaAperturaForms.cs" />
     <Compile Include="Caracteristicas\variedaduva\deprecado\Form_EliminarVariedadUva.cs">
@@ -350,11 +356,17 @@
     <Compile Include="Caracteristicas\variedaduva\deprecado\Form_TodasVariedadesUva.Designer.cs">
       <DependentUpon>Form_TodasVariedadesUva.cs</DependentUpon>
     </Compile>
-    <Compile Include="Caracteristicas\variedaduva\Form_TodasVariedadesUvaII.cs">
+    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_TodasVariedadesUvaII.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Caracteristicas\variedaduva\Form_TodasVariedadesUvaII.Designer.cs">
+    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_TodasVariedadesUvaII.Designer.cs">
       <DependentUpon>Form_TodasVariedadesUvaII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caracteristicas\variedaduva\Form_TodasVariedadesUvaIII.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caracteristicas\variedaduva\Form_TodasVariedadesUvaIII.Designer.cs">
+      <DependentUpon>Form_TodasVariedadesUvaIII.cs</DependentUpon>
     </Compile>
     <Compile Include="ClaseCompartida.cs" />
     <Compile Include="ConexionBD.cs" />
@@ -572,10 +584,10 @@
     <Compile Include="Movimientos\AlmacenProveedor\Form_CompraArticulosProveedor.Designer.cs">
       <DependentUpon>Form_CompraArticulosProveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="VentasDevolucionesSocio\Form_ModificarPreciosLineaCompraProveedor.cs">
+    <Compile Include="Articulo\PreciosArticulos\Form_ModificarPreciosLineaCompraProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VentasDevolucionesSocio\Form_ModificarPreciosLineaCompraProveedor.Designer.cs">
+    <Compile Include="Articulo\PreciosArticulos\Form_ModificarPreciosLineaCompraProveedor.Designer.cs">
       <DependentUpon>Form_ModificarPreciosLineaCompraProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Movimientos\AlmacenProveedor\Class_AlmacenProveedorAperturaForms.cs" />
@@ -766,6 +778,9 @@
     <EmbeddedResource Include="Caracteristicas\tipouva\Form_TodosTiposUva.resx">
       <DependentUpon>Form_TodosTiposUva.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\tipouva\Form_TodosTiposUvaII.resx">
+      <DependentUpon>Form_TodosTiposUvaII.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_EliminarVariedadUva.resx">
       <DependentUpon>Form_EliminarVariedadUva.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -785,8 +800,11 @@
     <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_TodasVariedadesUva.resx">
       <DependentUpon>Form_TodasVariedadesUva.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\variedaduva\Form_TodasVariedadesUvaII.resx">
+    <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_TodasVariedadesUvaII.resx">
       <DependentUpon>Form_TodasVariedadesUvaII.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caracteristicas\variedaduva\Form_TodasVariedadesUvaIII.resx">
+      <DependentUpon>Form_TodasVariedadesUvaIII.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Empleados\deprecado\Form_EliminarEmpleado.resx">
       <DependentUpon>Form_EliminarEmpleado.cs</DependentUpon>
@@ -928,7 +946,7 @@
     <EmbeddedResource Include="Socios\Form_TodosSocios.resx">
       <DependentUpon>Form_TodosSocios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VentasDevolucionesSocio\Form_ModificarPreciosLineaCompraProveedor.resx">
+    <EmbeddedResource Include="Articulo\PreciosArticulos\Form_ModificarPreciosLineaCompraProveedor.resx">
       <DependentUpon>Form_ModificarPreciosLineaCompraProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentasDevolucionesSocio\Form_VentaSocio.resx">

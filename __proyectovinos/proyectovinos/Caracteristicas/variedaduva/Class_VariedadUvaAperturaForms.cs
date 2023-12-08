@@ -57,6 +57,8 @@ namespace proyectovinos.Caracteristicas.variedaduva
             }
         }
 
+
+        /*
         internal void todasVariedadesUva()
         {
             Form_TodasVariedadesUva form;
@@ -82,6 +84,23 @@ namespace proyectovinos.Caracteristicas.variedaduva
             else
             {
                 form = new Form_TodasVariedadesUvaII();
+                //formulario.MdiParent = this;
+                form.Show();
+            }
+        }
+        */
+
+
+        internal void todasVariedadesUvaIII()
+        {
+            Form_TodasVariedadesUvaIII form;
+            if (Application.OpenForms["Form_TodasVariedadesUvaIII"] != null)
+            {
+                Application.OpenForms["Form_TodasVariedadesUvaIII"].Activate();
+            }
+            else
+            {
+                form = new Form_TodasVariedadesUvaIII();
                 //formulario.MdiParent = this;
                 form.Show();
             }

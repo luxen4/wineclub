@@ -54,6 +54,8 @@
             this.desahilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.habilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -68,7 +70,7 @@
             this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1055, 300);
+            this.groupBox1.Size = new System.Drawing.Size(1156, 593);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Todos los Proveedores";
@@ -89,6 +91,7 @@
             this.groupBox5.TabIndex = 66;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "...";
+            this.groupBox5.Visible = false;
             // 
             // radioButton2
             // 
@@ -186,7 +189,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(226, 19);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(820, 263);
+            this.listView1.Size = new System.Drawing.Size(924, 568);
             this.listView1.TabIndex = 10;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -194,23 +197,23 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Referencia";
-            this.columnHeader1.Width = 77;
+            this.columnHeader1.Text = "Ref.";
+            this.columnHeader1.Width = 73;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Nombre";
-            this.columnHeader2.Width = 156;
+            this.columnHeader2.Width = 140;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Dirección";
-            this.columnHeader3.Width = 191;
+            this.columnHeader3.Width = 210;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Localidad";
-            this.columnHeader4.Width = 134;
+            this.columnHeader4.Width = 120;
             // 
             // columnHeader5
             // 
@@ -220,12 +223,12 @@
             // columnHeader6
             // 
             this.columnHeader6.Text = "Teléfono";
-            this.columnHeader6.Width = 118;
+            this.columnHeader6.Width = 90;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "email";
-            this.columnHeader7.Width = 243;
+            this.columnHeader7.Width = 210;
             // 
             // menuStrip1
             // 
@@ -238,7 +241,7 @@
             this.actualizarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1079, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1180, 24);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -290,13 +293,39 @@
             this.actualizarToolStripMenuItem.Text = "Actualizar";
             this.actualizarToolStripMenuItem.Click += new System.EventHandler(this.deshabilitarToolStripMenuItem_Click);
             // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(1068, 4);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(94, 17);
+            this.radioButton3.TabIndex = 67;
+            this.radioButton3.Text = "Deshabilitados";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Checked = true;
+            this.radioButton4.Location = new System.Drawing.Point(985, 4);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(77, 17);
+            this.radioButton4.TabIndex = 68;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Habilitados";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            // 
             // Form_TodosProveedoresII
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1079, 337);
+            this.ClientSize = new System.Drawing.Size(1180, 632);
+            this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.radioButton4);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -341,5 +370,7 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
     }
 }

@@ -22,7 +22,8 @@ namespace proyectovinos.Movimientos
 
         Consultas consultas = new Consultas();
         Utilidades ut = new Utilidades();
-        Class_AlmacenProveedor alm = new Class_AlmacenProveedor(); 
+        Class_AlmacenProveedor alm = new Class_AlmacenProveedor();
+        Class_Articulo articulo = new Class_Articulo();
         Class_Movimientos mov = new Class_Movimientos();
 
         private int existenciasAlmacen = 0, existenciasTienda=0, id_lineacompraproveedor=0;
@@ -38,7 +39,7 @@ namespace proyectovinos.Movimientos
         }
 
      
-        // Método 
+        // Función que mustra la información de un articulo de una línea de compra de proveedor
         private void combo_reflineacompraproveedor_SelectedIndexChanged(object sender, EventArgs e)
         {
             string refLineaCompraProveedor = combo_reflineacompraproveedor.Text;
@@ -60,7 +61,7 @@ namespace proyectovinos.Movimientos
             text_refarticulo.Text = refArticulo;
 
 
-
+           
             //
             string[] nombres = consultas.nombresCaracteristicas(refArticulo);
             text_proveedor.Text = nombres[0];
@@ -69,15 +70,10 @@ namespace proyectovinos.Movimientos
             text_catalogacion.Text = nombres[3];
             text_formatocontenido.Text = nombres[4];
             text_empaquetado.Text = nombres[5];
-
             //
 
             string nombreimagen = consultas.obtenerCualquierRefDesdeNombre("nombreimagen", "articulo", "ref", refArticulo);
             pictureBox1.Image = Image.FromFile(ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/articulos/" + nombres[1] + "/" + nombreimagen + "");
-
-       
-            Class_Articulo articulo = new Class_Articulo();
-
 
             //
             existenciasAlmacen = articulo.existenciasLineaZona(1, id_articulo, id_lineacompraproveedor);
@@ -109,13 +105,11 @@ namespace proyectovinos.Movimientos
         }
 
 
-
-
-
         // Método que evalua si se alcanza el maximo de existencias a devolver aproveedor desde almacén
         private void numericUpDown_unidadesdevolver_ValueChanged(object sender, EventArgs e)
         {
             decimal unidadesDevolver = numeric_cantidad.Value;
+            MessageBox.Show("" + unidadesDevolver);
 
             if (unidadesDevolver > existenciasAlmacen)
             {
@@ -127,15 +121,9 @@ namespace proyectovinos.Movimientos
                 if (text_preciocoste.Text!="") { 
                 decimal total = numeric_cantidad.Value * Decimal.Parse(text_preciocoste.Text);
                 text_total.Text = total.ToString();
-                button_anadir.Enabled = true;
                 }
                 
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)

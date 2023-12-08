@@ -51,7 +51,7 @@ namespace proyectovinos
         {
             this.CenterToScreen();
             id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencia);
-            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
+            // cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
             cargaLista = false;
         }
 
@@ -66,7 +66,7 @@ namespace proyectovinos
             {
                 insertarProveedor();
                 limpiarCampos();
-                cumplimentarListas.cumplimentarLista("ref", "nombre", "proveedor", listView1, '1');
+                // cumplimentarListas.cumplimentarLista("ref", "nombre", "proveedor", listView1, '1');
 
             }
             else {
@@ -81,11 +81,23 @@ namespace proyectovinos
             MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
             MySqlDataReader reader = null;
 
+            id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencia);
+
+            referencia = text_referencia.Text;
+            nombre = text_nuevoproveedor.Text;
+            direccion = text_direccion.Text;
+            localidad = text_localidad.Text;
+            provincia = text_provincia.Text;
+            telefono = text_telefono.Text;
+            email = text_telefono.Text;
+            
             try
             {
                 string selectQuery = "insert into proveedor (id_proveedor, ref, nombre, direccion, localidad, provincia, telefono, email, activo) " +
                     "values (" + id_predeterminado + ", '" + referencia + "', '" + nombre + "', '" + direccion + "', '" + localidad + "', '" + provincia + "', '"
                     + telefono + "' , '" + email + "','1')";
+
+                MessageBox.Show(selectQuery);
 
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
@@ -94,13 +106,16 @@ namespace proyectovinos
                 MessageBox.Show("Nuevo Proveedor creado!");
                 conexionBD.Close();
 
-                cumplimentarListas.cumplimentarLista("ref", "nombre", "proveedor", listView1,'1');
+                // cumplimentarListas.cumplimentarLista("ref", "nombre", "proveedor", listView1,'1');
 
                 string carpetaproveedor = ut.limpiezaDeString(text_nuevoproveedor.Text);
               
                 salvarImagenEnCarpetaProveedor(id_predeterminado);
 
-                 limpiarCampos();
+                limpiarCampos();
+
+                id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencia);
+
 
             }
             catch (MySqlException ex)
@@ -166,12 +181,7 @@ namespace proyectovinos
 
         }
 
-        // Seleccionar una imagen para en pictureBox
-        private void button4_Click_1(object sender, EventArgs e)
-        {
-            CumplimentarPictureBoxes cumplimentarPictureBoxes = new CumplimentarPictureBoxes();
-            cumplimentarPictureBoxes.buscarImagenPicturebox(sender, e, pictureBox1);
-        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -182,7 +192,7 @@ namespace proyectovinos
         // Método que deja los campos con valores predeterminados
         private void limpiarCampos()
         {
-            text_referencia.Text = "";
+            // text_referencia.Text = "";
             text_nuevoproveedor.Text = "";
             text_direccion.Text = "";
             text_localidad.Text = "";
@@ -195,7 +205,7 @@ namespace proyectovinos
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_ProveedorAperturaForms proveedor = new Class_ProveedorAperturaForms();
-            proveedor.todosProveedores(); this.Close();
+            proveedor.todosProveedoresII(); this.Close();
         }
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -204,9 +214,17 @@ namespace proyectovinos
             articulo.nuevoArticuloVino(); this.Close();
         }
 
+        private void sAVEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertarProveedor();
+        }
 
-        // Método para inserción rápida de campos de proveedor para presentación rápida de la app 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void limpiarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
             if (check_demo.Checked)
             {
@@ -219,10 +237,14 @@ namespace proyectovinos
                 text_email.Text = "campoviejo.com";
                 pictureBox1.Image = Image.FromFile(ClaseCompartida.carpetaimg_absoluta + "proveedores/logocampoviejo.jpg");
             }
-            else {
+            else
+            {
                 limpiarCampos();
             }
         }
+
+
+
 
     }
 }

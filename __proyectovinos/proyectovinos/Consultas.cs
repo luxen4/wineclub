@@ -38,7 +38,7 @@ namespace proyectovinos
             {
                 string selectQuery = "select " + nombreId + " as resultado from " + nombreTabla + " where " + whereAtributo + " = '" + valorAtributo + "' ";
 
-               // MessageBox.Show(selectQuery);
+                MessageBox.Show(selectQuery);
 
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
@@ -49,7 +49,9 @@ namespace proyectovinos
                     id = Int32.Parse(reader.GetString("resultado"));
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { 
+                
+                MessageBox.Show("Aquii ---> " + ex.Message); }
             finally { conexionBD.Close(); }
 
             return id;
@@ -372,7 +374,7 @@ namespace proyectovinos
             try
             {
                 string selectQuery = "delete from " + tabla + " WHERE " + whereAtributo + " = " + "'" + valorAtributo + "'";
-                MessageBox.Show(selectQuery);
+                // MessageBox.Show(selectQuery);
 
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;

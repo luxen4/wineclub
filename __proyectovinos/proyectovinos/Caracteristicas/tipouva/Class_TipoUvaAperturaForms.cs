@@ -13,7 +13,7 @@ namespace proyectovinos.Caracteristicas.tipouva
        
         
 
-
+        // Apertura de formulario de tipo de uva
         public void todosTiposUva()
         {
             Form_TodosTiposUva form;
@@ -29,7 +29,23 @@ namespace proyectovinos.Caracteristicas.tipouva
             }
         }
 
-        
+        // Apertura de formulario de tipo de uva
+        public void todosTiposUvaII()
+        {
+            Form_TodosTiposUvaII form;
+            if (Application.OpenForms["Form_TodosTiposUvaII"] != null)
+            {
+                Application.OpenForms["Form_TodosTiposUvaII"].Activate();
+            }
+            else
+            {
+                form = new Form_TodosTiposUvaII();
+                //formulario.MdiParent = this;
+                form.Show();
+            }
+        }
+
+
         public void modificararTipoUva()
         {
             Form_ModificarTipoUva form;
