@@ -191,10 +191,12 @@ namespace proyectovinos
                         bool eliminado = consultas.eliminarCaracteristica(tabla, "ref", referencia);
                         if (eliminado == true)
                         {
-                            consultas.habilitarDesabilitarCualquierReferencia(tabla, "ref", referencia, '0');
+                            Utilidades ut = new Utilidades();
+                            ut.eliminarCarpeta("socios", id_socio);
+
                             listView1.Items.Clear();
                             socio.cumplimentarListaSocios(listView1, '0');
-                            limpiarCampos();
+                            limpiarCampos(); 
                         }
                     }
                 }

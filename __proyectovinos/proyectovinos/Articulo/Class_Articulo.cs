@@ -278,7 +278,7 @@ namespace proyectovinos.ArticuloVino
                 string selectQuery = "SELECT count('" + id_articulo + "') as numregistros from " + nombreTabla + " " +
                     "where " + atributoWhere + " = " + valorAributoWhere + " ;";
 
-                MessageBox.Show(selectQuery);
+                // MessageBox.Show(selectQuery);
 
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);

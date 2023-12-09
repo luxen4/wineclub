@@ -207,11 +207,10 @@ namespace proyectovinos
 
 
 
-
         private void claseDeVinoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_ClaseVinoAperturaForms apertura = new Class_ClaseVinoAperturaForms();
-            apertura.todasClasesVinoII();
+            apertura.todasClasesVino();
         }
 
         private void tipoDeUvaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -298,10 +297,8 @@ namespace proyectovinos
 
         private void variedadDeUvaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*Class_VariedadUvaAperturaForms var = new Class_VariedadUvaAperturaForms();
-            var.todasVariedadesUvaII();*/
-            Class_VariedadUvaAperturaForms var = new Class_VariedadUvaAperturaForms();
-            var.todasVariedadesUvaIII();
+            Class_VariedadUvaAperturaForms variedaduva = new Class_VariedadUvaAperturaForms();
+            variedaduva.todasVariedadesUva();
         }
 
         private void toolStripStatusLabel3_Click(object sender, EventArgs e)
@@ -546,8 +543,7 @@ namespace proyectovinos
         private void todasVariedadesDeUvaIIToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_VariedadUvaAperturaForms variedad = new Class_VariedadUvaAperturaForms();
-            // var.todasVariedadesUva();
-            variedad.todasVariedadesUvaIII();
+            variedad.todasVariedadesUva();
         }
 
         private void aRTICULOSToolStripMenuItem_Click(object sender, EventArgs e)
@@ -637,28 +633,6 @@ namespace proyectovinos
         {
             this.Close();
         }
-
-        /// <summary> Para si pongo el botón en medio
-        /// Apertura del Formulario de logueo de usuario.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        /*
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["Form_Logueo"] != null)
-            {
-                Application.OpenForms["Form_Logueo"].Activate();
-            }
-            else
-            {
-                formularioLogueo = new Form_Logueo();
-                //formulario.MdiParent = this;
-                formularioLogueo.Show();
-            }
-
-            menuStrip1.Enabled = true;
-        }*/
     }
 }
 

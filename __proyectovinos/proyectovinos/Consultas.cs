@@ -38,8 +38,6 @@ namespace proyectovinos
             {
                 string selectQuery = "select " + nombreId + " as resultado from " + nombreTabla + " where " + whereAtributo + " = '" + valorAtributo + "' ";
 
-                MessageBox.Show(selectQuery);
-
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
                 MySqlDataReader reader = command.ExecuteReader();  
@@ -50,13 +48,11 @@ namespace proyectovinos
                 }
             }
             catch (Exception ex) { 
-                
-                MessageBox.Show("Aquii ---> " + ex.Message); }
+                MessageBox.Show(ex.Message); }
             finally { conexionBD.Close(); }
 
             return id;
         }
-
 
 
         // Método que devuelve la ref desde un nombre
@@ -70,7 +66,6 @@ namespace proyectovinos
             try
             {
                 string selectQuery = "select " + referencia + " as referencia from " + nombreTabla + " where " + whereAtributo + " = '" + valorAtributo + "' ";
-                //MessageBox.Show(selectQuery);
                 
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
@@ -130,7 +125,6 @@ namespace proyectovinos
                    " inner join articulo as a on a." + atributoInner + " = c." + atributoInner + "" +
                    " where a." + whereAtributo + " = '" + referenciaArticulo + "' ";
 
-                //MessageBox.Show(selectQuery);
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
                 MySqlDataReader reader = command.ExecuteReader();
@@ -146,8 +140,6 @@ namespace proyectovinos
             return nombre;
         }
 
-
-
         // Método genérico que elimina un registro de una tabla desde su referencia 
         public void eliminarCualquierId(string tabla, string whereAtributo, int valorAtributo)
         {
@@ -158,11 +150,7 @@ namespace proyectovinos
 
             try
             {
-               // string selectQuery = "delete from " + tabla + " WHERE " + whereAtributo + " = " + "" + valorAtributo + "";
-
                 string selectQuery = "update " + tabla + " SET " + "activo= '0' WHERE " + whereAtributo + " = " + "" + valorAtributo + " ";
-                //MessageBox.Show(selectQuery);
-
 
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
@@ -187,9 +175,7 @@ namespace proyectovinos
 
             try
             {
-                //string selectQuery = "delete from " + tabla + " WHERE " + whereAtributo + " = " + "'" + valorAtributo + "'";
-                  string selectQuery = "update " + tabla + " SET " + "activo= '" + activo + "' WHERE " + whereAtributo + " = " + "'" + valorAtributo + "' ";
-
+                string selectQuery = "update " + tabla + " SET " + "activo= '" + activo + "' WHERE " + whereAtributo + " = " + "'" + valorAtributo + "' ";
 
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
@@ -202,7 +188,6 @@ namespace proyectovinos
                 MessageBox.Show(ex.Message);
             }finally { conexionBD.Close();}
         }
-
 
 
         // Método genérico que modifica cualquier tabla
@@ -220,8 +205,6 @@ namespace proyectovinos
                     "nombre='" + nuevonombre + "'" +
                     " WHERE " + whereAtributo + " = " + "'" + atributoValor + "' ";  
                 
-                //MessageBox.Show(selectQuery);
-
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
                 conexionBD.Open();
@@ -257,7 +240,6 @@ namespace proyectovinos
                 conexionBD.Close();
                 return true;
 
-
             }
             catch (MySqlException ex) { 
                 MessageBox.Show(ClaseCompartida.msgRegistroIgual);
@@ -266,9 +248,6 @@ namespace proyectovinos
             } finally { conexionBD.Close(); 
             }
         }
-
-
-
               
         /// <summary>
         /// Método que devuelve el id máximo de una tabla de la base de datos.
@@ -374,8 +353,7 @@ namespace proyectovinos
             try
             {
                 string selectQuery = "delete from " + tabla + " WHERE " + whereAtributo + " = " + "'" + valorAtributo + "'";
-                // MessageBox.Show(selectQuery);
-
+               
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
                 conexionBD.Open();

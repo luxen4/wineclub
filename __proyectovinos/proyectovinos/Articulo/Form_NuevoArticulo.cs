@@ -293,8 +293,7 @@ namespace proyectovinos
         private void button10_Click(object sender, EventArgs e)
         {
             Class_ClaseVinoAperturaForms claseVino = new Class_ClaseVinoAperturaForms();
-            claseVino.todasClasesVinoII();
-            // claseVino.todasClasesVino();
+            claseVino.todasClasesVino();
         }
 
         private void button12_Click(object sender, EventArgs e)

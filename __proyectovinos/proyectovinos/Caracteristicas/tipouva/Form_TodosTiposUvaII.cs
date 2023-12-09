@@ -52,13 +52,7 @@ namespace proyectovinos.Caracteristicas.tipouva
                     int id_variedaduva = consultas.obtenerCualquierId("id_variedaduva", "variedaduva", "nombre", nombreVariedadUva);
 
                     tipoUva.insertTipoUva(id_tipouva, text_referencia.Text, text_nombre.Text, id_variedaduva, '1');
-                    cumplimentarTextos = false;
-                    tipoUva.cumplimentarListaTipoUva(listView1, '1');// No tocar que tiene estructura propia
-                    cumplimentarTextos = true;
-                    combo_variedaduva.Text = "Seleccione";
-
-                    limpiarCampos();
-                    id_tipouva = consultas.referenciaPredeterminada(id_tabla, tabla, "TU", text_referencia);
+                    limpiarCampos('1');
                 }
             }
             else
@@ -67,72 +61,58 @@ namespace proyectovinos.Caracteristicas.tipouva
             }
         }
 
-        private void limpiarCampos()
+        private void limpiarCampos(char activo)
         {
+            cumplimentarTextos = false;
+            tipoUva.cumplimentarListaTipoUva(listView1, activo);// No tocar que tiene estructura propia
+            cumplimentarTextos = true;
+
+            referencia = "";
             text_nombre.Text = "";
             text_referencia.Text = "";
-            combo_variedaduva.Text = "Seleccione"; 
+            combo_variedaduva.Text = "Seleccione";
+
+            cump.refrescarCombo("nombre", "variedaduva", combo_variedaduva);
+            id_tipouva = consultas.referenciaPredeterminada(id_tabla, tabla, "TU", text_referencia);
         }
 
 
-        // Función para actualizar
+        // Función para actualizar los tipos de uva
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cump.refrescarCombo("nombre", "variedaduva", combo_variedaduva);
-            cumplimentarTextos = false;
-            tipoUva.cumplimentarListaTipoUva(listView1, '1');// No tocar que tiene estructura propia
-            cumplimentarTextos = true;
-            id_tipouva = consultas.referenciaPredeterminada(id_tabla, tabla, "TU", text_referencia);
-           
+            limpiarCampos('1');
         }
 
         private void Form_TodosTiposUvaII_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
-
-            // Igual esto a un bloque junto con la implementación de radio de desabilitar
-            actualizarToolStripMenuItem.Enabled = false;
-            habilitarToolStripMenuItem.Enabled = true;
-            deshabilitarToolStripMenuItem.Enabled = false;
-            eliminarToolStripMenuItem.Enabled = true;
-            saveToolStripMenuItem.Enabled = false;
-            newToolStripMenuItem.Enabled = false;
-            //
+            enlacesHabilitados();
         }
+
 
         // Función para habilitar...
         private void habilitarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (text_nombre.Text == "" || text_referencia.Text == "")
-            {
-                MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
-            }
-            else
-            {
-                ut.habilitarOnOff_Caracteristica(tabla, "ref", text_referencia.Text, '1');
-                cumplimentarTextos = false;
-                tipoUva.cumplimentarListaTipoUva(listView1, '0');// No tocar que tiene estructura propia
-                cumplimentarTextos = true;
-            }
+            ut.habilitarOnOff_Caracteristica(tabla, "ref", referencia, '1');
+            limpiarCampos('0');
         }
-
 
         // Función para deshabilitar...
         private void deshabilitarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("METER LOS DIÁLOGOS QUE PREGUNTEN");
-            ut.habilitarOnOff_Caracteristica(tabla, "ref", text_referencia.Text, '0');
-            cumplimentarTextos = false;
-            tipoUva.cumplimentarListaTipoUva(listView1, '1');// No tocar que tiene estructura propia
-            cumplimentarTextos = true;
-            limpiarCampos();
-            
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea deshabilitar el registro?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
+            {
+                ut.habilitarOnOff_Caracteristica(tabla, "ref", referencia, '0');
+                limpiarCampos('1');
+            }
         }
 
         // Función para eliminar
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (text_referencia.Text != "")
+           
+            if (referencia != "")
             {
                 Consultas consultas = new Consultas();
                 int id = consultas.obtenerCualquierId(id_tabla, tabla, "ref", text_referencia.Text);
@@ -146,33 +126,24 @@ namespace proyectovinos.Caracteristicas.tipouva
                 }
                 else
                 {
-                    consultas.eliminarCaracteristica(tabla, "ref", text_referencia.Text);
+                    consultas.eliminarCaracteristica(tabla, "ref", referencia);
                 }
             }
-            else
-            {
-                MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
-            }
-            limpiarCampos();
-            cumplimentarTextos = false;
-            tipoUva.cumplimentarListaTipoUva(listView1, '0');// No tocar que tiene estructura propia
-            cumplimentarTextos = true;
+            limpiarCampos('0');
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int id_variedaduva = consultas.obtenerCualquierId("id_variedaduva", "variedaduva", "nombre", combo_variedaduva.Text);
             tipoUva.modificarTipoUva(text_referencia.Text, text_nombre.Text, id_variedaduva, referencia, listView1);
-            cumplimentarTextos = false;
-            tipoUva.cumplimentarListaTipoUva(listView1, '1');// No tocar que tiene estructura propia
-            cumplimentarTextos = true;
             ut.limpiarCamposModificar(text_referencia, text_nombre, text_referencia);
-            combo_variedaduva.Text = "Seleccione";
+            limpiarCampos('1');
         }
 
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             if (cumplimentarTextos == true) { 
+                
                 referencia = e.Item.Text; 
                 ut.checkMarcadoTodos(cargaLista, e, text_referencia, tabla, text_nombre);
             }
@@ -180,36 +151,42 @@ namespace proyectovinos.Caracteristicas.tipouva
 
         private void radio_habilitados_CheckedChanged(object sender, EventArgs e)
         {
+            enlacesHabilitados();
+            limpiarCampos('1');
+        }
+
+        private void radio_deshabilitados_CheckedChanged(object sender, EventArgs e)
+        {
+            enlacesDeshabilitados();
+            limpiarCampos('0');
+        }
+
+
+        private void enlacesHabilitados()
+        {
+            // Igual esto a un bloque junto con la implementación de radio de desabilitar
             actualizarToolStripMenuItem.Enabled = true;
             habilitarToolStripMenuItem.Enabled = false;
             deshabilitarToolStripMenuItem.Enabled = true;
             eliminarToolStripMenuItem.Enabled = false;
             saveToolStripMenuItem.Enabled = true;
-            newToolStripMenuItem.Enabled=true;
-            cumplimentarTextos = false;
-            tipoUva.cumplimentarListaTipoUva(listView1, '1');// No tocar que tiene estructura propia
-            cumplimentarTextos = true;
+            newToolStripMenuItem.Enabled = true;
+            //
         }
-
-     
-
-        private void radio_deshabilitados_CheckedChanged(object sender, EventArgs e)
+        private void enlacesDeshabilitados()
         {
             actualizarToolStripMenuItem.Enabled = false;
             habilitarToolStripMenuItem.Enabled = true;
-            deshabilitarToolStripMenuItem.Enabled =  false;
+            deshabilitarToolStripMenuItem.Enabled = false;
             eliminarToolStripMenuItem.Enabled = true;
             saveToolStripMenuItem.Enabled = false;
             newToolStripMenuItem.Enabled = false;
-            cumplimentarTextos = false;
-            tipoUva.cumplimentarListaTipoUva(listView1, '0');// No tocar que tiene estructura propia
-            cumplimentarTextos = true;
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
             Class_VariedadUvaAperturaForms variedad = new Class_VariedadUvaAperturaForms();
-            variedad.todasVariedadesUvaIII();
+            variedad.todasVariedadesUva();
             //variedad.todasVariedadesUvaII();
         }
     }

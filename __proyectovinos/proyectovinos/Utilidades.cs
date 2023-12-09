@@ -103,12 +103,8 @@ namespace proyectovinos
         }
 
 
-       
 
-
-
-
-
+        // Función que habilita o deshabilita un registro de una característica
         internal void habilitarOnOff_Caracteristica( string tabla, string whereAtributo, string valorAtributo, char activo)
         {
             ConexionBD con = new ConexionBD();
@@ -120,7 +116,7 @@ namespace proyectovinos
             {
                 //string selectQuery = "delete from " + tabla + " WHERE " + whereAtributo + " = " + "'" + valorAtributo + "'";
                 string selectQuery = "update " + tabla + " SET " + "activo= '" + activo + "' WHERE " + whereAtributo + " = " + "'" + valorAtributo + "' ";
-              
+                // MessageBox.Show(selectQuery);
 
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;

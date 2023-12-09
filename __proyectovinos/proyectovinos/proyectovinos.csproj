@@ -176,25 +176,12 @@
     <Compile Include="Caracteristicas\catalogacion\deprecado\Form_HabilitarCatalogacion.Designer.cs">
       <DependentUpon>Form_HabilitarCatalogacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Caracteristicas\clasesvino\Class_ClaseVino.cs" />
     <Compile Include="Caracteristicas\clasesvino\Class_ClaseVinoAperturaForms.cs" />
     <Compile Include="Caracteristicas\clasesvino\Form_TodasClasesVino.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Caracteristicas\clasesvino\Form_TodasClasesVino.Designer.cs">
       <DependentUpon>Form_TodasClasesVino.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_EliminarClaseVino.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_EliminarClaseVino.Designer.cs">
-      <DependentUpon>Form_EliminarClaseVino.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_HabilitarClaseVino.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_HabilitarClaseVino.Designer.cs">
-      <DependentUpon>Form_HabilitarClaseVino.cs</DependentUpon>
     </Compile>
     <Compile Include="Caracteristicas\contenido\Class_Contenido.cs" />
     <Compile Include="Caracteristicas\contenido\Class_ContenidoAperturaForms.cs" />
@@ -300,28 +287,28 @@
     </Compile>
     <Compile Include="Caracteristicas\tipouva\Class_TipoUva.cs" />
     <Compile Include="Caracteristicas\tipouva\Class_TipoUvaAperturaForms.cs" />
-    <Compile Include="Caracteristicas\tipouva\Form_EliminarTipoUva.cs">
+    <Compile Include="Caracteristicas\tipouva\deprecado\Form_EliminarTipoUva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Caracteristicas\tipouva\Form_EliminarTipoUva.Designer.cs">
+    <Compile Include="Caracteristicas\tipouva\deprecado\Form_EliminarTipoUva.Designer.cs">
       <DependentUpon>Form_EliminarTipoUva.cs</DependentUpon>
     </Compile>
-    <Compile Include="Caracteristicas\tipouva\Form_HabilitarTipoUva.cs">
+    <Compile Include="Caracteristicas\tipouva\deprecado\Form_HabilitarTipoUva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Caracteristicas\tipouva\Form_HabilitarTipoUva.Designer.cs">
+    <Compile Include="Caracteristicas\tipouva\deprecado\Form_HabilitarTipoUva.Designer.cs">
       <DependentUpon>Form_HabilitarTipoUva.cs</DependentUpon>
     </Compile>
-    <Compile Include="Caracteristicas\tipouva\Form_ModificarTipoUva.cs">
+    <Compile Include="Caracteristicas\tipouva\deprecado\Form_ModificarTipoUva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Caracteristicas\tipouva\Form_ModificarTipoUva.Designer.cs">
+    <Compile Include="Caracteristicas\tipouva\deprecado\Form_ModificarTipoUva.Designer.cs">
       <DependentUpon>Form_ModificarTipoUva.cs</DependentUpon>
     </Compile>
-    <Compile Include="Caracteristicas\tipouva\Form_TodosTiposUva.cs">
+    <Compile Include="Caracteristicas\tipouva\deprecado\Form_TodosTiposUva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Caracteristicas\tipouva\Form_TodosTiposUva.Designer.cs">
+    <Compile Include="Caracteristicas\tipouva\deprecado\Form_TodosTiposUva.Designer.cs">
       <DependentUpon>Form_TodosTiposUva.cs</DependentUpon>
     </Compile>
     <Compile Include="Caracteristicas\tipouva\Form_TodosTiposUvaII.cs">
@@ -332,41 +319,11 @@
     </Compile>
     <Compile Include="Caracteristicas\variedaduva\Class1.cs" />
     <Compile Include="Caracteristicas\variedaduva\Class_VariedadUvaAperturaForms.cs" />
-    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_EliminarVariedadUva.cs">
+    <Compile Include="Caracteristicas\variedaduva\Form_TodasVariedadesUva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_EliminarVariedadUva.Designer.cs">
-      <DependentUpon>Form_EliminarVariedadUva.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_HabilitarVariedadUva.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_HabilitarVariedadUva.Designer.cs">
-      <DependentUpon>Form_HabilitarVariedadUva.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_ModificarVariedadUva.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_ModificarVariedadUva.Designer.cs">
-      <DependentUpon>Form_ModificarVariedadUva.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_TodasVariedadesUva.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_TodasVariedadesUva.Designer.cs">
+    <Compile Include="Caracteristicas\variedaduva\Form_TodasVariedadesUva.Designer.cs">
       <DependentUpon>Form_TodasVariedadesUva.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_TodasVariedadesUvaII.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Caracteristicas\variedaduva\deprecado\Form_TodasVariedadesUvaII.Designer.cs">
-      <DependentUpon>Form_TodasVariedadesUvaII.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Caracteristicas\variedaduva\Form_TodasVariedadesUvaIII.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Caracteristicas\variedaduva\Form_TodasVariedadesUvaIII.Designer.cs">
-      <DependentUpon>Form_TodasVariedadesUvaIII.cs</DependentUpon>
     </Compile>
     <Compile Include="ClaseCompartida.cs" />
     <Compile Include="ConexionBD.cs" />
@@ -524,23 +481,11 @@
     </Compile>
     <Compile Include="Socios\Class_SocioAperturaForms.cs" />
     <Compile Include="Socios\Class_Socio.cs" />
-    <Compile Include="Socios\deprecado\Form_HabilitarSocios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Socios\deprecado\Form_HabilitarSocios.Designer.cs">
-      <DependentUpon>Form_HabilitarSocios.cs</DependentUpon>
-    </Compile>
     <Compile Include="Socios\Form_TodosSocios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Socios\Form_TodosSocios.Designer.cs">
       <DependentUpon>Form_TodosSocios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Socios\deprecado\Form_EliminarSocio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Socios\deprecado\Form_EliminarSocio.Designer.cs">
-      <DependentUpon>Form_EliminarSocio.cs</DependentUpon>
     </Compile>
     <Compile Include="Socios\Form_ModificarSocio.cs">
       <SubType>Form</SubType>
@@ -611,12 +556,6 @@
     <Compile Include="Caracteristicas\catalogacion\deprecado\Form_ModificarCatalogacion.Designer.cs">
       <DependentUpon>Form_ModificarCatalogacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_ModificarClaseVino.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_ModificarClaseVino.Designer.cs">
-      <DependentUpon>Form_ModificarClaseVino.cs</DependentUpon>
-    </Compile>
     <Compile Include="Caracteristicas\denominacion\deprecado\Form_ModificarDenominacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -652,12 +591,6 @@
     </Compile>
     <Compile Include="Caracteristicas\catalogacion\deprecado\Form_TodasCatalogaciones.Designer.cs">
       <DependentUpon>Form_TodasCatalogaciones.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_TodasClasesVino .cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Caracteristicas\clasesvino\deprecado\Form_TodasClasesVino .Designer.cs">
-      <DependentUpon>Form_TodasClasesVino .cs</DependentUpon>
     </Compile>
     <Compile Include="Caracteristicas\denominacion\deprecado\Form_TodasDenominaciones.cs">
       <SubType>Form</SubType>
@@ -703,13 +636,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Caracteristicas\catalogacion\deprecado\Form_HabilitarCatalogacion.resx">
       <DependentUpon>Form_HabilitarCatalogacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\clasesvino\deprecado\Form_EliminarClaseVino.resx">
-      <DependentUpon>Form_EliminarClaseVino.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\clasesvino\deprecado\Form_HabilitarClaseVino.resx">
-      <DependentUpon>Form_HabilitarClaseVino.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Caracteristicas\clasesvino\Form_TodasClasesVino.resx">
       <DependentUpon>Form_TodasClasesVino.cs</DependentUpon>
@@ -765,46 +691,24 @@
     <EmbeddedResource Include="Caracteristicas\proveedor\Form_TodosProveedoresII.resx">
       <DependentUpon>Form_TodosProveedoresII.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\tipouva\Form_EliminarTipoUva.resx">
+    <EmbeddedResource Include="Caracteristicas\tipouva\deprecado\Form_EliminarTipoUva.resx">
       <DependentUpon>Form_EliminarTipoUva.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\tipouva\Form_HabilitarTipoUva.resx">
+    <EmbeddedResource Include="Caracteristicas\tipouva\deprecado\Form_HabilitarTipoUva.resx">
       <DependentUpon>Form_HabilitarTipoUva.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\tipouva\Form_ModificarTipoUva.resx">
+    <EmbeddedResource Include="Caracteristicas\tipouva\deprecado\Form_ModificarTipoUva.resx">
       <DependentUpon>Form_ModificarTipoUva.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\tipouva\Form_TodosTiposUva.resx">
+    <EmbeddedResource Include="Caracteristicas\tipouva\deprecado\Form_TodosTiposUva.resx">
       <DependentUpon>Form_TodosTiposUva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Caracteristicas\tipouva\Form_TodosTiposUvaII.resx">
       <DependentUpon>Form_TodosTiposUvaII.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_EliminarVariedadUva.resx">
-      <DependentUpon>Form_EliminarVariedadUva.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_HabilitarVariedadUva.es-ES.resx">
-      <DependentUpon>Form_HabilitarVariedadUva.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_HabilitarVariedadUva.resx">
-      <DependentUpon>Form_HabilitarVariedadUva.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_HabilitarVariedadUva.zu-ZA.resx">
-      <DependentUpon>Form_HabilitarVariedadUva.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_ModificarVariedadUva.resx">
-      <DependentUpon>Form_ModificarVariedadUva.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_TodasVariedadesUva.resx">
+    <EmbeddedResource Include="Caracteristicas\variedaduva\Form_TodasVariedadesUva.resx">
       <DependentUpon>Form_TodasVariedadesUva.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\variedaduva\deprecado\Form_TodasVariedadesUvaII.resx">
-      <DependentUpon>Form_TodasVariedadesUvaII.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\variedaduva\Form_TodasVariedadesUvaIII.resx">
-      <DependentUpon>Form_TodasVariedadesUvaIII.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Empleados\deprecado\Form_EliminarEmpleado.resx">
       <DependentUpon>Form_EliminarEmpleado.cs</DependentUpon>
@@ -888,24 +792,15 @@
     <EmbeddedResource Include="Roles\Form_TodosRoles.resx">
       <DependentUpon>Form_TodosRoles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Socios\deprecado\Form_HabilitarSocios.resx">
-      <DependentUpon>Form_HabilitarSocios.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="VentasDevolucionesSocio\Form_DevolucionSocio.resx">
       <DependentUpon>Form_DevolucionSocio.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Socios\deprecado\Form_EliminarSocio.resx">
-      <DependentUpon>Form_EliminarSocio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentasDevolucionesSocio\Form_InformeVentas.resx">
       <DependentUpon>Form_InformeVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Caracteristicas\catalogacion\deprecado\Form_ModificarCatalogacion.resx">
       <DependentUpon>Form_ModificarCatalogacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\clasesvino\deprecado\Form_ModificarClaseVino.resx">
-      <DependentUpon>Form_ModificarClaseVino.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Caracteristicas\denominacion\deprecado\Form_ModificarDenominacion.resx">
       <DependentUpon>Form_ModificarDenominacion.cs</DependentUpon>
@@ -930,9 +825,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Caracteristicas\catalogacion\deprecado\Form_TodasCatalogaciones.resx">
       <DependentUpon>Form_TodasCatalogaciones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Caracteristicas\clasesvino\deprecado\Form_TodasClasesVino .resx">
-      <DependentUpon>Form_TodasClasesVino .cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Caracteristicas\denominacion\deprecado\Form_TodasDenominaciones.resx">
       <DependentUpon>Form_TodasDenominaciones.cs</DependentUpon>

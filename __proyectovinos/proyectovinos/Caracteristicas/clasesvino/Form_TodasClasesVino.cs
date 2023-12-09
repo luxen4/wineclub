@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Org.BouncyCastle.Asn1.Utilities;
+using proyectovinos.ArticuloVino;
 
 namespace proyectovinos.Caracteristicas.clasesvino
 {
@@ -26,198 +28,181 @@ namespace proyectovinos.Caracteristicas.clasesvino
         private string tabla = "clasevino";
         private string id_tabla = "id_clasevino";
         private string refPredeterminada = "CLS";
-        private bool listaCargada = false;
+        private bool cumplimentarTextos = false;
 
 
-        private void Form_TodasClases_Load(object sender, EventArgs e)
-        {
-            this.CenterToScreen();
-            id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, text_referencianuevo);
-            limpiarCampos();
-        }
-
+        // Función para actualizar las clases de vino
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, text_referencianuevo);
-            limpiarCampos();
+            limpiarCampos('1');
+
         }
 
-
-        private void limpiarCampos()
+        private void Form_TodasClasesVinoII_Load(object sender, EventArgs e)
         {
-            radioButton_habilitado.Checked = true;
-            radioButton_deshabilitado.Checked = false;
+            this.CenterToScreen();
+            id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, textBox_referencia);
+            enlacesHabilitados();
+        }
 
-            check_segurohabilitardeshabilitareliminar.Checked = true;
+        private void habilitarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ut.habilitarOnOff_Caracteristica(tabla, "ref", referencia, '1');
+            limpiarCampos('0');
+        }
 
-            textBox_referencia.Text = "";
+        private bool cargarLista = true;
+
+        private void deshabilitarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea deshabilitar el registro?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
+            {
+                ut.habilitarOnOff_Caracteristica(tabla, "ref", referencia, '0');
+                limpiarCampos('1');
+            }
+        }
+
+        
+        private void limpiarCampos(char activo)
+        {
+            cumplimentarTextos = false;
+            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, activo);
+            cumplimentarTextos = true;
+
+            referencia = "";
             textBox_nombre.Text = "";
-
-            button_habilitar.Enabled = false;
-            button_deshabilitar.Enabled = true;
-            button_eliminar.Enabled = false;
-
-            text_referencianuevo.Text = "";
-            text_nombrenuevo.Text = "";
-
-            textBox_referenciamodificar.Text = "";
-            textBox_nombremodificar.Text = "";
-
-            check_nueva.Checked = false;
-            check_modificar.Checked = false;
-
-            check_segurohabilitardeshabilitareliminar.Checked = false;
-            check_seguronuevo.Checked = false;
-            checkBox_seguromodificar.Checked = false;
-
-            listaCargada = false;
-            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
-            listaCargada = true;
+            textBox_referencia.Text = "";
+            id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, textBox_referencia);
         }
 
-        private void check_nueva_CheckedChanged(object sender, EventArgs e)
+        // Función que elimina una clase de vino
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (check_nueva.Checked == true)
+            if (referencia != "")
             {
-                groupBox_nueva.Enabled = true;
-                id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, text_referencianuevo);
+                Consultas consultas = new Consultas();
+                int id = consultas.obtenerCualquierId(id_tabla, tabla, "ref", referencia);
+
+                Class_Articulo articulo = new Class_Articulo();
+                int existencias = articulo.existeArticuloConCaracteristica("id_articulo", "articulo", id_tabla, id);
+
+                if (existencias > 0)
+                {
+                    MessageBox.Show(existencias + ClaseCompartida.msgArticulosTipo);
+                }
+                else
+                {
+                    consultas.eliminarCaracteristica(tabla, "ref", referencia);
+                }
             }
-            else if (check_nueva.Checked == false)
+            else
             {
-                groupBox_nueva.Enabled = false;
+                MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
             }
+
+            limpiarCampos('0');
+         
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (textBox_nombre.Text != "" || textBox_referencia.Text != "")
+            {  
+                DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea guardar el registro?", "Aviso", MessageBoxButtons.YesNo);
+                if (opcionSeleccionada == DialogResult.Yes)
+                {
+                    consultas.modificarCualquierTabla(tabla, textBox_referencia.Text, textBox_nombre.Text, "ref", referencia, listView1);
+                    limpiarCampos('1');
+                }
+                else {
+                    MessageBox.Show("Tenga cuidado!");
+                }
+            }
+            else
+            {
+                MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
+            }
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+            if (textBox_nombre.Text != "" && textBox_referencia.Text != "")
+            {
+
+                DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea guardar el registro?", "Aviso", MessageBoxButtons.YesNo);
+                if (opcionSeleccionada == DialogResult.Yes)
+                {
+                    bool insertado = consultas.insertTablaCaracteristicasDinamico(tabla, id_tabla, id_predeterminado, textBox_referencia.Text, textBox_nombre.Text);
+
+                    if (insertado == true)
+                        {
+                            limpiarCampos('1');
+                            id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, textBox_referencia);
+                        }
+                        else
+                        {
+                            MessageBox.Show(ClaseCompartida.msgErrorGeneral);
+                        }
+                    }
+                    else
+                    {
+                       MessageBox.Show("Tenga cuidado!");
+                    }
+                }
+                else {
+                MessageBox.Show("No ha seleccionado ninguna referencia");
+                }
         }
 
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            if (listaCargada == true)
+            if (cumplimentarTextos == true)
             {
                 referencia = listView1.Items[e.Item.Index].SubItems[0].Text;
 
                 textBox_referencia.Text = referencia;
                 textBox_nombre.Text = listView1.Items[e.Item.Index].SubItems[1].Text;
 
-                textBox_referenciamodificar.Text = referencia;
-                textBox_nombremodificar.Text = listView1.Items[e.Item.Index].SubItems[1].Text;
+                textBox_referencia.Text = referencia;
+                textBox_nombre.Text = listView1.Items[e.Item.Index].SubItems[1].Text;
             }
-        }
-
-        private void button_nueva_Click(object sender, EventArgs e)
-        {
-            // Modelo a meter en otros
-            if (check_seguronuevo.Checked == true)
-            {
-                if (text_nombrenuevo.Text != "" && text_referencianuevo.Text != "")
-                {
-                    bool insertado = consultas.insertTablaCaracteristicasDinamico(tabla, id_tabla, id_predeterminado, text_referencianuevo.Text, text_nombrenuevo.Text);
-
-                    if (insertado == true)
-                    {
-                        limpiarCampos();
-                        id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, text_referencianuevo);
-                    }
-                    else
-                    {
-                        MessageBox.Show(ClaseCompartida.msgErrorGeneral);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
-                }
-            }
-            else
-            {
-                MessageBox.Show(ClaseCompartida.msgCasillaSeguro);
-            }
-        }
-
-        private void button_modificar_Click(object sender, EventArgs e)
-        {
-            if (checkBox_seguromodificar.Checked == true)
-            {
-                if (textBox_nombremodificar.Text != "" || textBox_referenciamodificar.Text != "")
-                {
-                    consultas.modificarCualquierTabla(tabla, textBox_referenciamodificar.Text, textBox_nombremodificar.Text, "ref", referencia, listView1);
-                    limpiarCampos();
-                }
-                else
-                {
-                    MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
-                }
-            }
-            else
-            {
-                MessageBox.Show(ClaseCompartida.msgCasillaSeguro);
-            }
-        }
-
-        private void button_habilitar_Click(object sender, EventArgs e)
-        {
-            listaCargada = false;
-            ut.controladorHabilitarCaracteristica(check_segurohabilitardeshabilitareliminar, textBox_referencia, textBox_nombre, tabla, listView1, '1');
-            listaCargada = true;
-        }
-
-        private void button_deshabilitar_Click(object sender, EventArgs e)
-        {
-            if (check_segurohabilitardeshabilitareliminar.Checked == true)
-            {   // reforma del chek de abajo que se repite
-                listaCargada = false;
-                ut.controladorHabilitarCaracteristica(check_segurohabilitardeshabilitareliminar, textBox_referencia, textBox_nombre, tabla, listView1, '0');
-                listaCargada = true;
-                limpiarCampos();
-            }
-            else
-            {
-                MessageBox.Show(ClaseCompartida.msgCasillaSeguro);
-            }
-        }
-
-        private void check_modificar_CheckedChanged(object sender, EventArgs e)
-        {
-            if (check_modificar.Checked == true)
-            {
-                groupBox_modificar.Enabled = true;
-            }
-            else if (check_modificar.Checked == false)
-            {
-                groupBox_modificar.Enabled = false;
-            }
-        }
-
-        private void button_eliminar_Click(object sender, EventArgs e)
-        {
-            if (check_segurohabilitardeshabilitareliminar.Checked == true)
-            {
-                ut.controladorEliminarCaracteristica(check_segurohabilitardeshabilitareliminar, textBox_referencia, textBox_nombre, id_tabla, tabla, listView1);
-                limpiarCampos();
-            }
-            else
-            {
-                MessageBox.Show(ClaseCompartida.msgCasillaSeguro);
-            }
-        }
-
-        private void radioButton_deshabilitado_CheckedChanged(object sender, EventArgs e)
-        {
-            listaCargada = false;
-            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '0');
-            listaCargada = true;
-            button_habilitar.Enabled = true;
-            button_deshabilitar.Enabled = false;
-            button_eliminar.Enabled = true;
         }
 
         private void radioButton_habilitado_CheckedChanged(object sender, EventArgs e)
         {
-            listaCargada = false;
-            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
-            listaCargada = true;
+            enlacesHabilitados();
+            limpiarCampos('1');
+        }
 
-            button_habilitar.Enabled = false;
-            button_deshabilitar.Enabled = true;
-            button_eliminar.Enabled = false;
+
+
+            private void enlacesHabilitados()
+            {
+                // Igual esto a un bloque junto con la implementación de radio de desabilitar
+                actualizarToolStripMenuItem.Enabled = true;
+                habilitarToolStripMenuItem.Enabled = false;
+                deshabilitarToolStripMenuItem.Enabled = true;
+                eliminarToolStripMenuItem.Enabled = false;
+                saveToolStripMenuItem.Enabled = true;
+                newToolStripMenuItem.Enabled = true;
+                //
+            }
+            private void enlacesDeshabilitados()
+            {
+                actualizarToolStripMenuItem.Enabled = false;
+                habilitarToolStripMenuItem.Enabled = true;
+                deshabilitarToolStripMenuItem.Enabled = false;
+                eliminarToolStripMenuItem.Enabled = true;
+                saveToolStripMenuItem.Enabled = false;
+                newToolStripMenuItem.Enabled = false;
+            }
+
+        private void radioButton_deshabilitado_CheckedChanged(object sender, EventArgs e)
+        {
+            enlacesDeshabilitados();
+            limpiarCampos('0');
         }
     }
 }
