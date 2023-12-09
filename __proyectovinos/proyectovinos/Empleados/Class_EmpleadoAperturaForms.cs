@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using proyectovinos.Articulo;
+using proyectovinos.ArticuloVino;
 using proyectovinos.Empleados.usuariocontrasena;
 
 namespace proyectovinos.Empleados
@@ -14,8 +14,6 @@ namespace proyectovinos.Empleados
 
         Form_TodosEmpleados formularioTodosEmpleados;
         Form_ModificarEmpleado formularioModificarEmpleado;
-
-
 
         public void todosEmpleados()
         {
@@ -60,35 +58,5 @@ namespace proyectovinos.Empleados
         }
 
 
-        // Método que abre el formulario de Articulos inhabilitados con posibilidad de habilitarlos
-        public void empleadosInhabilitados()
-        {
-            Form_ElimiarEmpleados form;
-            if (Application.OpenForms["Form_HabilitarEmpleados"] != null)
-            {
-                Application.OpenForms["Form_HabilitarEmpleados"].Activate();
-            }
-            else
-            {
-                form = new Form_ElimiarEmpleados();
-                //formulario.MdiParent = this;
-                form.Show();
-            }
-        }
-
-        internal void eliminarEmpleado()
-        {
-            Form_EliminarEmpleado form;
-            if (Application.OpenForms["Form_EliminarEmpleado"] != null)
-            {
-                Application.OpenForms["Form_EliminarEmpleado"].Activate();
-            }
-            else
-            {
-                form = new Form_EliminarEmpleado();
-                //formulario.MdiParent = this;
-                form.Show();
-            }
-        }
     }
 }

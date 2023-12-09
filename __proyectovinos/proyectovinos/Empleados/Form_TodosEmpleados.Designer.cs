@@ -549,7 +549,6 @@
             this.empleadosInhabilitadosToolStripMenuItem.Name = "empleadosInhabilitadosToolStripMenuItem";
             this.empleadosInhabilitadosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.empleadosInhabilitadosToolStripMenuItem.Text = "Eliminar Empleados";
-            this.empleadosInhabilitadosToolStripMenuItem.Click += new System.EventHandler(this.empleadosInhabilitadosToolStripMenuItem_Click);
             // 
             // cARGOSROLESToolStripMenuItem
             // 

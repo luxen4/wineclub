@@ -196,7 +196,7 @@ namespace proyectovinos
         }
 
         private void radio_deshabilitados_CheckedChanged(object sender, EventArgs e)
-        {
+        {   limpiarcampos();
             cargaLista = false;
             articulo.cumplimentarListaArticulos(listView1, '0');
             cargaLista = true;
@@ -204,6 +204,7 @@ namespace proyectovinos
 
         private void radio_habilitados_CheckedChanged(object sender, EventArgs e)
         {
+            limpiarcampos();
             cargaLista = false;
             articulo.cumplimentarListaArticulos(listView1, '1');
             cargaLista = true;
@@ -246,7 +247,8 @@ namespace proyectovinos
                     cargaLista = false;
                     articulo.cumplimentarListaArticulos(listView1, '0');
                     cargaLista = true;
-                    
+                    limpiarcampos();
+
                 }
                 else
                 {

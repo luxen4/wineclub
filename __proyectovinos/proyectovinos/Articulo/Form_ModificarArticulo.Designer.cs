@@ -546,7 +546,7 @@
             this.groupBox4.Size = new System.Drawing.Size(1321, 768);
             this.groupBox4.TabIndex = 70;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Todos Articulos Vino Habilitados";
+            this.groupBox4.Text = "Todos los Artículos";
             // 
             // pictureBox2
             // 
@@ -567,8 +567,9 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
             this.button4.TabIndex = 120;
-            this.button4.Text = "Todos";
+            this.button4.Text = "Actualizar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label4
             // 
@@ -576,9 +577,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(649, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 13);
+            this.label4.Size = new System.Drawing.Size(76, 13);
             this.label4.TabIndex = 119;
-            this.label4.Text = "Empaquetado";
+            this.label4.Text = "Empaquetado:";
             // 
             // comboBox_nombreempaquetado
             // 
@@ -608,9 +609,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(431, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 116;
-            this.label2.Text = "Catalogación";
+            this.label2.Text = "Catalogación:";
             // 
             // comboBox_filtronombrecatalogacion
             // 
@@ -640,9 +641,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(216, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 113;
-            this.label1.Text = "Proveedor";
+            this.label1.Text = "Proveedor:";
             // 
             // combo_filtronombreproveedor
             // 

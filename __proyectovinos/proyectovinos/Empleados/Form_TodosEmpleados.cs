@@ -317,21 +317,12 @@ namespace proyectovinos.Empleados
 
 
         // Enlaces del Menu-Strip para abrir otros formularios
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            empleadoAperturaForms.eliminarEmpleado(); 
-        }
+
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             empleadoAperturaForms.modificarEmpleado(); 
         }
-        private void empleadosInhabilitadosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            empleadoAperturaForms.empleadosInhabilitados(); 
-        }
-
-
 
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
         {

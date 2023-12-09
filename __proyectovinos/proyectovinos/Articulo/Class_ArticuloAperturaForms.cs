@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using proyectovinos.Articulo;
+using proyectovinos.ArticuloVino;
 
 namespace proyectovinos.ArticuloVino
 {
@@ -48,7 +48,6 @@ namespace proyectovinos.ArticuloVino
             }
         }
 
-
         /// <summary>
         /// Abrir el formulario de Modificar un articulo.
         /// </summary>
@@ -66,95 +65,5 @@ namespace proyectovinos.ArticuloVino
                 form.Show();
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        /// <summary>
-        /// Abrir el formulario de Eliminar un articulo.
-        /// </summary>
-        public void eliminarArticuloVino()
-        {
-            Form_EliminarArticuloVino form;
-            if (Application.OpenForms["Form_EliminarArticulo"] != null)
-            {
-                Application.OpenForms["Form_EliminarArticulo"].Activate();
-            }
-            else
-            {
-                form = new Form_EliminarArticuloVino();
-                //formulario.MdiParent = this;
-                form.Show();
-            }
-        }*/
-
-        //
-
-
-
-
-
-
-        /*
-    //       
-        /// <summary>
-        /// Método que abre el formulario de Articulos inhabilitados con posibilidad de habilitarlos.
-        /// </summary>
-        public void articulosInhabilitados()
-        {
-            Form_HabilitarArticulos form;
-            if (Application.OpenForms["Form_HabilitarArticulos"] != null)
-            {
-                Application.OpenForms["Form_HabilitarArticulos"].Activate();
-            }
-            else
-            {
-                form = new Form_HabilitarArticulos();
-                //formulario.MdiParent = this;
-                form.Show();
-            }
-        }*/
-
-
-
-        /*
-        public void todosArticulosVinoII()
-        {
-            Form_TodosArticulosVinoII form;
-            if (Application.OpenForms["Form_TodosArticulosVinoII"] != null)
-            {
-                Application.OpenForms["Form_TodosArticulosVinoII"].Activate();
-            }
-            else
-            {
-                form = new Form_TodosArticulosVinoII();
-                //formulario.MdiParent = this;
-                form.Show();
-            }
-        }*/
-
-
     }
 }

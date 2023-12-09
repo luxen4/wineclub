@@ -248,8 +248,8 @@ namespace proyectovinos
 
         private void button17_Click(object sender, EventArgs e)
         {
-            Class_ContenidoAperturaForms apertura = new Class_ContenidoAperturaForms();
-            apertura.todosContenidos();
+            Class_FormatoAperturaForms apertura = new Class_FormatoAperturaForms();
+            apertura.todosFormatos();
         }
 
 
@@ -384,6 +384,12 @@ namespace proyectovinos
         {
             comboBox_filtronombrecatalogacion.Text = "Seleccione";
             cumplimentarComboboxes.refrescarCombo("nombre", "proveedor", combo_filtronombreproveedor);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            articulo.cumplimentarListaArticulos(listView1, '1');
         }
 
         private void comboBox_filtronombrecatalogacion_Click(object sender, EventArgs e)

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-10-2023 a las 23:07:11
+-- Tiempo de generación: 10-12-2023 a las 00:53:35
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.0.19
 
@@ -75,13 +75,13 @@ INSERT INTO `articulo` (`id_articulo`, `ref`, `id_tipouva`, `id_clasevino`, `id_
 (19, 'ART19', 1, 1, 18, 6, 2, 5, 12, 10, 20, 5, 20, '0.00', '0.00', '0.00', '0.00', 'art19.jpg', '1'),
 (20, 'ART20', 1, 1, 18, 6, 16, 5, 13, 10, 30, 5, 10, '0.00', '0.00', '0.00', '0.00', 'art20.jpg', '1'),
 (21, 'ART21', 1, 1, 18, 6, 16, 5, 14, 5, 30, 5, 10, '0.00', '0.00', '0.00', '0.00', 'art21.jpg', '1'),
-(22, 'ART22', 1, 1, 19, 6, 3, 4, 15, 15, 50, 5, 50, '0.00', '0.00', '0.00', '0.00', 'art22.jpg', '0'),
+(22, 'ART22', 1, 1, 19, 6, 3, 4, 15, 15, 50, 5, 50, '0.00', '0.00', '0.00', '0.00', 'art22.jpg', '1'),
 (23, 'ART23', 1, 2, 20, 6, 17, 4, 15, 15, 50, 5, 50, '0.00', '0.00', '0.00', '0.00', 'art23.jpg', '1'),
 (24, 'ART24', 24, 2, 21, 19, 18, 6, 17, 50, 100, 5, 12, '0.00', '0.00', '0.00', '0.00', 'art24.jpg', '0'),
 (25, 'ART25', 25, 5, 22, 20, 19, 1, 3, 10, 20, 5, 20, '0.00', '0.00', '0.00', '0.00', 'art25.jpg', '1'),
 (28, 'ART28', 1, 3, 23, 15, 20, 6, 17, 10, 20, 10, 20, '0.00', '0.00', '0.00', '0.00', 'art28.jpg', '0'),
 (29, 'ART59', 26, 2, 24, 7, 21, 1, 19, 10, 75, 5, 25, '0.00', '0.00', '0.00', '0.00', 'art59.jpg', '1'),
-(30, 'ART30', 27, 2, 25, 6, 22, 6, 17, 50, 100, 5, 12, '0.00', '0.00', '0.00', '0.00', 'art30.jpg', '0'),
+(30, 'ART30', 27, 2, 25, 6, 22, 6, 17, 50, 100, 5, 15, '0.00', '0.00', '0.00', '0.00', 'art30.jpg', '1'),
 (31, 'ART31', 22, 3, 26, 7, 23, 9, 17, 5, 25, 5, 10, '0.00', '0.00', '0.00', '0.00', 'art31.jpg', '1'),
 (32, 'ART32', 28, 4, 12, 6, 24, 10, 20, 10, 100, 10, 25, '0.00', '0.00', '0.00', '0.00', 'art32.jpg', '1'),
 (33, 'ART33', 29, 1, 21, 6, 23, 6, 17, 15, 50, 5, 50, '0.00', '0.00', '0.00', '0.00', 'art33.jpg', '0'),
@@ -159,7 +159,8 @@ INSERT INTO `catalogacion` (`id_catalogacion`, `ref`, `nombre`, `activo`) VALUES
 (24, 'CAT24', 'bbb', '0'),
 (25, 'CAT25', 'ccc', '0'),
 (27, 'CAT27', 'zzzzzzzz', '0'),
-(28, 'CAT28', 'hhhhhhhhhhhhhhhhhhhh', '0');
+(28, 'CAT28', 'hhhhhhhhhhhhhhhhhhhh', '0'),
+(29, 'CAT29', 'RSHTRT', '1');
 
 -- --------------------------------------------------------
 
@@ -179,12 +180,11 @@ CREATE TABLE `clasevino` (
 --
 
 INSERT INTO `clasevino` (`id_clasevino`, `ref`, `nombre`, `activo`) VALUES
-(1, 'CLS1', 'TINTO', '0'),
+(1, 'CLS1', 'TINTO', '1'),
 (2, 'CLS2', 'BLANCO', '1'),
 (3, 'CLS3', 'ROSADO', '1'),
 (4, 'CLS4', 'ESPUMOSO', '1'),
-(5, 'CLS5', 'GENEROSO', '1'),
-(6, 'CLS6', 'SDFSDFF', '0');
+(5, 'CLS5', 'GENEROSO', '1');
 
 -- --------------------------------------------------------
 
@@ -246,11 +246,11 @@ INSERT INTO `denominacion` (`id_denominacion`, `ref`, `nombre`, `activo`) VALUES
 (10, 'DEN10', 'D.O. Somontano', '0'),
 (12, 'DEN12', 'D.O. Toro', '0'),
 (13, 'DEN13', 'D.O. Cava', '1'),
-(14, 'DEN14', 'D.O. Jerezjkl.jkl.jkl.jkl.kl.k', '0'),
+(14, 'DEN14', 'D.O. Jerez', '0'),
 (15, 'DEN15', 'Pedro Ximenez', '1'),
 (16, 'DEN16', 'Vinos de España Tinto', '1'),
 (17, 'DEN17', 'D.O. Protegida Cebreros', '1'),
-(18, 'DEN18', 'D.O. Cataluñaaaaaa', '1'),
+(18, 'DEN18', 'D.O. Cataluña', '1'),
 (19, 'DEN19', 'Jerez-Xérès-Sherry', '1'),
 (20, 'DEN20', 'D. O. Cigales', '0'),
 (21, 'DEN21', 'D.O. Chianti DOCG', '1'),
@@ -258,8 +258,7 @@ INSERT INTO `denominacion` (`id_denominacion`, `ref`, `nombre`, `activo`) VALUES
 (23, 'DEN23', 'Sin Denominación', '0'),
 (24, 'DEN24', 'Cava Rosado Brut', '1'),
 (25, 'DEN25', 'D. O. Rueda', '1'),
-(26, 'hj,jh', 'Mine Denomination', '1'),
-(27, 'DEN27', 'khj', '1');
+(26, 'DEN26', 'Jerez', '1');
 
 -- --------------------------------------------------------
 
@@ -331,7 +330,7 @@ INSERT INTO `empaquetado` (`id_empaquetado`, `ref`, `nombre`, `activo`) VALUES
 (6, 'EMP6', 'Lata', '1'),
 (7, 'EMP7', 'Caja 24 latas', '0'),
 (9, 'EMP9', 'Caja 12 latas', '0'),
-(10, 'EMP10', 'Pack 3 Botellitas', '0');
+(10, 'EMP10', 'Pack 3 Botellitas', '1');
 
 -- --------------------------------------------------------
 
@@ -363,7 +362,8 @@ INSERT INTO `empleado` (`id_empleado`, `ref`, `nombre`, `apellido1`, `apellido2`
 (1, 'EMP1', 'Adrián', 'Laya', 'García', '637117965', 'superlaya50@gmail.com', 'Hombre', '1982-06-16', 'adrian', '6QRNJHgiEptBfbMM4eaHEFkCctQ=', 1, '1'),
 (2, 'EMP2', 'Gemma', 'Mago', 'Martínez', '000000001', 'gemma@gmail.com', 'Mujer', '1980-06-16', 'gemma', '6QRNJHgiEptBfbMM4eaHEFkCctQ=', 2, '1'),
 (4, 'EMP4', 'Borja', 'García', 'Barquín', '000000003', 'borja@gmail.com', 'Hombre', '2000-01-24', 'borja', '6QRNJHgiEptBfbMM4eaHEFkCctQ=', 3, '1'),
-(5, 'EMP5', 'Aoito', 'Pérez', 'Martínez', '606999999', 'aoito@aoito.com', 'Hombre', '1970-04-26', 'aoito', '6QRNJHgiEptBfbMM4eaHEFkCctQ=', 3, '1');
+(5, 'EMP5', 'Aoito', 'Pérez', 'Martínez', '606999999', 'aoito@aoito.com', 'Hombre', '1970-04-26', 'aoito', '6QRNJHgiEptBfbMM4eaHEFkCctQ=', 3, '1'),
+(6, 'EMP6', 'Eduardo', 'Hormilla', 'Urraca', '000000001', 'edu@gmail.com', 'Hombre', '2023-12-10', 'eduardo', '6QRNJHgiEptBfbMM4eaHEFkCctQ=', 3, '1');
 
 -- --------------------------------------------------------
 
@@ -402,7 +402,7 @@ INSERT INTO `formatocontenido` (`id_formatocontenido`, `ref`, `nombre`, `conteni
 (18, 'CON18', '700 ml.', '700 ml.', '1'),
 (19, 'CON19', 'Fiasco', '0.75 lt.', '0'),
 (20, 'CON20', '300 ml.', '300 ml.', '1'),
-(21, 'CON21', 'gfbfgnuuuuuuuuu', '', '0');
+(21, 'CON21', 'gfbfg', '', '0');
 
 -- --------------------------------------------------------
 
@@ -557,7 +557,7 @@ INSERT INTO `proveedor` (`id_proveedor`, `ref`, `nombre`, `direccion`, `localida
 (22, 'PRO22', 'Bodegas Williams & Humber', '*', '*', '**', '*', '*', '1'),
 (23, 'PRO23', 'BODEGAS PEÑASCAL S.A', '*', '*', '*', '*', '*', '1'),
 (24, 'PRO24', 'Castelli del Grevepesa Ca', '*', '*', '*', '*', '*', '1'),
-(25, 'PRO25', 'Bodegas Aragonesas', '*', '*', '*', '*', '*', '0'),
+(25, 'PRO25', 'Bodegas Aragonesas', 'Carr. de Magallón a la Almunia, S/N,', 'Fuendejalón', 'Zaragoza', '976 86 21 53', 'enoturismo@bodegasaragonesas.com', '0'),
 (26, 'PRO26', 'BORN ROSÉ Barcelona', '*', '*', '*', '*', '*', '1'),
 (27, 'PRO27', 'CAMPO VIEJOs', 'Cam. de Lapuebla de Labarca, 50, 26007', 'Logroño', 'La Rioja', '941279900', 'campoviejo.com', '1');
 
@@ -726,7 +726,7 @@ INSERT INTO `ubicacionlineacompraproveedor` (`id_ubicacionlinearcompraproveedor`
 (144, 2, 11, 35, 18),
 (145, 1, 12, 1, 75),
 (146, 2, 12, 1, 0),
-(147, 1, 13, 30, -2),
+(147, 1, 13, 30, 0),
 (148, 2, 13, 30, 8),
 (149, 1, 14, 19, 5),
 (150, 2, 14, 19, 0),
@@ -1000,7 +1000,7 @@ ALTER TABLE `ventasocio`
 -- AUTO_INCREMENT de la tabla `articulo`
 --
 ALTER TABLE `articulo`
-  MODIFY `id_articulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_articulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de la tabla `bajaexistencias`
@@ -1012,7 +1012,7 @@ ALTER TABLE `bajaexistencias`
 -- AUTO_INCREMENT de la tabla `catalogacion`
 --
 ALTER TABLE `catalogacion`
-  MODIFY `id_catalogacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_catalogacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `clasevino`

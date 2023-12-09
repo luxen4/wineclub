@@ -53,13 +53,6 @@ namespace proyectovinos
             id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencianuevo);
             limpiarCampos();
         }
-    
-        // Registro de Nuevo Articulo de vino
-        private void button2_Click(object sender, EventArgs e)
-        {
-   
-                
-        }
         
         // Método que solo inserta un articuloVino en la tabla
         private bool insertarEnTablaArticuloVino()
@@ -184,8 +177,8 @@ namespace proyectovinos
         // Contenido
         private void button8_Click(object sender, EventArgs e)
         {
-            Class_ContenidoAperturaForms contenido = new Class_ContenidoAperturaForms();
-            contenido.todosContenidos();
+            Class_FormatoAperturaForms contenido = new Class_FormatoAperturaForms();
+            contenido.todosFormatos();
         }
 
         // Empaquetado
@@ -269,14 +262,14 @@ namespace proyectovinos
         {
             Class_DenominacionAperturaForms denominacion = new Class_DenominacionAperturaForms();
             //denominacion.todasDenominaciones();
-            denominacion.todasDenominacionesII();
+            denominacion.todasDenominaciones();
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
-            Class_ContenidoAperturaForms contenido = new Class_ContenidoAperturaForms();
+            Class_FormatoAperturaForms contenido = new Class_FormatoAperturaForms();
             //contenido.todosContenidos();
-            contenido.todosContenidosII();
+            contenido.todosFormatos();
         }
 
         private void button15_Click(object sender, EventArgs e)
