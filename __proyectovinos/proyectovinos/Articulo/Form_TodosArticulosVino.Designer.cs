@@ -30,6 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_TodosArticulosVino));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radio_deshabilitados = new System.Windows.Forms.RadioButton();
+            this.label8 = new System.Windows.Forms.Label();
+            this.radio_habilitados = new System.Windows.Forms.RadioButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.text_refarticulo = new System.Windows.Forms.TextBox();
+            this.text_unidadestienda = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.text_empaquetado = new System.Windows.Forms.TextBox();
+            this.text_unidadesalmacen = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox_nombreempaquetado = new System.Windows.Forms.ComboBox();
@@ -55,41 +70,26 @@
             this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.combo_nombreproveedor = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btn_deshabilitar = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.check_seguro = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.text_unidadestienda = new System.Windows.Forms.TextBox();
-            this.text_empaquetado = new System.Windows.Forms.TextBox();
-            this.text_unidadesalmacen = new System.Windows.Forms.TextBox();
-            this.text_refarticulo = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.aRTICULOSVINOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoArtículoVinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.artículosInhabilitadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.desabilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.habilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.radio_deshabilitados);
             this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.radio_habilitados);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label7);
@@ -103,7 +103,6 @@
             this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.combo_nombreproveedor);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Location = new System.Drawing.Point(6, 27);
             this.groupBox1.Name = "groupBox1";
@@ -111,6 +110,174 @@
             this.groupBox1.TabIndex = 65;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Todos Articulos Habilitados";
+            // 
+            // radio_deshabilitados
+            // 
+            this.radio_deshabilitados.AutoSize = true;
+            this.radio_deshabilitados.Location = new System.Drawing.Point(1055, 14);
+            this.radio_deshabilitados.Name = "radio_deshabilitados";
+            this.radio_deshabilitados.Size = new System.Drawing.Size(94, 17);
+            this.radio_deshabilitados.TabIndex = 68;
+            this.radio_deshabilitados.Text = "Deshabilitados";
+            this.radio_deshabilitados.UseVisualStyleBackColor = true;
+            this.radio_deshabilitados.CheckedChanged += new System.EventHandler(this.radio_deshabilitados_CheckedChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Location = new System.Drawing.Point(1240, 45);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 13);
+            this.label8.TabIndex = 121;
+            this.label8.Text = "Existencias";
+            // 
+            // radio_habilitados
+            // 
+            this.radio_habilitados.AutoSize = true;
+            this.radio_habilitados.Checked = true;
+            this.radio_habilitados.Location = new System.Drawing.Point(972, 14);
+            this.radio_habilitados.Name = "radio_habilitados";
+            this.radio_habilitados.Size = new System.Drawing.Size(77, 17);
+            this.radio_habilitados.TabIndex = 67;
+            this.radio_habilitados.TabStop = true;
+            this.radio_habilitados.Text = "Habilitados";
+            this.radio_habilitados.UseVisualStyleBackColor = true;
+            this.radio_habilitados.CheckedChanged += new System.EventHandler(this.radio_habilitados_CheckedChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.button4);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.text_refarticulo);
+            this.groupBox3.Controls.Add(this.text_unidadestienda);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.text_empaquetado);
+            this.groupBox3.Controls.Add(this.text_unidadesalmacen);
+            this.groupBox3.Enabled = false;
+            this.groupBox3.Location = new System.Drawing.Point(6, 309);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(211, 165);
+            this.groupBox3.TabIndex = 120;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Información";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(4, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.TabIndex = 68;
+            this.label3.Text = "Almacén";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(6, 83);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(199, 45);
+            this.textBox1.TabIndex = 117;
+            this.textBox1.Text = "Detalles y notas sobre el producto...";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(58, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 70;
+            this.label5.Text = "Tienda";
+            // 
+            // button4
+            // 
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
+            this.button4.Location = new System.Drawing.Point(43, 136);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(125, 23);
+            this.button4.TabIndex = 118;
+            this.button4.Text = "Ficha del Artículo";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(111, 45);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 13);
+            this.label6.TabIndex = 102;
+            this.label6.Text = "Empaquetado";
+            // 
+            // text_refarticulo
+            // 
+            this.text_refarticulo.Enabled = false;
+            this.text_refarticulo.Location = new System.Drawing.Point(131, 10);
+            this.text_refarticulo.Name = "text_refarticulo";
+            this.text_refarticulo.Size = new System.Drawing.Size(74, 20);
+            this.text_refarticulo.TabIndex = 101;
+            // 
+            // text_unidadestienda
+            // 
+            this.text_unidadestienda.Enabled = false;
+            this.text_unidadestienda.Location = new System.Drawing.Point(64, 60);
+            this.text_unidadestienda.Name = "text_unidadestienda";
+            this.text_unidadestienda.Size = new System.Drawing.Size(44, 20);
+            this.text_unidadestienda.TabIndex = 71;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Location = new System.Drawing.Point(74, 13);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(59, 13);
+            this.label13.TabIndex = 100;
+            this.label13.Text = "Referencia";
+            // 
+            // text_empaquetado
+            // 
+            this.text_empaquetado.Enabled = false;
+            this.text_empaquetado.Location = new System.Drawing.Point(114, 60);
+            this.text_empaquetado.Name = "text_empaquetado";
+            this.text_empaquetado.Size = new System.Drawing.Size(91, 20);
+            this.text_empaquetado.TabIndex = 103;
+            // 
+            // text_unidadesalmacen
+            // 
+            this.text_unidadesalmacen.Enabled = false;
+            this.text_unidadesalmacen.Location = new System.Drawing.Point(7, 60);
+            this.text_unidadesalmacen.Name = "text_unidadesalmacen";
+            this.text_unidadesalmacen.Size = new System.Drawing.Size(45, 20);
+            this.text_unidadesalmacen.TabIndex = 69;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Location = new System.Drawing.Point(1160, 45);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(40, 13);
+            this.label9.TabIndex = 119;
+            this.label9.Text = "Tienda";
             // 
             // label7
             // 
@@ -317,129 +484,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.btn_deshabilitar);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.check_seguro);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.text_unidadestienda);
-            this.groupBox2.Controls.Add(this.text_empaquetado);
-            this.groupBox2.Controls.Add(this.text_unidadesalmacen);
-            this.groupBox2.Controls.Add(this.text_refarticulo);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Location = new System.Drawing.Point(6, 430);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(211, 171);
-            this.groupBox2.TabIndex = 104;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Deshabilitar";
-            // 
-            // btn_deshabilitar
-            // 
-            this.btn_deshabilitar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_deshabilitar.BackgroundImage")));
-            this.btn_deshabilitar.Location = new System.Drawing.Point(43, 128);
-            this.btn_deshabilitar.Name = "btn_deshabilitar";
-            this.btn_deshabilitar.Size = new System.Drawing.Size(125, 23);
-            this.btn_deshabilitar.TabIndex = 77;
-            this.btn_deshabilitar.Text = "Deshabilitar";
-            this.btn_deshabilitar.UseVisualStyleBackColor = true;
-            this.btn_deshabilitar.Click += new System.EventHandler(this.btn_deshabilitar_Click);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(4, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
-            this.label3.TabIndex = 68;
-            this.label3.Text = "Almacén";
-            // 
-            // check_seguro
-            // 
-            this.check_seguro.AutoSize = true;
-            this.check_seguro.BackColor = System.Drawing.Color.Transparent;
-            this.check_seguro.Location = new System.Drawing.Point(64, 105);
-            this.check_seguro.Name = "check_seguro";
-            this.check_seguro.Size = new System.Drawing.Size(87, 17);
-            this.check_seguro.TabIndex = 78;
-            this.check_seguro.Text = "Estoy seguro";
-            this.check_seguro.UseVisualStyleBackColor = false;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(58, 60);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 70;
-            this.label5.Text = "Tienda";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(111, 61);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 13);
-            this.label6.TabIndex = 102;
-            this.label6.Text = "Empaquetado";
-            // 
-            // text_unidadestienda
-            // 
-            this.text_unidadestienda.Enabled = false;
-            this.text_unidadestienda.Location = new System.Drawing.Point(64, 76);
-            this.text_unidadestienda.Name = "text_unidadestienda";
-            this.text_unidadestienda.Size = new System.Drawing.Size(44, 20);
-            this.text_unidadestienda.TabIndex = 71;
-            // 
-            // text_empaquetado
-            // 
-            this.text_empaquetado.Enabled = false;
-            this.text_empaquetado.Location = new System.Drawing.Point(114, 76);
-            this.text_empaquetado.Name = "text_empaquetado";
-            this.text_empaquetado.Size = new System.Drawing.Size(91, 20);
-            this.text_empaquetado.TabIndex = 103;
-            // 
-            // text_unidadesalmacen
-            // 
-            this.text_unidadesalmacen.Enabled = false;
-            this.text_unidadesalmacen.Location = new System.Drawing.Point(7, 76);
-            this.text_unidadesalmacen.Name = "text_unidadesalmacen";
-            this.text_unidadesalmacen.Size = new System.Drawing.Size(45, 20);
-            this.text_unidadesalmacen.TabIndex = 69;
-            // 
-            // text_refarticulo
-            // 
-            this.text_refarticulo.Enabled = false;
-            this.text_refarticulo.Location = new System.Drawing.Point(131, 26);
-            this.text_refarticulo.Name = "text_refarticulo";
-            this.text_refarticulo.Size = new System.Drawing.Size(74, 20);
-            this.text_refarticulo.TabIndex = 101;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Location = new System.Drawing.Point(74, 29);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 13);
-            this.label13.TabIndex = 100;
-            this.label13.Text = "Referencia";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
@@ -453,52 +497,17 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aRTICULOSVINOToolStripMenuItem,
-            this.actualizarToolStripMenuItem});
+            this.modificarToolStripMenuItem1,
+            this.actualizarToolStripMenuItem,
+            this.desabilitarToolStripMenuItem,
+            this.habilitarToolStripMenuItem,
+            this.eliminarToolStripMenuItem1,
+            this.nuevoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1339, 24);
             this.menuStrip1.TabIndex = 66;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // aRTICULOSVINOToolStripMenuItem
-            // 
-            this.aRTICULOSVINOToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoArtículoVinoToolStripMenuItem,
-            this.modificarToolStripMenuItem,
-            this.artículosInhabilitadosToolStripMenuItem,
-            this.eliminarToolStripMenuItem});
-            this.aRTICULOSVINOToolStripMenuItem.Name = "aRTICULOSVINOToolStripMenuItem";
-            this.aRTICULOSVINOToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
-            this.aRTICULOSVINOToolStripMenuItem.Text = "ARTICULOS VINO";
-            // 
-            // nuevoArtículoVinoToolStripMenuItem
-            // 
-            this.nuevoArtículoVinoToolStripMenuItem.Name = "nuevoArtículoVinoToolStripMenuItem";
-            this.nuevoArtículoVinoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.nuevoArtículoVinoToolStripMenuItem.Text = "Nuevo";
-            this.nuevoArtículoVinoToolStripMenuItem.Click += new System.EventHandler(this.nuevoArtículoVinoToolStripMenuItem_Click);
-            // 
-            // modificarToolStripMenuItem
-            // 
-            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.modificarToolStripMenuItem.Text = "Modificar";
-            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
-            // 
-            // artículosInhabilitadosToolStripMenuItem
-            // 
-            this.artículosInhabilitadosToolStripMenuItem.Name = "artículosInhabilitadosToolStripMenuItem";
-            this.artículosInhabilitadosToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.artículosInhabilitadosToolStripMenuItem.Text = "Artículos Deshabilitados";
-            this.artículosInhabilitadosToolStripMenuItem.Click += new System.EventHandler(this.artículosInhabilitadosToolStripMenuItem_Click);
-            // 
-            // eliminarToolStripMenuItem
-            // 
-            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.eliminarToolStripMenuItem.Text = "Eliminar";
-            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // actualizarToolStripMenuItem
             // 
@@ -508,67 +517,52 @@
             this.actualizarToolStripMenuItem.Text = "Actualizar";
             this.actualizarToolStripMenuItem.Click += new System.EventHandler(this.actualizarToolStripMenuItem_Click);
             // 
-            // textBox1
+            // desabilitarToolStripMenuItem
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(6, 19);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(199, 45);
-            this.textBox1.TabIndex = 117;
-            this.textBox1.Text = "Detalles y notas sobre el producto...";
+            this.desabilitarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("desabilitarToolStripMenuItem.Image")));
+            this.desabilitarToolStripMenuItem.Name = "desabilitarToolStripMenuItem";
+            this.desabilitarToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
+            this.desabilitarToolStripMenuItem.Text = "Deshabilitar";
+            this.desabilitarToolStripMenuItem.Click += new System.EventHandler(this.desabilitarToolStripMenuItem_Click);
             // 
-            // button4
+            // habilitarToolStripMenuItem
             // 
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.Location = new System.Drawing.Point(43, 72);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 23);
-            this.button4.TabIndex = 118;
-            this.button4.Text = "Ficha del Artículo";
-            this.button4.UseVisualStyleBackColor = true;
+            this.habilitarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("habilitarToolStripMenuItem.Image")));
+            this.habilitarToolStripMenuItem.Name = "habilitarToolStripMenuItem";
+            this.habilitarToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.habilitarToolStripMenuItem.Text = "Habilitar";
+            this.habilitarToolStripMenuItem.Click += new System.EventHandler(this.habilitarToolStripMenuItem_Click);
             // 
-            // label9
+            // eliminarToolStripMenuItem1
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(1160, 45);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 13);
-            this.label9.TabIndex = 119;
-            this.label9.Text = "Tienda";
+            this.eliminarToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("eliminarToolStripMenuItem1.Image")));
+            this.eliminarToolStripMenuItem1.Name = "eliminarToolStripMenuItem1";
+            this.eliminarToolStripMenuItem1.Size = new System.Drawing.Size(78, 20);
+            this.eliminarToolStripMenuItem1.Text = "Eliminar";
+            this.eliminarToolStripMenuItem1.Click += new System.EventHandler(this.eliminarToolStripMenuItem1_Click);
             // 
-            // groupBox3
+            // nuevoToolStripMenuItem
             // 
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.button4);
-            this.groupBox3.Enabled = false;
-            this.groupBox3.Location = new System.Drawing.Point(6, 309);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(211, 101);
-            this.groupBox3.TabIndex = 120;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Información";
+            this.nuevoToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("nuevoToolStripMenuItem.BackgroundImage")));
+            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.nuevoToolStripMenuItem.Text = "            ";
+            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
-            // label8
+            // modificarToolStripMenuItem1
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(1240, 45);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(60, 13);
-            this.label8.TabIndex = 121;
-            this.label8.Text = "Existencias";
+            this.modificarToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("modificarToolStripMenuItem1.Image")));
+            this.modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
+            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(129, 20);
+            this.modificarToolStripMenuItem1.Text = "Modificar artículo";
+            this.modificarToolStripMenuItem1.Click += new System.EventHandler(this.modificarToolStripMenuItem1_Click);
             // 
             // Form_TodosArticulosVino
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1339, 635);
+            this.ClientSize = new System.Drawing.Size(1339, 641);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -580,13 +574,11 @@
             this.Load += new System.EventHandler(this.Form_TodosArticulosVino_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -595,23 +587,15 @@
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem aRTICULOSVINOToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoArtículoVinoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btn_deshabilitar;
-        private System.Windows.Forms.CheckBox check_seguro;
         private System.Windows.Forms.TextBox text_refarticulo;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox text_unidadesalmacen;
         private System.Windows.Forms.TextBox text_unidadestienda;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox text_empaquetado;
-        private System.Windows.Forms.ToolStripMenuItem artículosInhabilitadosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.ComboBox combo_nombreproveedor;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListView listView1;
@@ -643,5 +627,12 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RadioButton radio_habilitados;
+        private System.Windows.Forms.RadioButton radio_deshabilitados;
+        private System.Windows.Forms.ToolStripMenuItem desabilitarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem habilitarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem1;
     }
 }

@@ -100,16 +100,6 @@ namespace proyectovinos
             socioAperturaForms.modificarSocio(); this.Close();
         }
 
-        private void sociosInhabilitadosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            socioAperturaForms.socioInhabilitados(); this.Close();
-        }
-
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            socioAperturaForms.eliminarSocio(); this.Close();
-        }
-
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             socio.cumplimentarListaSocios(listView1, '1');

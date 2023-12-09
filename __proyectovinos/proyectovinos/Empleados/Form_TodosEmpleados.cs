@@ -336,7 +336,7 @@ namespace proyectovinos.Empleados
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_RollAperturaForms rol = new Class_RollAperturaForms();
-            rol.todosRoles();
+            rol.todosRolesII();
         }
 
 

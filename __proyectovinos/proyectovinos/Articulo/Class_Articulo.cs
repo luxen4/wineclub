@@ -18,7 +18,7 @@ namespace proyectovinos.ArticuloVino
 
     public class Class_Articulo
     {
-
+        // Función que cumplimenta la lista de artículos
         public void cumplimentarListaArticulos(ListView listView1, char activo)
         {
             listView1.Items.Clear();
@@ -226,9 +226,6 @@ namespace proyectovinos.ArticuloVino
         }
 
 
-
-
-
         // Método que devuelve el nº de existencias de un artículo en la tienda
         public int existenciasTiendaArticulo(int id_lineacompraproveedor, int id_articulo)
         {
@@ -259,7 +256,6 @@ namespace proyectovinos.ArticuloVino
 
             return existencias;
         }
-
 
 
 
@@ -319,8 +315,6 @@ namespace proyectovinos.ArticuloVino
             catch (MySqlException ex) { MessageBox.Show(ex.Message); }
             finally { conexionBD.Close(); }
         }
-
-
 
 
 
@@ -676,6 +670,14 @@ namespace proyectovinos.ArticuloVino
         }
     }
 }
+
+
+
+
+
+
+
+
 
 
 

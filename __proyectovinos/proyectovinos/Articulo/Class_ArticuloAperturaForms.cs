@@ -10,8 +10,25 @@ namespace proyectovinos.ArticuloVino
 {
     internal class Class_ArticuloAperturaForms
     {
-        
-    // Métodos que abren formularios
+
+        /// <summary>
+        /// Abrir el formulario de Todos artículos.
+        /// </summary>
+        public void todosArticulosVino()
+        {
+            Form_TodosArticulosVino form;
+            if (Application.OpenForms["Form_TodosArticulosVino"] != null)
+            {
+                Application.OpenForms["Form_TodosArticulosVino"].Activate();
+            }
+            else
+            {
+                form = new Form_TodosArticulosVino();
+                //formulario.MdiParent = this;
+                form.Show();
+            }
+        }
+
 
         /// <summary>
         /// Abrir el formulario de Nevo un articulo.
@@ -31,23 +48,6 @@ namespace proyectovinos.ArticuloVino
             }
         }
 
-        /// <summary>
-        /// Abrir el formulario de Eliminar un articulo.
-        /// </summary>
-        public void eliminarArticuloVino()
-        {
-            Form_EliminarArticuloVino form;
-            if (Application.OpenForms["Form_EliminarArticulo"] != null)
-            {
-                Application.OpenForms["Form_EliminarArticulo"].Activate();
-            }
-            else
-            {
-                form = new Form_EliminarArticuloVino();
-                //formulario.MdiParent = this;
-                form.Show();
-            }
-        }
 
         /// <summary>
         /// Abrir el formulario de Modificar un articulo.
@@ -66,6 +66,50 @@ namespace proyectovinos.ArticuloVino
                 form.Show();
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
+        /// <summary>
+        /// Abrir el formulario de Eliminar un articulo.
+        /// </summary>
+        public void eliminarArticuloVino()
+        {
+            Form_EliminarArticuloVino form;
+            if (Application.OpenForms["Form_EliminarArticulo"] != null)
+            {
+                Application.OpenForms["Form_EliminarArticulo"].Activate();
+            }
+            else
+            {
+                form = new Form_EliminarArticuloVino();
+                //formulario.MdiParent = this;
+                form.Show();
+            }
+        }*/
+
         //
 
 
@@ -73,7 +117,7 @@ namespace proyectovinos.ArticuloVino
 
 
 
-
+        /*
     //       
         /// <summary>
         /// Método que abre el formulario de Articulos inhabilitados con posibilidad de habilitarlos.
@@ -91,27 +135,11 @@ namespace proyectovinos.ArticuloVino
                 //formulario.MdiParent = this;
                 form.Show();
             }
-        }
-
-        /// <summary>
-        /// Abrir el formulario de Todos artículos.
-        /// </summary>
-        public void todosArticulosVino()
-        {
-            Form_TodosArticulosVino form;
-            if (Application.OpenForms["Form_TodosArticulosVino"] != null)
-            {
-                Application.OpenForms["Form_TodosArticulosVino"].Activate();
-            }
-            else
-            {
-                form= new Form_TodosArticulosVino();
-                //formulario.MdiParent = this;
-                form.Show();
-            }
-        }
+        }*/
 
 
+
+        /*
         public void todosArticulosVinoII()
         {
             Form_TodosArticulosVinoII form;
@@ -125,7 +153,7 @@ namespace proyectovinos.ArticuloVino
                 //formulario.MdiParent = this;
                 form.Show();
             }
-        }
+        }*/
 
 
     }

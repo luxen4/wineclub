@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_TodosTiposUvaII));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.actualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.habilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,10 +48,6 @@
             this.text_referencia = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.radio_habilitados = new System.Windows.Forms.RadioButton();
             this.radio_deshabilitados = new System.Windows.Forms.RadioButton();
             this.groupBox2.SuspendLayout();
@@ -64,6 +64,38 @@
             this.groupBox2.TabIndex = 112;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tipos de Uva Habilitados";
+            // 
+            // listView1
+            // 
+            this.listView1.CheckBoxes = true;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(6, 19);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(548, 342);
+            this.listView1.TabIndex = 68;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView1_ItemChecked);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Referencia";
+            this.columnHeader1.Width = 69;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Nombre";
+            this.columnHeader2.Width = 333;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Variedad Uva";
+            this.columnHeader3.Width = 142;
             // 
             // menuStrip2
             // 
@@ -192,38 +224,6 @@
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 108;
             this.label6.Text = "Nombre";
-            // 
-            // listView1
-            // 
-            this.listView1.CheckBoxes = true;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(6, 19);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(548, 342);
-            this.listView1.TabIndex = 68;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView1_ItemChecked);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Referencia";
-            this.columnHeader1.Width = 69;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Nombre";
-            this.columnHeader2.Width = 333;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Variedad Uva";
-            this.columnHeader3.Width = 142;
             // 
             // radio_habilitados
             // 

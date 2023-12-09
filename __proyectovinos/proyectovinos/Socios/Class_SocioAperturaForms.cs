@@ -25,8 +25,6 @@ namespace proyectovinos.Socios
             }
         }
 
-
-
         public void nuevoSocio()
         {
             Form_NuevoSocio form;
@@ -41,6 +39,7 @@ namespace proyectovinos.Socios
                 form.Show();
             }
         }
+
         public void modificarSocio()
         {
             Form_ModificarSocio form;
@@ -51,35 +50,6 @@ namespace proyectovinos.Socios
             else
             {
                 form = new Form_ModificarSocio();
-                //formulario.MdiParent = this;
-                form.Show();
-            }
-        }
-        public void eliminarSocio()
-        {
-            Form_EliminarSocio form;
-            if (Application.OpenForms["FormEliminarSocio"] != null)
-            {
-                Application.OpenForms["FormEliminarSocio"].Activate();
-            }
-            else
-            {
-                form = new Form_EliminarSocio();
-                //formulario.MdiParent = this;
-                form.Show();
-            }
-        }
-
-        internal void socioInhabilitados()
-        {
-            Form_HabilitarSocios form;
-            if (Application.OpenForms["Form_HabilitarSocios"] != null)
-            {
-                Application.OpenForms["Form_HabilitarSocios"].Activate();
-            }
-            else
-            {
-                form = new Form_HabilitarSocios();
                 //formulario.MdiParent = this;
                 form.Show();
             }

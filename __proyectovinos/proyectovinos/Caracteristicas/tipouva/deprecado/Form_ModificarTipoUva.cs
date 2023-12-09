@@ -79,7 +79,7 @@ namespace proyectovinos.Caracteristicas.tipouva
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_ArticuloAperturaForms articulo = new Class_ArticuloAperturaForms();
-            articulo.todosArticulosVinoII(); this.Close();
+            articulo.todosArticulosVino(); this.Close();
         }
     }
 }

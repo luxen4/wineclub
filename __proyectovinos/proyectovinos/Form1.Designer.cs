@@ -41,8 +41,6 @@
             this.devoluciónAProveedorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.todosProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aRTICULOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.todosIIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tipoDeUvaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.variedadDeUvaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -220,25 +218,10 @@
             // 
             // aRTICULOSToolStripMenuItem
             // 
-            this.aRTICULOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.todosIIToolStripMenuItem,
-            this.toolStripSeparator8});
             this.aRTICULOSToolStripMenuItem.Name = "aRTICULOSToolStripMenuItem";
             this.aRTICULOSToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.aRTICULOSToolStripMenuItem.Text = "ARTICULOS";
             this.aRTICULOSToolStripMenuItem.Click += new System.EventHandler(this.aRTICULOSToolStripMenuItem_Click);
-            // 
-            // todosIIToolStripMenuItem
-            // 
-            this.todosIIToolStripMenuItem.Name = "todosIIToolStripMenuItem";
-            this.todosIIToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.todosIIToolStripMenuItem.Text = "Todos(problemas)";
-            this.todosIIToolStripMenuItem.Click += new System.EventHandler(this.todosIIToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(166, 6);
             // 
             // toolStripSeparator1
             // 
@@ -877,8 +860,6 @@
         private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rOLESCARGOSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem todosIIToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem todosProveedoresToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem loguinToolStripMenuItem;

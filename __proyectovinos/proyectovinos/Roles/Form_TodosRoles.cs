@@ -7,9 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using proyectovinos.Caracteristicas.catalogacion;
-using proyectovinos.Caracteristicas.clasesvino;
+using proyectovinos.ArticuloVino;
 
 namespace proyectovinos.Roles
 {
@@ -23,47 +21,99 @@ namespace proyectovinos.Roles
         Utilidades ut = new Utilidades();
         CumplimentarListas cumplimentarListas = new CumplimentarListas();
         Consultas consultas = new Consultas();
-        Class_RollAperturaForms apertura = new Class_RollAperturaForms();
 
         private int id_predeterminado = 0;
-        private bool cargaLista = true;
         private string tabla = "rollempleado";
         private string nombreId = "id_rollempleado";
         private string refPredeterminada = "Roll";
+        private string referencia = "";
 
+        private bool cumplimentarTextos = false;
 
-
-
-
-        //
-        private void Form_TodosRoles_Load(object sender, EventArgs e)
+        private void Form_TodosRolesII_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
-            id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencianuevo);
-            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
-            cargaLista = false;
         }
 
 
-        //
-        private void button5_Click(object sender, EventArgs e)
+        // Función que actualiza la lista de cargos
+        private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Modelo a meter en otros
-            if (check_seguronuevo.Checked == true)
-            {
-                if (text_nombrenuevo.Text != "" && text_referencianuevo.Text != "")
-                {
-                    bool insertado = consultas.insertTablaCaracteristicasDinamico(tabla, nombreId, id_predeterminado, text_referencianuevo.Text, text_nombrenuevo.Text);
+            id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencia);
+            limpiarCampos('1');
+        }
 
-                    if (insertado == true)
+        
+
+
+        // Función que habilita un cargo
+        private void habilitarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea eliminar un registro?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
+            {  
+                if (referencia != "")
+                {
+                    ut.habilitarOnOff_Caracteristica(tabla, "ref", text_referencia.Text, '1');
+                    limpiarCampos('0');
+                }
+                else
+                {
+                  MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tenga cuidado!");
+            }
+        }
+
+        // Función que habilita un cargo de la vinoteca
+        private void deshabilitarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea deshabilitar un registro?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
+            {
+                if (referencia != "")
+                {
+                    ut.habilitarOnOff_Caracteristica(tabla, "ref", text_referencia.Text, '0');
+                    limpiarCampos('1');
+                }
+                else
+                {
+                    MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tenga cuidado!");
+            }
+        }
+
+
+        // Función que elimina un cargo
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea eliminar un registro?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
+            {
+                if (referencia != "")
+                {
+
+                    int id_rollempleado = consultas.obtenerCualquierId(nombreId, tabla, "ref", text_referencia.Text);
+
+                    Class_Articulo articulo = new Class_Articulo();
+                    int existencias = articulo.existeArticuloConCaracteristica("id_empleado", "empleado", nombreId, id_rollempleado);
+
+                    if (existencias > 0)
                     {
-                        cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
-                        ut.limpiarCamposNuevoDeshabilitar(check_seguronuevo, text_nombrenuevo, text_referencianuevo);
-                        id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencianuevo);
+                        MessageBox.Show(existencias + ClaseCompartida.msgArticulosTipo);
                     }
                     else
                     {
-                        MessageBox.Show(ClaseCompartida.msgErrorGeneral);
+                        consultas.eliminarCaracteristica(tabla, "ref", text_referencia.Text);
+                        limpiarCampos('0');
                     }
                 }
                 else
@@ -73,43 +123,117 @@ namespace proyectovinos.Roles
             }
             else
             {
-                MessageBox.Show(ClaseCompartida.msgCasillaSeguro);
+                MessageBox.Show("Tenga cuidado!");
+            }
+        }
+
+        // Función que modifica un registro de cargo
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea guardar un registro?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
+            {
+                if (text_nombre.Text == "" || text_referencia.Text == "")
+                {
+                    string nuevoNombre = text_nombre.Text;
+                    string nuevaReferencia = text_referencia.Text;
+
+                    consultas.modificarCualquierTabla(tabla, nuevaReferencia, nuevoNombre, "ref", referencia, listView1);
+                    limpiarCampos('1');
+                  
+                }
+                else
+                {
+                    MessageBox.Show("Campos vacios");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tenga cuidado!");
             }
         }
 
 
-
+        // Al seleccionar un check de la lista
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            ut.checkMarcadoTodos(cargaLista, e, text_referenciadeshabilitar, tabla, text_nombredeshabilitar);
+            if (cumplimentarTextos == true) { 
+                referencia = e.Item.Text;
+                text_referencia.Text = referencia;
+
+                Consultas consultas = new Consultas();
+                string nombre = consultas.obtenerCualquierRefDesdeNombre("nombre", tabla, "ref", referencia);
+                text_nombre.Text = nombre;
+            }
         }
 
-        //
-        private void button2_Click_1(object sender, EventArgs e)
+
+        // Función que crea roles nuevos
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ut.controladorHabilitarCaracteristica(check_segurodeshabilitar, text_referenciadeshabilitar, text_nombredeshabilitar, tabla, listView1, '0');
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea crear un registro?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
+            {
+                if (text_nombre.Text != "" && text_referencia.Text != "")
+                {
+                    consultas.insertTablaCaracteristicasDinamico(tabla, nombreId, id_predeterminado, text_referencia.Text, text_nombre.Text);
+                    limpiarCampos('1');
+                }
+                else {
+                    MessageBox.Show("Campos vacios");
+                }
+            }
+            else {
+                MessageBox.Show("Tenga cuidado!");
+            }
         }
 
 
-        
-        private void rolesDesabilitadosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void radio_habilitados_CheckedChanged(object sender, EventArgs e)
         {
-            apertura.habilitarRoll();
+            enlacesHabilitados();
+            limpiarCampos('1');
         }
 
-        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void radio_deshabilitados_CheckedChanged(object sender, EventArgs e)
         {
-            apertura.modificarRol();
+            enlacesDeshabilitados();
+            limpiarCampos('0');
         }
 
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void enlacesHabilitados()
         {
-            apertura.eliminarRoll();
+            // Igual esto a un bloque junto con la implementación de radio de desabilitar
+            actualizarToolStripMenuItem.Enabled = true;
+            habilitarToolStripMenuItem.Enabled = false;
+            deshabilitarToolStripMenuItem.Enabled = true;
+            eliminarToolStripMenuItem.Enabled = false;
+            saveToolStripMenuItem.Enabled = true;
+            newToolStripMenuItem.Enabled = true;
+            //
+        }
+        private void enlacesDeshabilitados()
+        {
+            actualizarToolStripMenuItem.Enabled = false;
+            habilitarToolStripMenuItem.Enabled = true;
+            deshabilitarToolStripMenuItem.Enabled = false;
+            eliminarToolStripMenuItem.Enabled = true;
+            saveToolStripMenuItem.Enabled = false;
+            newToolStripMenuItem.Enabled = false;
         }
 
-        private void listView1_ItemChecked_1(object sender, ItemCheckedEventArgs e)
+        private void limpiarCampos(char activo)
         {
-            ut.checkMarcadoTodos(cargaLista, e, text_referenciadeshabilitar, tabla, text_nombredeshabilitar);
+            cumplimentarTextos = false;
+            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, activo);
+            cumplimentarTextos = true;
+            text_nombre.Text = "";
+            text_referencia.Text = "";
         }
+
+
     }
+    
 }
+

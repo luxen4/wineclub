@@ -138,22 +138,22 @@
   <ItemGroup>
     <Compile Include="Articulo\Class_Articulo.cs" />
     <Compile Include="Articulo\Class_ArticuloAperturaForms.cs" />
-    <Compile Include="Articulo\Form_TodosArticulosVinoII.cs">
+    <Compile Include="Articulo\PreciosArticulos\deprecado\Form_TodosArticulosVinoII.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Articulo\Form_TodosArticulosVinoII.Designer.cs">
+    <Compile Include="Articulo\PreciosArticulos\deprecado\Form_TodosArticulosVinoII.Designer.cs">
       <DependentUpon>Form_TodosArticulosVinoII.cs</DependentUpon>
     </Compile>
-    <Compile Include="Articulo\Form_EliminarArticuloVino.cs">
+    <Compile Include="Articulo\PreciosArticulos\deprecado\Form_EliminarArticuloVino.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Articulo\Form_EliminarArticuloVino.Designer.cs">
+    <Compile Include="Articulo\PreciosArticulos\deprecado\Form_EliminarArticuloVino.Designer.cs">
       <DependentUpon>Form_EliminarArticuloVino.cs</DependentUpon>
     </Compile>
-    <Compile Include="Articulo\Form_HabilitarArticulos.cs">
+    <Compile Include="Articulo\PreciosArticulos\deprecado\Form_HabilitarArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Articulo\Form_HabilitarArticulos.Designer.cs">
+    <Compile Include="Articulo\PreciosArticulos\deprecado\Form_HabilitarArticulos.Designer.cs">
       <DependentUpon>Form_HabilitarArticulos.cs</DependentUpon>
     </Compile>
     <Compile Include="Caracteristicas\catalogacion\Class_Catalogacion.cs" />
@@ -455,24 +455,6 @@
     </Compile>
     <Compile Include="Roles\Class_Roll.cs" />
     <Compile Include="Roles\Class_RollAperturaForms.cs" />
-    <Compile Include="Roles\Form_EliminarRoll.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\Form_EliminarRoll.Designer.cs">
-      <DependentUpon>Form_EliminarRoll.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\Form_HabilitarRoll.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\Form_HabilitarRoll.Designer.cs">
-      <DependentUpon>Form_HabilitarRoll.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\Form_ModificarRoll.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\Form_ModificarRoll.Designer.cs">
-      <DependentUpon>Form_ModificarRoll.cs</DependentUpon>
-    </Compile>
     <Compile Include="Roles\Form_TodosRoles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -613,14 +595,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades.cs" />
-    <EmbeddedResource Include="Articulo\Form_TodosArticulosVinoII.resx">
+    <EmbeddedResource Include="Articulo\PreciosArticulos\deprecado\Form_TodosArticulosVinoII.resx">
       <DependentUpon>Form_TodosArticulosVinoII.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Articulo\Form_EliminarArticuloVino.resx">
+    <EmbeddedResource Include="Articulo\PreciosArticulos\deprecado\Form_EliminarArticuloVino.resx">
       <DependentUpon>Form_EliminarArticuloVino.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Articulo\Form_HabilitarArticulos.resx">
+    <EmbeddedResource Include="Articulo\PreciosArticulos\deprecado\Form_HabilitarArticulos.resx">
       <DependentUpon>Form_HabilitarArticulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Articulo\Form_ModificarArticulo.resx">
@@ -778,16 +760,6 @@
     <EmbeddedResource Include="Movimientos\AlmacenProveedor\Form_CompraArticulosProveedor.resx">
       <DependentUpon>Form_CompraArticulosProveedor.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\Form_EliminarRoll.resx">
-      <DependentUpon>Form_EliminarRoll.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\Form_HabilitarRoll.resx">
-      <DependentUpon>Form_HabilitarRoll.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\Form_ModificarRoll.resx">
-      <DependentUpon>Form_ModificarRoll.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Roles\Form_TodosRoles.resx">
       <DependentUpon>Form_TodosRoles.cs</DependentUpon>

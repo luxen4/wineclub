@@ -57,30 +57,7 @@ namespace proyectovinos
         // Registro de Nuevo Articulo de vino
         private void button2_Click(object sender, EventArgs e)
         {
-            bool cumplimentados = camposCumplimentados();
-
-            if (cumplimentados == true)
-            {
-                referencia = text_referencianuevo.Text;
-                id_proveedor = consultas.obtenerCualquierId("id_proveedor","proveedor","nombre",combo_proveedor.Text);                                  
-                bool insertado = insertarEnTablaArticuloVino();
-
-
-                if (insertado == true){
-                    string nombreimagen = ut.limpiezaDeString(referencia) + ".jpg";
-                    string nombrecatalogacion = combo_clasedevino.Text.ToLower();
-
-                    salvarImagenEnCarpetaProveedor(id_proveedor, nombreimagen, nombrecatalogacion);
-                    id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencianuevo);
-                    limpiarCampos();
-                }
-                else {
-                    MessageBox.Show("Artículo no insertado!");
-                }
-            }
-            else {
-                MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
-            }
+   
                 
         }
         
@@ -203,20 +180,6 @@ namespace proyectovinos
         {
             ut.selecionarImagen(pictureBox_articulo);
         }
-        
-
-        // Método que guarda una imagen de articuloVino en la carpeta de proveedor
-        private void button5_Click(object sender, EventArgs e)
-        {
-            limpiarCampos();
-        }
-
-        private void button_cerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
 
         // Contenido
         private void button8_Click(object sender, EventArgs e)
@@ -379,7 +342,7 @@ namespace proyectovinos
         private void verTodosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_ArticuloAperturaForms articulo = new Class_ArticuloAperturaForms();
-            articulo.todosArticulosVinoII();
+            articulo.todosArticulosVino();
         }
 
 
@@ -429,6 +392,42 @@ namespace proyectovinos
             else
             {
                 return true;
+            }
+        }
+
+        private void limpiarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
+        }
+
+        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool cumplimentados = camposCumplimentados();
+
+            if (cumplimentados == true)
+            {
+                referencia = text_referencianuevo.Text;
+                id_proveedor = consultas.obtenerCualquierId("id_proveedor", "proveedor", "nombre", combo_proveedor.Text);
+                bool insertado = insertarEnTablaArticuloVino();
+
+
+                if (insertado == true)
+                {
+                    string nombreimagen = ut.limpiezaDeString(referencia) + ".jpg";
+                    string nombrecatalogacion = combo_clasedevino.Text.ToLower();
+
+                    salvarImagenEnCarpetaProveedor(id_proveedor, nombreimagen, nombrecatalogacion);
+                    id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencianuevo);
+                    limpiarCampos();
+                }
+                else
+                {
+                    MessageBox.Show("Artículo no insertado!");
+                }
+            }
+            else
+            {
+                MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
             }
         }
     }

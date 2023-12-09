@@ -143,7 +143,7 @@ namespace proyectovinos
         private void verTodosArticulosDeVinoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_ArticuloAperturaForms articuloAperturaForm = new Class_ArticuloAperturaForms();
-            articuloAperturaForm.todosArticulosVinoII();
+            articuloAperturaForm.todosArticulosVino();
         }
 
         private void pROVEEDORESToolStripMenuItem_Click(object sender, EventArgs e)
@@ -344,7 +344,7 @@ namespace proyectovinos
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_ArticuloAperturaForms apertura = new Class_ArticuloAperturaForms();
-            apertura.todosArticulosVinoII();
+            apertura.todosArticulosVino();
         }
 
         private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -355,14 +355,14 @@ namespace proyectovinos
 
         private void artículosDeshabilitadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Class_ArticuloAperturaForms apertura = new Class_ArticuloAperturaForms();
-            apertura.articulosInhabilitados();
+            // Class_ArticuloAperturaForms apertura = new Class_ArticuloAperturaForms();
+            // apertura.articulosInhabilitados();
         }
 
         private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Class_ArticuloAperturaForms apertura = new Class_ArticuloAperturaForms();
-            apertura.eliminarArticuloVino();
+            // Class_ArticuloAperturaForms apertura = new Class_ArticuloAperturaForms();
+            // apertura.eliminarArticuloVino();
         }
 
         private void desdeAlmacénATiendaToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -505,7 +505,7 @@ namespace proyectovinos
         private void todosIIToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_ArticuloAperturaForms apertura = new Class_ArticuloAperturaForms();
-            apertura.todosArticulosVinoII();
+            apertura.todosArticulosVino();
         }
 
         private void todasDenominacionesIIToolStripMenuItem_Click(object sender, EventArgs e)
@@ -567,7 +567,7 @@ namespace proyectovinos
         private void rOLESCARGOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_RollAperturaForms rol = new Class_RollAperturaForms();
-            rol.todosRoles();
+            rol.todosRolesII();
         }
 
 

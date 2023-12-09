@@ -58,47 +58,7 @@ namespace proyectovinos
             }
         }
 
-
-    // Para apertura de formularios
-
-        private void nuevoArtículoVinoToolStripMenuItem_Click(object sender, EventArgs e)
-        {   // Método que abre un formulario para crear un Artículo de Vino
-            articuloAperturaForm.nuevoArticuloVino(); 
-        }
-        
-        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
-        {   // Método que abre un formulario para modificar un Artículo de Vino
-            articuloAperturaForm.modificarArticuloVino(); 
-        }
-        
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        {  // Método que abre un formulario para eliminar un Artículo de Vino
-            articuloAperturaForm.eliminarArticuloVino(); 
-        }
-    //
-
-
-
-        private void btn_deshabilitar_Click(object sender, EventArgs e)
-        {
-            if (check_seguro.Checked)
-            {
-                referencia = text_refarticulo.Text;
-                consultas.habilitarDesabilitarCualquierReferencia("articulo", "ref", referencia, '0');
-
-                cargaLista = false;
-                articulo.cumplimentarListaArticulos(listView1, '1');
-                cargaLista = true;
-                articulo.limpiarCampos(text_unidadesalmacen, text_unidadestienda, text_empaquetado, check_seguro, pictureBox1);
-
-                limpiarcampos();
-            }
-            else
-            {
-                MessageBox.Show(ClaseCompartida.msgCasillaSeguro);
-            }
-        }
-
+        private string nombreClasevino = "", nombreImagen;
 
         private void listView1_ItemChecked_1(object sender, ItemCheckedEventArgs e)
         {
@@ -116,9 +76,25 @@ namespace proyectovinos
                 text_refarticulo.Text = referencia;
                 id_articulo = consultas.obtenerCualquierId("id_articulo", "articulo", "ref", referencia);
                 articulo.articuloSeleccionado(e, text_refarticulo, listView1, text_unidadesalmacen, text_unidadestienda, text_empaquetado, pictureBox1);
+            
+            
+
+
+            int item = e.Item.Index;
+            //id_proveedor = Int32.Parse(listView1.Items[item].SubItems[2].Text);
+            id_proveedor = consultas.obtenerCualquierId("id_proveedor", "proveedor", "nombre", listView1.Items[item].SubItems[3].Text);
+
+            articulo.articuloSeleccionado(e, text_refarticulo, listView1, text_unidadesalmacen, text_unidadestienda, text_empaquetado, pictureBox1);
+            
+            nombreClasevino = listView1.Items[item].SubItems[2].Text;
+            nombreImagen = consultas.obtenerCualquierRefDesdeNombre("nombreimagen", "articulo", "ref", referencia);
+
+            text_refarticulo.Text = referencia;
+
             }
         }
 
+        
 
 
         // Refrescar Combos
@@ -201,7 +177,6 @@ namespace proyectovinos
             text_unidadesalmacen.Text = "";
             text_unidadestienda.Text = "";
             text_empaquetado.Text = "";
-            check_seguro.Checked = false;
             pictureBox1.Image = null;
 
             comboBox_nombrecatalogacion.Text = "Seleccione";
@@ -220,11 +195,164 @@ namespace proyectovinos
             cargaLista = true;
         }
 
+        private void radio_deshabilitados_CheckedChanged(object sender, EventArgs e)
+        {
+            cargaLista = false;
+            articulo.cumplimentarListaArticulos(listView1, '0');
+            cargaLista = true;
+        }
+
+        private void radio_habilitados_CheckedChanged(object sender, EventArgs e)
+        {
+            cargaLista = false;
+            articulo.cumplimentarListaArticulos(listView1, '1');
+            cargaLista = true;
+        }
+
+        private void desabilitarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea deshabilitar un registro?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
+            {
+                if (referencia != "")
+                {
+                    consultas.habilitarDesabilitarCualquierReferencia("articulo", "ref", referencia, '0');
+
+                    cargaLista = false;
+                    articulo.cumplimentarListaArticulos(listView1, '1');
+                    cargaLista = true;
+                   
+                }
+                else
+                {
+                    MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tenga cuidado!");
+            }
+        }
+
+        private void habilitarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea habilitar un registro?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
+            {
+                if (referencia != "")
+                {
+                    consultas.habilitarDesabilitarCualquierReferencia("articulo", "ref", referencia, '1');
+                    cargaLista = false;
+                    articulo.cumplimentarListaArticulos(listView1, '0');
+                    cargaLista = true;
+                    
+                }
+                else
+                {
+                    MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tenga cuidado!");
+            }
+
+
+
+        }
+
+        private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea habilitar un registro?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
+            {
+
+                if (referencia != "")
+                {      
+                    int existencias = existeArticuloUbicacionLineacompraProveedor();
+
+                    if (existencias > 0)
+                    {
+                        MessageBox.Show("No eliminado... \nEl artículo tiene existencias en almacén y tienda");
+                    }
+                    else
+                    {
+                        bool eliminado = consultas.eliminarCaracteristica("articulo", "ref", text_refarticulo.Text);
+
+                        if (eliminado == true)
+                        {
+                            cargaLista = false;
+                            Class_Articulo articulo = new Class_Articulo();
+                            articulo.cumplimentarListaArticulos(listView1, '0');
+                            // Eliminar imagen, no se puede que no hay permisos
+                            string folderPathFoto = ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/articulos/" + nombreClasevino + "/" + nombreImagen;
+                            MessageBox.Show("Foto eliminada: " + folderPathFoto);
+                            File.Delete(folderPathFoto);
+                            cargaLista = true;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tenga cuidado!");
+            }
+        }
+
         private void artículosInhabilitadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Class_ArticuloAperturaForms apertura = new Class_ArticuloAperturaForms();
-            apertura.articulosInhabilitados();
-        }   
+            // Class_ArticuloAperturaForms apertura = new Class_ArticuloAperturaForms();
+            // apertura.articulosInhabilitados();
+        }
+
+
+        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            articuloAperturaForm.nuevoArticuloVino();
+        }
+
+        private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            articuloAperturaForm.modificarArticuloVino();
+        }
+
+
+        // Metodo que devuelve el número de lineas de compra de un Artículo a un Proveedor
+        private int existeArticuloUbicacionLineacompraProveedor()
+        {
+            int numRegistros = 0;
+
+            ConexionBD con = new ConexionBD();
+            string cadenaConexion = con.conexion();
+            MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
+            MySqlDataReader reader = null;
+
+            try
+            {
+                string selectQuery = "SELECT count(id_articulo) as numregistros from ubicacionlineacompraproveedor " +
+                    "where id_articulo = " + id_articulo + " ;";
+                // MessageBox.Show(selectQuery);
+
+                conexionBD.Open();
+                MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    numRegistros = Int32.Parse(reader.GetString("numregistros"));
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            finally { conexionBD.Close(); }
+
+            return numRegistros;
+        }
     }
 }
 
