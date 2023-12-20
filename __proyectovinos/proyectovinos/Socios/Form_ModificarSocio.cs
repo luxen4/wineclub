@@ -49,21 +49,6 @@ namespace proyectovinos
             socio.agregarImagenPictureBoxSocio(id_socio, pictureBox1);
         }
 
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            bool vacios = camposVacios();
-
-            if (vacios == true)
-            {
-                bool insertado = modificarSocio();
-                if (insertado == true)
-                {
-                    limpiarCampos();
-                }
-            }
-        }
-
                
         /// <summary>
         /// Función que modifica los registros de un socio  
@@ -118,7 +103,6 @@ namespace proyectovinos
                     " email='" + newEmail + "'," +
                     " recibir_info='" + newRecibirInfo + "'" +
 
-
                     " WHERE ref = " + "'" + refSocio + "' "; 
                 // MessageBox.Show(selectQuery);
 
@@ -143,19 +127,6 @@ namespace proyectovinos
         
         }
 
-
-
-
-        private bool camposVacios()
-        {
-            if (  combo_socio.Text == "Seleccione") {
-                return false;
-            }
-            else { 
-                return true;
-            }
-        }
-
         private void limpiarCampos()
         {
             combo_socio.Text = "Seleccione";
@@ -163,6 +134,7 @@ namespace proyectovinos
             text_apellidosnuevo.Text = ""; text_localidad.Text = ""; text_provincia.Text = "";
             text_referencianueva.Text = ""; text_email.Text = ""; check_recibirinfo.Checked = false;
             radio_hombre.Checked = true;
+
         }
 
         private string refSocio = "";
@@ -184,6 +156,7 @@ namespace proyectovinos
             text_provincia.Text = datos[3];
             text_email.Text = datos[7];
             text_telefono.Text = datos[6];
+            text_referencianueva.Text = datos[9];
 
             if (datos[8] == "Si")
             {
@@ -204,6 +177,36 @@ namespace proyectovinos
                 radio_mujer.Checked = true;
             }
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (combo_socio.Text != "Seleccione")
+            {
+                if (text_referencianueva.Text != "")
+                {
+                    bool insertado = modificarSocio();
+
+                    if (insertado == true)
+                    {
+                        limpiarCampos();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un socio!");
+            }
+        }
+
+        private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            combo_socio.Items.Clear();
+            combos.cumplimenterComboboxSocio(combo_socio);
         }
     }
 }

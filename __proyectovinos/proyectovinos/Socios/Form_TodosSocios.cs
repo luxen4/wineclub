@@ -87,19 +87,6 @@ namespace proyectovinos
             
         }
 
-
-
-
-        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            socioAperturaForms.nuevoSocio(); this.Close();
-        }
-
-        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            socioAperturaForms.modificarSocio(); this.Close();
-        }
-
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             socio.cumplimentarListaSocios(listView1, '1');
@@ -220,6 +207,16 @@ namespace proyectovinos
             deshabilitarToolStripMenuItem.Enabled = false;
             eliminarToolStripMenuItem.Enabled=true;
             actualizarToolStripMenuItem.Enabled=false;
+        }
+
+        private void nuevoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            socioAperturaForms.nuevoSocio(); this.Close();
+        }
+
+        private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            socioAperturaForms.modificarSocio(); this.Close();
         }
     }
 }

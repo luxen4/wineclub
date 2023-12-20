@@ -161,7 +161,7 @@ namespace proyectovinos.Movimientos.AlmacenTienda
         /// </summary>
         /// <param name="id_articulo">The identifier articulo.</param>
         /// <param name="combo_reflinea">The combo reflinea.</param>
-        public void refrescarComboboxLineaCompraProveedor(int id_articulo, ComboBox combo_reflinea)
+        public void refrescarComboboxLineaCompraProveedor(int id_articulo, ComboBox combo_reflinea, int id_ubicacion=1)
         {
             ConexionBD con = new ConexionBD();
             string cadenaConexion = con.conexion();
@@ -173,7 +173,7 @@ namespace proyectovinos.Movimientos.AlmacenTienda
                 /// Referencias con existencias en tienda > 0
                 string selectQuery = "select l.ref from lineacompraproveedor l " +
                     " inner join ubicacionlineacompraproveedor as ub on ub.id_lineacompraproveedor = l.id_lineacompraproveedor" +
-                    " where l.id_articulo = '" + id_articulo + "' and ub.id_ubicacion = 1 order by l.ref asc";
+                    " where l.id_articulo = '" + id_articulo + "' and ub.id_ubicacion =" + id_ubicacion + " and ub.existencias > 0 order by l.ref asc";
 
                 // MessageBox.Show("AAA: " + selectQuery);
 
@@ -183,6 +183,7 @@ namespace proyectovinos.Movimientos.AlmacenTienda
 
                 while (reader.Read())
                 {
+
                     combo_reflinea.Items.Add(reader.GetString("ref"));
                 }
                 combo_reflinea.Text = "Seleccione";
@@ -194,8 +195,7 @@ namespace proyectovinos.Movimientos.AlmacenTienda
 
 
 
-
-
+        // Función que ajusta las cantidades en las zonas de la vinoteca
         internal void ajusteCantidadesLineasZonas(ComboBox combo_reflineacompraproveedor, int existenciasAlmacen, int existenciasTienda, int unidadesAmover,
             string tipoMovimiento, int id_articulo)
         {
@@ -227,6 +227,36 @@ namespace proyectovinos.Movimientos.AlmacenTienda
                 MessageBox.Show("Existencias modificadas en Almacén y Tienda");
             }
 
+        }
+
+        // Función que comprueba las líneas de proveedor que se encuentran en tienda con existencias 
+        internal int comprobarLineaTienda(int id_ubicacion, int id_articulo)
+        {
+            ConexionBD con = new ConexionBD();
+            string cadenaConexion = con.conexion();
+            MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
+            int numLineas = 0;
+            try
+            {
+
+                /// Referencias con existencias en tienda > 0
+                string selectQuery = "select count(ub.id_ubicacionlinearcompraproveedor) as numlineas from ubicacionlineacompraproveedor ub " + 
+                    " where ub.id_articulo = '" + id_articulo + "' and ub.id_ubicacion = 2 and ub.existencias > 0";
+
+                conexionBD.Open();
+                MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                     numLineas = Convert.ToInt32( reader.GetString("numlineas"));
+                     //MessageBox.Show("Líneas_> " + numLineas);
+                }
+                return numLineas;
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return 1; }
+            finally { conexionBD.Close(); }
         }
     }
 }

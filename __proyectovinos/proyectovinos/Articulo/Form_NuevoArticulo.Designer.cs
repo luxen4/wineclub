@@ -69,10 +69,9 @@
             this.imageList_fotoarticulos = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aRTICULOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verTodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.limpiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.check_demo = new System.Windows.Forms.CheckBox();
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.check_demo = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_maxalmacen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_articulo)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -110,9 +109,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(203, 134);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "D.O.";
+            this.label4.Text = "D.O.:";
             // 
             // label5
             // 
@@ -323,9 +322,9 @@
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(422, 15);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(27, 13);
+            this.label10.Size = new System.Drawing.Size(30, 13);
             this.label10.TabIndex = 58;
-            this.label10.Text = "Ref.";
+            this.label10.Text = "Ref.:";
             // 
             // label8
             // 
@@ -532,18 +531,11 @@
             // 
             // aRTICULOSToolStripMenuItem
             // 
-            this.aRTICULOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.verTodosToolStripMenuItem});
+            this.aRTICULOSToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aRTICULOSToolStripMenuItem.Image")));
             this.aRTICULOSToolStripMenuItem.Name = "aRTICULOSToolStripMenuItem";
-            this.aRTICULOSToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.aRTICULOSToolStripMenuItem.Text = "ARTICULOS";
-            // 
-            // verTodosToolStripMenuItem
-            // 
-            this.verTodosToolStripMenuItem.Name = "verTodosToolStripMenuItem";
-            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.verTodosToolStripMenuItem.Text = "Ver Todos";
-            this.verTodosToolStripMenuItem.Click += new System.EventHandler(this.verTodosToolStripMenuItem_Click);
+            this.aRTICULOSToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.aRTICULOSToolStripMenuItem.Text = "Ver Todos";
+            this.aRTICULOSToolStripMenuItem.Click += new System.EventHandler(this.aRTICULOSToolStripMenuItem_Click);
             // 
             // limpiarToolStripMenuItem
             // 
@@ -552,6 +544,14 @@
             this.limpiarToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.limpiarToolStripMenuItem.Text = "Limpiar";
             this.limpiarToolStripMenuItem.Click += new System.EventHandler(this.limpiarToolStripMenuItem_Click);
+            // 
+            // nuevoToolStripMenuItem
+            // 
+            this.nuevoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("nuevoToolStripMenuItem.Image")));
+            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.nuevoToolStripMenuItem.Text = "Nuevo";
+            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // check_demo
             // 
@@ -563,14 +563,6 @@
             this.check_demo.Text = "Demo";
             this.check_demo.UseVisualStyleBackColor = true;
             this.check_demo.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
-            // 
-            // nuevoToolStripMenuItem
-            // 
-            this.nuevoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("nuevoToolStripMenuItem.Image")));
-            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.nuevoToolStripMenuItem.Text = "Nuevo";
-            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // Form_NuevoArticulo
             // 
@@ -647,7 +639,6 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem aRTICULOSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verTodosToolStripMenuItem;
         private System.Windows.Forms.CheckBox check_demo;
         private System.Windows.Forms.ToolStripMenuItem limpiarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;

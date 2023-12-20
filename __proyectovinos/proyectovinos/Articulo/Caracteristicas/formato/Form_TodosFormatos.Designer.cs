@@ -75,9 +75,9 @@
             this.check_modificar.BackColor = System.Drawing.Color.Transparent;
             this.check_modificar.Location = new System.Drawing.Point(374, 267);
             this.check_modificar.Name = "check_modificar";
-            this.check_modificar.Size = new System.Drawing.Size(120, 17);
+            this.check_modificar.Size = new System.Drawing.Size(110, 17);
             this.check_modificar.TabIndex = 127;
-            this.check_modificar.Text = "Modificar Contenido";
+            this.check_modificar.Text = "Modificar Formato";
             this.check_modificar.UseVisualStyleBackColor = false;
             this.check_modificar.CheckedChanged += new System.EventHandler(this.check_modificar_CheckedChanged);
             // 
@@ -87,9 +87,9 @@
             this.check_nueva.BackColor = System.Drawing.Color.Transparent;
             this.check_nueva.Location = new System.Drawing.Point(374, 166);
             this.check_nueva.Name = "check_nueva";
-            this.check_nueva.Size = new System.Drawing.Size(109, 17);
+            this.check_nueva.Size = new System.Drawing.Size(99, 17);
             this.check_nueva.TabIndex = 126;
-            this.check_nueva.Text = "Nuevo Contenido";
+            this.check_nueva.Text = "Nuevo Formato";
             this.check_nueva.UseVisualStyleBackColor = false;
             this.check_nueva.CheckedChanged += new System.EventHandler(this.check_nueva_CheckedChanged);
             // 
@@ -140,9 +140,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(5, 24);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.Size = new System.Drawing.Size(62, 13);
             this.label4.TabIndex = 62;
-            this.label4.Text = "Referencia";
+            this.label4.Text = "Referencia:";
             // 
             // button_modificar
             // 
@@ -162,9 +162,9 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(148, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 60;
-            this.label5.Text = "Nombre";
+            this.label5.Text = "Nombre:";
             // 
             // radioButton_deshabilitado
             // 
@@ -238,9 +238,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(146, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 88;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Nombre:";
             // 
             // textBox_referencia
             // 
@@ -256,9 +256,9 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(6, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(27, 13);
+            this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 90;
-            this.label6.Text = "Ref.";
+            this.label6.Text = "Ref.:";
             // 
             // check_segurohabilitardeshabilitareliminar
             // 
@@ -359,9 +359,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(5, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 62;
-            this.label2.Text = "Referencia";
+            this.label2.Text = "Referencia:";
             // 
             // button_nueva
             // 
@@ -381,9 +381,9 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(148, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 60;
-            this.label3.Text = "Nombre";
+            this.label3.Text = "Nombre:";
             // 
             // groupBox1
             // 
@@ -422,7 +422,7 @@
             this.columnHeader2.Text = "Nombre";
             this.columnHeader2.Width = 160;
             // 
-            // Form_TodosContenidosII
+            // Form_TodosFormatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -440,7 +440,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form_TodosContenidosII";
+            this.Name = "Form_TodosFormatos";
             this.Text = "WINE CLUB";
             this.Load += new System.EventHandler(this.Form_TodosContenidosII_Load);
             this.groupBox_modificar.ResumeLayout(false);

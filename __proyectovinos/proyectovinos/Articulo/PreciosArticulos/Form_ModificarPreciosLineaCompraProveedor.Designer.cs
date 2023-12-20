@@ -40,12 +40,11 @@
             this.text_proveedor = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.combo_reflinea = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.combo_refarticulo = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker_fechacompra = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.text_preciocoste = new System.Windows.Forms.TextBox();
@@ -64,20 +63,21 @@
             this.text_unidadestienda = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dateTimePicker_fechacompra = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.limpiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_precioventa)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -94,7 +94,7 @@
             this.groupBox2.Size = new System.Drawing.Size(647, 292);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Modificación precios";
+            this.groupBox2.Text = "Modificación de Precios de Artículos";
             // 
             // groupBox6
             // 
@@ -191,9 +191,9 @@
             this.label22.BackColor = System.Drawing.Color.Transparent;
             this.label22.Location = new System.Drawing.Point(59, 76);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(29, 13);
+            this.label22.Size = new System.Drawing.Size(32, 13);
             this.label22.TabIndex = 54;
-            this.label22.Text = "D.O.";
+            this.label22.Text = "D.O.:";
             // 
             // groupBox4
             // 
@@ -209,6 +209,15 @@
             this.groupBox4.TabIndex = 141;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Elección";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.Location = new System.Drawing.Point(17, 36);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(25, 20);
+            this.pictureBox4.TabIndex = 143;
+            this.pictureBox4.TabStop = false;
             // 
             // label13
             // 
@@ -240,9 +249,9 @@
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Location = new System.Drawing.Point(19, 19);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 13);
+            this.label14.Size = new System.Drawing.Size(68, 13);
             this.label14.TabIndex = 117;
-            this.label14.Text = "Ref. Articulo";
+            this.label14.Text = "Ref. Articulo:";
             // 
             // combo_refarticulo
             // 
@@ -253,24 +262,6 @@
             this.combo_refarticulo.TabIndex = 116;
             this.combo_refarticulo.Text = "Seleccione";
             this.combo_refarticulo.SelectedIndexChanged += new System.EventHandler(this.combo_refarticulo_SelectedIndexChanged);
-            // 
-            // dateTimePicker_fechacompra
-            // 
-            this.dateTimePicker_fechacompra.Enabled = false;
-            this.dateTimePicker_fechacompra.Location = new System.Drawing.Point(444, 27);
-            this.dateTimePicker_fechacompra.Name = "dateTimePicker_fechacompra";
-            this.dateTimePicker_fechacompra.Size = new System.Drawing.Size(214, 20);
-            this.dateTimePicker_fechacompra.TabIndex = 98;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(381, 33);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 13);
-            this.label7.TabIndex = 99;
-            this.label7.Text = "F. compra:";
             // 
             // pictureBox2
             // 
@@ -296,7 +287,6 @@
             this.groupBox3.Size = new System.Drawing.Size(457, 59);
             this.groupBox3.TabIndex = 48;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "...";
             // 
             // text_preciocoste
             // 
@@ -323,9 +313,9 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Location = new System.Drawing.Point(297, 15);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(68, 13);
+            this.label15.Size = new System.Drawing.Size(71, 13);
             this.label15.TabIndex = 87;
-            this.label15.Text = "Precio Venta";
+            this.label15.Text = "Precio Venta:";
             // 
             // numeric_precioventa
             // 
@@ -344,9 +334,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(126, 17);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 13);
+            this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Ud. compradas";
+            this.label4.Text = "Ud. compradas:";
             // 
             // label8
             // 
@@ -357,9 +347,9 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Location = new System.Drawing.Point(218, 17);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 13);
+            this.label8.Size = new System.Drawing.Size(70, 13);
             this.label8.TabIndex = 36;
-            this.label8.Text = "Precio Coste";
+            this.label8.Text = "Precio Coste:";
             // 
             // groupBox1
             // 
@@ -470,6 +460,24 @@
             this.pictureBox1.TabIndex = 92;
             this.pictureBox1.TabStop = false;
             // 
+            // dateTimePicker_fechacompra
+            // 
+            this.dateTimePicker_fechacompra.Enabled = false;
+            this.dateTimePicker_fechacompra.Location = new System.Drawing.Point(444, 27);
+            this.dateTimePicker_fechacompra.Name = "dateTimePicker_fechacompra";
+            this.dateTimePicker_fechacompra.Size = new System.Drawing.Size(214, 20);
+            this.dateTimePicker_fechacompra.TabIndex = 98;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(381, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 13);
+            this.label7.TabIndex = 99;
+            this.label7.Text = "F. compra:";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -500,15 +508,6 @@
             this.limpiarToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.limpiarToolStripMenuItem.Click += new System.EventHandler(this.limpiarToolStripMenuItem_Click);
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(17, 36);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(25, 20);
-            this.pictureBox4.TabIndex = 143;
-            this.pictureBox4.TabStop = false;
-            // 
             // Form_ModificarPreciosLineaCompraProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -532,6 +531,7 @@
             this.groupBox6.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -541,7 +541,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

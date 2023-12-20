@@ -60,20 +60,9 @@
             this.label15 = new System.Windows.Forms.Label();
             this.button_cambioimagen = new System.Windows.Forms.Button();
             this.button_cerrar = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader0 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -89,6 +78,23 @@
             this.button_modificar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.numeric_maxtienda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_mintienda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_maxalmacen)).BeginInit();
@@ -114,7 +120,12 @@
             // 
             // numeric_maxtienda
             // 
-            this.numeric_maxtienda.Location = new System.Drawing.Point(144, 40);
+            this.numeric_maxtienda.Location = new System.Drawing.Point(146, 48);
+            this.numeric_maxtienda.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.numeric_maxtienda.Name = "numeric_maxtienda";
             this.numeric_maxtienda.Size = new System.Drawing.Size(40, 20);
             this.numeric_maxtienda.TabIndex = 18;
@@ -138,9 +149,9 @@
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Location = new System.Drawing.Point(3, 83);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(72, 13);
+            this.label19.Size = new System.Drawing.Size(75, 13);
             this.label19.TabIndex = 75;
-            this.label19.Text = "Clase de Vino";
+            this.label19.Text = "Clase de Vino:";
             // 
             // button16
             // 
@@ -166,7 +177,7 @@
             // 
             // numeric_mintienda
             // 
-            this.numeric_mintienda.Location = new System.Drawing.Point(98, 40);
+            this.numeric_mintienda.Location = new System.Drawing.Point(100, 48);
             this.numeric_mintienda.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -191,7 +202,12 @@
             // 
             // numeric_maxalmacen
             // 
-            this.numeric_maxalmacen.Location = new System.Drawing.Point(52, 40);
+            this.numeric_maxalmacen.Location = new System.Drawing.Point(54, 48);
+            this.numeric_maxalmacen.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.numeric_maxalmacen.Name = "numeric_maxalmacen";
             this.numeric_maxalmacen.Size = new System.Drawing.Size(40, 20);
             this.numeric_maxalmacen.TabIndex = 18;
@@ -205,9 +221,9 @@
             this.label21.BackColor = System.Drawing.Color.Transparent;
             this.label21.Location = new System.Drawing.Point(3, 123);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(69, 13);
+            this.label21.Size = new System.Drawing.Size(72, 13);
             this.label21.TabIndex = 72;
-            this.label21.Text = "Catalogación";
+            this.label21.Text = "Catalogación:";
             // 
             // button14
             // 
@@ -228,9 +244,9 @@
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Location = new System.Drawing.Point(6, 284);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(45, 13);
+            this.label18.Size = new System.Drawing.Size(48, 13);
             this.label18.TabIndex = 74;
-            this.label18.Text = "Formato";
+            this.label18.Text = "Formato:";
             // 
             // label11
             // 
@@ -239,7 +255,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Location = new System.Drawing.Point(141, 23);
+            this.label11.Location = new System.Drawing.Point(143, 31);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 13);
             this.label11.TabIndex = 16;
@@ -268,7 +284,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Location = new System.Drawing.Point(3, 24);
+            this.label14.Location = new System.Drawing.Point(5, 32);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(29, 13);
             this.label14.TabIndex = 4;
@@ -280,9 +296,9 @@
             this.label23.BackColor = System.Drawing.Color.Transparent;
             this.label23.Location = new System.Drawing.Point(3, 46);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(94, 13);
+            this.label23.Size = new System.Drawing.Size(97, 13);
             this.label23.TabIndex = 94;
-            this.label23.Text = "Nueva Referencia";
+            this.label23.Text = "Nueva Referencia:";
             // 
             // combo_catalogacion
             // 
@@ -299,9 +315,9 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Location = new System.Drawing.Point(3, 164);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(51, 13);
+            this.label16.Size = new System.Drawing.Size(54, 13);
             this.label16.TabIndex = 83;
-            this.label16.Text = "Tipo Uva";
+            this.label16.Text = "Tipo Uva:";
             // 
             // button5
             // 
@@ -322,9 +338,9 @@
             this.label22.BackColor = System.Drawing.Color.Transparent;
             this.label22.Location = new System.Drawing.Point(3, 205);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(29, 13);
+            this.label22.Size = new System.Drawing.Size(32, 13);
             this.label22.TabIndex = 73;
-            this.label22.Text = "D.O.";
+            this.label22.Text = "D.O.:";
             // 
             // combo_clasedevino
             // 
@@ -346,7 +362,7 @@
             // 
             // numeric_minalmacen
             // 
-            this.numeric_minalmacen.Location = new System.Drawing.Point(6, 40);
+            this.numeric_minalmacen.Location = new System.Drawing.Point(8, 48);
             this.numeric_minalmacen.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -384,9 +400,9 @@
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Location = new System.Drawing.Point(2, 245);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(73, 13);
+            this.label17.Size = new System.Drawing.Size(76, 13);
             this.label17.TabIndex = 81;
-            this.label17.Text = "Empaquetado";
+            this.label17.Text = "Empaquetado:";
             // 
             // label10
             // 
@@ -395,7 +411,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Location = new System.Drawing.Point(95, 24);
+            this.label10.Location = new System.Drawing.Point(97, 32);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(29, 13);
             this.label10.TabIndex = 4;
@@ -408,7 +424,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Location = new System.Drawing.Point(49, 24);
+            this.label15.Location = new System.Drawing.Point(51, 32);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(30, 13);
             this.label15.TabIndex = 16;
@@ -436,95 +452,12 @@
             this.button_cerrar.Text = "Cerrar";
             this.button_cerrar.UseVisualStyleBackColor = true;
             // 
-            // listView1
-            // 
-            this.listView1.CheckBoxes = true;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader0,
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader6,
-            this.columnHeader5,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader10,
-            this.columnHeader11});
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(219, 62);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1097, 701);
-            this.listView1.TabIndex = 64;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView1_ItemChecked);
-            // 
-            // columnHeader0
-            // 
-            this.columnHeader0.Text = "Referencia";
-            this.columnHeader0.Width = 73;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Tipo Uva";
-            this.columnHeader1.Width = 111;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Clase de Vino";
-            this.columnHeader2.Width = 96;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Proveedor";
-            this.columnHeader3.Width = 127;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Catalogación";
-            this.columnHeader4.Width = 111;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Denominación";
-            this.columnHeader6.Width = 112;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Empaquetado";
-            this.columnHeader5.Width = 83;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Formato";
-            this.columnHeader7.Width = 87;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Min Almacén";
-            this.columnHeader8.Width = 76;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Max. Almacén";
-            this.columnHeader9.Width = 79;
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Min. Tienda";
-            this.columnHeader10.Width = 69;
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "Max. Tienda";
-            this.columnHeader11.Width = 72;
-            // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox4.Controls.Add(this.listView1);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.pictureBox2);
             this.groupBox4.Controls.Add(this.button4);
             this.groupBox4.Controls.Add(this.label4);
@@ -539,7 +472,6 @@
             this.groupBox4.Controls.Add(this.button_limpiar);
             this.groupBox4.Controls.Add(this.button_modificar);
             this.groupBox4.Controls.Add(this.groupBox2);
-            this.groupBox4.Controls.Add(this.listView1);
             this.groupBox4.Controls.Add(this.button_cambioimagen);
             this.groupBox4.Location = new System.Drawing.Point(12, 12);
             this.groupBox4.Name = "groupBox4";
@@ -547,6 +479,32 @@
             this.groupBox4.TabIndex = 70;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Todos los Artículos";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(1144, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.TabIndex = 123;
+            this.label5.Text = "Tienda:";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(1075, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 122;
+            this.label3.Text = "Almacén:";
             // 
             // pictureBox2
             // 
@@ -563,7 +521,7 @@
             // 
             this.button4.AutoSize = true;
             this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.Location = new System.Drawing.Point(861, 32);
+            this.button4.Location = new System.Drawing.Point(865, 33);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
             this.button4.TabIndex = 120;
@@ -575,7 +533,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(649, 16);
+            this.label4.Location = new System.Drawing.Point(653, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 13);
             this.label4.TabIndex = 119;
@@ -584,7 +542,7 @@
             // comboBox_nombreempaquetado
             // 
             this.comboBox_nombreempaquetado.FormattingEnabled = true;
-            this.comboBox_nombreempaquetado.Location = new System.Drawing.Point(652, 32);
+            this.comboBox_nombreempaquetado.Location = new System.Drawing.Point(656, 33);
             this.comboBox_nombreempaquetado.Name = "comboBox_nombreempaquetado";
             this.comboBox_nombreempaquetado.Size = new System.Drawing.Size(158, 21);
             this.comboBox_nombreempaquetado.TabIndex = 118;
@@ -596,7 +554,7 @@
             // 
             this.button6.AutoSize = true;
             this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
-            this.button6.Location = new System.Drawing.Point(816, 30);
+            this.button6.Location = new System.Drawing.Point(820, 31);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(27, 23);
             this.button6.TabIndex = 117;
@@ -607,7 +565,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(431, 18);
+            this.label2.Location = new System.Drawing.Point(435, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 116;
@@ -616,7 +574,7 @@
             // comboBox_filtronombrecatalogacion
             // 
             this.comboBox_filtronombrecatalogacion.FormattingEnabled = true;
-            this.comboBox_filtronombrecatalogacion.Location = new System.Drawing.Point(434, 34);
+            this.comboBox_filtronombrecatalogacion.Location = new System.Drawing.Point(438, 35);
             this.comboBox_filtronombrecatalogacion.Name = "comboBox_filtronombrecatalogacion";
             this.comboBox_filtronombrecatalogacion.Size = new System.Drawing.Size(158, 21);
             this.comboBox_filtronombrecatalogacion.TabIndex = 115;
@@ -628,7 +586,7 @@
             // 
             this.button1.AutoSize = true;
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.Location = new System.Drawing.Point(598, 32);
+            this.button1.Location = new System.Drawing.Point(602, 33);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(27, 23);
             this.button1.TabIndex = 114;
@@ -639,7 +597,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(216, 20);
+            this.label1.Location = new System.Drawing.Point(220, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 113;
@@ -648,7 +606,7 @@
             // combo_filtronombreproveedor
             // 
             this.combo_filtronombreproveedor.FormattingEnabled = true;
-            this.combo_filtronombreproveedor.Location = new System.Drawing.Point(219, 36);
+            this.combo_filtronombreproveedor.Location = new System.Drawing.Point(223, 37);
             this.combo_filtronombreproveedor.Name = "combo_filtronombreproveedor";
             this.combo_filtronombreproveedor.Size = new System.Drawing.Size(158, 21);
             this.combo_filtronombreproveedor.TabIndex = 112;
@@ -660,7 +618,7 @@
             // 
             this.button3.AutoSize = true;
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.Location = new System.Drawing.Point(383, 34);
+            this.button3.Location = new System.Drawing.Point(387, 35);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(27, 23);
             this.button3.TabIndex = 111;
@@ -716,13 +674,15 @@
             this.groupBox2.Controls.Add(this.combo_formato);
             this.groupBox2.Location = new System.Drawing.Point(6, 317);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(211, 411);
+            this.groupBox2.Size = new System.Drawing.Size(211, 417);
             this.groupBox2.TabIndex = 107;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Modificar Artículo";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.numeric_minalmacen);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label10);
@@ -733,10 +693,134 @@
             this.groupBox1.Controls.Add(this.numeric_mintienda);
             this.groupBox1.Location = new System.Drawing.Point(6, 327);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(198, 75);
+            this.groupBox1.Size = new System.Drawing.Size(198, 84);
             this.groupBox1.TabIndex = 106;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Existencias";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(117, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.TabIndex = 73;
+            this.label7.Text = "Tienda:";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(21, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 13);
+            this.label6.TabIndex = 72;
+            this.label6.Text = "Almacén:";
+            // 
+            // listView1
+            // 
+            this.listView1.CheckBoxes = true;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader14,
+            this.columnHeader1,
+            this.columnHeader15,
+            this.columnHeader16,
+            this.columnHeader17,
+            this.columnHeader18,
+            this.columnHeader19,
+            this.columnHeader20,
+            this.columnHeader21,
+            this.columnHeader22,
+            this.columnHeader23,
+            this.columnHeader24,
+            this.columnHeader25,
+            this.columnHeader26});
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(223, 63);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(1092, 697);
+            this.listView1.TabIndex = 124;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView1_ItemChecked);
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Referencia";
+            this.columnHeader14.Width = 90;
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "Clase de Vino";
+            this.columnHeader15.Width = 125;
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "Proveedor";
+            this.columnHeader16.Width = 154;
+            // 
+            // columnHeader17
+            // 
+            this.columnHeader17.Text = "Catalogación";
+            this.columnHeader17.Width = 109;
+            // 
+            // columnHeader18
+            // 
+            this.columnHeader18.Text = "Denominación";
+            this.columnHeader18.Width = 136;
+            // 
+            // columnHeader19
+            // 
+            this.columnHeader19.Text = "Empaquetado";
+            this.columnHeader19.Width = 95;
+            // 
+            // columnHeader20
+            // 
+            this.columnHeader20.Text = "Formato";
+            this.columnHeader20.Width = 85;
+            // 
+            // columnHeader21
+            // 
+            this.columnHeader21.Text = "Min.";
+            this.columnHeader21.Width = 35;
+            // 
+            // columnHeader22
+            // 
+            this.columnHeader22.Text = "Max.";
+            this.columnHeader22.Width = 35;
+            // 
+            // columnHeader23
+            // 
+            this.columnHeader23.Text = "Min.";
+            this.columnHeader23.Width = 35;
+            // 
+            // columnHeader24
+            // 
+            this.columnHeader24.Text = "Max.";
+            this.columnHeader24.Width = 35;
+            // 
+            // columnHeader25
+            // 
+            this.columnHeader25.Text = "Almacén";
+            this.columnHeader25.Width = 54;
+            // 
+            // columnHeader26
+            // 
+            this.columnHeader26.Text = "Tienda";
+            this.columnHeader26.Width = 46;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Tipo de Uva";
             // 
             // Form_ModificarArticulo
             // 
@@ -769,20 +853,7 @@
 
         #endregion
         private System.Windows.Forms.Button button_cerrar;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader0;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ComboBox combo_formato;
         private System.Windows.Forms.ComboBox combo_tipouva;
         private System.Windows.Forms.ComboBox combo_catalogacion;
@@ -828,5 +899,24 @@
         private System.Windows.Forms.ComboBox comboBox_nombreempaquetado;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.ColumnHeader columnHeader16;
+        private System.Windows.Forms.ColumnHeader columnHeader17;
+        private System.Windows.Forms.ColumnHeader columnHeader18;
+        private System.Windows.Forms.ColumnHeader columnHeader19;
+        private System.Windows.Forms.ColumnHeader columnHeader20;
+        private System.Windows.Forms.ColumnHeader columnHeader21;
+        private System.Windows.Forms.ColumnHeader columnHeader22;
+        private System.Windows.Forms.ColumnHeader columnHeader23;
+        private System.Windows.Forms.ColumnHeader columnHeader24;
+        private System.Windows.Forms.ColumnHeader columnHeader25;
+        private System.Windows.Forms.ColumnHeader columnHeader26;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

@@ -130,8 +130,6 @@ namespace proyectovinos
             }
         }
 
-
-
         // Refrescar Comboboxes
 
         //  Método que refresca el combobox de Articulo cuando se cambie el proveedor 
@@ -237,8 +235,6 @@ namespace proyectovinos
         }
 
 
-
-
         public void comboReferenciaCompraProveedorChanged(ComboBox combo_articulovino, TextBox text_unidadesalmacen, 
             TextBox text_unidadestienda, PictureBox pictureBox1, ComboBox combo_proveedor, TextBox text_empaquetado, ComboBox combo_refcompraproveedor)
         {
@@ -311,7 +307,6 @@ namespace proyectovinos
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
                 MySqlDataReader reader = command.ExecuteReader();
 
-
                 while (reader.Read())
                 {
                     combo_.Items.Add(reader.GetString("resultado"));
@@ -353,8 +348,6 @@ namespace proyectovinos
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
             finally { conexionBD.Close(); }
-
-
 
         }
 
@@ -449,8 +442,6 @@ namespace proyectovinos
         }
 
 
-
-
         // Método que cumplimenta el comboBox de nombre de Catalogaciones que tiene un Proveeedor
         public void refrescarComboboxCatalogacionArticuloDesdeNombreProveedor(string refProveedor, ComboBox combo_nombrecatalogacion)
         {
@@ -496,7 +487,6 @@ namespace proyectovinos
             try
             {     
                 string selectQuery = "select l.ref from lineacompraproveedor l " +
-
                     " inner join ubicacionlineacompraproveedor as ub on ub.id_lineacompraproveedor = l.id_lineacompraproveedor" +
                     
                     " where ub.id_articulo = '" + id_articulo + "' " +

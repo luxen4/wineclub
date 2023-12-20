@@ -109,7 +109,7 @@ namespace proyectovinos.VentasDevoluciones
 
             
             // Cargar la imagen desde un archivo (reemplaza la ruta con la ruta de tu imagen)
-            string rutaImagen = "C:/imagen.png";
+            string rutaImagen = "C:/wineclub/facturas/imagen.png";
             Image imagen = Image.GetInstance(rutaImagen);
 
             // Ajustar el tamaño de la imagen si es necesario
@@ -141,7 +141,7 @@ namespace proyectovinos.VentasDevoluciones
             posicionY = Convert.ToSingle(num);
 
 
-            MessageBox.Show(posicionY.ToString());
+            //MessageBox.Show(posicionY.ToString());
             imagen.SetAbsolutePosition(posicionX, posicionY);
 
 
@@ -160,14 +160,6 @@ namespace proyectovinos.VentasDevoluciones
 
             // Agregar la imagen al documento
             doc.Add(imagen);
-
-
-
-
-
-
-
-
 
 
 
@@ -392,7 +384,7 @@ namespace proyectovinos.VentasDevoluciones
 
                 doc.Close();
                 pw.Close();
-                MessageBox.Show("Hecho");
+                //MessageBox.Show("Hecho");
 
             //Load PDF File for viewing
             //Process.Start(ClaseCompartida.carpetafacturas_absoluta + refVenta + ".pdf");

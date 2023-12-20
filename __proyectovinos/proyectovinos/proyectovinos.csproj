@@ -310,13 +310,13 @@
     <Compile Include="Articulo\Form_TodosArticulosVino.Designer.cs">
       <DependentUpon>Form_TodosArticulosVino.cs</DependentUpon>
     </Compile>
-    <Compile Include="Empleados\Roles\Class_Roll.cs" />
-    <Compile Include="Empleados\Roles\Class_RollAperturaForms.cs" />
-    <Compile Include="Empleados\Roles\Form_TodosRoles.cs">
+    <Compile Include="Empleados\Cargos\Class_Cargos.cs" />
+    <Compile Include="Empleados\Cargos\Class_CargosAperturaForms.cs" />
+    <Compile Include="Empleados\Cargos\Form_TodosCargos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Empleados\Roles\Form_TodosRoles.Designer.cs">
-      <DependentUpon>Form_TodosRoles.cs</DependentUpon>
+    <Compile Include="Empleados\Cargos\Form_TodosCargos.Designer.cs">
+      <DependentUpon>Form_TodosCargos.cs</DependentUpon>
     </Compile>
     <Compile Include="Socios\Class_SocioAperturaForms.cs" />
     <Compile Include="Socios\Class_Socio.cs" />
@@ -512,8 +512,8 @@
       <DependentUpon>Form_CompraArticulosProveedor.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Empleados\Roles\Form_TodosRoles.resx">
-      <DependentUpon>Form_TodosRoles.cs</DependentUpon>
+    <EmbeddedResource Include="Empleados\Cargos\Form_TodosCargos.resx">
+      <DependentUpon>Form_TodosCargos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Empleados\Dependiente\VentasDevolucionesSocio\Form_DevolucionSocio.resx">
       <DependentUpon>Form_DevolucionSocio.cs</DependentUpon>

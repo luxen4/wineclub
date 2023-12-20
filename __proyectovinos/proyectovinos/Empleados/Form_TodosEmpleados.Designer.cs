@@ -75,18 +75,17 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.eMPLEADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.empleadosInhabilitadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cARGOSROLESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.habilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deshabilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todosRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.habilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -531,24 +530,18 @@
             // eMPLEADOSToolStripMenuItem
             // 
             this.eMPLEADOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modificarToolStripMenuItem,
-            this.empleadosInhabilitadosToolStripMenuItem});
+            this.modificarToolStripMenuItem});
             this.eMPLEADOSToolStripMenuItem.Name = "eMPLEADOSToolStripMenuItem";
-            this.eMPLEADOSToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
-            this.eMPLEADOSToolStripMenuItem.Text = "EMPLEADOS";
+            this.eMPLEADOSToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.eMPLEADOSToolStripMenuItem.Text = "Empleados";
             // 
             // modificarToolStripMenuItem
             // 
+            this.modificarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("modificarToolStripMenuItem.Image")));
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
-            // 
-            // empleadosInhabilitadosToolStripMenuItem
-            // 
-            this.empleadosInhabilitadosToolStripMenuItem.Name = "empleadosInhabilitadosToolStripMenuItem";
-            this.empleadosInhabilitadosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.empleadosInhabilitadosToolStripMenuItem.Text = "Eliminar Empleados";
             // 
             // cARGOSROLESToolStripMenuItem
             // 
@@ -556,20 +549,20 @@
             this.todosToolStripMenuItem,
             this.modificarToolStripMenuItem1});
             this.cARGOSROLESToolStripMenuItem.Name = "cARGOSROLESToolStripMenuItem";
-            this.cARGOSROLESToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.cARGOSROLESToolStripMenuItem.Text = "CARGOS";
+            this.cARGOSROLESToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.cARGOSROLESToolStripMenuItem.Text = "Cargos";
+            this.cARGOSROLESToolStripMenuItem.Click += new System.EventHandler(this.cARGOSROLESToolStripMenuItem_Click);
             // 
             // todosToolStripMenuItem
             // 
             this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            this.todosToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.todosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.todosToolStripMenuItem.Text = "Todos";
-            this.todosToolStripMenuItem.Click += new System.EventHandler(this.todosToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem1
             // 
             this.modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
-            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.modificarToolStripMenuItem1.Text = "Modificar";
             // 
             // actualizarToolStripMenuItem
@@ -580,6 +573,14 @@
             this.actualizarToolStripMenuItem.Text = "Actualizar";
             this.actualizarToolStripMenuItem.Click += new System.EventHandler(this.actualizarToolStripMenuItem_Click);
             // 
+            // habilitarToolStripMenuItem
+            // 
+            this.habilitarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("habilitarToolStripMenuItem.Image")));
+            this.habilitarToolStripMenuItem.Name = "habilitarToolStripMenuItem";
+            this.habilitarToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.habilitarToolStripMenuItem.Text = "Habilitar";
+            this.habilitarToolStripMenuItem.Click += new System.EventHandler(this.habilitarToolStripMenuItem_Click);
+            // 
             // deshabilitarToolStripMenuItem
             // 
             this.deshabilitarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deshabilitarToolStripMenuItem.Image")));
@@ -587,6 +588,14 @@
             this.deshabilitarToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
             this.deshabilitarToolStripMenuItem.Text = "Deshabilitar";
             this.deshabilitarToolStripMenuItem.Click += new System.EventHandler(this.deshabilitarToolStripMenuItem_Click);
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("eliminarToolStripMenuItem.Image")));
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click_1);
             // 
             // todosRolesToolStripMenuItem
             // 
@@ -626,22 +635,6 @@
             this.radioButton1.Text = "Habilitados";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // habilitarToolStripMenuItem
-            // 
-            this.habilitarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("habilitarToolStripMenuItem.Image")));
-            this.habilitarToolStripMenuItem.Name = "habilitarToolStripMenuItem";
-            this.habilitarToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.habilitarToolStripMenuItem.Text = "Habilitar";
-            this.habilitarToolStripMenuItem.Click += new System.EventHandler(this.habilitarToolStripMenuItem_Click);
-            // 
-            // eliminarToolStripMenuItem
-            // 
-            this.eliminarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("eliminarToolStripMenuItem.Image")));
-            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
-            this.eliminarToolStripMenuItem.Text = "Eliminar";
-            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click_1);
             // 
             // Form_TodosEmpleados
             // 
@@ -715,7 +708,6 @@
         private System.Windows.Forms.ToolStripMenuItem cARGOSROLESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem todosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem empleadosInhabilitadosToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox text_referenciadeshabilitar;
         private System.Windows.Forms.TextBox text_nombredeshabilitar;

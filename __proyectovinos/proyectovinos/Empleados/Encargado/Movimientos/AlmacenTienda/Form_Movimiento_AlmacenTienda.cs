@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities.Expressions;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +8,10 @@ using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using PdfSharp.Pdf.Filters;
 using proyectovinos.ArticuloVino;
 using proyectovinos.Caracteristicas.proveedor;
 using proyectovinos.Movimientos.AlmacenTienda;
@@ -125,29 +128,54 @@ namespace proyectovinos
             try {
             if (combo_reflineacompraproveedor.Text != "Seleccione")
             {
-                if (numericUpDown_unidadesamover.Value!=0) {
-                        int existenciasAlmacen = Convert.ToInt32(text_unidadesalmacen.Text);    // Si es negativo da error (que no sea menor de 0)
 
-                        if (existenciasAlmacen != 0)
-                        {
-                            int existenciasTienda = Convert.ToInt32(text_unidadestienda.Text);
-                            string empaquetado = text_empaquetado.Text;
-                            int unidadesAmover = (int)numericUpDown_unidadesamover.Value;
+                    // ALTER TABLE ubicacionlineacompraproveedor ADD UNIQUE(id_ubicacion, id_articulo);
+                    // SELECT* FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE WHERE TABLE_NAME = 'ubicacionlineacompraproveedor' AND TABLE_SCHEMA = 'wineclub';
+                    //ALTER TABLE ubicacionlineacompraproveedor DROP FOREIGN KEY ubicacionlineacompraproveedor_ibfk_3;
 
-                            Class_AlmacenTienda almacenTienda = new Class_AlmacenTienda();
-                            almacenTienda.ajusteCantidadesLineasZonas(combo_reflineacompraproveedor, existenciasAlmacen, existenciasTienda, unidadesAmover,
-                                "almacen-tienda", id_articulo);
+                    // ha y que comprobar que no haya 2 referencias del mismo artículo en tienda
+                    Class_AlmacenTienda almacenTienda = new Class_AlmacenTienda();
+                    int numLineas = almacenTienda.comprobarLineaTienda (2, id_articulo);
 
-                            limpiarCampos();
+                    if (numLineas == 0)
+                    {
+                        MessageBox.Show("Metemos línea");
+                        if (numericUpDown_unidadesamover.Value!=0) {
+                            int existenciasAlmacen = Convert.ToInt32(text_unidadesalmacen.Text);    // Si es negativo da error (que no sea menor de 0)
 
+                            if (existenciasAlmacen != 0)
+                            {
+                                int existenciasTienda = Convert.ToInt32(text_unidadestienda.Text);
+                                string empaquetado = text_empaquetado.Text;
+                                int unidadesAmover = (int)numericUpDown_unidadesamover.Value;
+
+                          
+                                almacenTienda.ajusteCantidadesLineasZonas(combo_reflineacompraproveedor, existenciasAlmacen, existenciasTienda, unidadesAmover,
+                                    "almacen-tienda", id_articulo);
+
+                                limpiarCampos();
+
+                            }
+                            else{
+                            MessageBox.Show("Existencias en almacen 0, compre al proveedor");
+                            }
                         }
-                        else{
-                        MessageBox.Show("Existencias en almacen 0, compre al proveedor");
+                        else {
+                            MessageBox.Show("Incremente Existencias a trasladar!");
+                        }
+
+
                     }
-                }
-                else {
-                    MessageBox.Show("Incremente Existencias a trasladar!");
-                }
+                    else {
+                        MessageBox.Show("No podemos tener varias líneas de un artículo en tienda" +
+                            "\n Para poder sacar otra linea a tienda debe ubicar en el almacén las existencias de la tienda");
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
             }
             else {
                 MessageBox.Show("No ha seleccionado una Línea de Compra a Proveedor");
@@ -189,12 +217,6 @@ namespace proyectovinos
             combo_reflineacompraproveedor.Enabled = false;
         }
 
-        private void compraAProveedorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Class_ProveedorAperturaForms proveedorAperturaForms = new Class_ProveedorAperturaForms();
-            proveedorAperturaForms.comprarArticuloProveedor();
-        }
-
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -229,16 +251,28 @@ namespace proyectovinos
             
         }
 
-
-
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void compraAProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Class_ProveedorAperturaForms proveedorAperturaForms = new Class_ProveedorAperturaForms();
+            proveedorAperturaForms.comprarArticuloProveedor();
         }
-
     }
 }
+
+/*
+Pendiente el logo
+Muestre los que están habilitados
+ 
+ 
+ */
+
+
+
+
+
+
+
+
 
 
 

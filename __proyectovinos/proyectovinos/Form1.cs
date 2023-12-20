@@ -57,60 +57,16 @@ namespace proyectovinos
         public Form1()
         {
             InitializeComponent();
-
-
         }
-
-        // AperturaFormulariosArticulo apertura = new AperturaFormulariosArticulo();
         Class_AlmacenTiendaAperturaForms almacenTiendaAperturaForms = new Class_AlmacenTiendaAperturaForms();
-
         Class_VentasDevolucionesAperturaForms ventasDevolucionesSocio = new Class_VentasDevolucionesAperturaForms();
-        // Form_VentaSocio formularioVenta;
         Form_Logueo formularioLogueo;
-
-        public static void DeleteFTPFolder(string Folderpath)
-        {
-            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(Folderpath);
-            request.Method = WebRequestMethods.Ftp.RemoveDirectory;
-            request.Credentials = new System.Net.NetworkCredential("wineclub", "Alberite*1"); ;
-            request.GetResponse().Close();
-        }
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.CenterToScreen();    
-            /*
-            if (Application.OpenForms["Form_Logueo"] != null)
-            {
-                Application.OpenForms["Form_Logueo"].Activate();
-            }
-            else
-            {
-                formularioLogueo = new Form_Logueo();
-                // formularioLogueo.MdiParent = this;
-                formularioLogueo.Show();
-            }*/
-
-
-            /*
-            if (radio_archivoslocal.Checked) {
-                ClaseCompartida.alojamientoarchivos = "local";
-            } else if (radio_archivos000webhost.Checked) {
-                ClaseCompartida.alojamientoarchivos = "000webhost.com";
-            }*/
-
+            this.CenterToScreen();
         }
 
-        /*
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DialogResult opcionSeleccionada = MessageBox.Show("Realmente desea salir?", "Aviso", MessageBoxButtons.YesNo);
-            if (opcionSeleccionada == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }*/
         private void verTodasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_ClaseVinoAperturaForms clasevinoAperturaForms = new Class_ClaseVinoAperturaForms();
@@ -135,11 +91,6 @@ namespace proyectovinos
             denominacion.todasDenominaciones();
         }
 
-        private void verTodosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void verTodosArticulosDeVinoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_ArticuloAperturaForms articuloAperturaForm = new Class_ArticuloAperturaForms();
@@ -151,10 +102,6 @@ namespace proyectovinos
             Class_ProveedorAperturaForms apertura = new Class_ProveedorAperturaForms();
             apertura.todosProveedores();
         }
-
-
-
-        //public bool primeraVez = true;
 
         // Función que habilita y deshabilita enlaces de menú según el logueo de cada usuario
         private void Form1_MouseHover(object sender, EventArgs e)
@@ -169,6 +116,8 @@ namespace proyectovinos
                 dependienteToolStripMenuItem.Enabled = true;
                 perfilToolStripMenuItem.Enabled = true;
                 loguinToolStripMenuItem.Text = "Log Out";
+                nuevaVentaToolStripMenuItem.Enabled = true ;
+                nuevoSocioToolStripMenuItem.Enabled= true ;
             }
             else if (ClaseCompartida.roll == "Dueño")
             {
@@ -177,6 +126,8 @@ namespace proyectovinos
                 dependienteToolStripMenuItem.Enabled = true;
                 perfilToolStripMenuItem.Enabled = true;
                 loguinToolStripMenuItem.Text = "Log Out";
+                nuevaVentaToolStripMenuItem.Enabled = true;
+                nuevoSocioToolStripMenuItem.Enabled = true;
             }
             else if (ClaseCompartida.roll == "Encargado")
             {
@@ -185,84 +136,15 @@ namespace proyectovinos
                 dependienteToolStripMenuItem.Enabled = true;
                 perfilToolStripMenuItem.Enabled = true;
                 loguinToolStripMenuItem.Text = "Log Out";
+                nuevaVentaToolStripMenuItem.Enabled = true;
+                nuevoSocioToolStripMenuItem.Enabled = true;
             }
-        }
-
-
-
-
-        private void claseDeVinoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Class_ClaseVinoAperturaForms apertura = new Class_ClaseVinoAperturaForms();
-            apertura.todasClasesVino();
-        }
-
-        private void tipoDeUvaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            /*Class_TipoUvaAperturaForms apertura = new Class_TipoUvaAperturaForms();
-            apertura.todosTiposUva();*/
-            Class_TipoUvaAperturaForms apertura = new Class_TipoUvaAperturaForms();
-            apertura.todosTiposUvaII();
-        }
-
-        private void catalogaciónToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Class_CatalogacionAperturaForms apertura = new Class_CatalogacionAperturaForms();
-            apertura.todasCatalogaciones();
-        }
-
-        private void denominaciónToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Class_DenominacionAperturaForms apertura = new Class_DenominacionAperturaForms();
-            apertura.todasDenominaciones();
         }
 
         private void eMPLEADOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_EmpleadoAperturaForms apertura = new Class_EmpleadoAperturaForms();
             apertura.todosEmpleados();
-        }
-
-        private void movimientosToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Class_ProveedorAperturaForms proveedorAperturaForms = new Class_ProveedorAperturaForms();
-            proveedorAperturaForms.comprarArticuloProveedor();
-        }
-
-        private void devoluciónAProveedorToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Class_ProveedorAperturaForms proveedorAperturaForms = new Class_ProveedorAperturaForms();
-            proveedorAperturaForms.devolucionArticuloProveedor();
-        }
-
-        private void fijarPreciosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Class_VentasDevolucionesAperturaForms apertura = new Class_VentasDevolucionesAperturaForms();
-            apertura.modificarArticuloVenta();
-        }
-
-        private void formatoContenidoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Class_FormatoAperturaForms apertura = new Class_FormatoAperturaForms();
-            apertura.todosFormatos();
-        }
-
-        private void empaquetadoToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Class_EmpaquetadoAperturaForms apertura = new Class_EmpaquetadoAperturaForms();
-            apertura.todosEmpaquetados();
-        }
-
-        private void eMPLEADOSToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Class_EmpleadoAperturaForms emp = new Class_EmpleadoAperturaForms();
-            emp.todosEmpleados();
-        }
-
-        private void variedadDeUvaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Class_VariedadUvaAperturaForms variedaduva = new Class_VariedadUvaAperturaForms();
-            variedaduva.todasVariedadesUva();
         }
 
         private void toolStripStatusLabel3_Click(object sender, EventArgs e)
@@ -333,61 +215,58 @@ namespace proyectovinos
         }
 
 
-        private void verTodosToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            Class_SocioAperturaForms apertura = new Class_SocioAperturaForms();
-            apertura.todosSocios();
-        }
-
         // CRISTAL REPORTS
+        //________
+            // Método que permite generar con Cristal Reports las ventas a socios
+            private void todasVentasSociosToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                Report_TodasVentasSocios reporteTodosArticulos;
+                if (Application.OpenForms["Report_TodosArticulos"] != null)
+                {
+                    Application.OpenForms["Report_TodosArticulos"].Activate();
+                }
+                else
+                {
+                    reporteTodosArticulos = new Report_TodasVentasSocios();
+                    //formulario.MdiParent = this;
+                    reporteTodosArticulos.Show();
+                }
+            }
 
-        private void todasVentasSociosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Report_TodasVentasSocios reporteTodosArticulos;
-            if (Application.OpenForms["Report_TodosArticulos"] != null)
+            // Método que permite generar con Cristal Reports el Reporte de inventario de Artículos    
+            private void inventarioToolStripMenuItem_Click(object sender, EventArgs e)
             {
-                Application.OpenForms["Report_TodosArticulos"].Activate();
-            }
-            else
-            {
-                reporteTodosArticulos = new Report_TodasVentasSocios();
-                //formulario.MdiParent = this;
-                reporteTodosArticulos.Show();
-            }
-        }
 
+                Report_InventarioArticulos reporte;
+                if (Application.OpenForms["Report_InventarioArticulos"] != null)
+                {
+                    Application.OpenForms["Report_InventarioArticulos"].Activate();
+                }
+                else
+                {
+                    reporte = new Report_InventarioArticulos();
+                    //formulario.MdiParent = this;
+                    reporte.Show();
+                }
+            }
 
-        // Método que permite generar con Cristal Reports el Reporte de inventario de Artículos    
-        private void inventarioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+            // Método que permite generar con Cristal Reports las compras de proveedores   
+            private void todasComprasProveedoresToolStripMenuItem1_Click(object sender, EventArgs e)
+            {
+                Report_TodasComprasProveedores reporte;
+                if (Application.OpenForms["Report_TodasComprasProveedores"] != null)
+                {
+                    Application.OpenForms["Report_TodasComprasProveedores"].Activate();
+                }
+                else
+                {
+                    reporte = new Report_TodasComprasProveedores();
+                    //formulario.MdiParent = this;
+                    reporte.Show();
+                }
+            }
+        //________
 
-            Report_InventarioArticulos reporte;
-            if (Application.OpenForms["Report_InventarioArticulos"] != null)
-            {
-                Application.OpenForms["Report_InventarioArticulos"].Activate();
-            }
-            else
-            {
-                reporte = new Report_InventarioArticulos();
-                //formulario.MdiParent = this;
-                reporte.Show();
-            }
-        }
-
-        private void todasComprasProveedoresToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Report_TodasComprasProveedores reporte;
-            if (Application.OpenForms["Report_TodasComprasProveedores"] != null)
-            {
-                Application.OpenForms["Report_TodasComprasProveedores"].Activate();
-            }
-            else
-            {
-                reporte = new Report_TodasComprasProveedores();
-                //formulario.MdiParent = this;
-                reporte.Show();
-            }
-        }
 
         private void nuevaVentaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -479,20 +358,6 @@ namespace proyectovinos
             apertura.todosProveedores();
         }
 
-        private void todosProveedoresToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            Class_ProveedorAperturaForms apertura = new Class_ProveedorAperturaForms();
-            apertura.todosProveedores();
-        }
-
-        private void rOLESCARGOSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Class_RollAperturaForms rol = new Class_RollAperturaForms();
-            rol.todosRolesII();
-        }
-
-
-
         private void sALIRToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             DialogResult opcionSeleccionada = MessageBox.Show("Realmente desea salir?", "Aviso", MessageBoxButtons.YesNo);
@@ -501,15 +366,6 @@ namespace proyectovinos
                 Application.Exit();
             }
         }
-
-        private void toolStripStatusLabel3_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
-
-
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -560,6 +416,105 @@ namespace proyectovinos
 
             loguinToolStripMenuItem.Enabled = true;
             loguinToolStripMenuItem.Text = "Log In";
+            nuevaDevoluciónToolStripMenuItem1.Enabled = true;
+            nuevoSocioToolStripMenuItem.Enabled = true;
+        }
+
+        // Apertura de formularios de características
+
+        private void formatoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Class_FormatoAperturaForms apertura = new Class_FormatoAperturaForms();
+            apertura.todosFormatos();
+        }
+
+        private void empaquetadoToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Class_EmpaquetadoAperturaForms apertura = new Class_EmpaquetadoAperturaForms();
+            apertura.todosEmpaquetados();
+        }
+
+        private void catalogaciónToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Class_CatalogacionAperturaForms apertura = new Class_CatalogacionAperturaForms();
+            apertura.todasCatalogaciones();
+        }
+
+        private void denominaciónToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Class_DenominacionAperturaForms apertura = new Class_DenominacionAperturaForms();
+            apertura.todasDenominaciones();
+        }
+
+        private void claseVinnoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Class_ClaseVinoAperturaForms apertura = new Class_ClaseVinoAperturaForms();
+            apertura.todasClasesVino();
+        }
+
+        private void variedadUvaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Class_VariedadUvaAperturaForms variedaduva = new Class_VariedadUvaAperturaForms();
+            variedaduva.todasVariedadesUva();
+        }
+
+        private void tipoDeUvaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Class_TipoUvaAperturaForms apertura = new Class_TipoUvaAperturaForms();
+            apertura.todosTiposUva();
+        }
+        //_____
+
+
+        private void toolStripStatusLabel3_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cargosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Class_CargosAperturaForms rol = new Class_CargosAperturaForms();
+            rol.todosRoles();
+        }
+
+        private void empleadosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Class_EmpleadoAperturaForms empleado = new Class_EmpleadoAperturaForms();
+            empleado.todosEmpleados();
+        }
+
+        private void fijarPreciosArtículosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Class_VentasDevolucionesAperturaForms apertura = new Class_VentasDevolucionesAperturaForms();
+            apertura.modificarArticuloVenta();
+        }
+
+        private void comprarAProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Class_ProveedorAperturaForms proveedorAperturaForms = new Class_ProveedorAperturaForms();
+            proveedorAperturaForms.comprarArticuloProveedor();
+        }
+
+        private void devoluciónAProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Class_ProveedorAperturaForms proveedorAperturaForms = new Class_ProveedorAperturaForms();
+            proveedorAperturaForms.devolucionArticuloProveedor();
+        }
+
+        private void nuevaVentaToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            ventasDevolucionesSocio.nuevaVentaSocio();
+        }
+
+        private void nuevoSocioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            socioAperturaForms.nuevoSocio();
+        }
+
+        private void sOCIOSToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Class_SocioAperturaForms apertura = new Class_SocioAperturaForms();
+            apertura.todosSocios();
         }
     }
 }
@@ -585,3 +540,12 @@ namespace proyectovinos
 // html, pdp, ghost doc y documentaciones como enseñó Amparo
 
 /*  https://www.elguille.info/colabora/net2005/svalsse_autenticacion_cifrada.htm */
+
+/*
+public static void DeleteFTPFolder(string Folderpath)
+{
+    FtpWebRequest request = (FtpWebRequest)WebRequest.Create(Folderpath);
+    request.Method = WebRequestMethods.Ftp.RemoveDirectory;
+    request.Credentials = new System.Net.NetworkCredential("wineclub", "Alberite*1"); ;
+    request.GetResponse().Close();
+}*/

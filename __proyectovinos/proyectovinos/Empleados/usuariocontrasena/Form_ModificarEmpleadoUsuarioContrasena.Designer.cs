@@ -41,34 +41,33 @@
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox_seguro = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox_usuarioactual
             // 
-            this.textBox_usuarioactual.Location = new System.Drawing.Point(21, 65);
+            this.textBox_usuarioactual.Location = new System.Drawing.Point(68, 52);
             this.textBox_usuarioactual.Name = "textBox_usuarioactual";
             this.textBox_usuarioactual.Size = new System.Drawing.Size(100, 20);
             this.textBox_usuarioactual.TabIndex = 0;
             // 
             // textBox_nuevousuario
             // 
-            this.textBox_nuevousuario.Location = new System.Drawing.Point(136, 65);
+            this.textBox_nuevousuario.Location = new System.Drawing.Point(206, 52);
             this.textBox_nuevousuario.Name = "textBox_nuevousuario";
             this.textBox_nuevousuario.Size = new System.Drawing.Size(100, 20);
             this.textBox_nuevousuario.TabIndex = 1;
             // 
             // textBox_nuevacontrasena
             // 
-            this.textBox_nuevacontrasena.Location = new System.Drawing.Point(136, 118);
+            this.textBox_nuevacontrasena.Location = new System.Drawing.Point(206, 105);
             this.textBox_nuevacontrasena.Name = "textBox_nuevacontrasena";
             this.textBox_nuevacontrasena.Size = new System.Drawing.Size(100, 20);
             this.textBox_nuevacontrasena.TabIndex = 3;
             // 
             // textBox_contrasenaactual
             // 
-            this.textBox_contrasenaactual.Location = new System.Drawing.Point(21, 118);
+            this.textBox_contrasenaactual.Location = new System.Drawing.Point(68, 105);
             this.textBox_contrasenaactual.Name = "textBox_contrasenaactual";
             this.textBox_contrasenaactual.Size = new System.Drawing.Size(100, 20);
             this.textBox_contrasenaactual.TabIndex = 2;
@@ -76,7 +75,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(73, 27);
+            this.label1.Location = new System.Drawing.Point(148, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 5;
@@ -85,7 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 49);
+            this.label2.Location = new System.Drawing.Point(65, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 6;
@@ -94,25 +93,25 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 99);
+            this.label3.Location = new System.Drawing.Point(65, 86);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 13);
+            this.label3.Size = new System.Drawing.Size(96, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Contraseña actual";
+            this.label3.Text = "Contraseña actual:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(133, 49);
+            this.label4.Location = new System.Drawing.Point(203, 36);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 13);
+            this.label4.Size = new System.Drawing.Size(79, 13);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Nuevo usuario";
+            this.label4.Text = "Nuevo usuario:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(133, 102);
+            this.label5.Location = new System.Drawing.Point(203, 89);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 13);
             this.label5.TabIndex = 9;
@@ -121,7 +120,7 @@
             // button1
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.Location = new System.Drawing.Point(136, 147);
+            this.button1.Location = new System.Drawing.Point(138, 156);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 10;
@@ -132,7 +131,7 @@
             // checkBox_seguro
             // 
             this.checkBox_seguro.AutoSize = true;
-            this.checkBox_seguro.Location = new System.Drawing.Point(21, 151);
+            this.checkBox_seguro.Location = new System.Drawing.Point(147, 133);
             this.checkBox_seguro.Name = "checkBox_seguro";
             this.checkBox_seguro.Size = new System.Drawing.Size(87, 17);
             this.checkBox_seguro.TabIndex = 11;
@@ -155,29 +154,17 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(7, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(255, 185);
+            this.groupBox1.Size = new System.Drawing.Size(375, 185);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Modificar Usuario/Contraseña";
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.Location = new System.Drawing.Point(162, 203);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 23);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Cerrar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.groupBox1.Text = "Modificar Usuario y Contraseña";
             // 
             // Form_ModificarEmpleadoUsuarioContrasena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(269, 230);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(388, 203);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -204,6 +191,5 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox_seguro;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
     }
 }

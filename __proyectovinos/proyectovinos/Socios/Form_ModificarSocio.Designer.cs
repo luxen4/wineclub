@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_ModificarSocio));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.combo_socio = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button_limpiar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,18 +57,20 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radio_mujer = new System.Windows.Forms.RadioButton();
             this.radio_hombre = new System.Windows.Forms.RadioButton();
-            this.combo_socio = new System.Windows.Forms.ComboBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.actualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.combo_socio);
             this.groupBox2.Controls.Add(this.pictureBox3);
+            this.groupBox2.Controls.Add(this.combo_socio);
             this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.button_limpiar);
             this.groupBox2.Controls.Add(this.label1);
@@ -91,7 +94,7 @@
             this.groupBox2.Controls.Add(this.check_recibirinfo);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.groupBox1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 2);
+            this.groupBox2.Location = new System.Drawing.Point(12, 38);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(509, 263);
             this.groupBox2.TabIndex = 82;
@@ -101,12 +104,21 @@
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(171, 19);
+            this.pictureBox3.Location = new System.Drawing.Point(169, 24);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(51, 29);
+            this.pictureBox3.Size = new System.Drawing.Size(27, 19);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 121;
+            this.pictureBox3.TabIndex = 143;
             this.pictureBox3.TabStop = false;
+            // 
+            // combo_socio
+            // 
+            this.combo_socio.FormattingEnabled = true;
+            this.combo_socio.Location = new System.Drawing.Point(235, 22);
+            this.combo_socio.Name = "combo_socio";
+            this.combo_socio.Size = new System.Drawing.Size(94, 21);
+            this.combo_socio.TabIndex = 122;
+            this.combo_socio.SelectedIndexChanged += new System.EventHandler(this.combo_socio_SelectedIndexChanged);
             // 
             // button5
             // 
@@ -136,19 +148,19 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(333, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 84;
-            this.label1.Text = "Apellidos";
+            this.label1.Text = "Apellidos:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(223, 28);
+            this.label8.Location = new System.Drawing.Point(202, 28);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.Size = new System.Drawing.Size(30, 13);
             this.label8.TabIndex = 104;
-            this.label8.Text = "Ref.";
+            this.label8.Text = "Ref.:";
             // 
             // text_referencianueva
             // 
@@ -166,9 +178,9 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Location = new System.Drawing.Point(171, 90);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(24, 13);
+            this.label10.Size = new System.Drawing.Size(30, 13);
             this.label10.TabIndex = 84;
-            this.label10.Text = "NIF";
+            this.label10.Text = "NIF.:";
             // 
             // pictureBox1
             // 
@@ -186,9 +198,9 @@
             this.label_nuevareferencia.BackColor = System.Drawing.Color.Transparent;
             this.label_nuevareferencia.Location = new System.Drawing.Point(401, 12);
             this.label_nuevareferencia.Name = "label_nuevareferencia";
-            this.label_nuevareferencia.Size = new System.Drawing.Size(94, 13);
+            this.label_nuevareferencia.Size = new System.Drawing.Size(97, 13);
             this.label_nuevareferencia.TabIndex = 79;
-            this.label_nuevareferencia.Text = "Nueva Referencia";
+            this.label_nuevareferencia.Text = "Nueva Referencia:";
             // 
             // text_apellidosnuevo
             // 
@@ -230,9 +242,9 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Location = new System.Drawing.Point(334, 90);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(49, 13);
+            this.label11.Size = new System.Drawing.Size(52, 13);
             this.label11.TabIndex = 85;
-            this.label11.Text = "Teléfono";
+            this.label11.Text = "Teléfono:";
             // 
             // label6
             // 
@@ -240,9 +252,9 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(333, 168);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.Size = new System.Drawing.Size(34, 13);
             this.label6.TabIndex = 87;
-            this.label6.Text = "email";
+            this.label6.Text = "email:";
             // 
             // text_telefono
             // 
@@ -257,9 +269,9 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(168, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 77;
-            this.label3.Text = "Nombre";
+            this.label3.Text = "Nombre:";
             // 
             // text_email
             // 
@@ -291,9 +303,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(169, 129);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 99;
-            this.label2.Text = "Localidad";
+            this.label2.Text = "Localidad:";
             // 
             // check_recibirinfo
             // 
@@ -315,9 +327,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(335, 129);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 13);
+            this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 100;
-            this.label4.Text = "Provincia";
+            this.label4.Text = "Provincia:";
             // 
             // groupBox1
             // 
@@ -353,24 +365,35 @@
             this.radio_hombre.Text = "Hombre";
             this.radio_hombre.UseVisualStyleBackColor = true;
             // 
-            // combo_socio
+            // menuStrip1
             // 
-            this.combo_socio.FormattingEnabled = true;
-            this.combo_socio.Location = new System.Drawing.Point(256, 22);
-            this.combo_socio.Name = "combo_socio";
-            this.combo_socio.Size = new System.Drawing.Size(74, 21);
-            this.combo_socio.TabIndex = 122;
-            this.combo_socio.SelectedIndexChanged += new System.EventHandler(this.combo_socio_SelectedIndexChanged);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.actualizarToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(530, 24);
+            this.menuStrip1.TabIndex = 83;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // actualizarToolStripMenuItem
+            // 
+            this.actualizarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("actualizarToolStripMenuItem.Image")));
+            this.actualizarToolStripMenuItem.Name = "actualizarToolStripMenuItem";
+            this.actualizarToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.actualizarToolStripMenuItem.Text = "Actualizar";
+            this.actualizarToolStripMenuItem.Click += new System.EventHandler(this.actualizarToolStripMenuItem_Click);
             // 
             // Form_ModificarSocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(530, 267);
+            this.ClientSize = new System.Drawing.Size(530, 313);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Form_ModificarSocio";
             this.Text = "WINE CLUB";
@@ -381,7 +404,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -412,7 +438,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.ComboBox combo_socio;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem actualizarToolStripMenuItem;
     }
 }

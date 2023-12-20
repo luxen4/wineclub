@@ -21,8 +21,6 @@ namespace proyectovinos
             InitializeComponent();
         }
 
-
-
         Class_Articulo articulo = new Class_Articulo();
         Consultas consultas = new Consultas();
         CumplimentarComboboxes cumpCombo = new CumplimentarComboboxes();
@@ -33,7 +31,6 @@ namespace proyectovinos
         private int id_articulo = 0;
 
 
-
         private void Form_Movimiento_TiendaAlmacen_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
@@ -41,50 +38,16 @@ namespace proyectovinos
             cumpCombo.refrescarCombo("ref", "articulo", combo_refarticulo);
         }
 
-
-
- 
-
-
         private void button5_Click(object sender, EventArgs e)
         {
             limpiarCampos();
         }
 
 
-        private void limpiarCampos()
-        {
-            combo_reflineacompraproveedor.Text = "Seleccione";
-            combo_refarticulo.Text = "Seleccione";
-            text_proveedor.Text = "";
-            text_clasevino.Text = "";
-            text_denominacion.Text = "";
-            text_catalogacion.Text = "";
-            text_formatocontenido.Text = "";
-            text_unidadesalmacen.Text = "";
-            text_unidadestienda.Text = "";
-            numericUpDown_unidadesamover.Value = 0;
-            text_empaquetado.Text = "";
-            pictureBox1.Image = null;
-
-            combo_reflineacompraproveedor.Enabled = false;
-            text_catalogacion.Enabled = false;
-
-            numericUpDown_unidadesamover.Enabled = false;
-            btn_traspasoAlmacen.Enabled = false;
-        }
-
         private void compraAProveedorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_ProveedorAperturaForms proveedorAperturaForms = new Class_ProveedorAperturaForms();
             proveedorAperturaForms.comprarArticuloProveedor();
-        }
-
-
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
 
@@ -164,7 +127,7 @@ namespace proyectovinos
 
             combo_reflineacompraproveedor.Items.Clear();
             Class_AlmacenTienda alm = new Class_AlmacenTienda();
-            alm.refrescarComboboxLineaCompraProveedor(id_articulo, combo_reflineacompraproveedor);
+            alm.refrescarComboboxLineaCompraProveedor(id_articulo, combo_reflineacompraproveedor, 2);
 
 
             //
@@ -235,12 +198,9 @@ namespace proyectovinos
                     // Deja incrementar
                 }
             }
-
-
-
         }
 
-        private void compraAProveedorToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void compraAProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class_ProveedorAperturaForms apertura = new Class_ProveedorAperturaForms();
             apertura.comprarArticuloProveedor();
@@ -251,18 +211,27 @@ namespace proyectovinos
             limpiarCampos();
         }
 
-     
-
-
-
-
-        private void button2_Click(object sender, EventArgs e)
+        private void limpiarCampos()
         {
-            this.Close();
+            combo_reflineacompraproveedor.Text = "Seleccione";
+            combo_refarticulo.Text = "Seleccione";
+            text_proveedor.Text = "";
+            text_clasevino.Text = "";
+            text_denominacion.Text = "";
+            text_catalogacion.Text = "";
+            text_formatocontenido.Text = "";
+            text_unidadesalmacen.Text = "";
+            text_unidadestienda.Text = "";
+            numericUpDown_unidadesamover.Value = 0;
+            text_empaquetado.Text = "";
+            pictureBox1.Image = null;
+
+            combo_reflineacompraproveedor.Enabled = false;
+            text_catalogacion.Enabled = false;
+
+            numericUpDown_unidadesamover.Enabled = false;
+            btn_traspasoAlmacen.Enabled = false;
         }
-
-
-
     }
 }
 

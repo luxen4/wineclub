@@ -222,6 +222,7 @@ namespace proyectovinos
                     cargaLista = false;
                     articulo.cumplimentarListaArticulos(listView1, '1');
                     cargaLista = true;
+                    limpiarcampos();
                    
                 }
                 else
@@ -248,7 +249,6 @@ namespace proyectovinos
                     articulo.cumplimentarListaArticulos(listView1, '0');
                     cargaLista = true;
                     limpiarcampos();
-
                 }
                 else
                 {
@@ -257,7 +257,7 @@ namespace proyectovinos
             }
             else
             {
-                MessageBox.Show("Tenga cuidado!");
+                //MessageBox.Show("Tenga cuidado!");
             }
 
 
@@ -307,14 +307,7 @@ namespace proyectovinos
             }
         }
 
-        private void artículosInhabilitadosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Class_ArticuloAperturaForms apertura = new Class_ArticuloAperturaForms();
-            // apertura.articulosInhabilitados();
-        }
-
-
-        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void nuevoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             articuloAperturaForm.nuevoArticuloVino();
         }

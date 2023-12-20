@@ -206,9 +206,6 @@ namespace proyectovinos
             pictureBox_articulo.Image = null;
         }
 
-
-
-
  
         private void combo_clasedevino_MouseClick(object sender, MouseEventArgs e)
         {
@@ -325,20 +322,6 @@ namespace proyectovinos
         cumpCombo.refrescarCombo("nombre", "empaquetado", combo_empaquetado);
         }
 
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void verTodosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Class_ArticuloAperturaForms articulo = new Class_ArticuloAperturaForms();
-            articulo.todosArticulosVino();
-        }
-
-
         // Método que precarga u Proveedor
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
@@ -422,6 +405,12 @@ namespace proyectovinos
             {
                 MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
             }
+        }
+
+        private void aRTICULOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Class_ArticuloAperturaForms articulo = new Class_ArticuloAperturaForms();
+            articulo.todosArticulosVino();
         }
     }
 }

@@ -69,7 +69,7 @@ namespace proyectovinos
             if (session!=null) { 
                 if (passwordEncriptadoForm == session[2])
                 {
-                    MessageBox.Show("Usuario válido.");
+                    //MessageBox.Show("Usuario válido.");
                     ClaseCompartida.nombre = session[0];
                     ClaseCompartida.usuario = session[1];
                     ClaseCompartida.contrasena = session[2];

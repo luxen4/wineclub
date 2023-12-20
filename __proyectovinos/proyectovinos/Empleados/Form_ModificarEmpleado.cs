@@ -99,6 +99,52 @@ namespace proyectovinos.Empleados
 
         }
 
+        private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            n_referencia = text_referencia.Text; n_nombre = text_nombre.Text;
+            n_apellido1 = text_apellido1.Text;   n_apellido2 = text_apellido2.Text;
+            n_telefono = text_telefono.Text;     n_email = text_email.Text;
+
+            if (radio_hombre.Checked){ n_sexo = "Hombre";
+            } else {n_sexo = "Mujer"; }
+
+            fechanacimiento = dateTime_fechanacimiento.Text;
+            fechanacimiento = ut.preparacionFecha(fechanacimiento);
+            cargo = combo_roll.Text;
+
+            n_id_rollempleado = consultas.obtenerCualquierId("id_rollempleado", "rollempleado", "nombre", cargo);
+
+            bool insertado = modificarEmpleado();
+
+            if (haCambiado == true)
+            {
+                pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "empleados/" + id_empleado + "/perfil/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+            else
+            {
+                //pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "empleados/" + carpetaempleadoAnterior + "/perfil/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+
+            comboBox_empleado.Items.Clear();
+            cumplimentarComboboxes.cumplimentarComboNombreEmpleado(comboBox_empleado);
+
+            this.Close();
+        }
+
+        private void limpiarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            text_referencia.Text = "";
+            text_nombre.Text = "";
+            text_apellido1.Text = "";
+            text_apellido2.Text = "";
+            text_telefono.Text = "";
+            text_email.Text = "";
+            radio_hombre.Checked = true;
+            dateTime_fechanacimiento.Text = DateTime.Now.ToString();
+            comboBox_empleado.Text = "Seleccione";
+            pictureBox1.Image = null;
+        }
+
         private bool haCambiado=false;
 
 
@@ -112,7 +158,7 @@ namespace proyectovinos.Empleados
 
 
         private void button10_Click(object sender, EventArgs e)
-        { 
+        { /* Copiado ya
             n_referencia = text_referencia.Text;
             n_nombre = text_nombre.Text;
             n_apellido1 = text_apellido1.Text;
@@ -150,7 +196,7 @@ namespace proyectovinos.Empleados
             comboBox_empleado.Items.Clear();
             cumplimentarComboboxes.cumplimentarComboNombreEmpleado(comboBox_empleado);
 
-            this.Close();
+            this.Close();*/
         }
 
 
@@ -162,7 +208,7 @@ namespace proyectovinos.Empleados
         }
 
         private void button5_Click(object sender, EventArgs e)
-        {
+        {/*
             text_referencia.Text = "";
             text_nombre.Text = "";
             text_apellido1.Text = "";
@@ -172,7 +218,7 @@ namespace proyectovinos.Empleados
             radio_hombre.Checked = true;
             dateTime_fechanacimiento.Text = DateTime.Now.ToString();
             combo_roll.Text = "Seleccione";
-            pictureBox1.Image = null;
+            pictureBox1.Image = null;*/
         }
 
 

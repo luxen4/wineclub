@@ -40,6 +40,7 @@ namespace proyectovinos
 
         public string referenciaArticulo = "";
         private string nombreimagenNueva = "";
+        private string nombreimagenAntigua = "";
 
 
         public Form_ModificarArticulo()
@@ -60,42 +61,6 @@ namespace proyectovinos
         {
             cumplimentarPictureBoxes.buscarImagenPicturebox(sender, e, pictureBox2);
         }
-
-        private string nombreimagenAntigua= "";
-
-        // Método que cumplimenta en los huecos los detalles de un Artículo de vino
-        private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
-        {
-            nombreimagenAntigua = e.Item.Text + ".jpg";
-
-            if (cargarLista == true)
-            {
-                referenciaArticulo = e.Item.Text;
-                cumplimentarPictureBoxes.cumplimentarPictureBox(referenciaArticulo, pictureBox2);
-
-                int item = e.Item.Index;
-
-                text_referencianueva.Text = listView1.Items[item].SubItems[0].Text;
-                combo_tipouva.Text = listView1.Items[item].SubItems[1].Text;
-                combo_clasedevino.Text = listView1.Items[item].SubItems[2].Text;
-                nombreClaseVinoOriginal = listView1.Items[item].SubItems[2].Text;
-                nombreProveedor = listView1.Items[item].SubItems[3].Text;
-                id_proveedor = consultas.obtenerCualquierId("id_proveedor", "proveedor", "nombre", nombreProveedor);
-                combo_catalogacion.Text = listView1.Items[item].SubItems[4].Text;
-                combo_denominacion.Text = listView1.Items[item].SubItems[5].Text;
-                combo_empaquetado.Text = listView1.Items[item].SubItems[6].Text;
-                combo_formato.Text = listView1.Items[item].SubItems[7].Text;
-
-                numeric_minalmacen.Value = Decimal.Parse(listView1.Items[item].SubItems[8].Text);
-                numeric_maxalmacen.Value = Decimal.Parse(listView1.Items[item].SubItems[9].Text);
-                numeric_mintienda.Value = Decimal.Parse(listView1.Items[item].SubItems[10].Text);
-                numeric_maxtienda.Value = Decimal.Parse(listView1.Items[item].SubItems[11].Text);
-
-                label_nombreproveedor.Text = listView1.Items[item].SubItems[3].Text;
-
-            }
-        }
-
 
         private void modificarArticulo()
         {
@@ -151,7 +116,7 @@ namespace proyectovinos
                 conexionBD.Open();
                 reader = comando.ExecuteReader();
 
-                MessageBox.Show("Datos modificados");
+                MessageBox.Show("Artículo modificado");
             }
 
             catch (MySqlException ex)
@@ -271,42 +236,26 @@ namespace proyectovinos
 
                 if (haCambiado == true)
                 {
-                   
-
                     pictureBox2.Image.Save(ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/articulos/" + nombreClaseVinoOriginal + "/" + nombreimagenNueva, System.Drawing.Imaging.ImageFormat.Jpeg);
-                
                 }
                 else { }
 
 
                 // Cambio de tipo de vino 
                 if (nombreClaseVinoOriginal == nombreClaseVinoNueva) {
-                    // Cambia de nombre la imagen
                     string sourceFilePath = ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/articulos/" + nombreClaseVinoOriginal + "/" + nombreimagenAntigua + "";
                     string destinationFilePath = ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/articulos/" + nombreClaseVinoOriginal + "/" + nombreimagenNueva + "";
-
-                    MessageBox.Show(sourceFilePath);
-                    MessageBox.Show(destinationFilePath);
                     File.Move(sourceFilePath, destinationFilePath);
-
-
                 }
                 else
                 {
-
                     System.IO.Directory.Move(ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/articulos/" + nombreClaseVinoOriginal,
                         ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/articulos/" + nombreClaseVinoNueva + "");
                 
                  // Cambia de nombre la imagen
                     string sourceFilePath = ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/articulos/" + nombreClaseVinoNueva + "/" + nombreimagenAntigua + "";
                     string destinationFilePath = ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/articulos/" + nombreClaseVinoNueva + "/" + nombreimagenNueva + "";
-
-                    MessageBox.Show(sourceFilePath);
-                    MessageBox.Show(destinationFilePath);
                     File.Move(sourceFilePath, destinationFilePath);
-
-                    MessageBox.Show("Cambio nombre de imagen");
-                
                 }
 
                 cargarLista = false;
@@ -333,9 +282,6 @@ namespace proyectovinos
                 return true;
             }
         }
-
-            
-    
 
         private void button_limpiar_Click(object sender, EventArgs e)
         {
@@ -390,6 +336,44 @@ namespace proyectovinos
         {
             listView1.Items.Clear();
             articulo.cumplimentarListaArticulos(listView1, '1');
+        }
+
+
+        private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            nombreimagenAntigua = e.Item.Text + ".jpg";
+
+            if (cargarLista == true)
+            {
+                referenciaArticulo = e.Item.Text;
+                cumplimentarPictureBoxes.cumplimentarPictureBox(referenciaArticulo, pictureBox2);
+
+                int item = e.Item.Index;
+
+                text_referencianueva.Text = listView1.Items[item].SubItems[0].Text;
+                combo_tipouva.Text = listView1.Items[item].SubItems[1].Text;
+                combo_clasedevino.Text = listView1.Items[item].SubItems[2].Text;
+                nombreClaseVinoOriginal = listView1.Items[item].SubItems[2].Text;
+                nombreProveedor = listView1.Items[item].SubItems[3].Text;
+                id_proveedor = consultas.obtenerCualquierId("id_proveedor", "proveedor", "nombre", nombreProveedor);
+                combo_catalogacion.Text = listView1.Items[item].SubItems[4].Text;
+                combo_denominacion.Text = listView1.Items[item].SubItems[5].Text;
+                combo_empaquetado.Text = listView1.Items[item].SubItems[6].Text;
+                combo_formato.Text = listView1.Items[item].SubItems[7].Text;
+
+                numeric_minalmacen.Value = Decimal.Parse(listView1.Items[item].SubItems[8].Text);
+                numeric_maxalmacen.Value = Decimal.Parse(listView1.Items[item].SubItems[9].Text);
+                numeric_mintienda.Value = Decimal.Parse(listView1.Items[item].SubItems[10].Text);
+                numeric_maxtienda.Value = Decimal.Parse(listView1.Items[item].SubItems[11].Text);
+
+                label_nombreproveedor.Text = listView1.Items[item].SubItems[3].Text;
+
+            }
+
+
+
+
+
         }
 
         private void comboBox_filtronombrecatalogacion_Click(object sender, EventArgs e)

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_DevolucionSocio));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.text_empaquetado = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -70,13 +69,14 @@
             this.combo_articulo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox_producto = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox8.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_cantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_perfilsocio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_producto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -111,16 +111,6 @@
             this.groupBox2.TabIndex = 64;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Devolución de Socio";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(315, 39);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(51, 32);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 143;
-            this.pictureBox3.TabStop = false;
             // 
             // groupBox8
             // 
@@ -390,7 +380,7 @@
             // combo_refventasocio
             // 
             this.combo_refventasocio.FormattingEnabled = true;
-            this.combo_refventasocio.Location = new System.Drawing.Point(197, 50);
+            this.combo_refventasocio.Location = new System.Drawing.Point(229, 50);
             this.combo_refventasocio.Name = "combo_refventasocio";
             this.combo_refventasocio.Size = new System.Drawing.Size(112, 21);
             this.combo_refventasocio.TabIndex = 111;
@@ -400,11 +390,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(194, 34);
+            this.label2.Location = new System.Drawing.Point(226, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 112;
-            this.label2.Text = "Ref. Venta";
+            this.label2.Text = "Ref. Venta:";
             // 
             // text_preciounidad
             // 
@@ -514,9 +504,9 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Location = new System.Drawing.Point(384, 34);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 13);
+            this.label7.Size = new System.Drawing.Size(70, 13);
             this.label7.TabIndex = 29;
-            this.label7.Text = "Artículo";
+            this.label7.Text = "Ref. Artículo:";
             // 
             // pictureBox_producto
             // 
@@ -527,6 +517,16 @@
             this.pictureBox_producto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_producto.TabIndex = 19;
             this.pictureBox_producto.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(197, 52);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(27, 19);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 143;
+            this.pictureBox3.TabStop = false;
             // 
             // Form_DevolucionSocio
             // 
@@ -544,7 +544,6 @@
             this.Load += new System.EventHandler(this.Form_Devolucion_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -552,6 +551,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numeric_cantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_perfilsocio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_producto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }

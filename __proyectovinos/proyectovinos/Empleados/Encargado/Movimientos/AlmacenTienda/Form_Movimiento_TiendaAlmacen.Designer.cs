@@ -32,7 +32,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btn_traspasoAlmacen = new System.Windows.Forms.Button();
             this.combo_reflineacompraproveedor = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -59,26 +58,25 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.combo_refarticulo = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.pROVEEDORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.compraAProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compraAProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_unidadesamover)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.pictureBox3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.pictureBox1);
-            this.groupBox2.Controls.Add(this.pictureBox3);
             this.groupBox2.Controls.Add(this.btn_traspasoAlmacen);
             this.groupBox2.Controls.Add(this.combo_reflineacompraproveedor);
             this.groupBox2.Controls.Add(this.button5);
@@ -94,7 +92,7 @@
             this.groupBox2.Size = new System.Drawing.Size(626, 291);
             this.groupBox2.TabIndex = 111;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "De Tienda a Almacén";
+            this.groupBox2.Text = "Movimiento de Artículos de Tienda a Almacén";
             // 
             // label2
             // 
@@ -115,16 +113,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 103;
             this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(188, 36);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(51, 32);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 150;
-            this.pictureBox3.TabStop = false;
             // 
             // btn_traspasoAlmacen
             // 
@@ -193,11 +181,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Location = new System.Drawing.Point(1, 101);
+            this.label16.Location = new System.Drawing.Point(51, 101);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(98, 13);
+            this.label16.Size = new System.Drawing.Size(48, 13);
             this.label16.TabIndex = 46;
-            this.label16.Text = "Formato/Contenido";
+            this.label16.Text = "Formato:";
             // 
             // text_unidadesalmacen
             // 
@@ -232,9 +220,9 @@
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Location = new System.Drawing.Point(48, 23);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(48, 13);
+            this.label17.Size = new System.Drawing.Size(51, 13);
             this.label17.TabIndex = 2;
-            this.label17.Text = "Almacén";
+            this.label17.Text = "Almacén:";
             // 
             // label18
             // 
@@ -245,9 +233,9 @@
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Location = new System.Drawing.Point(56, 49);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(40, 13);
+            this.label18.Size = new System.Drawing.Size(43, 13);
             this.label18.TabIndex = 42;
-            this.label18.Text = "Tienda";
+            this.label18.Text = "Tienda:";
             // 
             // label20
             // 
@@ -258,9 +246,9 @@
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Location = new System.Drawing.Point(26, 75);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(73, 13);
+            this.label20.Size = new System.Drawing.Size(76, 13);
             this.label20.TabIndex = 44;
-            this.label20.Text = "Empaquetado";
+            this.label20.Text = "Empaquetado:";
             // 
             // numericUpDown_unidadesamover
             // 
@@ -278,11 +266,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(277, 229);
+            this.label4.Location = new System.Drawing.Point(272, 229);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 13);
+            this.label4.Size = new System.Drawing.Size(106, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Traspaso a almacén";
+            this.label4.Text = "Traspaso a almacén:";
             // 
             // groupBox5
             // 
@@ -362,9 +350,9 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Location = new System.Drawing.Point(59, 75);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(29, 13);
+            this.label15.Size = new System.Drawing.Size(32, 13);
             this.label15.TabIndex = 120;
-            this.label15.Text = "D.O.";
+            this.label15.Text = "D.O.:";
             // 
             // text_proveedor
             // 
@@ -403,53 +391,44 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Location = new System.Drawing.Point(245, 33);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 13);
+            this.label11.Size = new System.Drawing.Size(68, 13);
             this.label11.TabIndex = 149;
-            this.label11.Text = "Ref. Articulo";
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.Location = new System.Drawing.Point(563, 324);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 100;
-            this.button2.Text = "Cerrar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.label11.Text = "Ref. Articulo:";
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pROVEEDORESToolStripMenuItem});
+            this.compraAProveedoresToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(649, 24);
             this.menuStrip1.TabIndex = 112;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // pROVEEDORESToolStripMenuItem
+            // compraAProveedoresToolStripMenuItem
             // 
-            this.pROVEEDORESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.compraAProveedorToolStripMenuItem});
-            this.pROVEEDORESToolStripMenuItem.Name = "pROVEEDORESToolStripMenuItem";
-            this.pROVEEDORESToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
-            this.pROVEEDORESToolStripMenuItem.Text = "PROVEEDORES";
+            this.compraAProveedoresToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("compraAProveedoresToolStripMenuItem.Image")));
+            this.compraAProveedoresToolStripMenuItem.Name = "compraAProveedoresToolStripMenuItem";
+            this.compraAProveedoresToolStripMenuItem.Size = new System.Drawing.Size(155, 20);
+            this.compraAProveedoresToolStripMenuItem.Text = "Compra a Proveedores";
+            this.compraAProveedoresToolStripMenuItem.Click += new System.EventHandler(this.compraAProveedoresToolStripMenuItem_Click);
             // 
-            // compraAProveedorToolStripMenuItem
+            // pictureBox3
             // 
-            this.compraAProveedorToolStripMenuItem.Name = "compraAProveedorToolStripMenuItem";
-            this.compraAProveedorToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.compraAProveedorToolStripMenuItem.Text = "Compra a Proveedor";
-            this.compraAProveedorToolStripMenuItem.Click += new System.EventHandler(this.compraAProveedorToolStripMenuItem_Click_1);
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(218, 51);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(27, 19);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 150;
+            this.pictureBox3.TabStop = false;
             // 
             // Form_Movimiento_TiendaAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(649, 350);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(649, 320);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -461,7 +440,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_unidadesamover)).EndInit();
@@ -470,6 +448,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,7 +457,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_traspasoAlmacen;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.NumericUpDown numericUpDown_unidadesamover;
@@ -491,11 +469,8 @@
         private System.Windows.Forms.TextBox text_unidadesalmacen;
         private System.Windows.Forms.TextBox text_unidadestienda;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem pROVEEDORESToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem compraAProveedorToolStripMenuItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox combo_reflineacompraproveedor;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox combo_refarticulo;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -511,5 +486,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ToolStripMenuItem compraAProveedoresToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

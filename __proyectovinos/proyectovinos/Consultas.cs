@@ -94,7 +94,7 @@ namespace proyectovinos
             try
             {
                 string selectQuery = "select " + refe + " as ref from " + nombreTabla + " where " + whereAtributo + " = " + valorAtributo + " ";
-                MessageBox.Show(selectQuery);
+                //MessageBox.Show(selectQuery);
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
                 MySqlDataReader reader = command.ExecuteReader();
@@ -156,7 +156,7 @@ namespace proyectovinos
                 comando.Connection = conexionBD;
                 conexionBD.Open();
                 reader = comando.ExecuteReader();
-                MessageBox.Show("Eliminado");
+                //MessageBox.Show("Eliminado");
 
             }
             catch (MySqlException ex) {
@@ -181,7 +181,7 @@ namespace proyectovinos
                 comando.Connection = conexionBD;
                 conexionBD.Open();
                 reader = comando.ExecuteReader();
-                MessageBox.Show(ClaseCompartida.msgModificado);
+                //MessageBox.Show(ClaseCompartida.msgModificado);
 
             }
             catch (MySqlException ex){
@@ -210,7 +210,7 @@ namespace proyectovinos
                 conexionBD.Open();
                 reader = comando.ExecuteReader();       
 
-                MessageBox.Show(ClaseCompartida.msgModificado);
+                // MessageBox.Show(ClaseCompartida.msgModificado);
             }
 
             catch (MySqlException ex){ MessageBox.Show(ex.Message); }
@@ -236,7 +236,7 @@ namespace proyectovinos
                 conexionBD.Open();
                 reader = comando.ExecuteReader(); 
 
-                MessageBox.Show(ClaseCompartida.msgInsertado);
+                //MessageBox.Show(ClaseCompartida.msgInsertado);
                 conexionBD.Close();
                 return true;
 
@@ -358,7 +358,7 @@ namespace proyectovinos
                 comando.Connection = conexionBD;
                 conexionBD.Open();
                 reader = comando.ExecuteReader();
-                MessageBox.Show(ClaseCompartida.msgEliminado);
+                //MessageBox.Show(ClaseCompartida.msgEliminado);
                 conexionBD.Close();
                 return true;
 

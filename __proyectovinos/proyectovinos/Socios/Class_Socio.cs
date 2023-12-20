@@ -27,7 +27,7 @@ namespace proyectovinos.Socios
         // Método que devuelve los datos de un Socio
         public string[] datosSocioo(int id_socio){
 
-            string[] datosSocio = new string[9];
+            string[] datosSocio = new string[10];
 
             ConexionBD con = new ConexionBD();
             string cadenaConexion = con.conexion();
@@ -35,7 +35,7 @@ namespace proyectovinos.Socios
 
             try
             {
-                string selectQuery = "select nombre, apellidos, localidad, provincia, sexo, nif, telefono, email, recibir_info from socio where id_socio= " + id_socio;
+                string selectQuery = "select ref, nombre, apellidos, localidad, provincia, sexo, nif, telefono, email, recibir_info from socio where id_socio= " + id_socio;
 
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
@@ -52,9 +52,9 @@ namespace proyectovinos.Socios
                     string telefono = reader.GetString("telefono");         datosSocio[6] = telefono;
                     string email = reader.GetString("email");               datosSocio[7] = email;
                     string recibirInfo = reader.GetString("recibir_info");  datosSocio[8] = recibirInfo;
+                    string referencia = reader.GetString("ref");     datosSocio[9] = referencia;
 
-
-                   // string nombreApellidos = nombre + " " + apellidos;              datosSocio[0] = nombreApellidos;
+                    // string nombreApellidos = nombre + " " + apellidos;              datosSocio[0] = nombreApellidos;
                 }
 
             }

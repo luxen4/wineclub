@@ -58,8 +58,8 @@ namespace proyectovinos
 
         public int primeravez = 0, id_articulo = 0;
         private bool seEncuentra = false;
-
-      
+        private string refSocio = "";
+        private string refPredeterminada = "VSO";
 
 
         private void Form_Venta_Load(object sender, EventArgs e)
@@ -90,10 +90,6 @@ namespace proyectovinos
             numeric_cantidad.Enabled = true;
         }
 
-
-        private string refSocio = "";
-        
-
     // 4 Método que muestra la foto de socio a partir de su referencia
         private void combo_refsocio_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -114,7 +110,6 @@ namespace proyectovinos
 
                 while (reader.Read())
                 {
-
                     string nombre = reader.GetString("nombre");
                     string apellidos = reader.GetString("apellidos");
                     label_nombresocio.Text = apellidos + ", " + nombre;
@@ -137,10 +132,6 @@ namespace proyectovinos
         }
 
 
-
-       
-
-
     //5 Método que lista la descripción del artículo a comprar, No compruebe si hay ya artículo ya que hay de varios precios
         private void button_anadir_Click(object sender, EventArgs e)
         {
@@ -152,15 +143,11 @@ namespace proyectovinos
             {
                 try
                 {
-                   // string refProducto = text_refArticulo.Text;
-                    
-
                     string refsocio = combo_refsocio.Text;
                     string nombreSocio = label_nombresocio.Text;
 
                     decimal cantidad = numeric_cantidad.Value;
                     decimal totalArticulo = cantidad * Convert.ToDecimal(text_precioventa.Text);
-
 
                     if (
                         combo_reflinea.Text == "Seleccione" ||
@@ -190,19 +177,13 @@ namespace proyectovinos
             }
             else
             {
-                MessageBox.Show("No incluyo en esta parte");
+                //MessageBox.Show("No incluyo en esta parte");
             }
 
             seEncuentra = false;
-
-           
             combo_reflinea.Enabled = false;
             numeric_cantidad.Value = 0;
         }
-
-
-        private string refPredeterminada = "VSO";
-
 
         // 6 Método que registra la compra a un Socio 
         private void button2_Click(object sender, EventArgs e)
@@ -217,12 +198,12 @@ namespace proyectovinos
             if (opcionSeleccionada == DialogResult.Yes)
             {
                     //Load PDF File for viewing
-                    MessageBox.Show("Esttttoyyyy" + ClaseCompartida.carpetafacturas_absoluta + refVent + ".pdf");
+                    //MessageBox.Show("Esttttoyyyy" + ClaseCompartida.carpetafacturas_absoluta + refVent + ".pdf");
                     Process.Start(ClaseCompartida.carpetafacturas_absoluta + refVent + ".pdf");
             }
             else
             {
-                MessageBox.Show("No muestra factura");
+                //MessageBox.Show("No muestra factura");
             }
             
         }
@@ -283,8 +264,8 @@ namespace proyectovinos
                 if (listView1.Items[i].SubItems[0].Text == referenciaArticulo && listView1.Items[i].SubItems[1].Text == referenciaCompraProveedor)
                 {
 
-                    MessageBox.Show("Ya se encuentra referencia Artículo " + listView1.Items[i].SubItems[0].Text);
-                    MessageBox.Show("Ya se encuentra referencia Compra Proveedor " + listView1.Items[i].SubItems[1].Text);
+                    //MessageBox.Show("Ya se encuentra referencia Artículo " + listView1.Items[i].SubItems[0].Text);
+                    //MessageBox.Show("Ya se encuentra referencia Compra Proveedor " + listView1.Items[i].SubItems[1].Text);
 
                     decimal sumaCantidades = Int32.Parse(listView1.Items[i].SubItems[4].Text) + numeric_cantidad.Value;
                     listView1.Items[i].SubItems[4].Text = sumaCantidades.ToString();
@@ -383,10 +364,6 @@ namespace proyectovinos
             // https://procodeguide.com/dotnet/create-pdf-file-in-csharp-net/
         }
 
-
-
-
-
         private void button_limpiar_Click(object sender, EventArgs e)
         {
             limpiarCampos();
@@ -418,8 +395,6 @@ namespace proyectovinos
             pictureBox1.Image = null;
             pictureBox_perfilsocio.Image = null;
             combo_refsocio.Text = "Seleccione";
-
-
         }
 
         private void listView1_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -446,22 +421,6 @@ namespace proyectovinos
             numeric_cantidad.Value = 3;
             text_total.Text = "0";
             combo_refsocio.Text = "SOC6";
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-
-
-
-
-
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-
 
         }
 
@@ -526,45 +485,41 @@ namespace proyectovinos
                     }
                     else
                     {
-                        MessageBox.Show("Línea de venta no insertada");
+                        // MessageBox.Show("Línea de venta no insertada");
                         insertadoLineaVenta = false;
                         break;  // si pasa aquí, también que elimine la venta a socio pués está realizada pero sin linea de venta
 
                     }
                 }
-
                 string refVent = "";
 
                 // Si inserta que haga factura
                 if (insertadoVentaSocio == true && insertadoLineaVenta == true)
                 {
                     // Si lo inserta ya podemos crear el pdf de la factura
-                    MessageBox.Show("Guardando factura");
+                    // MessageBox.Show("Guardando factura");
                     Class_VentasDevolucionesSocio vent = new Class_VentasDevolucionesSocio();
                     refVent = consultas.obtenerCualquierRefDesdeId("ref", "ventasocio", "id_ventasocio", id_predeterminado);
                     vent.mostrarFactura(refVent);
                     mostrarFactura(refVent);
-
                 }
 
                 // Emitir el ticket, leer el ListView
-
-
                 aPdf(refVent);
-
                 limpiarCampos();
-
                 listView1.Items.Clear();
                 combo_reflinea.Enabled = false;
-
             }
             else
             {
                 MessageBox.Show("Seleccione Sócio");
             }
+        }
 
-
-
+        private void compraAProveedorToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Class_ProveedorAperturaForms proveedorAperturaForms = new Class_ProveedorAperturaForms();
+            proveedorAperturaForms.comprarArticuloProveedor();
         }
 
         private void combo_refarticulo_SelectedIndexChanged(object sender, EventArgs e)
@@ -589,12 +544,10 @@ namespace proyectovinos
             pictureBox1.Image = Image.FromFile(ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/articulos/" + nombreClaseVino + "/" + refArticulo + ".jpg");
 
 
-
             combo_reflinea.Items.Clear();
             cumpPictureBoxes.cumplimentarPictureBox(refArticulo, pictureBox1);
             cumpCombos.refrescarComboboxLineaCompraProveedorDesdeId_articulo(id_articulo, combo_reflinea);
             combo_reflinea.Enabled = true;
-
 
 
             //

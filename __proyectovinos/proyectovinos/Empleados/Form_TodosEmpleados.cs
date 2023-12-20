@@ -193,6 +193,11 @@ namespace proyectovinos.Empleados
             cargaLista = false;
         }
 
+        private void cARGOSROLESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Class_CargosAperturaForms rol = new Class_CargosAperturaForms();
+            rol.todosRoles();
+        }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
@@ -324,12 +329,6 @@ namespace proyectovinos.Empleados
             empleadoAperturaForms.modificarEmpleado(); 
         }
 
-        private void todosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Class_RollAperturaForms rol = new Class_RollAperturaForms();
-            rol.todosRolesII();
-        }
-
 
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
@@ -437,7 +436,6 @@ namespace proyectovinos.Empleados
         }
 
        
-
         private void button11_Click(object sender, EventArgs e)
         {
             cumplimentarPictureBoxes.buscarImagenPicturebox(sender, e, pictureBox1);

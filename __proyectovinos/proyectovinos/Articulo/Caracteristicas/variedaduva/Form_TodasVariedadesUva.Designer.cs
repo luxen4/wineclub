@@ -59,7 +59,7 @@
             this.groupBox5.Controls.Add(this.label6);
             this.groupBox5.Controls.Add(this.textBox_nombre);
             this.groupBox5.Controls.Add(this.textBox_referencia);
-            this.groupBox5.Location = new System.Drawing.Point(275, 98);
+            this.groupBox5.Location = new System.Drawing.Point(289, 94);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(197, 107);
             this.groupBox5.TabIndex = 178;
@@ -72,9 +72,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(6, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 88;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Nombre:";
             // 
             // label6
             // 
@@ -111,7 +111,7 @@
             this.newToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(475, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(510, 24);
             this.menuStrip2.TabIndex = 177;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -151,16 +151,16 @@
             // 
             this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.saveToolStripMenuItem.Text = "SAVE";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.saveToolStripMenuItem.Text = "Modificar";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.sAVEToolStripMenuItem_Click);
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.newToolStripMenuItem.Text = "Nuevo";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // groupBox1
@@ -198,13 +198,13 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Nombre";
-            this.columnHeader2.Width = 160;
+            this.columnHeader2.Width = 164;
             // 
             // radioButton_deshabilitado
             // 
             this.radioButton_deshabilitado.AutoSize = true;
             this.radioButton_deshabilitado.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton_deshabilitado.Location = new System.Drawing.Point(367, 66);
+            this.radioButton_deshabilitado.Location = new System.Drawing.Point(381, 62);
             this.radioButton_deshabilitado.Name = "radioButton_deshabilitado";
             this.radioButton_deshabilitado.Size = new System.Drawing.Size(94, 17);
             this.radioButton_deshabilitado.TabIndex = 183;
@@ -217,7 +217,7 @@
             this.radioButton_habilitado.AutoSize = true;
             this.radioButton_habilitado.BackColor = System.Drawing.Color.Transparent;
             this.radioButton_habilitado.Checked = true;
-            this.radioButton_habilitado.Location = new System.Drawing.Point(284, 66);
+            this.radioButton_habilitado.Location = new System.Drawing.Point(298, 62);
             this.radioButton_habilitado.Name = "radioButton_habilitado";
             this.radioButton_habilitado.Size = new System.Drawing.Size(77, 17);
             this.radioButton_habilitado.TabIndex = 184;
@@ -226,19 +226,19 @@
             this.radioButton_habilitado.UseVisualStyleBackColor = false;
             this.radioButton_habilitado.CheckedChanged += new System.EventHandler(this.radioButton_habilitado_CheckedChanged);
             // 
-            // Form_TodasVariedadesUvaIII
+            // Form_TodasVariedadesUva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(475, 237);
+            this.ClientSize = new System.Drawing.Size(510, 237);
             this.Controls.Add(this.radioButton_deshabilitado);
             this.Controls.Add(this.radioButton_habilitado);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form_TodasVariedadesUvaIII";
+            this.Name = "Form_TodasVariedadesUva";
             this.Text = "WINE CLUB";
             this.Load += new System.EventHandler(this.Form_TodasVariedadesUvaIII_Load);
             this.groupBox5.ResumeLayout(false);

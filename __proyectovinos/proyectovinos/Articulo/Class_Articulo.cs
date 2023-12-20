@@ -40,7 +40,8 @@ namespace proyectovinos.ArticuloVino
                    "inner join tipouva as t on t.id_tipouva = a.id_tipouva " +
                    "inner join proveedor as p on p.id_proveedor = a.id_proveedor " +
                    "inner join catalogacion as c on c.id_catalogacion = a.id_catalogacion " +
-                   "inner join denominacion as d on d.id_denominacion = a.id_denominacion where a.activo = '" + activo + "' order by p.nombre asc";
+                   "inner join denominacion as d on d.id_denominacion = a.id_denominacion where a.activo = '" + activo + 
+                   "' order by a.ref asc";
 
                 // MessageBox.Show(selectQuery);
 
@@ -56,7 +57,7 @@ namespace proyectovinos.ArticuloVino
                     // itemAgregar.Checked = true;
                     itemAgregar.SubItems.Add(reader.GetString("nombretipouva"));
                     itemAgregar.SubItems.Add(reader.GetString("nombreclasevino"));
-
+                    
                     itemAgregar.SubItems.Add(reader.GetString("nombreproveedor"));
                     itemAgregar.SubItems.Add(reader.GetString("nombrecatalogacion"));
                     itemAgregar.SubItems.Add(reader.GetString("nombredenominacion"));
