@@ -46,6 +46,8 @@ namespace proyectovinos
         private void Form_TodosArticulosVino_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
+            habilitarToolStripMenuItem.Enabled = false;
+            eliminarToolStripMenuItem1.Enabled = false;
         }
 
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -200,6 +202,9 @@ namespace proyectovinos
             cargaLista = false;
             articulo.cumplimentarListaArticulos(listView1, '0');
             cargaLista = true;
+            habilitarToolStripMenuItem.Enabled = true;
+            eliminarToolStripMenuItem1.Enabled = true;
+            desabilitarToolStripMenuItem.Enabled = false;
         }
 
         private void radio_habilitados_CheckedChanged(object sender, EventArgs e)
@@ -208,6 +213,10 @@ namespace proyectovinos
             cargaLista = false;
             articulo.cumplimentarListaArticulos(listView1, '1');
             cargaLista = true;
+            habilitarToolStripMenuItem.Enabled = false;
+            eliminarToolStripMenuItem1.Enabled = false;
+            desabilitarToolStripMenuItem.Enabled=true;
+
         }
 
         private void desabilitarToolStripMenuItem_Click(object sender, EventArgs e)

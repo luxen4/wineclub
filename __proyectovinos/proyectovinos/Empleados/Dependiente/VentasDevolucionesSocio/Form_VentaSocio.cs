@@ -564,9 +564,20 @@ namespace proyectovinos
 
         private void combo_reflinea_MouseHover(object sender, EventArgs e)
         {
-            if (combo_reflinea.Items.Count==0) {
+            /*if (combo_reflinea.Items.Count == 0) {
+                MessageBox.Show("Pase existencias de Almacén a tienda");
+            }*/
+
+            if (text_unidadesalmacen.Text == "0" && text_unidadestienda.Text == "0")
+            {
+                MessageBox.Show("Compre artículos al proveedor");
+            }
+            else if (text_unidadesalmacen.Text != "0" && text_unidadestienda.Text == "0")
+            {
                 MessageBox.Show("Pase existencias de Almacén a tienda");
             }
+
+
         }
 
         // Carga para el artículo 1

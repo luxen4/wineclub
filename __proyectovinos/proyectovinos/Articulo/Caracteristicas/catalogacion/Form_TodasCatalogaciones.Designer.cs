@@ -73,7 +73,7 @@
             // 
             this.check_modificar.AutoSize = true;
             this.check_modificar.BackColor = System.Drawing.Color.Transparent;
-            this.check_modificar.Location = new System.Drawing.Point(374, 281);
+            this.check_modificar.Location = new System.Drawing.Point(374, 270);
             this.check_modificar.Name = "check_modificar";
             this.check_modificar.Size = new System.Drawing.Size(119, 17);
             this.check_modificar.TabIndex = 136;
@@ -85,7 +85,7 @@
             // 
             this.check_nueva.AutoSize = true;
             this.check_nueva.BackColor = System.Drawing.Color.Transparent;
-            this.check_nueva.Location = new System.Drawing.Point(374, 180);
+            this.check_nueva.Location = new System.Drawing.Point(374, 169);
             this.check_nueva.Name = "check_nueva";
             this.check_nueva.Size = new System.Drawing.Size(108, 17);
             this.check_nueva.TabIndex = 135;
@@ -103,7 +103,7 @@
             this.groupBox_modificar.Controls.Add(this.button_modificar);
             this.groupBox_modificar.Controls.Add(this.label5);
             this.groupBox_modificar.Enabled = false;
-            this.groupBox_modificar.Location = new System.Drawing.Point(374, 294);
+            this.groupBox_modificar.Location = new System.Drawing.Point(374, 283);
             this.groupBox_modificar.Name = "groupBox_modificar";
             this.groupBox_modificar.Size = new System.Drawing.Size(472, 68);
             this.groupBox_modificar.TabIndex = 134;
@@ -170,7 +170,7 @@
             // 
             this.radioButton_deshabilitado.AutoSize = true;
             this.radioButton_deshabilitado.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton_deshabilitado.Location = new System.Drawing.Point(457, 52);
+            this.radioButton_deshabilitado.Location = new System.Drawing.Point(457, 41);
             this.radioButton_deshabilitado.Name = "radioButton_deshabilitado";
             this.radioButton_deshabilitado.Size = new System.Drawing.Size(94, 17);
             this.radioButton_deshabilitado.TabIndex = 128;
@@ -189,7 +189,7 @@
             this.groupBox5.Controls.Add(this.label6);
             this.groupBox5.Controls.Add(this.check_segurohabilitardeshabilitareliminar);
             this.groupBox5.Controls.Add(this.textBox_nombre);
-            this.groupBox5.Location = new System.Drawing.Point(374, 75);
+            this.groupBox5.Location = new System.Drawing.Point(374, 64);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(472, 89);
             this.groupBox5.TabIndex = 133;
@@ -302,7 +302,7 @@
             this.radioButton_habilitado.AutoSize = true;
             this.radioButton_habilitado.BackColor = System.Drawing.Color.Transparent;
             this.radioButton_habilitado.Checked = true;
-            this.radioButton_habilitado.Location = new System.Drawing.Point(374, 52);
+            this.radioButton_habilitado.Location = new System.Drawing.Point(374, 41);
             this.radioButton_habilitado.Name = "radioButton_habilitado";
             this.radioButton_habilitado.Size = new System.Drawing.Size(77, 17);
             this.radioButton_habilitado.TabIndex = 129;
@@ -321,7 +321,7 @@
             this.groupBox_nueva.Controls.Add(this.button_nueva);
             this.groupBox_nueva.Controls.Add(this.label3);
             this.groupBox_nueva.Enabled = false;
-            this.groupBox_nueva.Location = new System.Drawing.Point(374, 193);
+            this.groupBox_nueva.Location = new System.Drawing.Point(374, 182);
             this.groupBox_nueva.Name = "groupBox_nueva";
             this.groupBox_nueva.Size = new System.Drawing.Size(472, 68);
             this.groupBox_nueva.TabIndex = 131;
@@ -389,12 +389,12 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.listView1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 41);
+            this.groupBox1.Location = new System.Drawing.Point(12, 32);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(356, 321);
             this.groupBox1.TabIndex = 130;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Categorías";
+            this.groupBox1.Text = "Catalogaciones";
             // 
             // listView1
             // 
@@ -422,7 +422,7 @@
             this.columnHeader2.Text = "Nombre";
             this.columnHeader2.Width = 160;
             // 
-            // Form_TodasCatalogacionesII
+            // Form_TodasCatalogaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -440,7 +440,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form_TodasCatalogacionesII";
+            this.Name = "Form_TodasCatalogaciones";
             this.Text = "WINE CLUB";
             this.Load += new System.EventHandler(this.Form_TodasCatalogacionesII_Load);
             this.groupBox_modificar.ResumeLayout(false);

@@ -208,9 +208,7 @@ namespace proyectovinos
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
                 conexionBD.Open();
-                reader = comando.ExecuteReader();       
-
-                // MessageBox.Show(ClaseCompartida.msgModificado);
+                reader = comando.ExecuteReader();  
             }
 
             catch (MySqlException ex){ MessageBox.Show(ex.Message); }
@@ -274,7 +272,6 @@ namespace proyectovinos
                 while (reader.Read())
                 {
                     id = Int32.Parse(reader.GetString("maxid"));
-                    
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -358,7 +355,6 @@ namespace proyectovinos
                 comando.Connection = conexionBD;
                 conexionBD.Open();
                 reader = comando.ExecuteReader();
-                //MessageBox.Show(ClaseCompartida.msgEliminado);
                 conexionBD.Close();
                 return true;
 

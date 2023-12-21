@@ -503,6 +503,7 @@ namespace proyectovinos
                     combo_reflinea.Items.Add(reader.GetString("ref"));
                 }
                 combo_reflinea.Text = "Seleccione";
+               
 
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

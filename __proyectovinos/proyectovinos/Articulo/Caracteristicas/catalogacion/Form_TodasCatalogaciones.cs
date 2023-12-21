@@ -31,6 +31,7 @@ namespace proyectovinos.Caracteristicas.catalogacion
 
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
             id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, text_referencianuevo);
             limpiarCampos();
         }
@@ -61,7 +62,7 @@ namespace proyectovinos.Caracteristicas.catalogacion
             listaCargada = false;
             cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
             listaCargada = true;
-
+            actualizarToolStripMenuItem.Enabled = true;
             button_habilitar.Enabled = false;
             button_deshabilitar.Enabled = true;
             button_eliminar.Enabled = false;
@@ -72,6 +73,7 @@ namespace proyectovinos.Caracteristicas.catalogacion
             listaCargada = false;
             cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '0');
             listaCargada = true;
+            actualizarToolStripMenuItem.Enabled = false;
             button_habilitar.Enabled = true;
             button_deshabilitar.Enabled = false;
             button_eliminar.Enabled = true;
@@ -146,12 +148,12 @@ namespace proyectovinos.Caracteristicas.catalogacion
         {
             if (check_segurohabilitardeshabilitareliminar.Checked == true)
             {
-            ut.controladorEliminarCaracteristica(check_segurohabilitardeshabilitareliminar, textBox_referencia, textBox_nombre, id_tabla, tabla, listView1);
-            limpiarCampos();
+                ut.controladorEliminarCaracteristica(check_segurohabilitardeshabilitareliminar, textBox_referencia, textBox_nombre, id_tabla, tabla, listView1);
+                cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '0');
+                limpiarCampos();
             }
             else {
                 MessageBox.Show(ClaseCompartida.msgCasillaSeguro);
-            
             }
         }
 
@@ -189,17 +191,12 @@ namespace proyectovinos.Caracteristicas.catalogacion
 
         private void limpiarCampos()
         {
-            radioButton_habilitado.Checked = true;
-            radioButton_deshabilitado.Checked = false;
-
-            check_segurohabilitardeshabilitareliminar.Checked = true;
+            check_segurohabilitardeshabilitareliminar.Checked = false; 
+            check_seguronuevo.Checked = false;
+            checkBox_seguromodificar.Checked = false;
 
             textBox_referencia.Text = "";
             textBox_nombre.Text = "";
-
-            button_habilitar.Enabled = false;
-            button_deshabilitar.Enabled = true;
-            button_eliminar.Enabled = false;
 
             text_referencianuevo.Text = "";
             text_nombrenuevo.Text = "";
@@ -210,12 +207,6 @@ namespace proyectovinos.Caracteristicas.catalogacion
             check_nueva.Checked = false;
             check_modificar.Checked = false;
 
-            check_segurohabilitardeshabilitareliminar.Checked = false;
-            check_seguronuevo.Checked = false;
-            checkBox_seguromodificar.Checked = false;
-
-            listaCargada = false;
-            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
             listaCargada = true;
         }
     }
