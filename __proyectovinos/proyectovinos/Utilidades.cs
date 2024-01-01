@@ -161,9 +161,17 @@ namespace proyectovinos
         }
 
 
-   
 
 
+        /// <summary>
+        /// Limpiars the campos.
+        /// </summary>
+        /// <param name="text_nuevonombre">The text nuevonombre.</param>
+        /// <param name="text_nuevareferencia">The text nuevareferencia.</param>
+        /// <param name="text_referencia">The text referencia.</param>
+        /// <param name="text_nombre">The text nombre.</param>
+        /// <param name="check_seguro1">The check seguro1.</param>
+        /// <param name="check_seguro2">The check seguro2.</param>
         internal void limpiarCampos(TextBox text_nuevonombre, TextBox text_nuevareferencia, TextBox text_referencia, TextBox text_nombre, CheckBox check_seguro1, CheckBox check_seguro2)
         {
             text_nuevonombre.Text = "";
@@ -174,6 +182,13 @@ namespace proyectovinos
             check_seguro2.Checked = false;
         }
 
+        /// <summary>
+        /// Limpiars the campos modificar.
+        /// </summary>
+        /// <param name="text_referenciaactual">The text referenciaactual.</param>
+        /// <param name="text_nuevonombre">The text nuevonombre.</param>
+        /// <param name="text_nuevareferencia">The text nuevareferencia.</param>
+        /// <returns></returns>
         internal void limpiarCamposModificar(TextBox text_referenciaactual, TextBox text_nuevonombre, TextBox text_nuevareferencia)
         {
             text_referenciaactual.Text = "";

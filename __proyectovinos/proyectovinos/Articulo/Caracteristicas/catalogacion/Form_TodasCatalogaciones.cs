@@ -192,6 +192,9 @@ namespace proyectovinos.Caracteristicas.catalogacion
             }
         }
 
+        /// <summary>
+        /// Función que pone los campos en modo predeterminado.
+        /// </summary>
         private void limpiarCampos()
         {
             check_segurohabilitardeshabilitareliminar.Checked = false; 

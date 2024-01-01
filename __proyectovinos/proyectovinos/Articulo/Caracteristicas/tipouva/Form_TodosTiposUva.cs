@@ -32,12 +32,16 @@ namespace proyectovinos.Caracteristicas.tipouva
         private string id_tabla = "id_tipouva";
         private string tabla = "tipouva";
 
-        private string referencia = "";
+        private string referencia = "", nombre = "";
 
         private bool cumplimentarTextos = true;
 
-
-        // Función que crea...
+        
+        /// <summary>
+        /// Función que crea.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (text_nombre.Text != "" && text_referencia.Text != "")
@@ -51,8 +55,10 @@ namespace proyectovinos.Caracteristicas.tipouva
                     string nombreVariedadUva = combo_variedaduva.Text;
                     int id_variedaduva = consultas.obtenerCualquierId("id_variedaduva", "variedaduva", "nombre", nombreVariedadUva);
 
-                    tipoUva.insertTipoUva(id_tipouva, text_referencia.Text, text_nombre.Text, id_variedaduva, '1');
-                    limpiarCampos('1');
+                    bool insertado=tipoUva.insertTipoUva(id_tipouva, text_referencia.Text, text_nombre.Text, id_variedaduva, '1');
+                    if (insertado==true) { 
+                        limpiarCampos('1');
+                    }
                 }
             }
             else
@@ -61,6 +67,10 @@ namespace proyectovinos.Caracteristicas.tipouva
             }
         }
 
+        /// <summary>
+        /// Función que pone los campos en modo predeterminado.
+        /// </summary>
+        /// <param name="activo">The activo.</param>
         private void limpiarCampos(char activo)
         {
             cumplimentarTextos = false;
@@ -77,7 +87,12 @@ namespace proyectovinos.Caracteristicas.tipouva
         }
 
 
-        // Función para actualizar los tipos de uva
+               
+        /// <summary>
+        /// Función para actualizar los tipos de uva.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             limpiarCampos('1');
@@ -86,18 +101,35 @@ namespace proyectovinos.Caracteristicas.tipouva
         private void Form_TodosTiposUvaII_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
-            enlacesHabilitados();
+            this.Top = this.Top + 19;
+            //enlacesHabilitados();
+            habilitarDeshabilitarEnlaces(true, false, true, false, true, true);
+            groupBox1.Enabled = true;
+            limpiarCampos('1');
         }
 
-
-        // Función para habilitar...
+      
+        /// <summary>
+        /// Función para habilitar.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void habilitarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ut.habilitarOnOff_Caracteristica(tabla, "ref", referencia, '1');
-            limpiarCampos('0');
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea habilitar el registro?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
+            {
+                ut.habilitarOnOff_Caracteristica(tabla, "ref", referencia, '1');
+                limpiarCampos('0');
+            }
         }
 
-        // Función para deshabilitar...
+               
+        /// <summary>
+        /// Función para deshabilitar.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void deshabilitarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea deshabilitar el registro?", "Aviso", MessageBoxButtons.YesNo);
@@ -108,86 +140,127 @@ namespace proyectovinos.Caracteristicas.tipouva
             }
         }
 
-        // Función para eliminar
+            
+        /// <summary>
+        /// Función para eliminar.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-           
-            if (referencia != "")
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea eliminar el registro?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
             {
-                Consultas consultas = new Consultas();
-                int id = consultas.obtenerCualquierId(id_tabla, tabla, "ref", text_referencia.Text);
-
-                Class_Articulo articulo = new Class_Articulo();
-                int existencias = articulo.existeArticuloConCaracteristica("id_articulo", "articulo", id_tabla, id);
-
-                if (existencias > 0)
+                if (referencia != "")
                 {
-                    MessageBox.Show(existencias + ClaseCompartida.msgArticulosTipo);
-                }
-                else
-                {
-                    consultas.eliminarCaracteristica(tabla, "ref", referencia);
+                    Consultas consultas = new Consultas();
+                    int id = consultas.obtenerCualquierId(id_tabla, tabla, "ref", text_referencia.Text);
+
+                    Class_Articulo articulo = new Class_Articulo();
+                    int existencias = articulo.existeArticuloConCaracteristica("id_articulo", "articulo", id_tabla, id);
+
+                    if (existencias > 0)
+                    {
+                        MessageBox.Show(existencias + ClaseCompartida.msgArticulosTipo);
+                    }
+                    else
+                    {
+                        consultas.eliminarCaracteristica(tabla, "ref", referencia);
+                        limpiarCampos('0');
+                    }
                 }
             }
-            limpiarCampos('0');
         }
 
+        /// <summary>
+        /// Handles the Click event of the saveToolStripMenuItem control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int id_variedaduva = consultas.obtenerCualquierId("id_variedaduva", "variedaduva", "nombre", combo_variedaduva.Text);
-            tipoUva.modificarTipoUva(text_referencia.Text, text_nombre.Text, id_variedaduva, referencia, listView1);
-            ut.limpiarCamposModificar(text_referencia, text_nombre, text_referencia);
-            limpiarCampos('1');
+            if (text_referencia.Text != "" && text_nombre.Text !="" && combo_variedaduva.Text != "Seleccione")
+            {
+                int id_variedaduva = consultas.obtenerCualquierId("id_variedaduva", "variedaduva", "nombre", combo_variedaduva.Text);
+                bool modificado=tipoUva.modificarTipoUva(text_referencia.Text, text_nombre.Text, id_variedaduva, referencia, listView1);
+                ut.limpiarCamposModificar(text_referencia, text_nombre, text_referencia);
+
+                if (modificado==true) { 
+                    limpiarCampos('1');
+                }
+               
+            }
+            else {
+                MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
+            }
         }
 
+        /// <summary>
+        /// Handles the ItemChecked event of the listView1 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="ItemCheckedEventArgs"/> instance containing the event data.</param>
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             if (cumplimentarTextos == true) { 
                 
-                referencia = e.Item.Text; 
+                referencia = e.Item.Text;
+                nombre = listView1.Items[e.Item.Index].SubItems[1].Text;
+
+                text_referencia.Text = referencia;
+                text_nombre.Text = nombre;
                 ut.checkMarcadoTodos(cargaLista, e, text_referencia, tabla, text_nombre);
             }
         }
 
+        /// <summary>
+        /// Función-controlador que se ejecuta al marcar el radio habilitados.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void radio_habilitados_CheckedChanged(object sender, EventArgs e)
         {
-            enlacesHabilitados();
+            habilitarDeshabilitarEnlaces(true, false, true, false, true, true);
+            groupBox1.Enabled = true;
             limpiarCampos('1');
         }
 
+
+        /// <summary>
+        /// Función-controlador que se ejecuta al marcar el radio deshabilitados.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void radio_deshabilitados_CheckedChanged(object sender, EventArgs e)
         {
-            enlacesDeshabilitados();
+            habilitarDeshabilitarEnlaces(false, true, false, true, false, false);
+            groupBox1.Enabled = false;
             limpiarCampos('0');
         }
 
-
-        private void enlacesHabilitados()
-        {
-            // Igual esto a un bloque junto con la implementación de radio de desabilitar
-            actualizarToolStripMenuItem.Enabled = true;
-            habilitarToolStripMenuItem.Enabled = false;
-            deshabilitarToolStripMenuItem.Enabled = true;
-            eliminarToolStripMenuItem.Enabled = false;
-            saveToolStripMenuItem.Enabled = true;
-            newToolStripMenuItem.Enabled = true;
-            //
-        }
-        private void enlacesDeshabilitados()
-        {
-            actualizarToolStripMenuItem.Enabled = false;
-            habilitarToolStripMenuItem.Enabled = true;
-            deshabilitarToolStripMenuItem.Enabled = false;
-            eliminarToolStripMenuItem.Enabled = true;
-            saveToolStripMenuItem.Enabled = false;
-            newToolStripMenuItem.Enabled = false;
+        /// <summary>
+        /// Función que habilita o deshabilita enlaces.
+        /// </summary>
+        /// <param name="v1">if set to <c>true</c> [v1].</param>
+        /// <param name="v2">if set to <c>true</c> [v2].</param>
+        /// <param name="v3">if set to <c>true</c> [v3].</param>
+        /// <param name="v4">if set to <c>true</c> [v4].</param>
+        /// <param name="v5">if set to <c>true</c> [v5].</param>
+        /// <param name="v6">if set to <c>true</c> [v6].</param>
+        private void habilitarDeshabilitarEnlaces(bool v1, bool v2, bool v3, bool v4, bool v5, bool v6)
+        {   
+            actualizarToolStripMenuItem.Enabled = v1;
+            habilitarToolStripMenuItem.Enabled = v2;
+            deshabilitarToolStripMenuItem.Enabled = v3;
+            eliminarToolStripMenuItem.Enabled = v4;
+            saveToolStripMenuItem.Enabled = v5;
+            newToolStripMenuItem.Enabled = v6;
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
             Class_VariedadUvaAperturaForms variedad = new Class_VariedadUvaAperturaForms();
             variedad.todasVariedadesUva();
-            //variedad.todasVariedadesUvaII();
         }
     }
 }

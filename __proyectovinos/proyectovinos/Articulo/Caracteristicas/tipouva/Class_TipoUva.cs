@@ -71,8 +71,17 @@ namespace proyectovinos.Caracteristicas.tipouva
             }
         }
 
-        // Método que agrega un Tipo de Uva
-        internal void insertTipoUva(int id_tipouva, string referencia, string nombre, int id_variedaduva, char activo)
+        
+        /// <summary>
+        /// Método que agrega un Tipo de Uva
+        /// </summary>
+        /// <param name="id_tipouva">The identifier tipouva.</param>
+        /// <param name="referencia">The referencia.</param>
+        /// <param name="nombre">The nombre.</param>
+        /// <param name="id_variedaduva">The identifier variedaduva.</param>
+        /// <param name="activo">The activo.</param>
+        /// <returns></returns>
+        internal bool insertTipoUva(int id_tipouva, string referencia, string nombre, int id_variedaduva, char activo)
         {
                 string cadenaConexion = con.conexion();
                 MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
@@ -82,7 +91,7 @@ namespace proyectovinos.Caracteristicas.tipouva
                 {
                     string selectQuery = "insert into tipouva (id_tipouva, ref, nombre, id_variedaduva, activo) " +
                         "values (" + id_tipouva + ", '" + referencia + "','" + nombre + "',  " + id_variedaduva + ",'1')"; 
-                MessageBox.Show(selectQuery);
+                    // MessageBox.Show(selectQuery);
 
                     MySqlCommand comando = new MySqlCommand(selectQuery);
                     comando.Connection = conexionBD;
@@ -91,17 +100,27 @@ namespace proyectovinos.Caracteristicas.tipouva
 
                     MessageBox.Show(ClaseCompartida.msgInsertado);
                     conexionBD.Close();
+                return true;
 
                 }
                 catch (MySqlException ex)
                 {
                     MessageBox.Show(ClaseCompartida.msgRegistroIgual);
+                    return false;
                 }
-                finally { conexionBD.Close(); }
-            
+
+                finally { /*conexionBD.Close();*/ }
         }
 
-        internal void modificarTipoUva(string referenciamodificar, string nombremodificar, int id_variedaduva, string referencia, ListView listView1)
+        /// <summary>
+        /// Modificars the tipo uva.
+        /// </summary>
+        /// <param name="referenciamodificar">The referenciamodificar.</param>
+        /// <param name="nombremodificar">The nombremodificar.</param>
+        /// <param name="id_variedaduva">The identifier variedaduva.</param>
+        /// <param name="referencia">The referencia.</param>
+        /// <param name="listView1">The list view1.</param>
+        internal bool modificarTipoUva(string referenciamodificar, string nombremodificar, int id_variedaduva, string referencia, ListView listView1)
         {
             ConexionBD con = new ConexionBD();
             string cadenaConexion = con.conexion();
@@ -116,7 +135,7 @@ namespace proyectovinos.Caracteristicas.tipouva
                     "id_variedaduva=" + id_variedaduva +  
                     " WHERE ref = " + "'" + referencia + "' ";
 
-                MessageBox.Show(selectQuery);
+                //MessageBox.Show(selectQuery);
 
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
@@ -124,9 +143,13 @@ namespace proyectovinos.Caracteristicas.tipouva
                 reader = comando.ExecuteReader();
 
                 MessageBox.Show(ClaseCompartida.msgModificado);
+                return true;
             }
 
-            catch (MySqlException ex) { MessageBox.Show(ex.Message); }
+            catch (MySqlException ex) { 
+                MessageBox.Show(ex.Message); 
+                return false;
+            }
             finally { conexionBD.Close(); }
         }
     }

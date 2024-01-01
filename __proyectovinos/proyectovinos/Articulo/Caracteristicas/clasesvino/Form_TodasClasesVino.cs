@@ -30,19 +30,23 @@ namespace proyectovinos.Caracteristicas.clasesvino
         private string refPredeterminada = "CLS";
         private bool cumplimentarTextos = false;
 
+        private bool cargarLista = true;
+
 
         // Función para actualizar las clases de vino
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             limpiarCampos('1');
-
         }
 
         private void Form_TodasClasesVinoII_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
+            this.Top = this.Top + 10;
             id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, textBox_referencia);
-            enlacesHabilitados();
+            habilitarDeshabilitarEnlaces(true, false, true, false, true, true);
+            groupBox1.Enabled = true;
+            limpiarCampos('1');
         }
 
         private void habilitarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,7 +55,7 @@ namespace proyectovinos.Caracteristicas.clasesvino
             limpiarCampos('0');
         }
 
-        private bool cargarLista = true;
+      
 
         private void deshabilitarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -63,7 +67,10 @@ namespace proyectovinos.Caracteristicas.clasesvino
             }
         }
 
-        
+        /// <summary>
+        /// Función que pone los campos en modo predeterminado.
+        /// </summary>
+        /// <param name="activo">The activo.</param>
         private void limpiarCampos(char activo)
         {
             cumplimentarTextos = false;
@@ -76,33 +83,42 @@ namespace proyectovinos.Caracteristicas.clasesvino
             id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, textBox_referencia);
         }
 
-        // Función que elimina una clase de vino
+
+        /// <summary>
+        /// Función que elimina una clase de vino.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (referencia != "")
+
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea eliminar el registro?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
             {
-                Consultas consultas = new Consultas();
-                int id = consultas.obtenerCualquierId(id_tabla, tabla, "ref", referencia);
-
-                Class_Articulo articulo = new Class_Articulo();
-                int existencias = articulo.existeArticuloConCaracteristica("id_articulo", "articulo", id_tabla, id);
-
-                if (existencias > 0)
+           
+                if (referencia != "")
                 {
-                    MessageBox.Show(existencias + ClaseCompartida.msgArticulosTipo);
+                    Consultas consultas = new Consultas();
+                    int id = consultas.obtenerCualquierId(id_tabla, tabla, "ref", referencia);
+
+                    Class_Articulo articulo = new Class_Articulo();
+                    int existencias = articulo.existeArticuloConCaracteristica("id_articulo", "articulo", id_tabla, id);
+
+                    if (existencias > 0)
+                    {
+                        MessageBox.Show(existencias + ClaseCompartida.msgArticulosTipo);
+                    }
+                    else
+                    {
+                        consultas.eliminarCaracteristica(tabla, "ref", referencia);
+                        limpiarCampos('0');
+                    }
                 }
                 else
                 {
-                    consultas.eliminarCaracteristica(tabla, "ref", referencia);
+                    MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
                 }
             }
-            else
-            {
-                MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
-            }
-
-            limpiarCampos('0');
-         
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -172,36 +188,27 @@ namespace proyectovinos.Caracteristicas.clasesvino
 
         private void radioButton_habilitado_CheckedChanged(object sender, EventArgs e)
         {
-            enlacesHabilitados();
+            habilitarDeshabilitarEnlaces(true, false, true, false, true, true);
+            groupBox1.Enabled = true;
             limpiarCampos('1');
         }
 
 
+        private void habilitarDeshabilitarEnlaces(bool v1, bool v2, bool v3, bool v4, bool v5, bool v6)
+        {
+            actualizarToolStripMenuItem.Enabled = v1;
+            habilitarToolStripMenuItem.Enabled = v2;
+            deshabilitarToolStripMenuItem.Enabled = v3;
+            eliminarToolStripMenuItem.Enabled = v4;
+            saveToolStripMenuItem.Enabled = v5;
+            newToolStripMenuItem.Enabled = v6;
+        }
 
-            private void enlacesHabilitados()
-            {
-                // Igual esto a un bloque junto con la implementación de radio de desabilitar
-                actualizarToolStripMenuItem.Enabled = true;
-                habilitarToolStripMenuItem.Enabled = false;
-                deshabilitarToolStripMenuItem.Enabled = true;
-                eliminarToolStripMenuItem.Enabled = false;
-                saveToolStripMenuItem.Enabled = true;
-                newToolStripMenuItem.Enabled = true;
-                //
-            }
-            private void enlacesDeshabilitados()
-            {
-                actualizarToolStripMenuItem.Enabled = false;
-                habilitarToolStripMenuItem.Enabled = true;
-                deshabilitarToolStripMenuItem.Enabled = false;
-                eliminarToolStripMenuItem.Enabled = true;
-                saveToolStripMenuItem.Enabled = false;
-                newToolStripMenuItem.Enabled = false;
-            }
 
         private void radioButton_deshabilitado_CheckedChanged(object sender, EventArgs e)
         {
-            enlacesDeshabilitados();
+            habilitarDeshabilitarEnlaces(false, true, false, true, false, false);
+            groupBox5.Enabled = false;
             limpiarCampos('0');
         }
     }
