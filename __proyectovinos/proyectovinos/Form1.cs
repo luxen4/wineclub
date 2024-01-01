@@ -346,12 +346,6 @@ namespace proyectovinos
             variedad.todasVariedadesUva();
         }
 
-        private void aRTICULOSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Class_ArticuloAperturaForms apertura = new Class_ArticuloAperturaForms();
-            apertura.todosArticulosVino();
-        }
-
         private void pROVEEDORESToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Class_ProveedorAperturaForms apertura = new Class_ProveedorAperturaForms();
@@ -515,6 +509,12 @@ namespace proyectovinos
         {
             Class_SocioAperturaForms apertura = new Class_SocioAperturaForms();
             apertura.todosSocios();
+        }
+
+        private void verTodosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Class_ArticuloAperturaForms apertura = new Class_ArticuloAperturaForms();
+            apertura.todosArticulosVino();
         }
     }
 }

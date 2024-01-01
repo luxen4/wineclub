@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_ModificarProveedor));
             this.label2 = new System.Windows.Forms.Label();
             this.text_nombre = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBox_cambioimagen = new System.Windows.Forms.CheckBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -53,9 +51,14 @@
             this.text_provincia = new System.Windows.Forms.TextBox();
             this.text_telefono = new System.Windows.Forms.TextBox();
             this.text_direccion = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.pROVEEDORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.limpiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -74,28 +77,6 @@
             this.text_nombre.Name = "text_nombre";
             this.text_nombre.Size = new System.Drawing.Size(153, 20);
             this.text_nombre.TabIndex = 67;
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.Location = new System.Drawing.Point(531, 308);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 23);
-            this.button2.TabIndex = 65;
-            this.button2.Text = "Modificar Proveedor";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.Location = new System.Drawing.Point(437, 308);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 23);
-            this.button1.TabIndex = 64;
-            this.button1.Text = "Limpiar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
@@ -119,7 +100,7 @@
             this.groupBox1.Controls.Add(this.text_telefono);
             this.groupBox1.Controls.Add(this.text_direccion);
             this.groupBox1.Controls.Add(this.text_nombre);
-            this.groupBox1.Location = new System.Drawing.Point(12, 4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(638, 298);
             this.groupBox1.TabIndex = 71;
@@ -172,7 +153,9 @@
             this.listView1.TabIndex = 83;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listView1_ItemCheck);
             this.listView1.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView1_ItemChecked);
+            this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
             // 
             // columnHeader1
             // 
@@ -297,15 +280,50 @@
             this.text_direccion.Size = new System.Drawing.Size(153, 20);
             this.text_direccion.TabIndex = 86;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pROVEEDORESToolStripMenuItem,
+            this.limpiarToolStripMenuItem,
+            this.saveToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(655, 24);
+            this.menuStrip1.TabIndex = 72;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // pROVEEDORESToolStripMenuItem
+            // 
+            this.pROVEEDORESToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pROVEEDORESToolStripMenuItem.Image")));
+            this.pROVEEDORESToolStripMenuItem.Name = "pROVEEDORESToolStripMenuItem";
+            this.pROVEEDORESToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.pROVEEDORESToolStripMenuItem.Text = "Proveedores";
+            this.pROVEEDORESToolStripMenuItem.Click += new System.EventHandler(this.pROVEEDORESToolStripMenuItem_Click);
+            // 
+            // limpiarToolStripMenuItem
+            // 
+            this.limpiarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("limpiarToolStripMenuItem.Image")));
+            this.limpiarToolStripMenuItem.Name = "limpiarToolStripMenuItem";
+            this.limpiarToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.limpiarToolStripMenuItem.Text = "Limpiar";
+            this.limpiarToolStripMenuItem.Click += new System.EventHandler(this.limpiarToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.saveToolStripMenuItem.Text = "SAVE";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
             // Form_ModificarProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(655, 337);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -316,7 +334,10 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -324,8 +345,6 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox text_nombre;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox text_referencia;
@@ -346,5 +365,9 @@
         private System.Windows.Forms.TextBox text_direccion;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.CheckBox checkBox_cambioimagen;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem pROVEEDORESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem limpiarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     }
 }

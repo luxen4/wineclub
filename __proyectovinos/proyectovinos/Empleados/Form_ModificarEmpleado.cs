@@ -1,16 +1,18 @@
 ﻿using System;
+using System.Drawing;
+using System.IO;
+
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+/*
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using proyectovinos;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;*/
 
 namespace proyectovinos.Empleados
 {
@@ -20,12 +22,14 @@ namespace proyectovinos.Empleados
         {
             InitializeComponent();
             this.CenterToScreen();
+
         }
 
+        /*
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
+        }*/
 
         string carpetaempleadoAnterior = "";
         CumplimentarComboboxes cumplimentarComboboxes=new CumplimentarComboboxes();
@@ -35,32 +39,34 @@ namespace proyectovinos.Empleados
         Utilidades ut = new Utilidades();
 
         private string nombreApellidosAntiguos = "";
+        private int n_id_rollempleado = 0;
+        private int id_empleado = 0;
 
 
         private void Form_ModificarEmpleado_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
-            this.Top = this.Top + 20;
+            this.Top = this.Top + 50;
             cumplimentarComboboxes.cumplimentarComboNombreEmpleado(comboBox_empleado);
             cumplimentarComboboxes.refrescarCombo("nombre","rollempleado",combo_roll);
         }
 
-        private int id_empleado = 0;
-
+        /// <summary>
+        /// Función que cumplimenta la información de un empleado.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void comboBox_empleado_SelectedIndexChanged(object sender, EventArgs e)
         {
-
            // Rellenar campos
             id_empleado=empleado.obtener_id_EmpleadoDesdeNombreApellidos(comboBox_empleado);
-           cumplimentarCamposEmpleado(id_empleado);
+            cumplimentarCamposEmpleado(id_empleado);
 
-           string referencia = text_referencia.Text;
-        
+            string referencia = text_referencia.Text;
 
             string [] datos = empleado.datosEmpleado(referencia);
             string carpeta = datos[0] + datos[1] + datos[2];
             carpeta =  ut.limpiezaDeString(carpeta);
-
 
             try
             {
@@ -76,62 +82,64 @@ namespace proyectovinos.Empleados
             {
                 string folderPath = ClaseCompartida.carpetaimg_absoluta + "empleados/empleadopredeterminada.jpg";
 
-
-
                 using (StreamReader stream = new StreamReader(folderPath))
                 {
                     pictureBox1.Image = Image.FromStream(stream.BaseStream);
                 }
             }
 
-
             carpetaempleadoAnterior = text_nombre.Text + text_apellido1.Text + text_apellido2.Text;
             carpetaempleadoAnterior = ut.limpiezaDeString(carpetaempleadoAnterior);
         }
 
 
-
         private string n_referencia = "", n_nombre = "", n_apellido1 = "", n_apellido2 = "",
             n_telefono = "", n_email = "", n_sexo = "", fechanacimiento = "", cargo = "";
 
-        private void label11_Click(object sender, EventArgs e)
-        {
 
-        }
-
+        /// <summary>
+        /// Función controlador para la modificación de un socio.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            n_referencia = text_referencia.Text; n_nombre = text_nombre.Text;
-            n_apellido1 = text_apellido1.Text;   n_apellido2 = text_apellido2.Text;
-            n_telefono = text_telefono.Text;     n_email = text_email.Text;
+            if (comboBox_empleado.Text != "Seleccione")
+            {            
+                n_referencia = text_referencia.Text; n_nombre = text_nombre.Text;
+                n_apellido1 = text_apellido1.Text;   n_apellido2 = text_apellido2.Text;
+                n_telefono = text_telefono.Text;     n_email = text_email.Text;
 
-            if (radio_hombre.Checked){ n_sexo = "Hombre";
-            } else {n_sexo = "Mujer"; }
+                if (radio_hombre.Checked){ n_sexo = "Hombre";
+                } else {n_sexo = "Mujer"; }
 
-            fechanacimiento = dateTime_fechanacimiento.Text;
-            fechanacimiento = ut.preparacionFecha(fechanacimiento);
-            cargo = combo_roll.Text;
+                    fechanacimiento = dateTime_fechanacimiento.Text;
+                    fechanacimiento = ut.preparacionFecha(fechanacimiento);
+                    cargo = combo_roll.Text;
 
-            n_id_rollempleado = consultas.obtenerCualquierId("id_rollempleado", "rollempleado", "nombre", cargo);
+                    n_id_rollempleado = consultas.obtenerCualquierId("id_rollempleado", "rollempleado", "nombre", cargo);
 
-            bool insertado = modificarEmpleado();
+                    bool insertado = modificarEmpleado();
+                    if (insertado == true)
+                    {
+                        if (haCambiado == true){
+                            pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "empleados/" + id_empleado + "/perfil/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                        }
 
-            if (haCambiado == true)
-            {
-                pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "empleados/" + id_empleado + "/perfil/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                        comboBox_empleado.Items.Clear();
+                        cumplimentarComboboxes.cumplimentarComboNombreEmpleado(comboBox_empleado);
+                        limpiarCampos();
+                    }
             }
-            else
-            {
-                //pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "empleados/" + carpetaempleadoAnterior + "/perfil/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            else {
+                MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
             }
-
-            comboBox_empleado.Items.Clear();
-            cumplimentarComboboxes.cumplimentarComboNombreEmpleado(comboBox_empleado);
-
-            this.Close();
         }
 
-        private void limpiarToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Función que pone los campos en modo predeterminado.
+        /// </summary>
+        private void limpiarCampos()
         {
             text_referencia.Text = "";
             text_nombre.Text = "";
@@ -143,63 +151,16 @@ namespace proyectovinos.Empleados
             dateTime_fechanacimiento.Text = DateTime.Now.ToString();
             comboBox_empleado.Text = "Seleccione";
             pictureBox1.Image = null;
+            haCambiado = false;
         }
+
 
         private bool haCambiado=false;
-
-
-        private void pictureBox1_BackgroundImageChanged(object sender, EventArgs e)
+        private void pictureBox1_BackgroundImageChanged_1(object sender, EventArgs e)
         {
             haCambiado = true;
-            //MessageBox.Show("Ha cambiado");
+            MessageBox.Show("Ha cambiado a true");
         }
-
-        private int n_id_rollempleado = 0;
-
-
-        private void button10_Click(object sender, EventArgs e)
-        { /* Copiado ya
-            n_referencia = text_referencia.Text;
-            n_nombre = text_nombre.Text;
-            n_apellido1 = text_apellido1.Text;
-            n_apellido2 = text_apellido2.Text;
-            n_telefono = text_telefono.Text;
-            n_email = text_email.Text;
-
-            if (radio_hombre.Checked)
-            {
-                n_sexo = "Hombre";
-            }
-            else {
-                n_sexo = "Mujer";
-            }
-
-            fechanacimiento = dateTime_fechanacimiento.Text;
-            fechanacimiento = ut.preparacionFecha(fechanacimiento);
-            cargo = combo_roll.Text;
-
-            n_id_rollempleado = consultas.obtenerCualquierId("id_rollempleado","rollempleado","nombre", cargo);
-
-
-            bool insertado = modificarEmpleado();
-
-
-            if (haCambiado == true)
-            {
-                 pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "empleados/" + id_empleado + "/perfil/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-            }
-            else
-            {
-                //pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "empleados/" + carpetaempleadoAnterior + "/perfil/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-            }
-
-            comboBox_empleado.Items.Clear();
-            cumplimentarComboboxes.cumplimentarComboNombreEmpleado(comboBox_empleado);
-
-            this.Close();*/
-        }
-
-
 
 
         private void button11_Click(object sender, EventArgs e)
@@ -207,23 +168,12 @@ namespace proyectovinos.Empleados
             cumplimentarPictureBoxes.buscarImagenPicturebox(sender, e, pictureBox1);
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {/*
-            text_referencia.Text = "";
-            text_nombre.Text = "";
-            text_apellido1.Text = "";
-            text_apellido2.Text = "";
-            text_telefono.Text = "";
-            text_email.Text = "" ;
-            radio_hombre.Checked = true;
-            dateTime_fechanacimiento.Text = DateTime.Now.ToString();
-            combo_roll.Text = "Seleccione";
-            pictureBox1.Image = null;*/
-        }
-
-
-
-        // Solo es aquí
+  
+       
+        /// <summary>
+        /// Función que cumplimenta los campos de un empleado.
+        /// </summary>
+        /// <param name="id_empleado">The identifier empleado.</param>
         private void cumplimentarCamposEmpleado(int id_empleado)
         {
             ConexionBD con = new ConexionBD();
@@ -288,10 +238,10 @@ namespace proyectovinos.Empleados
             }
         }
 
-
-
-
-        // Método que modifica un empleado
+        /// <summary>
+        /// Función que modifica un empleado
+        /// </summary>
+        /// <returns></returns>
         private bool modificarEmpleado()
         {
             ConexionBD con = new ConexionBD();
@@ -302,14 +252,14 @@ namespace proyectovinos.Empleados
             try
             {
                 string consulta = "update empleado SET nombre='" + n_nombre + "'" +
-                                            ", apellido1='" + n_apellido1 + "'" +
-                                            ", apellido2='" + n_apellido2 + "'" +
-                                            ", telefono='" + n_telefono + "'" +
-                                            ", email='" + n_email + "'" +
-                                            ", sexo='" + n_sexo + "'" +
-                                            ", fechanacimiento='" + fechanacimiento + "'" +
-                                            ", id_rollempleado=" + n_id_rollempleado + "" +
-                                            " WHERE ref =" + "'" + n_referencia + "' ";
+                    ", apellido1='" + n_apellido1 + "'" +
+                    ", apellido2='" + n_apellido2 + "'" +
+                    ", telefono='" + n_telefono + "'" +
+                    ", email='" + n_email + "'" +
+                    ", sexo='" + n_sexo + "'" +
+                    ", fechanacimiento='" + fechanacimiento + "'" +
+                    ", id_rollempleado=" + n_id_rollempleado + "" +
+                    " WHERE ref =" + "'" + n_referencia + "' ";
 
                 MySqlCommand comando = new MySqlCommand(consulta);
                 comando.Connection = conexionBD;
@@ -317,8 +267,7 @@ namespace proyectovinos.Empleados
                 reader = comando.ExecuteReader();
 
                 // MessageBox.Show(consulta);
-                MessageBox.Show(ClaseCompartida.msgInsertado);
-
+                MessageBox.Show(ClaseCompartida.msgModificado);
 
             }
 
@@ -332,6 +281,75 @@ namespace proyectovinos.Empleados
                 conexionBD.Close();
             }
             return true;
+        }
+
+        /// <summary>
+        /// Función que pone los campos en modo predeterminado.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void limpiarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
+        }
+
+       
+
+
+        private void button10_Click(object sender, EventArgs e)
+        { /* Copiado ya
+            n_referencia = text_referencia.Text;
+            n_nombre = text_nombre.Text;
+            n_apellido1 = text_apellido1.Text;
+            n_apellido2 = text_apellido2.Text;
+            n_telefono = text_telefono.Text;
+            n_email = text_email.Text;
+
+            if (radio_hombre.Checked)
+            {
+                n_sexo = "Hombre";
+            }
+            else {
+                n_sexo = "Mujer";
+            }
+
+            fechanacimiento = dateTime_fechanacimiento.Text;
+            fechanacimiento = ut.preparacionFecha(fechanacimiento);
+            cargo = combo_roll.Text;
+
+            n_id_rollempleado = consultas.obtenerCualquierId("id_rollempleado","rollempleado","nombre", cargo);
+
+
+            bool insertado = modificarEmpleado();
+
+
+            if (haCambiado == true)
+            {
+                 pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "empleados/" + id_empleado + "/perfil/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+            else
+            {
+                //pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "empleados/" + carpetaempleadoAnterior + "/perfil/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+
+            comboBox_empleado.Items.Clear();
+            cumplimentarComboboxes.cumplimentarComboNombreEmpleado(comboBox_empleado);
+
+            this.Close();*/
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {/*
+            text_referencia.Text = "";
+            text_nombre.Text = "";
+            text_apellido1.Text = "";
+            text_apellido2.Text = "";
+            text_telefono.Text = "";
+            text_email.Text = "" ;
+            radio_hombre.Checked = true;
+            dateTime_fechanacimiento.Text = DateTime.Now.ToString();
+            combo_roll.Text = "Seleccione";
+            pictureBox1.Image = null;*/
         }
     }
 }

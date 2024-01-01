@@ -44,7 +44,11 @@ namespace proyectovinos
         }
 
 
-        // Método encargado de aportar información de un Artículo preparado para paso de existencias de Almacén a Tienda
+        /// <summary>
+        /// Método encargado de aportar información de un Artículo preparado para paso de existencias de Almacén a Tienda.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void combo_refarticulo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -90,7 +94,12 @@ namespace proyectovinos
         }
 
 
-        // Método que aporta la información de una línea de artículo
+
+        /// <summary>
+        /// Método que aporta la información de una línea de artículo  .
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void combo_reflinea_SelectedIndexChanged(object sender, EventArgs e)
         {
             Class_Articulo articulo = new Class_Articulo();
@@ -122,7 +131,12 @@ namespace proyectovinos
 
 
 
-        // Metodo que ajusta las cantidades de almacén y tienda
+
+        /// <summary>
+        /// Metodo que ajusta las cantidades de almacén y tienda  .
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btn_traspasoaTienda(object sender, EventArgs e)
         {
             try {
@@ -139,7 +153,7 @@ namespace proyectovinos
 
                     if (numLineas == 0)
                     {
-                        MessageBox.Show("Metemos línea");
+                        //MessageBox.Show("Metemos línea");
                         if (numericUpDown_unidadesamover.Value!=0) {
                             int existenciasAlmacen = Convert.ToInt32(text_unidadesalmacen.Text);    // Si es negativo da error (que no sea menor de 0)
 
@@ -171,11 +185,6 @@ namespace proyectovinos
                             "\n Para poder sacar otra linea a tienda debe ubicar en el almacén las existencias de la tienda");
                     }
                     
-                    
-                    
-                    
-                    
-                    
             }
             else {
                 MessageBox.Show("No ha seleccionado una Línea de Compra a Proveedor");
@@ -185,6 +194,8 @@ namespace proyectovinos
             catch (Exception ex) {
                 MessageBox.Show("" +ex);
             }
+
+            unaVez = true;
         }
 
 
@@ -223,8 +234,6 @@ namespace proyectovinos
             this.Close();
         }
 
-
-
         private void combo_reflineacompraproveedor_MouseHover(object sender, EventArgs e)
         {
             if (combo_reflineacompraproveedor.Items.Count == 0)
@@ -233,22 +242,30 @@ namespace proyectovinos
             }
         }
 
-        // Comprueba si se llega al max. de existencias en tienda
+        private bool unaVez = true;
+
+        /// <summary>
+        /// Comprueba si se llega al max. de existencias en tienda .
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void numericUpDown_unidadesamover_ValueChanged(object sender, EventArgs e)
         {
-            if (numericUpDown_unidadesamover.Value > 0) {
-
-                if (Int32.Parse(numericUpDown_unidadesamover.Value.ToString()) + Int32.Parse(text_unidadestienda.Text) > Int32.Parse(text_existmaximas.Text))
-            {
-                MessageBox.Show("No se permiten más existencias en tienda");
-                numericUpDown_unidadesamover.Value = numericUpDown_unidadesamover.Value - 1;
-            }
-            else
-            {
-                // Deja incrementar
-            }
-            }
             
+            if (unaVez == true) { 
+                if (numericUpDown_unidadesamover.Value > 0) {
+                    if (Int32.Parse(numericUpDown_unidadesamover.Value.ToString()) + Int32.Parse(text_unidadestienda.Text) > Int32.Parse(text_existmaximas.Text))
+                    {
+                        MessageBox.Show("Ha sobrepasado el máximo de existencias en tienda para este Artículo!");
+                        //numericUpDown_unidadesamover.Value = numericUpDown_unidadesamover.Value - 1;
+                        numericUpDown_unidadesamover.Value = Int32.Parse(text_unidadestienda.Text);
+                    }
+                    else
+                    {
+                        // Deja incrementar
+                    }
+                }
+            }
         }
 
         private void compraAProveedoresToolStripMenuItem_Click(object sender, EventArgs e)

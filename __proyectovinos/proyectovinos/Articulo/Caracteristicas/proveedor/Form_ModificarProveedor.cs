@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 using CrystalDecisions.CrystalReports.ViewerObjectModel;
 using MySql.Data.MySqlClient;
 using proyectovinos;
+using proyectovinos.Caracteristicas.proveedor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace proyectovinos
@@ -55,41 +56,6 @@ namespace proyectovinos
             primeravez = 1;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            referencia = text_referencia.Text;
-            nombre = text_nombre.Text;
-            direccion = text_direccion.Text;
-            localidad = text_localidad.Text;
-            provincia =  text_provincia.Text ;
-            telefono = text_telefono.Text ;
-            email = text_email.Text;            
-
-            if (referencia == "" || nombre == "" || direccion == "" || localidad == "" || provincia == "" || telefono == "" || email == "")
-            {
-                MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
-            }
-            else { 
-
-                bool modificado = modificarProveedor();
-
-                if (modificado==true) { 
-                    int id_proveedor = consulta.obtenerCualquierId("id_proveedor", "proveedor", "nombre", nombre);
-                    
-                    if (referencia != ""){
-
-                        if (cambioImagen == true){ 
-                            pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/logo/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-                            cambioImagen = false;
-                        }
-                    }
-                    else { MessageBox.Show("Proveedor Vacio"); }
-                   
-                    cumplimentarListas.cumplimentarListaProveedor(listView1);
-                    limpiarCampos();
-                }   
-            }
-        }
 
         private bool modificarProveedor()
         {
@@ -186,7 +152,6 @@ namespace proyectovinos
             }
         }
 
-
         private void button6_Click(object sender, EventArgs e)
         {
             cumplimentarPictureBoxes.buscarImagenPicturebox(sender, e, pictureBox1);
@@ -197,12 +162,6 @@ namespace proyectovinos
         public void salvarImagenEnCarpetaProveedor(string carpetaproveedorModificada, string nombreimagen, PictureBox pictureBox)
         {
             pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "proveedores/" + carpetaproveedorModificada + "/logo/logo.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            limpiarCampos();
         }
 
         private void limpiarCampos()
@@ -217,6 +176,9 @@ namespace proyectovinos
 
             pictureBox1.Image = null;
             pictureBox2.Image = null;
+
+            checkBox_cambioimagen.Checked = false;
+
         }
 
 
@@ -234,6 +196,67 @@ namespace proyectovinos
                 pictureBox1.Visible = false;
                 button_anadirimagen.Enabled = false;
             }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            referencia = text_referencia.Text;
+            nombre = text_nombre.Text;
+            direccion = text_direccion.Text;
+            localidad = text_localidad.Text;
+            provincia = text_provincia.Text;
+            telefono = text_telefono.Text;
+            email = text_email.Text;
+
+            if (referencia == "" || nombre == "" || direccion == "" || localidad == "" || provincia == "" || telefono == "" || email == "")
+            {
+                MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
+            }
+            else
+            {
+
+                bool modificado = modificarProveedor();
+
+                if (modificado == true)
+                {
+                    int id_proveedor = consulta.obtenerCualquierId("id_proveedor", "proveedor", "nombre", nombre);
+
+                    if (referencia != "")
+                    {
+
+                        if (cambioImagen == true)
+                        {
+                            pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/logo/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                            cambioImagen = false;
+                        }
+                    }
+                    else { MessageBox.Show("Proveedor Vacio"); }
+
+                    cumplimentarListas.cumplimentarListaProveedor(listView1);
+                    limpiarCampos();
+                }
+            }
+        }
+
+        private void limpiarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
+        }
+
+        private void pROVEEDORESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Class_ProveedorAperturaForms proveedor = new Class_ProveedorAperturaForms();
+            proveedor.todosProveedores();
+        }
+
+        private void listView1_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            //limpiarChecks(e);
+        }
+
+        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+
         }
     }
 }

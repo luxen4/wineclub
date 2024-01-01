@@ -32,6 +32,7 @@ namespace proyectovinos
         public static string msgDesHabilitado = "Registro Deshabilitado";        
         public static string msgEliminado = "Registro Eliminado";
         public static string msgModificado = "Registro Modificado";
+        public static string msgDeshabilitado = "Registro Deshabilitado!";
 
         public static string msgCamposEnBlanco = "Campos en blanco";
         public static string msgCasillaSeguro = "Marque la casilla de seguro";

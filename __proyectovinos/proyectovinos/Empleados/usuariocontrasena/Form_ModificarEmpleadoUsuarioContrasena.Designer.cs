@@ -33,7 +33,6 @@
             this.textBox_nuevousuario = new System.Windows.Forms.TextBox();
             this.textBox_nuevacontrasena = new System.Windows.Forms.TextBox();
             this.textBox_contrasenaactual = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -71,15 +70,6 @@
             this.textBox_contrasenaactual.Name = "textBox_contrasenaactual";
             this.textBox_contrasenaactual.Size = new System.Drawing.Size(100, 20);
             this.textBox_contrasenaactual.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(148, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "label1";
             // 
             // label2
             // 
@@ -143,7 +133,6 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.textBox_usuarioactual);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.checkBox_seguro);
             this.groupBox1.Controls.Add(this.textBox_nuevousuario);
             this.groupBox1.Controls.Add(this.textBox_contrasenaactual);
@@ -183,7 +172,6 @@
         private System.Windows.Forms.TextBox textBox_nuevousuario;
         private System.Windows.Forms.TextBox textBox_nuevacontrasena;
         private System.Windows.Forms.TextBox textBox_contrasenaactual;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

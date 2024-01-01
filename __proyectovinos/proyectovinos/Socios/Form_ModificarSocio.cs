@@ -36,6 +36,7 @@ namespace proyectovinos
         private void Form_ModificarSocio_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
+            this.Top = this.Top + 40;
             combos.cumplimenterComboboxSocio(combo_socio);
         }
 
@@ -207,6 +208,12 @@ namespace proyectovinos
         {
             combo_socio.Items.Clear();
             combos.cumplimenterComboboxSocio(combo_socio);
+        }
+
+        private void butn_subirfoto_Click(object sender, EventArgs e)
+        {
+            Class_Socio socio = new Class_Socio();
+            socio.cargarImagen(pictureBox1);
         }
     }
 }

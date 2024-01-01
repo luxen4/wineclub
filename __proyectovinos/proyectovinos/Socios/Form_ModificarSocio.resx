@@ -121,7 +121,7 @@
   <data name="pictureBox3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAATCAYAAABlcqYFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABJ0RVh0U29mdHdhcmUAR3JlZW5zaG90XlUIBQAABJJJREFUSEuNVVtTU1cUzj/q
+        vQAADr0BR/uQrQAAABJ0RVh0U29mdHdhcmUAR3JlZW5zaG90XlUIBQAABJJJREFUSEuNVVtTU1cUzj/q
         WzvT2r5VX1ot7TiCnQJjfbC0YGcAR0WQQiUICOV+GeQWAwi5QUICITASQFAu5RISogm5khwQRORiSAJf
         194kVIFe9sw6Z85Ze69vr/19a23Ru32AWxigF+h1YkT/Mf//GWx+iIzFZLFFu/QIRKKMPJ+EsP4aOSXl
         MAw/RWOHHNqBJ3i1sYHRyWmskk87+ASTs/MYn56BcXwCHWodVL390PQPQKrsxtS8CR5hBc5lHwdjsUXs
@@ -26719,7 +26719,7 @@
   <data name="actualizarToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABsAAAAVCAYAAAC33pUlAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAABe9JREFUSEt9VmtMVFcQviKIghi01hi10dLqDx81SK2RShNQQSpskFcEQR6rKG+Q
+        wgAADsIBFShKgAAABe9JREFUSEt9VmtMVFcQviKIghi01hi10dLqDx81SK2RShNQQSpskFcEQR6rKG+Q
         iiiKSAuIigLVotFoo4hAfFeJ1rYqIjVFpFTwUeuj7LLsAsvC7rKwLPD1zFlugybtJIfLvec7883M+WZA
         ALP29nYMDQ1Bq9Wit7cX/f396OzspC10GnpwpaAABcvdULRwIQoXOaLYzxc/FH+HLoOBY1Rtbfz5f37a
         GEagH2QajYZvEojAZFXXriFt9GjUOTujNSgIrcHBUAQGQr56NWoXLMD+sWNxLCqKY3VGI3++62dwcJAH

@@ -332,10 +332,10 @@
     <Compile Include="Socios\Form_ModificarSocio.Designer.cs">
       <DependentUpon>Form_ModificarSocio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Logueo.cs">
+    <Compile Include="Empleados\usuariocontrasena\Form_Logueo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Logueo.Designer.cs">
+    <Compile Include="Empleados\usuariocontrasena\Form_Logueo.Designer.cs">
       <DependentUpon>Form_Logueo.cs</DependentUpon>
     </Compile>
     <Compile Include="Articulo\Form_NuevoArticulo.cs">
@@ -362,11 +362,11 @@
     <Compile Include="Empleados\Dueno\Movimientos\Form_CompraArticulosProveedor.Designer.cs">
       <DependentUpon>Form_CompraArticulosProveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Articulo\PreciosArticulos\Form_ModificarPreciosLineaCompraProveedor.cs">
+    <Compile Include="Articulo\PreciosArticulos\Form_ModificarPreciosArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Articulo\PreciosArticulos\Form_ModificarPreciosLineaCompraProveedor.Designer.cs">
-      <DependentUpon>Form_ModificarPreciosLineaCompraProveedor.cs</DependentUpon>
+    <Compile Include="Articulo\PreciosArticulos\Form_ModificarPreciosArticulos.Designer.cs">
+      <DependentUpon>Form_ModificarPreciosArticulos.cs</DependentUpon>
     </Compile>
     <Compile Include="Empleados\Dueno\Movimientos\Class_AlmacenProveedorAperturaForms.cs" />
     <Compile Include="Empleados\Dependiente\VentasDevolucionesSocio\Class_VentasDevolucionesAperturaForms.cs" />
@@ -459,7 +459,7 @@
     <EmbeddedResource Include="Empleados\usuariocontrasena\Form_ModificarEmpleadoUsuarioContrasena.resx">
       <DependentUpon>Form_ModificarEmpleadoUsuarioContrasena.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Logueo.resx">
+    <EmbeddedResource Include="Empleados\usuariocontrasena\Form_Logueo.resx">
       <DependentUpon>Form_Logueo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Empleados\Encargado\Movimientos\Form_ExistenciasRotas.resx">
@@ -546,8 +546,8 @@
     <EmbeddedResource Include="Socios\Form_TodosSocios.resx">
       <DependentUpon>Form_TodosSocios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Articulo\PreciosArticulos\Form_ModificarPreciosLineaCompraProveedor.resx">
-      <DependentUpon>Form_ModificarPreciosLineaCompraProveedor.cs</DependentUpon>
+    <EmbeddedResource Include="Articulo\PreciosArticulos\Form_ModificarPreciosArticulos.resx">
+      <DependentUpon>Form_ModificarPreciosArticulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Empleados\Dependiente\VentasDevolucionesSocio\Form_VentaSocio.resx">
       <DependentUpon>Form_VentaSocio.cs</DependentUpon>

@@ -261,6 +261,23 @@ namespace proyectovinos.Socios
                     conexionBD.Close();
                 }
         }
+
+        /// <summary>
+        /// Cargars the imagen.
+        /// </summary>
+        /// <param name="pictureBox1">The picture box1.</param>
+        internal void cargarImagen(PictureBox pictureBox1)
+        {
+            OpenFileDialog ofdSeleccionar = new OpenFileDialog();
+            ofdSeleccionar.Filter = "Imagenes|*.jpg; *.png";
+            ofdSeleccionar.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            ofdSeleccionar.Title = "Seleccionar imagen";
+
+            if (ofdSeleccionar.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = System.Drawing.Image.FromFile(ofdSeleccionar.FileName);
+            }
+        }
     }
 }
 

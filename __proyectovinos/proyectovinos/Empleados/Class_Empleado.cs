@@ -40,8 +40,12 @@ namespace proyectovinos.Empleados
             return countRegistros;
         }
 
-
-        // Metodo para salvar la imagen de nuevo Empleado (solo se utiliza en el crear)
+    
+        /// <summary>
+        /// Función para salvar la imagen de nuevo Empleado (solo se utiliza en el crear)   
+        /// </summary>
+        /// <param name="id_empleado">The identifier empleado.</param>
+        /// <param name="pictureBox1">The picture box1.</param>
         public void salvarImagenEnCarpetaEmpleado2(int id_empleado, PictureBox pictureBox1)
         {
             try
@@ -56,12 +60,13 @@ namespace proyectovinos.Empleados
                     Console.WriteLine(folderPath);
                     
                     if (pictureBox1.Image != null)
-                    {MessageBox.Show("Estoy");
+                    {
+                        //MessageBox.Show("Estoy");
                         pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "empleados/" + id_empleado + "/perfil/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                     }
                     else
                     {
-                        MessageBox.Show("Estoyyy");
+                        //MessageBox.Show("Estoyyy");
                         pictureBox1.Image = Image.FromFile(ClaseCompartida.carpetaimg_absoluta + "empleados/empleadopredeterminada.jpg");
                         pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "empleados/" + id_empleado + "/perfil/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                     }

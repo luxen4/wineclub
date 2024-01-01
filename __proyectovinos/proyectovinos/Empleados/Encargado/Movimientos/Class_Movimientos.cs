@@ -28,7 +28,7 @@ namespace proyectovinos.Movimientos
             {
                 string selectQuery = "insert into bajaexistencias (id_bajaexistencias, ref, id_empleado, id_ubicacion, id_lineacompraproveedor,unidades, fecha) " +
                     "values (" + id_bajaexistencias + ",'" + refe + "'," + id_empleado + ",  " + id_ubicacion + ", " + id_lineacompraproveedor + "," + unidades + ", '" + fechacompra + "')";
-                // MessageBox.Show(selectQuery);
+                MessageBox.Show(selectQuery);
 
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
@@ -41,6 +41,7 @@ namespace proyectovinos.Movimientos
             }
             catch (MySqlException ex)
             {
+                MessageBox.Show("" + ex);
 
                 MessageBox.Show(ClaseCompartida.msgErrorGeneral);
             }

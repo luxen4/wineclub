@@ -166,7 +166,9 @@ namespace proyectovinos
                         itemAgregar.SubItems.Add(text_precioventa.Text);
                         itemAgregar.SubItems.Add(totalArticulo.ToString());
                         listView1.Items.Add(itemAgregar);
+
                         
+
                         limpiarCampos();
                     }
                 }
@@ -291,7 +293,11 @@ namespace proyectovinos
     // Método que al incrementar el botón de cantidad, compruebe que hay suficientes para vender
         private void numeric_cantidad_ValueChanged(object sender, EventArgs e)
         {
-               decimal cantidadUbicaciontienda = Decimal.Parse(text_unidadestienda.Text);
+            //text_unidadestienda.Text = (Int32.Parse(text_unidadestienda.Text) - numeric_cantidad.Value).ToString();
+            //text_unidadestienda.Text = (Int32.Parse(text_unidadestienda.Text) - 1).ToString();
+
+
+            decimal cantidadUbicaciontienda = Decimal.Parse(text_unidadestienda.Text);
                
                decimal unidadesCompra = numeric_cantidad.Value;
                if (unidadesCompra > cantidadUbicaciontienda)
@@ -522,6 +528,8 @@ namespace proyectovinos
             proveedorAperturaForms.comprarArticuloProveedor();
         }
 
+      
+
         private void combo_refarticulo_SelectedIndexChanged(object sender, EventArgs e)
         {
             refArticulo = combo_refarticulo.Text;
@@ -607,7 +615,13 @@ namespace proyectovinos
             Class_AlmacenTiendaAperturaForms almacenTiendaAperturaForms = new Class_AlmacenTiendaAperturaForms();
             almacenTiendaAperturaForms.movimientoAlmacenTienda();
         }
-      
+
+        private void deTiendaAAlmacénToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Class_AlmacenTiendaAperturaForms almacenTiendaAperturaForms = new Class_AlmacenTiendaAperturaForms();
+            almacenTiendaAperturaForms.movimientoTiendaAlmacen();
+        }
+
         private void compraAProveedorToolStripMenuItem_Click(object sender, EventArgs e)
         {   Class_ProveedorAperturaForms proveedorAperturaForms=new Class_ProveedorAperturaForms();
             proveedorAperturaForms.comprarArticuloProveedor();

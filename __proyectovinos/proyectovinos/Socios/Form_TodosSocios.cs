@@ -35,14 +35,19 @@ namespace proyectovinos
         private void Form_TodosSocios_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
-            this.Top = this.Top + 10;
+            this.Top = this.Top + 20;
             habilitarToolStripMenuItem.Enabled = false;
             eliminarToolStripMenuItem.Enabled = false;
         }
 
-      
 
-        // Método Controlador que dirige el proceso de eliminar un Socio
+
+
+        /// <summary>
+        /// Método Controlador que dirige el proceso de eliminar un Socio.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void button_eliminar_Click(object sender, EventArgs e)
         {   
             if (check_seguro.Checked)
@@ -89,6 +94,7 @@ namespace proyectovinos
 
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            listView1.Items.Clear();
             socio.cumplimentarListaSocios(listView1, '1');
             primeravez = 1;
         }
@@ -145,6 +151,11 @@ namespace proyectovinos
         }
 
 
+        /// <summary>
+        /// Controlador para eliminar un socio.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (referencia != "")
@@ -211,12 +222,12 @@ namespace proyectovinos
 
         private void nuevoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            socioAperturaForms.nuevoSocio(); this.Close();
+            socioAperturaForms.nuevoSocio(); 
         }
 
         private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            socioAperturaForms.modificarSocio(); this.Close();
+            socioAperturaForms.modificarSocio(); 
         }
     }
 }

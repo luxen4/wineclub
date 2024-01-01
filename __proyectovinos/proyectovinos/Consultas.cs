@@ -55,7 +55,7 @@ namespace proyectovinos
         }
 
 
-        // Método que devuelve la ref desde un nombre
+        // Método que devuelve un registro de una tabla desde otro registro de la misma tabla
         public string obtenerCualquierRefDesdeNombre(string referencia, string nombreTabla, string whereAtributo, string valorAtributo)
         {
             string reff = "";

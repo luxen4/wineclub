@@ -50,8 +50,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.radio_habilitados = new System.Windows.Forms.RadioButton();
             this.radio_deshabilitados = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
             this.menuStrip2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -165,7 +167,7 @@
             this.button17.AutoSize = true;
             this.button17.BackColor = System.Drawing.Color.Transparent;
             this.button17.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button17.BackgroundImage")));
-            this.button17.Location = new System.Drawing.Point(752, 183);
+            this.button17.Location = new System.Drawing.Point(201, 147);
             this.button17.Margin = new System.Windows.Forms.Padding(0);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(25, 25);
@@ -176,50 +178,51 @@
             // combo_variedaduva
             // 
             this.combo_variedaduva.FormattingEnabled = true;
-            this.combo_variedaduva.Location = new System.Drawing.Point(599, 186);
+            this.combo_variedaduva.Location = new System.Drawing.Point(13, 150);
             this.combo_variedaduva.Name = "combo_variedaduva";
-            this.combo_variedaduva.Size = new System.Drawing.Size(150, 21);
+            this.combo_variedaduva.Size = new System.Drawing.Size(185, 21);
             this.combo_variedaduva.TabIndex = 113;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(601, 169);
+            this.label1.Location = new System.Drawing.Point(15, 133);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
+            this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 112;
-            this.label1.Text = "Variedad de Uva";
+            this.label1.Text = "Variedad de Uva:";
             // 
             // text_nombre
             // 
-            this.text_nombre.Location = new System.Drawing.Point(600, 107);
+            this.text_nombre.Location = new System.Drawing.Point(14, 95);
+            this.text_nombre.Multiline = true;
             this.text_nombre.Name = "text_nombre";
-            this.text_nombre.Size = new System.Drawing.Size(286, 20);
+            this.text_nombre.Size = new System.Drawing.Size(212, 20);
             this.text_nombre.TabIndex = 109;
             // 
             // text_referencia
             // 
-            this.text_referencia.Location = new System.Drawing.Point(600, 146);
+            this.text_referencia.Location = new System.Drawing.Point(13, 44);
             this.text_referencia.Name = "text_referencia";
-            this.text_referencia.Size = new System.Drawing.Size(177, 20);
+            this.text_referencia.Size = new System.Drawing.Size(213, 20);
             this.text_referencia.TabIndex = 111;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(599, 130);
+            this.label5.Location = new System.Drawing.Point(12, 28);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 110;
-            this.label5.Text = "Referencia";
+            this.label5.Text = "Referencia:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(599, 90);
+            this.label6.Location = new System.Drawing.Point(13, 78);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 108;
@@ -251,31 +254,44 @@
             this.radio_deshabilitados.UseVisualStyleBackColor = false;
             this.radio_deshabilitados.CheckedChanged += new System.EventHandler(this.radio_deshabilitados_CheckedChanged);
             // 
-            // Form_TodosTiposUvaII
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.text_referencia);
+            this.groupBox1.Controls.Add(this.button17);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.text_nombre);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.combo_variedaduva);
+            this.groupBox1.Location = new System.Drawing.Point(622, 95);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(241, 186);
+            this.groupBox1.TabIndex = 181;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Seleccionada";
+            // 
+            // Form_TodosTiposUva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(894, 416);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.radio_deshabilitados);
             this.Controls.Add(this.radio_habilitados);
-            this.Controls.Add(this.button17);
             this.Controls.Add(this.menuStrip2);
-            this.Controls.Add(this.combo_variedaduva);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.text_nombre);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.text_referencia);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form_TodosTiposUvaII";
+            this.Name = "Form_TodosTiposUva";
             this.Text = "WINE CLUB";
             this.Load += new System.EventHandler(this.Form_TodosTiposUvaII_Load);
             this.groupBox2.ResumeLayout(false);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,5 +319,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.RadioButton radio_habilitados;
         private System.Windows.Forms.RadioButton radio_deshabilitados;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

@@ -225,6 +225,7 @@
             this.butn_subirfoto.TabIndex = 98;
             this.butn_subirfoto.Text = "Cambiar Fotografia";
             this.butn_subirfoto.UseVisualStyleBackColor = true;
+            this.butn_subirfoto.Click += new System.EventHandler(this.butn_subirfoto_Click);
             // 
             // text_provincia
             // 

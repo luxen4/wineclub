@@ -12,8 +12,14 @@ namespace proyectovinos.Movimientos.AlmacenTienda
 {
     internal class Class_AlmacenTienda
     {
-        // Método que modifica las existencias, preciocoste y precioventa de una linea de compra de Proveedor
-            public void ajusteExistenciasLineaCompraProveedor(/* int existencias, string preciocoste,*/ string precioventa, string refLinea)
+        
+
+        /// <summary>
+        /// Método que modifica las existencias, preciocoste y precioventa de una linea de compra de Proveedor
+        /// </summary>
+        /// <param name="precioventa">The precioventa.</param>
+        /// <param name="refLinea">The reference linea.</param>
+        public void ajusteExistenciasLineaCompraProveedor(/* int existencias, string preciocoste,*/ string precioventa, string refLinea)
             {
             ConexionBD con = new ConexionBD();
             string cadenaConexion = con.conexion();
@@ -34,7 +40,7 @@ namespace proyectovinos.Movimientos.AlmacenTienda
                 conexionBD.Open();
                 reader = comando.ExecuteReader();
 
-                // MessageBox.Show("Datos en línea modificados");
+                MessageBox.Show("Precio del articulo modificado para esta linea");
             }
 
             catch (MySqlException ex) { MessageBox.Show(ex.Message); }

@@ -198,6 +198,7 @@
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Enabled = false;
             this.groupBox4.Location = new System.Drawing.Point(6, 215);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(160, 142);
@@ -322,9 +323,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(50, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 13);
+            this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 110;
-            this.label2.Text = "Ref";
+            this.label2.Text = "Ref.:";
             // 
             // combo_roll
             // 
@@ -370,7 +371,7 @@
             // button11
             // 
             this.button11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button11.BackgroundImage")));
-            this.button11.Location = new System.Drawing.Point(603, 81);
+            this.button11.Location = new System.Drawing.Point(603, 84);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(91, 23);
             this.button11.TabIndex = 51;
@@ -556,13 +557,13 @@
             // todosToolStripMenuItem
             // 
             this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            this.todosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.todosToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.todosToolStripMenuItem.Text = "Todos";
             // 
             // modificarToolStripMenuItem1
             // 
             this.modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
-            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
             this.modificarToolStripMenuItem1.Text = "Modificar";
             // 
             // actualizarToolStripMenuItem

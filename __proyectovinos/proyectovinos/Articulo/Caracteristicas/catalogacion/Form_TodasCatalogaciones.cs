@@ -39,6 +39,7 @@ namespace proyectovinos.Caracteristicas.catalogacion
         private void Form_TodasCatalogacionesII_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
+            this.Top = this.Top + 19;
             id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, text_referencianuevo);
             limpiarCampos();
         }
@@ -103,6 +104,7 @@ namespace proyectovinos.Caracteristicas.catalogacion
 
                     if (insertado == true)
                     {
+                        cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
                         limpiarCampos();
                         id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, text_referencianuevo);
                     }
@@ -176,6 +178,7 @@ namespace proyectovinos.Caracteristicas.catalogacion
                 if (textBox_nombremodificar.Text != "" || textBox_referenciamodificar.Text != "")
                 {
                     consultas.modificarCualquierTabla(tabla, textBox_referenciamodificar.Text, textBox_nombremodificar.Text, "ref", referencia, listView1);
+                    cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
                     limpiarCampos();
                 }
                 else

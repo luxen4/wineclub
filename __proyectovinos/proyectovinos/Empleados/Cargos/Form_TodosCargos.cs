@@ -33,29 +33,40 @@ namespace proyectovinos.Roles
         private void Form_TodosRolesII_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
+            this.Top = this.Top + 40;
+            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
+            enlacesHabilitados();
+            limpiarCampos();
         }
 
-
-        // Función que actualiza la lista de cargos
+      
+        /// <summary>
+        /// Función que actualiza la lista de cargos 
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencia);
-            limpiarCampos('1');
+            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
+            limpiarCampos();
         }
-
-        
-
-
-        // Función que habilita un cargo
+     
+        /// <summary>
+        /// Función que habilita un cargo  
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void habilitarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea eliminar un registro?", "Aviso", MessageBoxButtons.YesNo);
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea habilitar un registro?", "Aviso", MessageBoxButtons.YesNo);
             if (opcionSeleccionada == DialogResult.Yes)
             {  
                 if (referencia != "")
                 {
                     ut.habilitarOnOff_Caracteristica(tabla, "ref", text_referencia.Text, '1');
-                    limpiarCampos('0');
+                    cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '0');
+                    limpiarCampos();
                 }
                 else
                 {
@@ -67,8 +78,12 @@ namespace proyectovinos.Roles
                 MessageBox.Show("Tenga cuidado!");
             }
         }
-
-        // Función que habilita un cargo de la vinoteca
+      
+        /// <summary>
+        /// Función que habilita un cargo de la vinoteca.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void deshabilitarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea deshabilitar un registro?", "Aviso", MessageBoxButtons.YesNo);
@@ -77,7 +92,8 @@ namespace proyectovinos.Roles
                 if (referencia != "")
                 {
                     ut.habilitarOnOff_Caracteristica(tabla, "ref", text_referencia.Text, '0');
-                    limpiarCampos('1');
+                    cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
+                    limpiarCampos();
                 }
                 else
                 {
@@ -89,12 +105,14 @@ namespace proyectovinos.Roles
                 MessageBox.Show("Tenga cuidado!");
             }
         }
-
-
-        // Función que elimina un cargo
+     
+        /// <summary>
+        /// Función que elimina un cargo  .
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-
             DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea eliminar un registro?", "Aviso", MessageBoxButtons.YesNo);
             if (opcionSeleccionada == DialogResult.Yes)
             {
@@ -113,7 +131,8 @@ namespace proyectovinos.Roles
                     else
                     {
                         consultas.eliminarCaracteristica(tabla, "ref", text_referencia.Text);
-                        limpiarCampos('0');
+                        cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '0');
+                        limpiarCampos();
                     }
                 }
                 else
@@ -127,20 +146,24 @@ namespace proyectovinos.Roles
             }
         }
 
-        // Función que modifica un registro de cargo
+        /// <summary>
+        /// Función que modifica un registro de cargo.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea guardar un registro?", "Aviso", MessageBoxButtons.YesNo);
             if (opcionSeleccionada == DialogResult.Yes)
             {
-                if (text_nombre.Text == "" || text_referencia.Text == "")
+                if (text_nombre.Text != "" && text_referencia.Text != "")
                 {
                     string nuevoNombre = text_nombre.Text;
                     string nuevaReferencia = text_referencia.Text;
 
                     consultas.modificarCualquierTabla(tabla, nuevaReferencia, nuevoNombre, "ref", referencia, listView1);
-                    limpiarCampos('1');
-                  
+                    cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
+                    limpiarCampos();
                 }
                 else
                 {
@@ -154,7 +177,12 @@ namespace proyectovinos.Roles
         }
 
 
-        // Al seleccionar un check de la lista
+
+        /// <summary>
+        /// Al seleccionar un check de la lista  .
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="ItemCheckedEventArgs"/> instance containing the event data.</param>
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             if (cumplimentarTextos == true) { 
@@ -168,7 +196,11 @@ namespace proyectovinos.Roles
         }
 
 
-        // Función que crea roles nuevos
+        /// <summary>
+        /// Función que crea roles nuevos .
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea crear un registro?", "Aviso", MessageBoxButtons.YesNo);
@@ -177,7 +209,9 @@ namespace proyectovinos.Roles
                 if (text_nombre.Text != "" && text_referencia.Text != "")
                 {
                     consultas.insertTablaCaracteristicasDinamico(tabla, nombreId, id_predeterminado, text_referencia.Text, text_nombre.Text);
-                    limpiarCampos('1');
+                    cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
+                    limpiarCampos();
+
                 }
                 else {
                     MessageBox.Show("Campos vacios");
@@ -192,13 +226,15 @@ namespace proyectovinos.Roles
         private void radio_habilitados_CheckedChanged(object sender, EventArgs e)
         {
             enlacesHabilitados();
-            limpiarCampos('1');
+            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
+            limpiarCampos();
         }
 
         private void radio_deshabilitados_CheckedChanged(object sender, EventArgs e)
         {
             enlacesDeshabilitados();
-            limpiarCampos('0');
+            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '0');
+            limpiarCampos();
         }
 
 
@@ -223,10 +259,14 @@ namespace proyectovinos.Roles
             newToolStripMenuItem.Enabled = false;
         }
 
-        private void limpiarCampos(char activo)
+        /// <summary>
+        /// Función que pone los campos en modo predeterminado.
+        /// </summary>
+        /// <param name="activo">The activo.</param>
+        private void limpiarCampos()
         {
             cumplimentarTextos = false;
-            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, activo);
+            //cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, activo);
             cumplimentarTextos = true;
             text_nombre.Text = "";
             text_referencia.Text = "";

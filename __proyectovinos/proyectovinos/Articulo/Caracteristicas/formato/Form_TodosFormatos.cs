@@ -20,12 +20,12 @@ namespace proyectovinos.Caracteristicas.contenido
         Utilidades ut = new Utilidades();
         CumplimentarListas cumplimentarListas = new CumplimentarListas();
         Consultas consultas = new Consultas();
-        Class_FormatoAperturaForms apertura = new Class_FormatoAperturaForms();
+        //Class_FormatoAperturaForms apertura = new Class_FormatoAperturaForms();
         Class_Formato cont = new Class_Formato();
 
         private string referencia = "";
         private int id_predeterminado = 0;
-        private bool cargaLista = true;
+        //private bool cargaLista = true;
         private string tabla = "formatocontenido";
         private string id_tabla = "id_formatocontenido";
         private string refPredeterminada = "CON";
@@ -34,15 +34,16 @@ namespace proyectovinos.Caracteristicas.contenido
         private void Form_TodosContenidosII_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
+            this.Top = this.Top + 19;
+
             id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, text_referencianuevo);
-            limpiarCampos();
+
+            limpiarCampos('1');
         }
 
 
-        private void limpiarCampos()
+        private void limpiarCampos(char activo)
         {
-            radioButton_habilitado.Checked = true;
-            radioButton_deshabilitado.Checked = false;
 
             check_segurohabilitardeshabilitareliminar.Checked = true;
 
@@ -67,16 +68,18 @@ namespace proyectovinos.Caracteristicas.contenido
             checkBox_seguromodificar.Checked = false;
 
             listaCargada = false;
-            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
+            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, activo);
             listaCargada = true;
         }
 
+        // Función que actualiza en la lista los formatos de los artículos
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, text_referencianuevo);
-            limpiarCampos();
+            limpiarCampos('1');
         }
 
+        // Función que 
         private void radioButton_habilitado_CheckedChanged(object sender, EventArgs e)
         {
             listaCargada = false;
@@ -86,6 +89,9 @@ namespace proyectovinos.Caracteristicas.contenido
             button_habilitar.Enabled = false;
             button_deshabilitar.Enabled = true;
             button_eliminar.Enabled = false;
+
+            check_nueva.Enabled = true;
+            check_modificar.Enabled = true;
         }
 
         private void radioButton_deshabilitado_CheckedChanged(object sender, EventArgs e)
@@ -96,19 +102,31 @@ namespace proyectovinos.Caracteristicas.contenido
             button_habilitar.Enabled = true;
             button_deshabilitar.Enabled = false;
             button_eliminar.Enabled = true;
+
+            check_nueva.Enabled = false;
+            check_modificar.Enabled = false;
         }
 
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            if (listaCargada == true)
+            if (e.Item.Checked)
             {
-                referencia = listView1.Items[e.Item.Index].SubItems[0].Text;
+                if (listaCargada == true)
+                {
+                    referencia = listView1.Items[e.Item.Index].SubItems[0].Text;
 
-                textBox_referencia.Text = referencia;
-                textBox_nombre.Text = listView1.Items[e.Item.Index].SubItems[1].Text;
+                    textBox_referencia.Text = referencia;
+                    textBox_nombre.Text = listView1.Items[e.Item.Index].SubItems[1].Text;
 
-                textBox_referenciamodificar.Text = referencia;
-                textBox_nombremodificar.Text = listView1.Items[e.Item.Index].SubItems[1].Text;
+                    textBox_referenciamodificar.Text = referencia;
+                    textBox_nombremodificar.Text = listView1.Items[e.Item.Index].SubItems[1].Text;
+                }
+            }
+            else {
+                textBox_nombre.Text = "";
+                textBox_referencia.Text = "";
+                textBox_nombremodificar.Text = "";
+                textBox_referenciamodificar.Text = "";
             }
         }
 
@@ -151,7 +169,7 @@ namespace proyectovinos.Caracteristicas.contenido
                 listaCargada = false;
                 ut.controladorHabilitarCaracteristica(check_segurohabilitardeshabilitareliminar, textBox_referencia, textBox_nombre, tabla, listView1, '0');
                 listaCargada = true;
-                limpiarCampos();
+                //limpiarCampos();
             }
             else
             {
@@ -163,8 +181,11 @@ namespace proyectovinos.Caracteristicas.contenido
         {
             if (check_segurohabilitardeshabilitareliminar.Checked == true)
             {
-                ut.controladorEliminarCaracteristica(check_segurohabilitardeshabilitareliminar, textBox_referencia, textBox_nombre, id_tabla, tabla, listView1);
-                limpiarCampos();
+                bool eliminado = ut.controladorEliminarCaracteristica(check_segurohabilitardeshabilitareliminar, textBox_referencia, textBox_nombre, id_tabla, tabla, listView1);
+
+                if (eliminado==true) {
+                    limpiarCampos('0');
+                }
             }
             else
             {
@@ -183,7 +204,7 @@ namespace proyectovinos.Caracteristicas.contenido
 
                     if (insertado == true)
                     {
-                        limpiarCampos();
+                        limpiarCampos('1');
                         id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, text_referencianuevo);
                     }
                     else
@@ -209,7 +230,7 @@ namespace proyectovinos.Caracteristicas.contenido
                 if (textBox_nombremodificar.Text != "" || textBox_referenciamodificar.Text != "")
                 {
                     consultas.modificarCualquierTabla(tabla, textBox_referenciamodificar.Text, textBox_nombremodificar.Text, "ref", referencia, listView1);
-                    limpiarCampos();
+                    limpiarCampos('1');
                 }
                 else
                 {

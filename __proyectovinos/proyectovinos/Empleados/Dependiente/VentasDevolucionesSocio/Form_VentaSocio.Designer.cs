@@ -677,6 +677,7 @@
             this.deTiendaAAlmacénToolStripMenuItem.Name = "deTiendaAAlmacénToolStripMenuItem";
             this.deTiendaAAlmacénToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.deTiendaAAlmacénToolStripMenuItem.Text = "De Tienda a Almacén";
+            this.deTiendaAAlmacénToolStripMenuItem.Click += new System.EventHandler(this.deTiendaAAlmacénToolStripMenuItem_Click);
             // 
             // tERMINARCOMPRAToolStripMenuItem
             // 

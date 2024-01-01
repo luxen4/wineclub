@@ -44,7 +44,7 @@ namespace proyectovinos.VentasDevolucionesSocio
 
         public void modificarArticuloVenta()
         {
-            Form_ModificarPreciosLineaCompraProveedor formulario;
+            Form_ModificarPreciosArticulos formulario;
 
             if (Application.OpenForms["Form_ModificarArticuloVenta"] != null)
             {
@@ -52,7 +52,7 @@ namespace proyectovinos.VentasDevolucionesSocio
             }
             else
             {
-                formulario = new Form_ModificarPreciosLineaCompraProveedor();
+                formulario = new Form_ModificarPreciosArticulos();
                 //formulario.MdiParent = this;
                 formulario.Show();
             }

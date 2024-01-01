@@ -56,10 +56,8 @@ namespace proyectovinos
         }
 
 
-        // Método controlador que dirige la inserción de un Proveedor
-        private void button2_Click(object sender, EventArgs e)
+        private void sAVEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             bool camposBlanco = camposEnBlanco();
 
             if (camposBlanco)
@@ -67,12 +65,11 @@ namespace proyectovinos
                 insertarProveedor();
                 limpiarCampos();
                 // cumplimentarListas.cumplimentarLista("ref", "nombre", "proveedor", listView1, '1');
-
             }
-            else {
+            else
+            {
                 MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
             }
-           
         }
 
         private void insertarProveedor()
@@ -97,7 +94,7 @@ namespace proyectovinos
                     "values (" + id_predeterminado + ", '" + referencia + "', '" + nombre + "', '" + direccion + "', '" + localidad + "', '" + provincia + "', '"
                     + telefono + "' , '" + email + "','1')";
 
-                MessageBox.Show(selectQuery);
+                //MessageBox.Show(selectQuery);
 
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
@@ -161,7 +158,7 @@ namespace proyectovinos
 
                 if (!Directory.Exists(folderPath))  
                 {
-                    Directory.CreateDirectory(folderPath); MessageBox.Show("Crea Directorio");
+                    //Directory.CreateDirectory(folderPath); MessageBox.Show("Crea Directorio");
                     Console.WriteLine(folderPath);
 
                     if (pictureBox1.Image != null)
@@ -199,14 +196,10 @@ namespace proyectovinos
             text_provincia.Text = "";
             text_telefono.Text = "";
             text_email.Text = "";
-            pictureBox1.Image = null;
+            pictureBox1.Image = Image.FromFile(ClaseCompartida.carpetaimg_absoluta + "proveedores/logo2/logopredeterminada.jpg");
         }
 
-        private void todosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Class_ProveedorAperturaForms proveedor = new Class_ProveedorAperturaForms();
-            proveedor.todosProveedores(); this.Close();
-        }
+
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -214,14 +207,29 @@ namespace proyectovinos
             articulo.nuevoArticuloVino(); this.Close();
         }
 
-        private void sAVEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            insertarProveedor();
-        }
+
 
         private void limpiarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             limpiarCampos();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CumplimentarPictureBoxes cumplimentarPictureBoxes = new CumplimentarPictureBoxes();
+            cumplimentarPictureBoxes.buscarImagenPicturebox(sender, e, pictureBox1);
+        }
+
+        private void pROVEEDORESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Class_ProveedorAperturaForms proveedor = new Class_ProveedorAperturaForms();
+            proveedor.todosProveedores(); this.Close();
+        }
+
+        private void aRTÍCULOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Class_ArticuloAperturaForms articulo = new Class_ArticuloAperturaForms();
+            articulo.nuevoArticuloVino(); this.Close();
         }
 
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)

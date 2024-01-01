@@ -51,11 +51,9 @@
             this.verTodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pROVEEDORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.todosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aRTÍCULOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sAVEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.limpiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sAVEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.check_demo = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,7 +63,7 @@
             // text_referencia
             // 
             this.text_referencia.Enabled = false;
-            this.text_referencia.Location = new System.Drawing.Point(231, 49);
+            this.text_referencia.Location = new System.Drawing.Point(231, 32);
             this.text_referencia.Name = "text_referencia";
             this.text_referencia.Size = new System.Drawing.Size(153, 20);
             this.text_referencia.TabIndex = 57;
@@ -74,28 +72,28 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(228, 33);
+            this.label1.Location = new System.Drawing.Point(228, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 56;
-            this.label1.Text = "Referencia";
+            this.label1.Text = "Referencia:";
             // 
             // text_nuevoproveedor
             // 
-            this.text_nuevoproveedor.Location = new System.Drawing.Point(393, 50);
+            this.text_nuevoproveedor.Location = new System.Drawing.Point(393, 33);
             this.text_nuevoproveedor.Name = "text_nuevoproveedor";
-            this.text_nuevoproveedor.Size = new System.Drawing.Size(153, 20);
+            this.text_nuevoproveedor.Size = new System.Drawing.Size(149, 20);
             this.text_nuevoproveedor.TabIndex = 55;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(390, 33);
+            this.label7.Location = new System.Drawing.Point(390, 16);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(112, 13);
+            this.label7.Size = new System.Drawing.Size(47, 13);
             this.label7.TabIndex = 54;
-            this.label7.Text = "Nombre del proveedor";
+            this.label7.Text = "Nombre:";
             // 
             // groupBox1
             // 
@@ -118,7 +116,7 @@
             this.groupBox1.Controls.Add(this.text_provincia);
             this.groupBox1.Location = new System.Drawing.Point(12, 30);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(551, 240);
+            this.groupBox1.Size = new System.Drawing.Size(551, 211);
             this.groupBox1.TabIndex = 58;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Proveedor";
@@ -127,7 +125,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(231, 189);
+            this.label6.Location = new System.Drawing.Point(231, 133);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 91;
@@ -135,9 +133,9 @@
             // 
             // text_email
             // 
-            this.text_email.Location = new System.Drawing.Point(391, 205);
+            this.text_email.Location = new System.Drawing.Point(391, 149);
             this.text_email.Name = "text_email";
-            this.text_email.Size = new System.Drawing.Size(155, 20);
+            this.text_email.Size = new System.Drawing.Size(151, 20);
             this.text_email.TabIndex = 94;
             // 
             // pictureBox1
@@ -152,36 +150,37 @@
             // 
             // text_telefono
             // 
-            this.text_telefono.Location = new System.Drawing.Point(234, 205);
+            this.text_telefono.Location = new System.Drawing.Point(234, 149);
             this.text_telefono.Name = "text_telefono";
-            this.text_telefono.Size = new System.Drawing.Size(150, 20);
+            this.text_telefono.Size = new System.Drawing.Size(152, 20);
             this.text_telefono.TabIndex = 92;
             // 
             // button4
             // 
             this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.Location = new System.Drawing.Point(8, 177);
+            this.button4.Location = new System.Drawing.Point(6, 177);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(214, 23);
             this.button4.TabIndex = 65;
             this.button4.Text = "Añadir imagen";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(228, 84);
+            this.label3.Location = new System.Drawing.Point(228, 55);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 85;
-            this.label3.Text = "Dirección";
+            this.label3.Text = "Dirección:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(388, 189);
+            this.label8.Location = new System.Drawing.Point(388, 133);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(31, 13);
             this.label8.TabIndex = 93;
@@ -189,16 +188,16 @@
             // 
             // text_direccion
             // 
-            this.text_direccion.Location = new System.Drawing.Point(231, 100);
+            this.text_direccion.Location = new System.Drawing.Point(231, 71);
             this.text_direccion.Name = "text_direccion";
-            this.text_direccion.Size = new System.Drawing.Size(311, 20);
+            this.text_direccion.Size = new System.Drawing.Size(309, 20);
             this.text_direccion.TabIndex = 86;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(389, 135);
+            this.label5.Location = new System.Drawing.Point(390, 94);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 89;
@@ -206,7 +205,7 @@
             // 
             // text_localidad
             // 
-            this.text_localidad.Location = new System.Drawing.Point(233, 151);
+            this.text_localidad.Location = new System.Drawing.Point(234, 110);
             this.text_localidad.Name = "text_localidad";
             this.text_localidad.Size = new System.Drawing.Size(153, 20);
             this.text_localidad.TabIndex = 88;
@@ -215,7 +214,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(230, 135);
+            this.label4.Location = new System.Drawing.Point(231, 94);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 87;
@@ -223,7 +222,7 @@
             // 
             // text_provincia
             // 
-            this.text_provincia.Location = new System.Drawing.Point(392, 151);
+            this.text_provincia.Location = new System.Drawing.Point(393, 110);
             this.text_provincia.Name = "text_provincia";
             this.text_provincia.Size = new System.Drawing.Size(150, 20);
             this.text_provincia.TabIndex = 90;
@@ -252,47 +251,25 @@
             this.sAVEToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(568, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(571, 24);
             this.menuStrip1.TabIndex = 62;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // pROVEEDORESToolStripMenuItem
             // 
-            this.pROVEEDORESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.todosToolStripMenuItem});
+            this.pROVEEDORESToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pROVEEDORESToolStripMenuItem.Image")));
             this.pROVEEDORESToolStripMenuItem.Name = "pROVEEDORESToolStripMenuItem";
-            this.pROVEEDORESToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.pROVEEDORESToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
             this.pROVEEDORESToolStripMenuItem.Text = "Proveedores";
-            // 
-            // todosToolStripMenuItem
-            // 
-            this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            this.todosToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
-            this.todosToolStripMenuItem.Text = "Todos";
-            this.todosToolStripMenuItem.Click += new System.EventHandler(this.todosToolStripMenuItem_Click);
+            this.pROVEEDORESToolStripMenuItem.Click += new System.EventHandler(this.pROVEEDORESToolStripMenuItem_Click);
             // 
             // aRTÍCULOSToolStripMenuItem
             // 
-            this.aRTÍCULOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoToolStripMenuItem});
+            this.aRTÍCULOSToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aRTÍCULOSToolStripMenuItem.Image")));
             this.aRTÍCULOSToolStripMenuItem.Name = "aRTÍCULOSToolStripMenuItem";
-            this.aRTÍCULOSToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.aRTÍCULOSToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
             this.aRTÍCULOSToolStripMenuItem.Text = "Artículos";
-            // 
-            // nuevoToolStripMenuItem
-            // 
-            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
-            this.nuevoToolStripMenuItem.Text = "Nuevo";
-            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
-            // 
-            // sAVEToolStripMenuItem
-            // 
-            this.sAVEToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sAVEToolStripMenuItem.Image")));
-            this.sAVEToolStripMenuItem.Name = "sAVEToolStripMenuItem";
-            this.sAVEToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.sAVEToolStripMenuItem.Text = "SAVE";
-            this.sAVEToolStripMenuItem.Click += new System.EventHandler(this.sAVEToolStripMenuItem_Click);
+            this.aRTÍCULOSToolStripMenuItem.Click += new System.EventHandler(this.aRTÍCULOSToolStripMenuItem_Click);
             // 
             // limpiarToolStripMenuItem
             // 
@@ -301,6 +278,14 @@
             this.limpiarToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.limpiarToolStripMenuItem.Text = "Limpiar";
             this.limpiarToolStripMenuItem.Click += new System.EventHandler(this.limpiarToolStripMenuItem_Click);
+            // 
+            // sAVEToolStripMenuItem
+            // 
+            this.sAVEToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sAVEToolStripMenuItem.Image")));
+            this.sAVEToolStripMenuItem.Name = "sAVEToolStripMenuItem";
+            this.sAVEToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.sAVEToolStripMenuItem.Text = "SAVE";
+            this.sAVEToolStripMenuItem.Click += new System.EventHandler(this.sAVEToolStripMenuItem_Click);
             // 
             // check_demo
             // 
@@ -318,7 +303,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(568, 282);
+            this.ClientSize = new System.Drawing.Size(571, 251);
             this.Controls.Add(this.check_demo);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -364,9 +349,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem pROVEEDORESToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem todosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aRTÍCULOSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sAVEToolStripMenuItem;
         private System.Windows.Forms.CheckBox check_demo;
         private System.Windows.Forms.ToolStripMenuItem limpiarToolStripMenuItem;

@@ -65,7 +65,6 @@ namespace proyectovinos.Caracteristicas.proveedor
         // Eliminar carpeta proveedor
         private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
             DialogResult opcionSeleccionada = MessageBox.Show("Quiere eliminar el registro?", "Aviso", MessageBoxButtons.YesNo);
 
             if (referencia != "")
@@ -81,7 +80,8 @@ namespace proyectovinos.Caracteristicas.proveedor
                     int id = consultas.obtenerCualquierId(nombreId, tabla, "ref", referencia);
 
                     Class_Articulo articulo = new Class_Articulo();
-                    int existencias = articulo.existeArticuloConCaracteristica("id_articulo", "articulo", "id_articulo", id);
+                    //int existencias = articulo.existeArticuloConCaracteristica("id_articulo", "articulo", "id_articulo", id);
+                    int existencias = articulo.existeArticuloConCaracteristica("id_articulo", "articulo", "id_proveedor", id);
 
                     if (existencias > 0)
                     {

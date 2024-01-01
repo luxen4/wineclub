@@ -136,6 +136,7 @@ namespace proyectovinos.Empleados
             id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencia);
             cargaLista = false;
             referencia = "";
+            pictureBox1.Image=null;
         }
 
         private void check_demo_CheckedChanged(object sender, EventArgs e)
@@ -191,6 +192,7 @@ namespace proyectovinos.Empleados
             cumplimentar.refrescarCombo("nombre", "rollempleado", combo_roll);
             id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencia);
             cargaLista = false;
+            limpiarCampos();
         }
 
         private void cARGOSROLESToolStripMenuItem_Click(object sender, EventArgs e)
@@ -433,6 +435,7 @@ namespace proyectovinos.Empleados
             radio_hombre.Checked = true;
             dateTime_fechanacimiento.Text = DateTime.Now.ToString();
             combo_roll.Text = "Seleccione";
+            pictureBox1.Image = null; 
         }
 
        

@@ -31,6 +31,7 @@ namespace proyectovinos
 
 
         private int primeraVez=0;
+        private int id_articulo = 0;
 
         private int id_proveedor = 0;
         private string refCompraProveedor = "", nombreProveedor = "";
@@ -55,9 +56,12 @@ namespace proyectovinos
             refCompraProveedor = refPredeterminada + id_predeterminado;
         }
 
-       
 
-    // Método controlador que refresca el combobox de Proveedores
+        /// <summary>
+        /// Método controlador que refresca el combobox de Proveedores  
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void combo_proveedor_SelectedIndexChanged(object sender, EventArgs e)
         {
             refProveedor = consultas.obtenerCualquierRefDesdeNombre("ref", "proveedor", "nombre", nombreProveedor);
@@ -65,8 +69,11 @@ namespace proyectovinos
             // cumplimentarPictureBoxes.cumplimentarPictureBoxProveedor(id_proveedor, pictureBox2);
         }
 
-
-        // Método que recorre la lista de compra a proveedor
+       
+        /// <summary>
+        /// Método que recorre la lista de compra a proveedor 
+        /// </summary>
+        /// <param name="id_compraproveedor">The identifier compraproveedor.</param>
         private void recorrerListaCompraProveedor(int id_compraproveedor)
         {
             // MessageBox.Show("Número de items: " +listView1.Items.Count);
@@ -95,15 +102,22 @@ namespace proyectovinos
                 int id_lineacompraproveedor = consultas.referenciaPredeterminada("id_lineacompraproveedor", "lineacompraproveedor", refPredeterminada, text_refcompraproveedor);
                 insertarLineaCompraProveedor(id_lineacompraproveedor,id_compraproveedor, id_articulo, unidadesAcomprar, precioCosteTexto, precioVentaTexto);
 
-
                 articulo.nuevaExistenciaAlmacenTienda(1, id_lineacompraproveedor, id_articulo, unidadesAcomprar);          // Ya está preparado para pasa a tienda
                 articulo.nuevaExistenciaAlmacenTienda(2, id_lineacompraproveedor, id_articulo, 0);
 
             }
         }
-            
 
-        // Método que inserta una linea de compra al proveedor
+    
+        /// <summary>
+        /// Método que inserta una linea de compra al proveedor     
+        /// </summary>
+        /// <param name="id_lineacompraproveedor">The identifier lineacompraproveedor.</param>
+        /// <param name="id_compraproveedor">The identifier compraproveedor.</param>
+        /// <param name="id_articulo">The identifier articulo.</param>
+        /// <param name="existencias">The existencias.</param>
+        /// <param name="preciocosteTexto">The preciocoste texto.</param>
+        /// <param name="precioventaTexto">The precioventa texto.</param>
         private void insertarLineaCompraProveedor(int id_lineacompraproveedor,int id_compraproveedor, int id_articulo,int existencias,string preciocosteTexto,string precioventaTexto)
         {
             string refLineaCompraprovedor = "LCP" + id_lineacompraproveedor;
@@ -144,8 +158,10 @@ namespace proyectovinos
                 conexionBD.Close();
             }
         }
-
-        // Método que deja los valores predeterminados de los campos
+     
+        /// <summary>
+        /// Método que deja los valores predeterminados de los campos   
+        /// </summary>
         private void limpiarCampos()
         {
             combo_refarticulo.Text = "Seleccione";
@@ -162,10 +178,8 @@ namespace proyectovinos
             numericUpDown_preciocoste.Value = 0;
             numeric_cantidad.Value = 0;
             pictureBox1.Image = null;   
+            pictureBox3.Image = null;
         }
-
-
-
 
 
         private void button5_Click(object sender, EventArgs e)
@@ -174,9 +188,12 @@ namespace proyectovinos
         }
 
         private string refArticulo="";
-
-      
-        // Método controlador que añade un artículo a la lista de compra a un Proveedor // No compruebe si hay ya artículo ya que hay de varios precios
+         
+        /// <summary>
+        /// Método controlador que añade un artículo a la lista de compra a un Proveedor // No compruebe si hay ya artículo ya que hay de varios precios
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (numericUpDown_unidadesacomprar.Value == 0){
@@ -199,7 +216,11 @@ namespace proyectovinos
         }
 
 
-        // Metodo que cumplimenta la lista de compra a Proveedores
+        /// <summary>
+        /// Metodo que cumplimenta la lista de compra a Proveedores  
+        /// </summary>
+        /// <param name="referenciaArticulo">The referencia articulo.</param>
+        /// <param name="totalArticulo">The total articulo.</param>
         private void cumplimentarItemsListViewCompraProveedor(string referenciaArticulo, string totalArticulo)
         {
             ListViewItem itemAgregar = new ListViewItem(referenciaArticulo);
@@ -241,8 +262,12 @@ namespace proyectovinos
             primeraVez = 1;
         }
 
-        private int id_articulo = 0;
 
+        /// <summary>
+        /// Función que implementa la información de un artículo desde su referencia.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             refArticulo = combo_refarticulo.Text;
@@ -277,7 +302,12 @@ namespace proyectovinos
 
         }
 
-        // Función que hace la compra de artículos a proveedores
+      
+        /// <summary>
+        /// Función que hace la compra de artículos a proveedores 
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void cOMPRARToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listView1.Items.Count == 0)
@@ -305,6 +335,8 @@ namespace proyectovinos
             }
         }
 
+
+
         private void combo_refarticulo_SelectedIndexChanged(object sender, EventArgs e)
         {
             refArticulo = combo_refarticulo.Text;
@@ -325,9 +357,12 @@ namespace proyectovinos
             text_formatocontenido.Text = nombres[4];   
             text_empaquetado.Text = nombres[5];
 
-       
-            //
 
+            CumplimentarPictureBoxes cumplimentarPictureBoxes = new CumplimentarPictureBoxes();
+            cumplimentarPictureBoxes.cumplimentarPictureBoxProveedor(id_proveedor, pictureBox3);
+
+
+            //
             string nombreimagen = consultas.obtenerCualquierRefDesdeNombre("nombreimagen", "articulo", "ref", refArticulo);
             pictureBox1.Image = Image.FromFile(ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/articulos/" + nombres[1] + "/" + nombreimagen + "");
 

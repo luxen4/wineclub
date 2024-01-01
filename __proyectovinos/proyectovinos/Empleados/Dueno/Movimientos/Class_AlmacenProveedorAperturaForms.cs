@@ -14,7 +14,7 @@ namespace proyectovinos.VentasDevolucionesSocio
     internal class Class_AlmacenProveedorAperturaForms
     {
 
-        Form_ModificarPreciosLineaCompraProveedor formularioModificarPreciosLineaCompraProveedor;
+        Form_ModificarPreciosArticulos formularioModificarPreciosLineaCompraProveedor;
         public void modificarPreciosArticuloVino()
         {
             if (Application.OpenForms["FormModificarPreciosLineaCompraProveedor"] != null)
@@ -23,7 +23,7 @@ namespace proyectovinos.VentasDevolucionesSocio
             }
             else
             {
-                formularioModificarPreciosLineaCompraProveedor = new Form_ModificarPreciosLineaCompraProveedor();
+                formularioModificarPreciosLineaCompraProveedor = new Form_ModificarPreciosArticulos();
                 //formulario.MdiParent = this;
                 formularioModificarPreciosLineaCompraProveedor.Show();
             }

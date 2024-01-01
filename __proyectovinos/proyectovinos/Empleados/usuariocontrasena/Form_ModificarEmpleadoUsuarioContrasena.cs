@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks;*/
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -31,7 +31,10 @@ namespace proyectovinos.Empleados.usuariocontrasena
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ConexionBD con = new ConexionBD();
+
+            if (checkBox_seguro.Checked)
+            {
+ConexionBD con = new ConexionBD();
             string cadenaConexion = con.conexion();
             MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
             MySqlDataReader reader = null;
@@ -68,17 +71,16 @@ namespace proyectovinos.Empleados.usuariocontrasena
 
                 if (rowafectadas > 0)
                 {
-                    MessageBox.Show(rowafectadas + " Datos Insertados");
-                }
+                    // MessageBox.Show(rowafectadas + " Datos Insertados");
+                    MessageBox.Show("Usuario modificado");
+                    }
                 else
                 {
                     MessageBox.Show("Error");
                 }
 
-
-
                 // MessageBox.Show(consulta);
-                MessageBox.Show(ClaseCompartida.msgModificado);
+                // MessageBox.Show(ClaseCompartida.msgModificado);
 
                 ClaseCompartida.usuario = usuarioNuevo;
                 ClaseCompartida.contrasena = contrasenaNueva;
@@ -94,6 +96,15 @@ namespace proyectovinos.Empleados.usuariocontrasena
             {
                 conexionBD.Close();
             }
+
+
+
+            }
+            else {
+                MessageBox.Show(ClaseCompartida.msgCasillaSeguro);
+            }
+
+            
         }
     }
 }

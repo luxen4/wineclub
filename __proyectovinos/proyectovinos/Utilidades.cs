@@ -18,19 +18,14 @@ namespace proyectovinos
     internal class Utilidades
     {
 
-
-
-
-
-        // Método que devuelve la fecha preparada para introducir en mysql (se recibe desde un dataPicker)           
+                
         /// <summary>
-        /// Preparación de fecha.
+        /// Método que devuelve la fecha preparada para introducir en mysql (se recibe desde un dataPicker)   
         /// </summary>
         /// <param name="fecha">The fecha.</param>
         /// <returns>fechacompra(*2023/12/31)</returns>
         public string preparacionFecha(string fecha)
         {
-
             string[] subs = fecha.Split();
             string dia = subs[1];
             string mesNombre = subs[3];
@@ -49,7 +44,6 @@ namespace proyectovinos
             else if (mesNombre == "noviembre") { mes = "11"; }
             else if (mesNombre == "diciembre") { mes = "12"; }
 
-
             string ano = subs[5];
             string fechacompra = ano + "/" + mes + "/" + dia;
 
@@ -58,12 +52,15 @@ namespace proyectovinos
         }
 
 
-        // Bloque que quita de todo
-        /* https://www.elguille.info/colabora/NET2005/german_limpiar_acentos_puntonetwhidbey.htm */
-        // Debug.WriteLine(textoSinAcentos); //muestra 'Manana sera otro dia'
+        /// <summary>
+        /// Bloque que quita todos simbolos raros, acentos, espacios, y lo devuelve en minúsculas
+        /// </summary>
+        /// <param name="nombreEnBruto">The nombre en bruto.</param>
+        /// <returns></returns>
         public string limpiezaDeString(string nombreEnBruto)
         {
-            
+            /* https://www.elguille.info/colabora/NET2005/german_limpiar_acentos_puntonetwhidbey.htm */
+            // Debug.WriteLine(textoSinAcentos); //muestra 'Manana sera otro dia'
             string rutaimagenBruto = nombreEnBruto;
             string textoNormalizado = rutaimagenBruto.Normalize(NormalizationForm.FormD);
             Regex reg = new Regex("[^a-zA-Z0-9 ]");
@@ -74,11 +71,12 @@ namespace proyectovinos
 
             return nombreLimpio;
         }
-
-
-
-
-        // Método que formatea la fecha para introdución en Mysql "TimeStam"
+     
+        /// <summary>
+        /// Método que formatea la fecha para introdución en Mysql "TimeStam"  
+        /// </summary>
+        /// <param name="fechaActual">The fecha actual.</param>
+        /// <returns></returns>
         public string fechaTimeStam(DateTime fechaActual)
         {
             string fecha = fechaActual.ToString().Replace("/", "-");
@@ -104,7 +102,14 @@ namespace proyectovinos
 
 
 
-        // Función que habilita o deshabilita un registro de una característica
+        //       
+        /// <summary>
+        /// Función que habilita o deshabilita un registro de una característica  
+        /// </summary>
+        /// <param name="tabla">The tabla.</param>
+        /// <param name="whereAtributo">The where atributo.</param>
+        /// <param name="valorAtributo">The valor atributo.</param>
+        /// <param name="activo">The activo.</param>
         internal void habilitarOnOff_Caracteristica( string tabla, string whereAtributo, string valorAtributo, char activo)
         {
             ConexionBD con = new ConexionBD();
@@ -114,16 +119,13 @@ namespace proyectovinos
 
             try
             {
-                //string selectQuery = "delete from " + tabla + " WHERE " + whereAtributo + " = " + "'" + valorAtributo + "'";
                 string selectQuery = "update " + tabla + " SET " + "activo= '" + activo + "' WHERE " + whereAtributo + " = " + "'" + valorAtributo + "' ";
-                // MessageBox.Show(selectQuery);
 
                 MySqlCommand comando = new MySqlCommand(selectQuery);
                 comando.Connection = conexionBD;
                 conexionBD.Open();
                 reader = comando.ExecuteReader();
-                MessageBox.Show(ClaseCompartida.msgModificado);
-
+                MessageBox.Show("Registro Modificado");
             }
             catch (MySqlException ex)
             {
@@ -194,9 +196,17 @@ namespace proyectovinos
                 text_nombreeliminar.Text = nombre;
             }
         }
-
-        // Función que elimina una característica de un artículo
-        // General para todas
+       
+        /// <summary>
+        /// Función que elimina un registro de una tabla maestra
+        /// </summary>
+        /// <param name="check_seguroeliminar">The check seguroeliminar.</param>
+        /// <param name="text_referenciaeliminar">The text referenciaeliminar.</param>
+        /// <param name="text_nombreeliminar">The text nombreeliminar.</param>
+        /// <param name="id_tabla">The identifier tabla.</param>
+        /// <param name="tabla">The tabla.</param>
+        /// <param name="listView1">The list view1.</param>
+        /// <returns></returns>
         internal bool controladorEliminarCaracteristica(CheckBox check_seguroeliminar, TextBox text_referenciaeliminar, TextBox text_nombreeliminar, string id_tabla, string tabla, ListView listView1)
         {
             if (check_seguroeliminar.Checked)

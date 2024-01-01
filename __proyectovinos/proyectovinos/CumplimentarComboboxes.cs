@@ -38,12 +38,10 @@ namespace proyectovinos
         Utilidades ut = new Utilidades();
       
 
-
         public void cumplimentarComboboxRefVentaSocio(ComboBox comboBox_refcompraproveedor)
         {
             string cadenaConexion = con.conexion();
             MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
-
 
             try
             {
@@ -65,8 +63,12 @@ namespace proyectovinos
         }
 
 
-
-        // Método que cumplimenta el combobox de Artículo
+        /// <summary>
+        /// Método que cumplimenta el combobox de Artículo 
+        /// </summary>
+        /// <param name="atributo">The atributo.</param>
+        /// <param name="nombreTabla">The nombre tabla.</param>
+        /// <param name="combo_articulovino">The combo articulovino.</param>
         public void cumplimenterComboboxCualquiereReferencia(string atributo, string nombreTabla, ComboBox combo_articulovino)
         {
 
@@ -98,8 +100,11 @@ namespace proyectovinos
             }
         }
 
-
-        // Bloque que rellena el combobox de referencia de Socio
+     
+        /// <summary>
+        /// Bloque que rellena el combobox de referencia de Socio  
+        /// </summary>
+        /// <param name="combo_socio">The combo socio.</param>
         public void cumplimenterComboboxSocio(ComboBox combo_socio)
         {
             string cadenaConexion = con.conexion();
@@ -211,9 +216,16 @@ namespace proyectovinos
             }
         }
 
-
-
-        // Método que cumplimenta los datos de una referencia de articulo vino
+    
+        /// <summary>
+        /// Método que cumplimenta los datos de una referencia de articulo vino  
+        /// </summary>
+        /// <param name="combo_articulovino">The combo articulovino.</param>
+        /// <param name="text_unidadesalmacen">The text unidadesalmacen.</param>
+        /// <param name="text_unidadestienda">The text unidadestienda.</param>
+        /// <param name="pictureBox1">The picture box1.</param>
+        /// <param name="combo_proveedor">The combo proveedor.</param>
+        /// <param name="text_empaquetado">The text empaquetado.</param>
         public void comboArticuloChanged(ComboBox combo_articulovino, TextBox text_unidadesalmacen,
             TextBox text_unidadestienda, PictureBox pictureBox1, ComboBox combo_proveedor, TextBox text_empaquetado)
         {
@@ -254,9 +266,11 @@ namespace proyectovinos
 
         }
 
-
-       
-    // Método que refresca el combobos de Artículos de una venta de a Socio
+        /// <summary>
+        /// Método que refresca el combobos de Artículos de una venta de a Socio 
+        /// </summary>
+        /// <param name="combo_refventasocio">The combo refventasocio.</param>
+        /// <param name="combo_articulovino">The combo articulovino.</param>
         public void refrescarComboboxArticuloDesdeRefCompraProveedor(ComboBox combo_refventasocio, ComboBox combo_articulovino)
         {
             combo_articulovino.Items.Clear();
@@ -288,11 +302,13 @@ namespace proyectovinos
             catch (Exception ex){ MessageBox.Show(ex.Message); }
             finally{ conexionBD.Close(); }
         }
-
-
-
-
-        // Método genérico que cumplimenta un Combobox con los nombres de cualquier atributo de una tabla
+     
+        /// <summary>
+        /// Método genérico que cumplimenta un Combobox con los nombres de cualquier atributo de una tabla 
+        /// </summary>
+        /// <param name="atributo">The atributo.</param>
+        /// <param name="nombreTabla">The nombre tabla.</param>
+        /// <param name="combo_">The combo.</param>
         public void refrescarCombo(string atributo, string nombreTabla, ComboBox combo_)
         {
             combo_.Items.Clear();
@@ -318,8 +334,13 @@ namespace proyectovinos
             finally { conexionBD.Close(); }
         }
 
-
-        // Método que refresca el combo de referencia de compra a proveedor desde venta y artículo
+   
+        /// <summary>
+        /// Método que refresca el combo de referencia de compra a proveedor desde venta y artículo    
+        /// </summary>
+        /// <param name="id_ventasocio">The identifier ventasocio.</param>
+        /// <param name="id_articulo">The identifier articulo.</param>
+        /// <param name="comboBox_refcompraproveedor">The combo box refcompraproveedor.</param>
         public void refrescarComboRefCompraProveedor(int id_ventasocio, int id_articulo, ComboBox comboBox_refcompraproveedor)
         {
             comboBox_refcompraproveedor.Items.Clear();
@@ -351,7 +372,12 @@ namespace proyectovinos
 
         }
 
-        // Función que refresca el combo de compra de proveedor
+     
+        /// <summary>
+        /// Función que refresca el combo de compra de proveedor  
+        /// </summary>
+        /// <param name="id_articulo">The identifier articulo.</param>
+        /// <param name="comboBox_refcompraproveedor">The combo box refcompraproveedor.</param>
         public void refrescarComboRefCompraProveedor2(int id_articulo, ComboBox comboBox_refcompraproveedor)
         {
             comboBox_refcompraproveedor.Items.Clear();
@@ -414,8 +440,11 @@ namespace proyectovinos
             finally { conexionBD.Close(); }
         }
 
-
-        // Método que cumplimenta en un ComboBox en nombre de un empleado
+      
+        /// <summary>
+        /// Método que cumplimenta en un ComboBox en nombre de un empleado
+        /// </summary>
+        /// <param name="comboBox_empleado">The combo box empleado.</param>
         public void cumplimentarComboNombreEmpleado(ComboBox comboBox_empleado)
         {
 
@@ -440,9 +469,12 @@ namespace proyectovinos
             catch (Exception ex){ MessageBox.Show(ex.Message); }
             finally{  conexionBD.Close();  }
         }
-
-
-        // Método que cumplimenta el comboBox de nombre de Catalogaciones que tiene un Proveeedor
+  
+        /// <summary>
+        /// Método que cumplimenta el comboBox de nombre de Catalogaciones que tiene un Proveeedor  
+        /// </summary>
+        /// <param name="refProveedor">The reference proveedor.</param>
+        /// <param name="combo_nombrecatalogacion">The combo nombrecatalogacion.</param>
         public void refrescarComboboxCatalogacionArticuloDesdeNombreProveedor(string refProveedor, ComboBox combo_nombrecatalogacion)
         {
 
@@ -476,7 +508,12 @@ namespace proyectovinos
         }
 
 
-        // Método que cumplimenta el comboBox de referencias de lineas de compra a proveedor que tiene un artículo  /// Referencias con existencias en tienda > 0
+        
+        /// <summary>
+        /// Función que cumplimenta el comboBox de referencias de lineas de compra a proveedor que tiene un artículo  
+        /// </summary>
+        /// <param name="id_articulo">The identifier articulo.</param>
+        /// <param name="combo_reflinea">The combo reflinea.</param>
         public void refrescarComboboxLineaCompraProveedorDesdeId_articulo(int id_articulo, ComboBox combo_reflinea)
         {
             combo_reflinea.Items.Clear();
@@ -509,8 +546,12 @@ namespace proyectovinos
             catch (Exception ex) { MessageBox.Show(ex.Message); }
             finally { conexionBD.Close(); }
         }
-
-        // Método que cumplimenta el comboBox de referencias de lineas de compra a proveedor que tiene un artículo  /// Referencias con existencias en tienda > 0
+   
+        /// <summary>
+        /// Método que cumplimenta el comboBox de referencias de lineas de compra a proveedor que tiene un artículo. Referencias con existencias en tienda > 0   
+        /// </summary>
+        /// <param name="id_articulo">The identifier articulo.</param>
+        /// <param name="combo_reflinea">The combo reflinea.</param>
         public void refrescarComboboxRefCompraProveedorDesdeId_articulo(int id_articulo, ComboBox combo_reflinea)
         {
             combo_reflinea.Items.Clear();
@@ -541,7 +582,5 @@ namespace proyectovinos
             catch (Exception ex) { MessageBox.Show(ex.Message); }
             finally { conexionBD.Close(); }
         }
-
-
     }
 }

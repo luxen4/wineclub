@@ -59,9 +59,9 @@
             this.groupBox3.Controls.Add(this.text_referencia);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(282, 76);
+            this.groupBox3.Location = new System.Drawing.Point(282, 66);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(198, 193);
+            this.groupBox3.Size = new System.Drawing.Size(215, 185);
             this.groupBox3.TabIndex = 116;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cargo Seleccionado";
@@ -70,14 +70,14 @@
             // 
             this.text_nombre.Location = new System.Drawing.Point(6, 37);
             this.text_nombre.Name = "text_nombre";
-            this.text_nombre.Size = new System.Drawing.Size(177, 20);
+            this.text_nombre.Size = new System.Drawing.Size(203, 20);
             this.text_nombre.TabIndex = 61;
             // 
             // text_referencia
             // 
             this.text_referencia.Location = new System.Drawing.Point(6, 76);
             this.text_referencia.Name = "text_referencia";
-            this.text_referencia.Size = new System.Drawing.Size(177, 20);
+            this.text_referencia.Size = new System.Drawing.Size(203, 20);
             this.text_referencia.TabIndex = 63;
             // 
             // label2
@@ -106,7 +106,7 @@
             this.groupBox4.Controls.Add(this.listView1);
             this.groupBox4.Location = new System.Drawing.Point(12, 34);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(252, 235);
+            this.groupBox4.Size = new System.Drawing.Size(252, 217);
             this.groupBox4.TabIndex = 114;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Todos Cargos";
@@ -121,7 +121,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(6, 19);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(240, 210);
+            this.listView1.Size = new System.Drawing.Size(240, 189);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -148,7 +148,7 @@
             this.newToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(557, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(509, 24);
             this.menuStrip2.TabIndex = 117;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -226,12 +226,12 @@
             this.radio_habilitados.UseVisualStyleBackColor = false;
             this.radio_habilitados.CheckedChanged += new System.EventHandler(this.radio_habilitados_CheckedChanged);
             // 
-            // Form_TodosRoles
+            // Form_TodosCargos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(557, 281);
+            this.ClientSize = new System.Drawing.Size(509, 254);
             this.Controls.Add(this.radio_deshabilitados);
             this.Controls.Add(this.radio_habilitados);
             this.Controls.Add(this.menuStrip2);
@@ -240,7 +240,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
-            this.Name = "Form_TodosRoles";
+            this.Name = "Form_TodosCargos";
             this.Text = "WINE CLUB";
             this.Load += new System.EventHandler(this.Form_TodosRolesII_Load);
             this.groupBox3.ResumeLayout(false);
