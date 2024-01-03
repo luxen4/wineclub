@@ -201,9 +201,9 @@
     </Compile>
     <Compile Include="ClaseCompartida.cs" />
     <Compile Include="ConexionBD.cs" />
-    <Compile Include="CumplimentarPictureBoxes.cs" />
+    <Compile Include="_CumplimentarInputs\CumplimentarPictureBoxes.cs" />
     <Compile Include="Consultas.cs" />
-    <Compile Include="CumplimentarTexts.cs" />
+    <Compile Include="_CumplimentarInputs\CumplimentarTexts.cs" />
     <Compile Include="Empleados\Class_Empleado.cs" />
     <Compile Include="Empleados\Class_EmpleadoAperturaForms.cs" />
     <Compile Include="Empleados\Form_ModificarEmpleado.cs">
@@ -259,8 +259,8 @@
     <Compile Include="Reportes\ExistenciasArticulosAlmacenTienda\Informe_ExistenciasAlmacenTienda.Designer.cs">
       <DependentUpon>Informe_ExistenciasAlmacenTienda.cs</DependentUpon>
     </Compile>
-    <Compile Include="CumplimentarListas.cs" />
-    <Compile Include="CumplimentarComboboxes.cs" />
+    <Compile Include="_CumplimentarInputs\CumplimentarListas.cs" />
+    <Compile Include="_CumplimentarInputs\CumplimentarComboboxes.cs" />
     <Compile Include="AperturaFormulariosArticulo.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

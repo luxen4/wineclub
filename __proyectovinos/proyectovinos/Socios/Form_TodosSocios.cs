@@ -55,9 +55,9 @@ namespace proyectovinos
                 if (text_nombreapellidos.Text != "")
                 {
                     consultas.habilitarDesabilitarCualquierReferencia(tabla, "ref", referencia, '0');
-                    listView1.Items.Clear();
-                    socio.cumplimentarListaSocios(listView1,'1');
-                    limpiarCampos();
+                    //listView1.Items.Clear();
+                    //socio.cumplimentarListaSocios(listView1,'1');
+                    limpiarCampos('1');
                 }
                 else {
                     MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
@@ -69,33 +69,43 @@ namespace proyectovinos
             }
         }
 
-        private void limpiarCampos()
-        {
-            text_nombreapellidos.Text = "";
-            check_seguro.Checked = false;
-            pictureBox1.Image = null;
-        }
+  
 
+        private bool cargaLista = false;
+        Utilidades ut = new Utilidades();
 
-
+        /// <summary>
+        /// Handles the ItemChecked event of the listView1 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="ItemCheckedEventArgs"/> instance containing the event data.</param>
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            referencia = e.Item.Text;
-            id_socio = consultas.obtenerCualquierId("id_socio","socio","ref",referencia);
-            int index = e.Item.Index;
-            string nombre = listView1.Items[index].SubItems[1].Text;
-            string apellido1 = listView1.Items[index].SubItems[2].Text;
-            string apellido2 = listView1.Items[index].SubItems[3].Text;
 
-            text_nombreapellidos.Text = nombre + " " + apellido1 + " " + apellido2;
-            socio.agregarImagenPictureBoxSocio(id_socio, pictureBox1);
-            
+            while (cargaLista == false)
+            {
+                cargaLista = true;
+                ut.limpiarChecks(listView1, e);
+
+                referencia = e.Item.Text;
+                id_socio = consultas.obtenerCualquierId("id_socio", "socio", "ref", referencia);
+                int index = e.Item.Index;
+                string nombre = listView1.Items[index].SubItems[1].Text;
+                string apellido1 = listView1.Items[index].SubItems[2].Text;
+                string apellido2 = listView1.Items[index].SubItems[3].Text;
+
+                text_nombreapellidos.Text = nombre + " " + apellido1 + " " + apellido2;
+                socio.agregarImagenPictureBoxSocio(id_socio, pictureBox1);
+
+            }
+            cargaLista = false;
         }
 
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listView1.Items.Clear();
             socio.cumplimentarListaSocios(listView1, '1');
+            referencia = "";
             primeravez = 1;
         }
 
@@ -109,9 +119,9 @@ namespace proyectovinos
                 if (opcionSeleccionada == DialogResult.Yes)
                 {
                     consultas.habilitarDesabilitarCualquierReferencia(tabla, "ref", referencia, '1');
-                    listView1.Items.Clear();
-                    socio.cumplimentarListaSocios(listView1, '0');
-                    limpiarCampos();
+                    //listView1.Items.Clear();
+                    //socio.cumplimentarListaSocios(listView1, '0');
+                    limpiarCampos('0');
                 }
                 else {
                     MessageBox.Show("Tenga cuidado");
@@ -124,27 +134,28 @@ namespace proyectovinos
             referencia = "";
         }
 
+
+        /// <summary>
+        /// Función-controlador que desabilita un socio.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void deshabilitarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             if (referencia != "")
-            {
-                // Pregunte si está seguro de eliminar y si es sí que lo elimine
-                DialogResult opcionSeleccionada = MessageBox.Show("Realmente desea deshabilitar este socio?", "Aviso", MessageBoxButtons.YesNo);
-
-                if (opcionSeleccionada == DialogResult.Yes)
+            {  
+                bool afirmativo = ut.realmenteDesea("deshabilitar","socio");
+                if (afirmativo == true)
                 {
                     consultas.habilitarDesabilitarCualquierReferencia(tabla, "ref", referencia, '0');
-                    listView1.Items.Clear();
-                    socio.cumplimentarListaSocios(listView1, '1');
-                    limpiarCampos();
+                    limpiarCampos('1');
                 }
-                else
-                {
+                else {
                     MessageBox.Show("Tenga cuidado");
                 }
-
-            }else{
+            }
+            else
+            {
                 MessageBox.Show(ClaseCompartida.msgCamposEnBlanco);
             }
             referencia = "";
@@ -182,9 +193,9 @@ namespace proyectovinos
                             Utilidades ut = new Utilidades();
                             ut.eliminarCarpeta("socios", id_socio);
 
-                            listView1.Items.Clear();
-                            socio.cumplimentarListaSocios(listView1, '0');
-                            limpiarCampos(); 
+                            //listView1.Items.Clear();
+                            //socio.cumplimentarListaSocios(listView1, '0');
+                            limpiarCampos('0'); 
                         }
                     }
                 }
@@ -200,25 +211,28 @@ namespace proyectovinos
             
         }
 
+        /// <summary>
+        /// Función-controlador que habilita y deshabilita enlaces del menuStrip y cumplimenta la lista de socios habilitados.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
-            socio.cumplimentarListaSocios(listView1, '1');
-            habilitarToolStripMenuItem.Enabled = false;
-            deshabilitarToolStripMenuItem.Enabled = true;
-            eliminarToolStripMenuItem.Enabled = false;
-            actualizarToolStripMenuItem.Enabled = true;
+            ut.habilitarEnlacesMenuStripSinNewNiSave(actualizarToolStripMenuItem, habilitarToolStripMenuItem, 
+                deshabilitarToolStripMenuItem, eliminarToolStripMenuItem);
+
+            limpiarCampos('1');
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
-            socio.cumplimentarListaSocios(listView1, '0');
-            habilitarToolStripMenuItem.Enabled=true;
-            deshabilitarToolStripMenuItem.Enabled = false;
-            eliminarToolStripMenuItem.Enabled=true;
-            actualizarToolStripMenuItem.Enabled=false;
+            ut.deshabilitarEnlacesMenuStripSinNewNiSave(actualizarToolStripMenuItem, habilitarToolStripMenuItem, 
+                deshabilitarToolStripMenuItem, eliminarToolStripMenuItem);
+            
+            limpiarCampos('0');
         }
+
+        // Apertura de formularios
 
         private void nuevoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -228,6 +242,30 @@ namespace proyectovinos
         private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             socioAperturaForms.modificarSocio(); 
+        }
+
+
+        /// <summary>
+        /// Función que pone los campos en modo predeterminado.
+        /// </summary>
+        private void limpiarCampos(char opcion)
+        {
+            text_nombreapellidos.Text = "";
+            check_seguro.Checked = false;
+            pictureBox1.Image = null;
+           
+
+
+            listView1.Items.Clear();
+            socio.cumplimentarListaSocios(listView1, opcion); 
+            referencia = "";
+
+            if (opcion == '1') {
+                groupBox1.Text = "Todos Socios Habilitados";
+            } else if (opcion == '0') {
+                groupBox1.Text = "Todos Socios Deshabilitados";
+            }
+           
         }
     }
 }

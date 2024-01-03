@@ -403,9 +403,6 @@ namespace proyectovinos
 
 
 
-
-
-
                                         // De momento con Empleado, *** Intentar con las demás ***
         /// <summary>
         /// Limpiars the checks.
@@ -448,6 +445,62 @@ namespace proyectovinos
                     pictureBox1.Image = Image.FromStream(stream.BaseStream);
                 }
             }
+        }
+
+        internal void habilitarEnlacesMenuStripSinNewNiSave(ToolStripMenuItem actualizarToolStripMenuItem, ToolStripMenuItem habilitarToolStripMenuItem, ToolStripMenuItem deshabilitarToolStripMenuItem, ToolStripMenuItem eliminarToolStripMenuItem)
+        {
+            actualizarToolStripMenuItem.Enabled = true;
+            habilitarToolStripMenuItem.Enabled = false;
+            deshabilitarToolStripMenuItem.Enabled = true;
+            eliminarToolStripMenuItem.Enabled = false;
+        }
+
+        internal void deshabilitarEnlacesMenuStripSinNewNiSave(ToolStripMenuItem actualizarToolStripMenuItem, ToolStripMenuItem habilitarToolStripMenuItem, ToolStripMenuItem deshabilitarToolStripMenuItem, ToolStripMenuItem eliminarToolStripMenuItem)
+        {
+            actualizarToolStripMenuItem.Enabled = false;
+            habilitarToolStripMenuItem.Enabled = true;
+            deshabilitarToolStripMenuItem.Enabled = false;
+            eliminarToolStripMenuItem.Enabled = true;
+        }
+
+
+
+        /// <summary>
+        /// Función que pregunta si se está seguro de hacer una acción.
+        /// </summary>
+        /// <param name="proposito">The proposito.</param>
+        /// <returns></returns>
+        internal bool realmenteDesea(string proposito, string entidad)
+        {
+            DialogResult opcionSeleccionada = MessageBox.Show("Realmente desea " + proposito + " este " + entidad + " ?", "Aviso", MessageBoxButtons.YesNo);
+
+            if (opcionSeleccionada == DialogResult.Yes)
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Tenga cuidado");
+                return false;
+            }
+        }
+
+
+
+
+        internal void cargarNuevaImagen(PictureBox pictureBox1)
+        {
+            
+            OpenFileDialog ofdSeleccionar = new OpenFileDialog();
+            ofdSeleccionar.Filter = "Imagenes|*.jpg; *.png";
+            ofdSeleccionar.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            ofdSeleccionar.Title = "Seleccionar imagen";
+
+            if (ofdSeleccionar.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = System.Drawing.Image.FromFile(ofdSeleccionar.FileName);
+            }
+            
         }
     }
 }

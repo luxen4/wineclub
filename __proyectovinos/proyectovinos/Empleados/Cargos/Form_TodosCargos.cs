@@ -235,11 +235,13 @@ namespace proyectovinos.Roles
             }
         }
 
-
+        /// <summary>
+        /// Handles the CheckedChanged event of the radio_habilitados control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void radio_habilitados_CheckedChanged(object sender, EventArgs e)
         {
-            //enlacesHabilitados();
-
             ut.habilitarEnlacesMenuStrip(actualizarToolStripMenuItem, habilitarToolStripMenuItem, deshabilitarToolStripMenuItem,
                  eliminarToolStripMenuItem, saveToolStripMenuItem, newToolStripMenuItem);
 
@@ -248,13 +250,16 @@ namespace proyectovinos.Roles
             limpiarCampos();
         }
 
+
+        /// <summary>
+        /// Handles the CheckedChanged event of the radio_deshabilitados control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void radio_deshabilitados_CheckedChanged(object sender, EventArgs e)
         {
-            //enlacesDeshabilitados();
-
             ut.deshabilitarEnlacesMenuStrip(actualizarToolStripMenuItem, habilitarToolStripMenuItem, deshabilitarToolStripMenuItem,
                eliminarToolStripMenuItem, saveToolStripMenuItem, newToolStripMenuItem);
-
 
             cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '0');
             limpiarCampos();

@@ -49,7 +49,13 @@ namespace proyectovinos
         public static string carpetafacturas_absoluta = "C:/wineclub/facturas/socios/";
 
         public static string refVentaSocio = "";
+
+
+      
     }
+
+    
+
 }
 // relativa
 // string folderPath = @"../../img/empleados/empleadopredeterminada.jpg";

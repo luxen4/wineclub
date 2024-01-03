@@ -177,7 +177,7 @@ namespace proyectovinos
             }
             else
             {
-                //MessageBox.Show("No incluyo en esta parte");
+                //MessageBox.Show("No hay más en tienda");
             }
 
             seEncuentra = false;
@@ -259,7 +259,12 @@ namespace proyectovinos
         }
 
 
-        // Metodo que comprueba si un item se encuentra repetido
+        /// <summary>
+        /// Metodo que comprueba si un item se encuentra repetido
+        /// </summary>
+        /// <param name="referenciaArticulo"></param>
+        /// <param name="referenciaCompraProveedor"></param>
+        /// <returns></returns>
         private bool comprobarItem(string referenciaArticulo, string referenciaCompraProveedor)
         {
             seEncuentra = false;
@@ -271,14 +276,37 @@ namespace proyectovinos
                     //MessageBox.Show("Ya se encuentra referencia Artículo " + listView1.Items[i].SubItems[0].Text);
                     //MessageBox.Show("Ya se encuentra referencia Compra Proveedor " + listView1.Items[i].SubItems[1].Text);
 
-                    decimal sumaCantidades = Int32.Parse(listView1.Items[i].SubItems[4].Text) + numeric_cantidad.Value;
-                    listView1.Items[i].SubItems[4].Text = sumaCantidades.ToString();
 
+                    
+
+
+
+                    decimal sumaCantidades = Int32.Parse(listView1.Items[i].SubItems[4].Text) + numeric_cantidad.Value;
+
+                    if (sumaCantidades <= Int32.Parse(text_unidadestienda.Text))
+                    {
+
+                        listView1.Items[i].SubItems[4].Text = sumaCantidades.ToString();
+
+                        decimal totalArticulo = Decimal.Parse(listView1.Items[i].SubItems[4].Text) * Decimal.Parse(listView1.Items[i].SubItems[5].Text);
+                        listView1.Items[i].SubItems[6].Text = totalArticulo.ToString();
+                        seEncuentra = true;
+                        return seEncuentra;
+
+                    }
+                    else {
+                        MessageBox.Show("No hay tantas existencias en tienda");
+                        text_unidadestienda.Text = "0";
+                        seEncuentra = true;
+                    }
+
+                    /*
+                    listView1.Items[i].SubItems[4].Text = sumaCantidades.ToString();
 
                     decimal totalArticulo = Decimal.Parse(listView1.Items[i].SubItems[4].Text) * Decimal.Parse(listView1.Items[i].SubItems[5].Text);
                     listView1.Items[i].SubItems[6].Text = totalArticulo.ToString();
                     seEncuentra = true;
-                    return seEncuentra;
+                    return seEncuentra;*/
                 }
             }
             return seEncuentra;
@@ -292,7 +320,11 @@ namespace proyectovinos
 
 
 
-    // Método que al incrementar el botón de cantidad, compruebe que hay suficientes para vender
+    /// <summary>
+    /// Método que al incrementar el botón de cantidad, compruebe que hay suficientes para vender
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
         private void numeric_cantidad_ValueChanged(object sender, EventArgs e)
         {
             //text_unidadestienda.Text = (Int32.Parse(text_unidadestienda.Text) - numeric_cantidad.Value).ToString();
@@ -336,7 +368,10 @@ namespace proyectovinos
         }
 
 
-        //Code to Export data to PDF file
+        /// <summary>
+        /// Code to Export data to PDF file
+        /// </summary>
+        /// <param name="refVenta"></param>
         public void aPdf(string refVenta)
         {
             PdfDocument document = new PdfDocument();
@@ -415,7 +450,11 @@ namespace proyectovinos
             primeravez = 1;
         }
 
-        // // Carga para el artículo 2
+        /// <summary>
+        /// Carga para el artículo 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cargaArticulo2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             text_proveedor.Text = "CAMPO VIEJO";

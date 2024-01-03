@@ -55,7 +55,14 @@ namespace proyectovinos
         }
 
 
-        // Método que devuelve un registro de una tabla desde otro registro de la misma tabla
+        /// <summary>
+        /// Método que devuelve un registro de una tabla desde otro registro de la misma tabla
+        /// </summary>
+        /// <param name="referencia"></param>
+        /// <param name="nombreTabla"></param>
+        /// <param name="whereAtributo"></param>
+        /// <param name="valorAtributo"></param>
+        /// <returns></returns>
         public string obtenerCualquierRefDesdeNombre(string referencia, string nombreTabla, string whereAtributo, string valorAtributo)
         {
             string reff = "";
@@ -83,7 +90,14 @@ namespace proyectovinos
         }
 
 
-        // Método que devuelve la ref desde un nombre
+        /// <summary>
+        /// Método que devuelve la ref desde un nombre
+        /// </summary>
+        /// <param name="refe"></param>
+        /// <param name="nombreTabla"></param>
+        /// <param name="whereAtributo"></param>
+        /// <param name="valorAtributo"></param>
+        /// <returns></returns>
         public string obtenerCualquierRefDesdeId(string refe, string nombreTabla, string whereAtributo, int valorAtributo)
         {
             string referencia = "";
@@ -111,7 +125,14 @@ namespace proyectovinos
         }
 
 
-        // Método que devuelve el nombre del registro de una tabla desde su referencia 
+        /// <summary>
+        /// Método que devuelve el nombre del registro de una tabla desde su referencia 
+        /// </summary>
+        /// <param name="atributoInner"></param>
+        /// <param name="nombreTabla"></param>
+        /// <param name="whereAtributo"></param>
+        /// <param name="referenciaArticulo"></param>
+        /// <returns></returns>
         public string obtenerCualquierNombre(string atributoInner, string nombreTabla, string whereAtributo, string referenciaArticulo)
         {
             string nombre = "";
@@ -140,7 +161,12 @@ namespace proyectovinos
             return nombre;
         }
 
-        // Método genérico que elimina un registro de una tabla desde su referencia 
+        /// <summary>
+        /// Método genérico que elimina un registro de una tabla desde su referencia 
+        /// </summary>
+        /// <param name="tabla"></param>
+        /// <param name="whereAtributo"></param>
+        /// <param name="valorAtributo"></param>
         public void eliminarCualquierId(string tabla, string whereAtributo, int valorAtributo)
         {
             ConexionBD con = new ConexionBD();
@@ -165,7 +191,13 @@ namespace proyectovinos
         }
 
         
-        // Método genérico que elimina un registro desde su referencia en cualquier tabla
+        /// <summary>
+        /// Método genérico que elimina un registro desde su referencia en cualquier tabla
+        /// </summary>
+        /// <param name="tabla"></param>
+        /// <param name="whereAtributo"></param>
+        /// <param name="valorAtributo"></param>
+        /// <param name="activo"></param>
         public void habilitarDesabilitarCualquierReferencia(string tabla, string whereAtributo, string valorAtributo, char activo)
         {
             ConexionBD con = new ConexionBD();
@@ -190,7 +222,15 @@ namespace proyectovinos
         }
 
 
-        // Método genérico que modifica cualquier tabla
+        /// <summary>
+        /// Método genérico que modifica cualquier tabla
+        /// </summary>
+        /// <param name="nombreTabla"></param>
+        /// <param name="nuevareferencia"></param>
+        /// <param name="nuevonombre"></param>
+        /// <param name="whereAtributo"></param>
+        /// <param name="atributoValor"></param>
+        /// <param name="listView1"></param>
         public void modificarCualquierTabla(string nombreTabla, string nuevareferencia, string nuevonombre, string whereAtributo, string atributoValor, ListView listView1)
         {
             ConexionBD con = new ConexionBD();
@@ -216,7 +256,15 @@ namespace proyectovinos
         }
 
 
+        /// <summary>
         /// Método que inserta un nuevo registro en cualquier tabla de caracteristicas de vino
+        /// </summary>
+        /// <param name="nombreTabla"></param>
+        /// <param name="nombreId"></param>
+        /// <param name="valorId"></param>
+        /// <param name="valorReferencia"></param>
+        /// <param name="valorNombre"></param>
+        /// <returns></returns>
         public bool insertTablaCaracteristicasDinamico(string nombreTabla, string nombreId, int valorId, string valorReferencia, string valorNombre)
         {
             ConexionBD con = new ConexionBD();
@@ -281,7 +329,14 @@ namespace proyectovinos
         }
 
 
-        // Método que devuelve el último id de una tabla
+        /// <summary>
+        /// Método que devuelve el último id de una tabla
+        /// </summary>
+        /// <param name="nombreId"></param>
+        /// <param name="tabla"></param>
+        /// <param name="refe"></param>
+        /// <param name="text_nuevareferencia"></param>
+        /// <returns></returns>
         public int referenciaPredeterminada(string nombreId,string tabla, string refe, System.Windows.Forms.TextBox text_nuevareferencia)
         {
             int max_id = idMax(nombreId, tabla);
@@ -292,7 +347,11 @@ namespace proyectovinos
 
 
 
-        // Método que devuelve los nombres de las Caracteristicas de vino desde la referencia de artículo
+        /// <summary>
+        /// Método que devuelve los nombres de las Caracteristicas de vino desde la referencia de artículo
+        /// </summary>
+        /// <param name="referencia"></param>
+        /// <returns></returns>
         public string[] nombresCaracteristicas(string referencia)
         {
             string[] nombres = new string[6];

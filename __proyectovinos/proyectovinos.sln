@@ -14,6 +14,8 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WINCLUB_setUp", "..\..\..\W
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupWineClub", "..\..\..\..\..\SetupWineClub\SetupWineClub.vdproj", "{646DC7C9-9AEB-408E-8152-A7556728079F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{4BAA3868-92DD-4554-93C4-A091A62956BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{65EAF074-15BF-4166-8B5B-E410BD3A4873}.Release|Any CPU.ActiveCfg = Release
 		{646DC7C9-9AEB-408E-8152-A7556728079F}.Debug|Any CPU.ActiveCfg = Debug
 		{646DC7C9-9AEB-408E-8152-A7556728079F}.Release|Any CPU.ActiveCfg = Release
+		{4BAA3868-92DD-4554-93C4-A091A62956BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BAA3868-92DD-4554-93C4-A091A62956BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BAA3868-92DD-4554-93C4-A091A62956BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BAA3868-92DD-4554-93C4-A091A62956BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

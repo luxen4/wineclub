@@ -135,17 +135,26 @@ namespace proyectovinos
             text_apellidosnuevo.Text = ""; text_localidad.Text = ""; text_provincia.Text = "";
             text_referencianueva.Text = ""; text_email.Text = ""; check_recibirinfo.Checked = false;
             radio_hombre.Checked = true;
+            pictureBox1.Image = null;
 
         }
 
         private string refSocio = "";
 
 
+
         private void combo_socio_SelectedIndexChanged(object sender, EventArgs e)
         {
             refSocio = combo_socio.Text;
             id_socio = consultas.obtenerCualquierId("id_socio", "socio", "ref", refSocio);
-            socio.agregarImagenPictureBoxSocio(id_socio, pictureBox1);
+
+            //socio.agregarImagenPictureBoxSocio(id_socio, pictureBox1);
+
+            string folderPathPropia = ClaseCompartida.carpetaimg_absoluta + "socios/" + id_socio + "/perfil/foto1.jpg";
+            string folderPathPredeterminada = ClaseCompartida.carpetaimg_absoluta + "socios/predeterminada.jpg";
+            ut.cargarImagen(pictureBox1, folderPathPropia, folderPathPredeterminada);
+
+
 
             string[] datos = socio.datosSocioo(id_socio);
             text_nombrenuevo.Text = datos[0];
@@ -186,11 +195,15 @@ namespace proyectovinos
             {
                 if (text_referencianueva.Text != "")
                 {
-                    bool insertado = modificarSocio();
+                    bool modificado = modificarSocio();
 
-                    if (insertado == true)
+                    if (modificado == true)
                     {
+                        socio.salvarImagenEnCarpetaSocio(pictureBox1, id_socio);
                         limpiarCampos();
+                    }
+                    else {
+                        MessageBox.Show("No insertado");
                     }
                 }
                 else
@@ -210,10 +223,11 @@ namespace proyectovinos
             combos.cumplimenterComboboxSocio(combo_socio);
         }
 
+        Utilidades ut = new Utilidades();
+
         private void butn_subirfoto_Click(object sender, EventArgs e)
         {
-            Class_Socio socio = new Class_Socio();
-            socio.cargarImagen(pictureBox1);
+            ut.cargarNuevaImagen(pictureBox1);
         }
     }
 }

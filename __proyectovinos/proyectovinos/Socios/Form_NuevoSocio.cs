@@ -215,7 +215,7 @@ namespace proyectovinos
             }
         }
 
-
+        Utilidades ut = new Utilidades();
 
         /// <summary>
         /// Método que hace subir una fotografía de un Socio .
@@ -224,17 +224,10 @@ namespace proyectovinos
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void button1_Click(object sender, EventArgs e)
         {
-            /*OpenFileDialog ofdSeleccionar = new OpenFileDialog();
-            ofdSeleccionar.Filter = "Imagenes|*.jpg; *.png";
-            ofdSeleccionar.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-            ofdSeleccionar.Title = "Seleccionar imagen";
+            //Class_Socio socio = new Class_Socio();
+            //socio.cargarImagen(pictureBox1);
 
-            if (ofdSeleccionar.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox1.Image = System.Drawing.Image.FromFile(ofdSeleccionar.FileName);
-            }*/
-            Class_Socio socio = new Class_Socio();
-            socio.cargarImagen(pictureBox1);
+            ut.cargarNuevaImagen(pictureBox1);
         }
 
         /// <summary>

@@ -516,6 +516,14 @@ namespace proyectovinos
             Class_ArticuloAperturaForms apertura = new Class_ArticuloAperturaForms();
             apertura.todosArticulosVino();
         }
+
+
+
+
+        public int sumar(int primerNumero, int segundoNumero)
+        {
+            return primerNumero + segundoNumero;
+        }
     }
 }
 

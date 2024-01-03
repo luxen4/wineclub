@@ -24,7 +24,11 @@ namespace proyectovinos.Socios
         Utilidades ut = new Utilidades();
         Consultas consultas = new Consultas();
 
-        // Método que devuelve los datos de un Socio
+        /// <summary>
+        /// Método que devuelve los datos de un Socio
+        /// </summary>
+        /// <param name="id_socio"></param>
+        /// <returns></returns>
         public string[] datosSocioo(int id_socio){
 
             string[] datosSocio = new string[10];
@@ -67,7 +71,14 @@ namespace proyectovinos.Socios
 
 
 
-        // Método que registra la Venta de un Socio
+        /// <summary>
+        /// Método que registra la Venta de un Socio
+        /// </summary>
+        /// <param name="id_ventasocio"></param>
+        /// <param name="id_empleado"></param>
+        /// <param name="id_socio"></param>
+        /// <param name="fechaActual"></param>
+        /// <returns></returns>
         public bool registrarVentaSocio(int id_ventasocio,int id_empleado,int id_socio, string fechaActual)
         {/* '2023-07-16 8:21:11 ' timeStamp*/
 
@@ -109,7 +120,11 @@ namespace proyectovinos.Socios
 
 
 
-        // Método que cumplimenta la lista de Socios
+        /// <summary>
+        /// Método que cumplimenta la lista de Socios
+        /// </summary>
+        /// <param name="listView1"></param>
+        /// <param name="activo"></param>
         public void infoLista(ListView listView1, char activo)
         {
             ConexionBD con = new ConexionBD();
@@ -143,7 +158,11 @@ namespace proyectovinos.Socios
         }
 
 
-        // Método que obtiene el id_socio de una venta
+        /// <summary>
+        /// Método que obtiene el id_socio de una venta
+        /// </summary>
+        /// <param name="refVentaSocio"></param>
+        /// <returns></returns>
         public int obtener_id_socioDesdeRefVentaSocio(string refVentaSocio)
         {
             int id_socio = 0;
@@ -194,7 +213,11 @@ namespace proyectovinos.Socios
             //agregarImagenPictureBoxSocio(carpeta, pictureBox1);
         }
 
-        // Método que agrega una imagen de Empleado a un PictureBox
+        /// <summary>
+        /// Método que agrega una imagen de Empleado a un PictureBox
+        /// </summary>
+        /// <param name="id_socio"></param>
+        /// <param name="pictureBox1"></param>
         public void agregarImagenPictureBoxSocio(int id_socio, PictureBox pictureBox1)
         {
             try
@@ -220,7 +243,11 @@ namespace proyectovinos.Socios
 
 
 
-        // Método que cumplimenta una lista de datos de Socios
+        /// <summary>
+        /// Método que cumplimenta una lista de datos de Socios
+        /// </summary>
+        /// <param name="listView1"></param>
+        /// <param name="activo"></param>
         internal void cumplimentarListaSocios(ListView listView1, char activo)
         {
                 ConexionBD con = new ConexionBD();
@@ -263,19 +290,50 @@ namespace proyectovinos.Socios
         }
 
         /// <summary>
-        /// Cargars the imagen.
+        /// Salvars the imagen en carpeta socio.
         /// </summary>
         /// <param name="pictureBox1">The picture box1.</param>
-        internal void cargarImagen(PictureBox pictureBox1)
+        /// <param name="id_socio">The identifier socio.</param>
+        internal void salvarImagenEnCarpetaSocio(PictureBox pictureBox1, int id_socio)
         {
-            OpenFileDialog ofdSeleccionar = new OpenFileDialog();
-            ofdSeleccionar.Filter = "Imagenes|*.jpg; *.png";
-            ofdSeleccionar.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-            ofdSeleccionar.Title = "Seleccionar imagen";
-
-            if (ofdSeleccionar.ShowDialog() == DialogResult.OK)
+            try
             {
-                pictureBox1.Image = System.Drawing.Image.FromFile(ofdSeleccionar.FileName);
+                // string folderPath = @"C:\MyFoldera";
+                string folderPath = ClaseCompartida.carpetaimg_absoluta + "socios/" + id_socio + "/perfil/";
+
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                    Console.WriteLine(folderPath);
+
+                    salvarImagenSocio(pictureBox1, id_socio);
+                }
+                else {
+                    salvarImagenSocio(pictureBox1, id_socio);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ClaseCompartida.msgErrorGeneral + "->" + ex);
+            }
+        }
+
+        /// <summary>
+        /// Salvars the imagen socio.
+        /// </summary>
+        /// <param name="pictureBox1">The picture box1.</param>
+        /// <param name="id_socio">The identifier socio.</param>
+        private void salvarImagenSocio(PictureBox pictureBox1, int id_socio)
+        {
+            if (pictureBox1.Image != null)
+            {
+                pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "socios/" + id_socio + "/perfil/foto1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+            else
+            {
+                // Se mete la imagen predeterminada
+                pictureBox1.Image = System.Drawing.Image.FromFile(ClaseCompartida.carpetaimg_absoluta + "socios/predeterminada.jpg");
+                pictureBox1.Image.Save(ClaseCompartida.carpetaimg_absoluta + "socios/" + id_socio + "/perfil/predeterminada.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
             }
         }
     }

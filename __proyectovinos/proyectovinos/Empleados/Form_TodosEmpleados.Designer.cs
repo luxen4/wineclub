@@ -377,6 +377,7 @@
             this.button_subirImagen.TabIndex = 51;
             this.button_subirImagen.Text = "Subir Imagen";
             this.button_subirImagen.UseVisualStyleBackColor = true;
+            this.button_subirImagen.Click += new System.EventHandler(this.button_subirImagen_Click);
             // 
             // label18
             // 
