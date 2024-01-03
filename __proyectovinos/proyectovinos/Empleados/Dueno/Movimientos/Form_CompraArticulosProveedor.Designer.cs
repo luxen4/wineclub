@@ -36,7 +36,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.numeric_cantidad = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_cantidad = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.numericUpDown_unidadesacomprar = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,16 +46,27 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label_referencia = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.text_refcompraproveedor = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.text_clasevino = new System.Windows.Forms.TextBox();
+            this.text_catalogacion = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.text_denominacion = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.text_proveedor = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.combo_refarticulo = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.text_catalogacion = new System.Windows.Forms.TextBox();
-            this.text_proveedor = new System.Windows.Forms.TextBox();
-            this.text_denominacion = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -70,30 +81,19 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cOMPRARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.text_clasevino = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numeric_cantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_cantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_unidadesacomprar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_preciocoste)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // text_formatocontenido
@@ -142,7 +142,7 @@
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
             this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.numeric_cantidad);
+            this.groupBox3.Controls.Add(this.numericUpDown_cantidad);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.numericUpDown_unidadesacomprar);
             this.groupBox3.Controls.Add(this.label4);
@@ -168,13 +168,13 @@
             this.label15.TabIndex = 87;
             this.label15.Text = "Precio Venta:";
             // 
-            // numeric_cantidad
+            // numericUpDown_cantidad
             // 
-            this.numeric_cantidad.DecimalPlaces = 2;
-            this.numeric_cantidad.Location = new System.Drawing.Point(233, 35);
-            this.numeric_cantidad.Name = "numeric_cantidad";
-            this.numeric_cantidad.Size = new System.Drawing.Size(60, 20);
-            this.numeric_cantidad.TabIndex = 88;
+            this.numericUpDown_cantidad.DecimalPlaces = 2;
+            this.numericUpDown_cantidad.Location = new System.Drawing.Point(233, 35);
+            this.numericUpDown_cantidad.Name = "numericUpDown_cantidad";
+            this.numericUpDown_cantidad.Size = new System.Drawing.Size(60, 20);
+            this.numericUpDown_cantidad.TabIndex = 88;
             // 
             // button1
             // 
@@ -278,6 +278,93 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Compra Artículos a Proveedor";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(602, 28);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(214, 138);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 141;
+            this.pictureBox3.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.text_empaquetado);
+            this.groupBox1.Controls.Add(this.text_formatocontenido);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.text_unidadestienda);
+            this.groupBox1.Controls.Add(this.text_unidadesalmacen);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Location = new System.Drawing.Point(391, 84);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(184, 124);
+            this.groupBox1.TabIndex = 143;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Existencias";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(29, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.TabIndex = 65;
+            this.label1.Text = "Formato:";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(27, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Almacén:";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(35, 46);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Tienda:";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(2, 99);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 13);
+            this.label6.TabIndex = 44;
+            this.label6.Text = "Empaquetado:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(348, 60);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 13);
+            this.label9.TabIndex = 44;
+            // 
             // text_refcompraproveedor
             // 
             this.text_refcompraproveedor.Enabled = false;
@@ -286,6 +373,102 @@
             this.text_refcompraproveedor.Size = new System.Drawing.Size(78, 20);
             this.text_refcompraproveedor.TabIndex = 101;
             this.text_refcompraproveedor.Tag = "...";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Controls.Add(this.text_clasevino);
+            this.groupBox5.Controls.Add(this.text_catalogacion);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.text_denominacion);
+            this.groupBox5.Controls.Add(this.label13);
+            this.groupBox5.Controls.Add(this.text_proveedor);
+            this.groupBox5.Controls.Add(this.label18);
+            this.groupBox5.Location = new System.Drawing.Point(185, 84);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(200, 124);
+            this.groupBox5.TabIndex = 142;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Características";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Location = new System.Drawing.Point(2, 102);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(72, 13);
+            this.label12.TabIndex = 144;
+            this.label12.Text = "Catalogación:";
+            // 
+            // text_clasevino
+            // 
+            this.text_clasevino.Enabled = false;
+            this.text_clasevino.Location = new System.Drawing.Point(74, 45);
+            this.text_clasevino.Name = "text_clasevino";
+            this.text_clasevino.Size = new System.Drawing.Size(114, 20);
+            this.text_clasevino.TabIndex = 64;
+            // 
+            // text_catalogacion
+            // 
+            this.text_catalogacion.Enabled = false;
+            this.text_catalogacion.Location = new System.Drawing.Point(75, 96);
+            this.text_catalogacion.Name = "text_catalogacion";
+            this.text_catalogacion.Size = new System.Drawing.Size(113, 20);
+            this.text_catalogacion.TabIndex = 53;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(9, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 114;
+            this.label2.Text = "Proveedor:";
+            // 
+            // text_denominacion
+            // 
+            this.text_denominacion.Enabled = false;
+            this.text_denominacion.Location = new System.Drawing.Point(75, 71);
+            this.text_denominacion.Name = "text_denominacion";
+            this.text_denominacion.Size = new System.Drawing.Size(113, 20);
+            this.text_denominacion.TabIndex = 55;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Location = new System.Drawing.Point(8, 50);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(60, 13);
+            this.label13.TabIndex = 63;
+            this.label13.Text = "Clase Vino:";
+            // 
+            // text_proveedor
+            // 
+            this.text_proveedor.Enabled = false;
+            this.text_proveedor.Location = new System.Drawing.Point(75, 22);
+            this.text_proveedor.Name = "text_proveedor";
+            this.text_proveedor.Size = new System.Drawing.Size(113, 20);
+            this.text_proveedor.TabIndex = 113;
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Location = new System.Drawing.Point(40, 74);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(32, 13);
+            this.label18.TabIndex = 54;
+            this.label18.Text = "D.O.:";
             // 
             // groupBox7
             // 
@@ -332,53 +515,6 @@
             this.combo_refarticulo.TabIndex = 113;
             this.combo_refarticulo.Text = "Seleccione";
             this.combo_refarticulo.SelectedIndexChanged += new System.EventHandler(this.combo_refarticulo_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(9, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 114;
-            this.label2.Text = "Proveedor:";
-            // 
-            // text_catalogacion
-            // 
-            this.text_catalogacion.Enabled = false;
-            this.text_catalogacion.Location = new System.Drawing.Point(75, 96);
-            this.text_catalogacion.Name = "text_catalogacion";
-            this.text_catalogacion.Size = new System.Drawing.Size(113, 20);
-            this.text_catalogacion.TabIndex = 53;
-            // 
-            // text_proveedor
-            // 
-            this.text_proveedor.Enabled = false;
-            this.text_proveedor.Location = new System.Drawing.Point(75, 22);
-            this.text_proveedor.Name = "text_proveedor";
-            this.text_proveedor.Size = new System.Drawing.Size(113, 20);
-            this.text_proveedor.TabIndex = 113;
-            // 
-            // text_denominacion
-            // 
-            this.text_denominacion.Enabled = false;
-            this.text_denominacion.Location = new System.Drawing.Point(75, 71);
-            this.text_denominacion.Name = "text_denominacion";
-            this.text_denominacion.Size = new System.Drawing.Size(113, 20);
-            this.text_denominacion.TabIndex = 55;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Location = new System.Drawing.Point(8, 50);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 13);
-            this.label13.TabIndex = 63;
-            this.label13.Text = "Clase Vino:";
             // 
             // groupBox4
             // 
@@ -484,142 +620,6 @@
             this.cOMPRARToolStripMenuItem.Text = "Comprar";
             this.cOMPRARToolStripMenuItem.Click += new System.EventHandler(this.cOMPRARToolStripMenuItem_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.text_empaquetado);
-            this.groupBox1.Controls.Add(this.text_formatocontenido);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.text_unidadestienda);
-            this.groupBox1.Controls.Add(this.text_unidadesalmacen);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(391, 84);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(184, 124);
-            this.groupBox1.TabIndex = 143;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Existencias";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 72);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
-            this.label1.TabIndex = 65;
-            this.label1.Text = "Formato:";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(27, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Almacén:";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(35, 46);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
-            this.label5.TabIndex = 42;
-            this.label5.Text = "Tienda:";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(2, 99);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 13);
-            this.label6.TabIndex = 44;
-            this.label6.Text = "Empaquetado:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(348, 60);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 13);
-            this.label9.TabIndex = 44;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Controls.Add(this.text_clasevino);
-            this.groupBox5.Controls.Add(this.text_catalogacion);
-            this.groupBox5.Controls.Add(this.label2);
-            this.groupBox5.Controls.Add(this.text_denominacion);
-            this.groupBox5.Controls.Add(this.label13);
-            this.groupBox5.Controls.Add(this.text_proveedor);
-            this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Location = new System.Drawing.Point(185, 84);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(200, 124);
-            this.groupBox5.TabIndex = 142;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Características";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Location = new System.Drawing.Point(2, 102);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(72, 13);
-            this.label12.TabIndex = 144;
-            this.label12.Text = "Catalogación:";
-            // 
-            // text_clasevino
-            // 
-            this.text_clasevino.Enabled = false;
-            this.text_clasevino.Location = new System.Drawing.Point(74, 45);
-            this.text_clasevino.Name = "text_clasevino";
-            this.text_clasevino.Size = new System.Drawing.Size(114, 20);
-            this.text_clasevino.TabIndex = 64;
-            // 
-            // label18
-            // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Location = new System.Drawing.Point(40, 74);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(32, 13);
-            this.label18.TabIndex = 54;
-            this.label18.Text = "D.O.:";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(602, 28);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(214, 138);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 141;
-            this.pictureBox3.TabStop = false;
-            // 
             // Form_CompraArticulosProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -639,22 +639,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numeric_cantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_cantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_unidadesacomprar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_preciocoste)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -668,7 +668,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.NumericUpDown numeric_cantidad;
+        private System.Windows.Forms.NumericUpDown numericUpDown_cantidad;
         private System.Windows.Forms.NumericUpDown numericUpDown_unidadesacomprar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;

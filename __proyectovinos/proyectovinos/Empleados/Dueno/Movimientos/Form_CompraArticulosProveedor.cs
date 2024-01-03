@@ -176,7 +176,7 @@ namespace proyectovinos
             numericUpDown_unidadesacomprar.Enabled = false;
             numericUpDown_unidadesacomprar.Value = 0;
             numericUpDown_preciocoste.Value = 0;
-            numeric_cantidad.Value = 0;
+            numericUpDown_cantidad.Value = 0;
             pictureBox1.Image = null;   
             pictureBox3.Image = null;
         }
@@ -196,8 +196,8 @@ namespace proyectovinos
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void button1_Click(object sender, EventArgs e)
         {
-            if (numericUpDown_unidadesacomprar.Value == 0){
-                    MessageBox.Show("Campos en blanco!");
+            if (numericUpDown_unidadesacomprar.Value == 0 || numericUpDown_cantidad.Value==0 || numericUpDown_preciocoste.Value==0){
+                    MessageBox.Show("Cumplimente las cantidad y precios de cste y venta");
             }else{
                     
                 string refArticulo = combo_refarticulo.Text;
@@ -236,12 +236,16 @@ namespace proyectovinos
             itemAgregar.SubItems.Add(numericUpDown_preciocoste.Value.ToString());
 
             itemAgregar.SubItems.Add(totalArticulo);
-            itemAgregar.SubItems.Add(numeric_cantidad.Value.ToString());
+            itemAgregar.SubItems.Add(numericUpDown_cantidad.Value.ToString());
 
             listView1.Items.Add(itemAgregar);
         }
 
-
+        /// <summary>
+        /// Handles the ItemChecked event of the listView1 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="ItemCheckedEventArgs"/> instance containing the event data.</param>
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             if (primeraVez == 1)
@@ -336,7 +340,11 @@ namespace proyectovinos
         }
 
 
-
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of the combo_refarticulo control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void combo_refarticulo_SelectedIndexChanged(object sender, EventArgs e)
         {
             refArticulo = combo_refarticulo.Text;

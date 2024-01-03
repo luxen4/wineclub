@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using PdfSharp.Internal;
 using proyectovinos.ArticuloVino;
 using proyectovinos.Roles;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
@@ -131,10 +132,12 @@ namespace proyectovinos.Empleados
         // Función que carga la lista de todos empleados activos
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            cargaLista = true;
             empleado.cumplimentarlistasListaEmpleados(listView1, '1');
+            cargaLista = false;
             cumplimentar.refrescarCombo("nombre", "rollempleado", combo_roll);
             id_predeterminado = consultas.referenciaPredeterminada(nombreId, tabla, refPredeterminada, text_referencia);
-            cargaLista = false;
+           
             referencia = "";
             pictureBox1.Image=null;
         }
@@ -211,6 +214,11 @@ namespace proyectovinos.Empleados
             referencia = "";
         }
 
+        /// <summary>
+        /// Handles the 1 event of the eliminarToolStripMenuItem_Click control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void eliminarToolStripMenuItem_Click_1(object sender, EventArgs e)
         { 
             if (referencia != "")
@@ -323,9 +331,11 @@ namespace proyectovinos.Empleados
         }
 
 
-        // Enlaces del Menu-Strip para abrir otros formularios
-
-
+        /// <summary>
+        /// Función-controlador que abre el formulario de modificar empleado.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             empleadoAperturaForms.modificarEmpleado(); 
@@ -334,42 +344,30 @@ namespace proyectovinos.Empleados
 
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-
-            if (cargaLista==false) { 
-                ut.checkMarcadoTodos(cargaLista, e, text_referenciadeshabilitar, tabla, text_nombredeshabilitar);
+            while (cargaLista == false)
+            {  
+                cargaLista = true;
+                ut.limpiarChecks(listView1, e);
 
                 referencia = e.Item.Text;
                 id_empleado = consultas.obtenerCualquierId("id_empleado","empleado","ref",referencia);
 
-
-                try
-                {
-                    // Local_absoluta
-                    string folderPath = ClaseCompartida.carpetaimg_absoluta + "empleados/" + id_empleado + "/perfil/foto1.jpg";
-
-                    using (StreamReader stream = new StreamReader(folderPath))
-
-                    {
-                        pictureBox1.Image = Image.FromStream(stream.BaseStream);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    string folderPath = ClaseCompartida.carpetaimg_absoluta + "empleados/empleadopredeterminada.jpg";
-
-                    using (StreamReader stream = new StreamReader(folderPath))
-                    {
-                        pictureBox1.Image = Image.FromStream(stream.BaseStream);
-                    }
-                }
+                string folderPathPropia = ClaseCompartida.carpetaimg_absoluta + "empleados/" + id_empleado + "/perfil/foto1.jpg";
+                string folderPathPredeterminada = ClaseCompartida.carpetaimg_absoluta + "empleados/empleadopredeterminada.jpg";
+                ut.cargarImagen(pictureBox1, folderPathPropia, folderPathPredeterminada);
             }
+            cargaLista = false;
         }
 
 
-        // Método que inserta un Empleado
+
+
+        /// <summary>
+        /// Método que inserta un Empleado
+        /// </summary>
+        /// <returns></returns>
         private bool insertarEmpleado()
         {
-
             string cadenaConexion = con.conexion();
             MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
             MySqlDataReader reader = null;
@@ -423,6 +421,9 @@ namespace proyectovinos.Empleados
             limpiarCampos();
         }
 
+        /// <summary>
+        /// Método que pone los campos de empleado en modo predeterminado.
+        /// </summary>
         private void limpiarCampos()
         {
             pictureBox1.Image = null;
@@ -443,6 +444,5 @@ namespace proyectovinos.Empleados
         {
             cumplimentarPictureBoxes.buscarImagenPicturebox(sender, e, pictureBox1);
         }
-
     }
 }

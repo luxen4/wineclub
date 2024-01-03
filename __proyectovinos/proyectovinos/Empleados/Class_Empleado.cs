@@ -13,32 +13,6 @@ namespace proyectovinos.Empleados
     internal class Class_Empleado
     {
 
-        public int countRoles()
-        {
-            int countRegistros = 0;
-
-            ConexionBD con = new ConexionBD();
-            string cadenaConexion = con.conexion();
-            MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
-
-            try
-            {
-                string selectQuery = "select count(id_rollempleado) as countregistros from rollempleado";
-
-                conexionBD.Open(); // MessageBox.Show("Aquiii:" + selectQuery);
-                MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
-                MySqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    countRegistros = Int32.Parse(reader.GetString("countregistros"));
-                }
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-            finally { conexionBD.Close(); }
-
-            return countRegistros;
-        }
 
     
         /// <summary>
@@ -79,7 +53,11 @@ namespace proyectovinos.Empleados
         }
 
 
-        // Método que guarda la imagen de un articulo y la presenta en un PictureBox
+        /// <summary>
+        /// Método que guarda la imagen de un articulo y la presenta en un PictureBox
+        /// </summary>
+        /// <param name="carpetaempleado"></param>
+        /// <param name="pictureBox_empleado"></param>
         private void agregarImagenPredeterminada(string carpetaempleado, PictureBox pictureBox_empleado)
         {
             //Local_absoluta
@@ -98,7 +76,11 @@ namespace proyectovinos.Empleados
 
 
 
-        // Método que encripta una contraseña
+        /// <summary>
+        /// Método que encripta una contraseña
+        /// </summary>
+        /// <param name="vsValue"></param>
+        /// <returns></returns>
         public string encriptarSHA1(string vsValue)
         {
             System.Security.Cryptography.HashAlgorithm hashValue = new System.Security.Cryptography.SHA1CryptoServiceProvider();
@@ -115,7 +97,11 @@ namespace proyectovinos.Empleados
             return (Convert.ToBase64String(byteHash));
         }
         
-        // Método que devuelve el id_empleado desde su nombre y apellidos
+        /// <summary>
+        /// Método que devuelve el id_empleado desde su nombre y apellidos
+        /// </summary>
+        /// <param name="referencia"></param>
+        /// <returns></returns>
         public int obtener_id_Empleado(string referencia)
         {
             int id_empleado = 0;
@@ -356,8 +342,43 @@ namespace proyectovinos.Empleados
         }
 
 
+    }
+}
 
 
+
+/* ESTO VA A DESAPARECER
+         /*
+        public int countRoles()
+        {
+            int countRegistros = 0;
+
+            ConexionBD con = new ConexionBD();
+            string cadenaConexion = con.conexion();
+            MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
+
+            try
+            {
+                string selectQuery = "select count(id_rollempleado) as countregistros from rollempleado";
+
+                conexionBD.Open(); // MessageBox.Show("Aquiii:" + selectQuery);
+                MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    countRegistros = Int32.Parse(reader.GetString("countregistros"));
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            finally { conexionBD.Close(); }
+
+            return countRegistros;
+        }
+*/
+
+/* ESTO VA ADESAPARECER
+         /*
         public void implementarPictureBoxEmpleado(int id_empleado, PictureBox pictureBox1)
         {
             try
@@ -381,11 +402,4 @@ namespace proyectovinos.Empleados
                 }
             }
         }
-
-
-
-
-
-
-    }
-}
+*/

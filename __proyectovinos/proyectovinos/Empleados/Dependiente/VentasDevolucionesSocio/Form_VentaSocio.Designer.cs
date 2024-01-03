@@ -115,7 +115,7 @@
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Location = new System.Drawing.Point(12, 36);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(841, 576);
+            this.groupBox2.Size = new System.Drawing.Size(841, 537);
             this.groupBox2.TabIndex = 40;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Venta a Socio";
@@ -406,7 +406,7 @@
             this.groupBox3.Controls.Add(this.listView1);
             this.groupBox3.Location = new System.Drawing.Point(6, 309);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(826, 259);
+            this.groupBox3.Size = new System.Drawing.Size(826, 223);
             this.groupBox3.TabIndex = 103;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Listado de Compra";
@@ -428,7 +428,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(8, 19);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(812, 234);
+            this.listView1.Size = new System.Drawing.Size(812, 198);
             this.listView1.TabIndex = 48;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -694,7 +694,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(862, 615);
+            this.ClientSize = new System.Drawing.Size(862, 579);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;

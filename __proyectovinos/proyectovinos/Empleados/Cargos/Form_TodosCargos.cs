@@ -35,7 +35,10 @@ namespace proyectovinos.Roles
             this.CenterToScreen();
             this.Top = this.Top + 40;
             cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
-            enlacesHabilitados();
+          
+            ut.habilitarEnlacesMenuStrip(actualizarToolStripMenuItem, habilitarToolStripMenuItem, deshabilitarToolStripMenuItem,
+                eliminarToolStripMenuItem, saveToolStripMenuItem, newToolStripMenuItem);
+
             limpiarCampos();
         }
 
@@ -176,7 +179,7 @@ namespace proyectovinos.Roles
             }
         }
 
-
+        private bool cargaLista=false;
 
         /// <summary>
         /// Al seleccionar un check de la lista  .
@@ -184,15 +187,25 @@ namespace proyectovinos.Roles
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="ItemCheckedEventArgs"/> instance containing the event data.</param>
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
-        {
-            if (cumplimentarTextos == true) { 
-                referencia = e.Item.Text;
-                text_referencia.Text = referencia;
+        {   
+            while (cargaLista == false)
+            {
+                cargaLista = true;
+                ut.limpiarChecks(listView1, e);
 
-                Consultas consultas = new Consultas();
-                string nombre = consultas.obtenerCualquierRefDesdeNombre("nombre", tabla, "ref", referencia);
-                text_nombre.Text = nombre;
+
+                if (cumplimentarTextos == true)
+                {
+                    referencia = e.Item.Text;
+                    text_referencia.Text = referencia;
+
+                    Consultas consultas = new Consultas();
+                    string nombre = consultas.obtenerCualquierRefDesdeNombre("nombre", tabla, "ref", referencia);
+                    text_nombre.Text = nombre;
+                }
+
             }
+            cargaLista = false;
         }
 
 
@@ -225,39 +238,29 @@ namespace proyectovinos.Roles
 
         private void radio_habilitados_CheckedChanged(object sender, EventArgs e)
         {
-            enlacesHabilitados();
+            //enlacesHabilitados();
+
+            ut.habilitarEnlacesMenuStrip(actualizarToolStripMenuItem, habilitarToolStripMenuItem, deshabilitarToolStripMenuItem,
+                 eliminarToolStripMenuItem, saveToolStripMenuItem, newToolStripMenuItem);
+
+
             cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
             limpiarCampos();
         }
 
         private void radio_deshabilitados_CheckedChanged(object sender, EventArgs e)
         {
-            enlacesDeshabilitados();
+            //enlacesDeshabilitados();
+
+            ut.deshabilitarEnlacesMenuStrip(actualizarToolStripMenuItem, habilitarToolStripMenuItem, deshabilitarToolStripMenuItem,
+               eliminarToolStripMenuItem, saveToolStripMenuItem, newToolStripMenuItem);
+
+
             cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '0');
             limpiarCampos();
         }
 
 
-        private void enlacesHabilitados()
-        {
-            // Igual esto a un bloque junto con la implementación de radio de desabilitar
-            actualizarToolStripMenuItem.Enabled = true;
-            habilitarToolStripMenuItem.Enabled = false;
-            deshabilitarToolStripMenuItem.Enabled = true;
-            eliminarToolStripMenuItem.Enabled = false;
-            saveToolStripMenuItem.Enabled = true;
-            newToolStripMenuItem.Enabled = true;
-            //
-        }
-        private void enlacesDeshabilitados()
-        {
-            actualizarToolStripMenuItem.Enabled = false;
-            habilitarToolStripMenuItem.Enabled = true;
-            deshabilitarToolStripMenuItem.Enabled = false;
-            eliminarToolStripMenuItem.Enabled = true;
-            saveToolStripMenuItem.Enabled = false;
-            newToolStripMenuItem.Enabled = false;
-        }
 
         /// <summary>
         /// Función que pone los campos en modo predeterminado.
@@ -272,6 +275,4 @@ namespace proyectovinos.Roles
             text_referencia.Text = "";
         }
     }
-    
 }
-

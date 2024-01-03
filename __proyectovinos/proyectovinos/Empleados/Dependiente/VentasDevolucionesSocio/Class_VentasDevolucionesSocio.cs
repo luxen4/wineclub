@@ -15,7 +15,12 @@ namespace proyectovinos.VentasDevoluciones
     internal class Class_VentasDevolucionesSocio
     {
 
-        // Método que devuelve la linea de venta de un Socio
+        /// <summary>
+        /// Función que devuelve la linea de venta de un Socio
+        /// </summary>
+        /// <param name="id_ventasocio"></param>
+        /// <param name="id_articulo"></param>
+        /// <returns></returns>
         public int lineaVentaSocio(int id_ventasocio, int id_articulo)
         {
 
@@ -46,7 +51,12 @@ namespace proyectovinos.VentasDevoluciones
         }
 
 
-        // Método que devuelve la linea de compra a un Proveedor
+        /// <summary>
+        /// Función que devuelve la linea de compra a un Proveedor
+        /// </summary>
+        /// <param name="id_lineaventasocio"></param>
+        /// <param name="id_articulo"></param>
+        /// <returns></returns>
         public int lineaCompraProveedor(int id_lineaventasocio, int id_articulo)
         {
             int id_lineacompraproveedor = 0;
@@ -79,8 +89,11 @@ namespace proyectovinos.VentasDevoluciones
         }
 
 
-        // Función que compone una factura de venta de socio
-        internal void mostrarFactura(string refVen) { 
+        /// <summary>
+        /// Función que compone una factura de venta de socio.
+        /// </summary>
+        /// <param name="refVen"></param>
+        internal void componerFactura(string refVen) { 
         
 
             // https://www.youtube.com/watch?v=WUDUMuJMN74
@@ -123,9 +136,6 @@ namespace proyectovinos.VentasDevoluciones
             imagen.SetAbsolutePosition(posicionX, posicionY);*/
 
 
-
-
-
             // Establecer medidas específicas para la imagen (ancho y alto en puntos)
             float anchoImagen = 90; // Ancho en puntos
             float altoImagen = 90; // Alto en puntos
@@ -160,10 +170,6 @@ namespace proyectovinos.VentasDevoluciones
 
             // Agregar la imagen al documento
             doc.Add(imagen);
-
-
-
-
 
 
 
@@ -230,7 +236,7 @@ namespace proyectovinos.VentasDevoluciones
 
                 //relative col widths in proportions - 1/3 and 2/3
 
-                float[] widths1 = new float[] { 3f, 4f, 3f };
+                float[] widths1 = new float[] { 3f, 4f, 4f };
 
                 table.SetWidths(widths1);
 
@@ -241,9 +247,9 @@ namespace proyectovinos.VentasDevoluciones
                 table.HorizontalAlignment = 1;
 
 
-                table.AddCell("Datos Cliente" + "\n " + nombreSocio + " " + apellidosSocio + "\n " + refSocio);
-                table.AddCell("Factura: " + referenciaVenta + "\n Fecha: " + fecha);
-                table.AddCell("Datos Empresa: \n WINE CLUB\n 0000000A\n dirección\n superlaya50@gmail.com");
+                table.AddCell("Datos Cliente:" + "\n " + nombreSocio + " " + apellidosSocio + "\n " + refSocio);
+                table.AddCell("Ref. Factura: " + referenciaVenta + "\n Fecha: " + fecha);
+                table.AddCell("Datos Empresa: \n Nombre: WINE CLUB \n NIF: 0000000A \n email: superlaya50@gmail.com");
 
 
 
@@ -251,12 +257,12 @@ namespace proyectovinos.VentasDevoluciones
 
 
                 table = new PdfPTable(5);
-                table.TotalWidth = 600f;  //actual width of table in points
+                table.TotalWidth = 650f;  //actual width of table in points
                                           //table.LockedWidth = true; //fix the absolute width of the table
 
                 //relative col widths in proportions - 1/3 and 2/3
 
-                float[] widths = new float[] { 1f, 4f, 1f, 1f, 1f };
+                float[] widths = new float[] { 2f, 4f, 1f, 1f, 1f };
 
                 table.SetWidths(widths);
 

@@ -209,7 +209,8 @@ namespace proyectovinos.Caracteristicas.tipouva
 
                 text_referencia.Text = referencia;
                 text_nombre.Text = nombre;
-                ut.checkMarcadoTodos(cargaLista, e, text_referencia, tabla, text_nombre);
+                MessageBox.Show("Marcaría todas?");
+                //ut.checkMarcadoTodos(cargaLista, e, text_referencia, tabla, text_nombre);
             }
         }
 

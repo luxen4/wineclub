@@ -11,12 +11,17 @@ namespace proyectovinos
     internal class CumplimentarTexts
     {
 
-        // Igual para Caracteristicas de vino se puede hacer DINÁMICO
-        public void refrescarTextDinamico( TextBox text_nuevareferencia, TextBox text_nuevonombre,
+        /// <summary>
+        /// Función que actualiza la referencia y el nombre de una característica.
+        /// </summary>
+        /// <param name="text_nuevareferencia"></param>
+        /// <param name="text_nuevonombre"></param>
+        /// <param name="nombreTabla"></param>
+        /// <param name="whereAtributo"></param>
+        /// <param name="atributoValor"></param>
+       /* public void refrescarTextDinamico( TextBox text_nuevareferencia, TextBox text_nuevonombre,
            string nombreTabla, string whereAtributo, string atributoValor)
         {
-
-
             ConexionBD con = new ConexionBD();
             string cadenaConexion = con.conexion();
             MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
@@ -40,6 +45,6 @@ namespace proyectovinos
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
             finally { conexionBD.Close(); }
-        }
+        }*/
     }
 }

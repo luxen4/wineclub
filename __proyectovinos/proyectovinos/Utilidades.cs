@@ -87,6 +87,10 @@ namespace proyectovinos
             return fechaFinal;
         }
 
+        /// <summary>
+        /// Función que selecciona una imagen.
+        /// </summary>
+        /// <param name="pictureBox">The picture box.</param>
         public void selecionarImagen(PictureBox pictureBox)
         {
             OpenFileDialog ofdSeleccionar = new OpenFileDialog();
@@ -137,28 +141,6 @@ namespace proyectovinos
 
 
 
-
-        internal void checkMarcadoTodos(bool cargaLista, ItemCheckedEventArgs e, TextBox text_referencia, string tabla, TextBox text_nombre)
-        {
-            if (cargaLista == false)
-            {
-                string referencia = e.Item.Text;
-                text_referencia.Text = referencia;
-
-                Consultas consultas = new Consultas();
-                string nombre = consultas.obtenerCualquierRefDesdeNombre("nombre", tabla, "ref", referencia);
-                text_nombre.Text = nombre;
-            }
-        }
-
-        internal void checkMarcadoModificar(bool cargaLista, ItemCheckedEventArgs e, TextBox text_nombreactual, TextBox text_referenciaactual)
-        {
-            if (cargaLista == false)
-            {
-                string referenciaActual = e.Item.Text;
-                text_referenciaactual.Text = referenciaActual;
-            }
-        }
 
 
 
@@ -307,7 +289,17 @@ namespace proyectovinos
             }
         }
 
-
+        /// <summary>
+        /// Controladors the eliminar registro tabla madre.
+        /// </summary>
+        /// <param name="check_seguroeliminar">The check seguroeliminar.</param>
+        /// <param name="text_referenciaeliminar">The text referenciaeliminar.</param>
+        /// <param name="text_nombreeliminar">The text nombreeliminar.</param>
+        /// <param name="idTablaDependiente">The identifier tabla dependiente.</param>
+        /// <param name="tabladependiente">The tabladependiente.</param>
+        /// <param name="id_tabla">The identifier tabla.</param>
+        /// <param name="tabla">The tabla.</param>
+        /// <param name="listView1">The list view1.</param>
         internal void controladorEliminarRegistroTablaMadre(CheckBox check_seguroeliminar, TextBox text_referenciaeliminar, TextBox text_nombreeliminar, string idTablaDependiente, string tabladependiente, string id_tabla, string tabla, ListView listView1)
         {   
             // Caso de variedad de uva 
@@ -348,7 +340,11 @@ namespace proyectovinos
         }
 
 
-        // Método que elimina la carpeta de un Empleado (prueba con proveedores tb)
+        /// <summary>
+        /// Método que elimina la carpeta de un Empleado (prueba con proveedores tb)
+        /// </summary>
+        /// <param name="carpeta"></param>
+        /// <param name="id_"></param>
         internal void eliminarCarpeta(string carpeta, int id_)
         {
 
@@ -365,12 +361,162 @@ namespace proyectovinos
             }
         }
 
-        internal void limpiarCampos(RadioButton radioButton_habilitado, RadioButton radioButton_deshabilitado, CheckBox check_segurohabilitardeshabilitareliminar1, TextBox textBox_referencia, TextBox textBox_nombre, Button button_habilitar, Button button_deshabilitar, Button button_eliminar, TextBox text_referencianuevo, TextBox text_nombrenuevo, TextBox textBox_referenciamodificar, TextBox textBox_nombremodificar, CheckBox check_nueva, CheckBox check_modificar, CheckBox check_segurohabilitardeshabilitareliminar2, CheckBox check_seguronuevo, CheckBox checkBox_seguromodificar, bool listaCargada1, object v, bool listaCargada2)
+
+        /// <summary>
+        /// Habilitars the enlaces menu strip.
+        /// </summary>
+        /// <param name="actualizarToolStripMenuItem">The actualizar tool strip menu item.</param>
+        /// <param name="habilitarToolStripMenuItem">The habilitar tool strip menu item.</param>
+        /// <param name="deshabilitarToolStripMenuItem">The deshabilitar tool strip menu item.</param>
+        /// <param name="eliminarToolStripMenuItem">The eliminar tool strip menu item.</param>
+        /// <param name="saveToolStripMenuItem">The save tool strip menu item.</param>
+        /// <param name="newToolStripMenuItem">The new tool strip menu item.</param>
+        internal void habilitarEnlacesMenuStrip(ToolStripMenuItem actualizarToolStripMenuItem, ToolStripMenuItem habilitarToolStripMenuItem, ToolStripMenuItem deshabilitarToolStripMenuItem, ToolStripMenuItem eliminarToolStripMenuItem, ToolStripMenuItem saveToolStripMenuItem, ToolStripMenuItem newToolStripMenuItem)
         {
-            throw new NotImplementedException();
+            actualizarToolStripMenuItem.Enabled = true;
+            habilitarToolStripMenuItem.Enabled = false;
+            deshabilitarToolStripMenuItem.Enabled = true;
+            eliminarToolStripMenuItem.Enabled = false;
+            saveToolStripMenuItem.Enabled = true;
+            newToolStripMenuItem.Enabled = true;
+        }
+
+        /// <summary>
+        /// Deshabilitars the enlaces.
+        /// </summary>
+        /// <param name="actualizarToolStripMenuItem">The actualizar tool strip menu item.</param>
+        /// <param name="habilitarToolStripMenuItem">The habilitar tool strip menu item.</param>
+        /// <param name="deshabilitarToolStripMenuItem">The deshabilitar tool strip menu item.</param>
+        /// <param name="eliminarToolStripMenuItem">The eliminar tool strip menu item.</param>
+        /// <param name="saveToolStripMenuItem">The save tool strip menu item.</param>
+        /// <param name="newToolStripMenuItem">The new tool strip menu item.</param>
+        internal void deshabilitarEnlacesMenuStrip(ToolStripMenuItem actualizarToolStripMenuItem, ToolStripMenuItem habilitarToolStripMenuItem, ToolStripMenuItem deshabilitarToolStripMenuItem, ToolStripMenuItem eliminarToolStripMenuItem, ToolStripMenuItem saveToolStripMenuItem, ToolStripMenuItem newToolStripMenuItem)
+        {
+            actualizarToolStripMenuItem.Enabled = false;
+            habilitarToolStripMenuItem.Enabled = true;
+            deshabilitarToolStripMenuItem.Enabled = false;
+            eliminarToolStripMenuItem.Enabled = true;
+            saveToolStripMenuItem.Enabled = false;
+            newToolStripMenuItem.Enabled = false;
+        }
+
+
+
+
+
+
+
+                                        // De momento con Empleado, *** Intentar con las demás ***
+        /// <summary>
+        /// Limpiars the checks.
+        /// </summary>
+        /// <param name="listView1">The list view1.</param>
+        /// <param name="e">The <see cref="ItemCheckedEventArgs"/> instance containing the event data.</param>
+        internal void limpiarChecks(ListView listView1, ItemCheckedEventArgs e)
+        {
+            foreach (ListViewItem item in listView1.Items)
+            {
+                if (item != e.Item)       // Verificar si el elemento no es el actualmente seleccionado
+                {
+                    item.Checked = false; // Deseleccionar todos los demás elementos
+                }
+            }
+        }
+
+
+                                        // De momento con Empleado, *** Intentar con las demás ***
+        /// <summary>
+        /// Cargars the imagen.
+        /// </summary>
+        /// <param name="pictureBox1">The picture box1.</param>
+        /// <param name="folderPathPropia">The folder path propia.</param>
+        /// <param name="folderPathPredeterminada">The folder path predeterminada.</param>
+        internal void cargarImagen(PictureBox pictureBox1, string folderPathPropia, string folderPathPredeterminada)
+        {
+            try
+            {
+                using (StreamReader stream = new StreamReader(folderPathPropia))
+
+                {
+                    pictureBox1.Image = Image.FromStream(stream.BaseStream);
+                }
+            }
+            catch (Exception ex)
+            {
+                using (StreamReader stream = new StreamReader(folderPathPredeterminada))
+                {
+                    pictureBox1.Image = Image.FromStream(stream.BaseStream);
+                }
+            }
         }
     }
 }
+
+
+
+
+
+
+
+/* ESTO VA A DESAPARECER
+internal void dejarSoloUnCheckMarcado(ItemCheckedEventArgs e, ListView listView1, bool checkMarcado, bool cargaLista)
+{
+    if (cargaLista == false)
+    {
+        if (checkMarcado == true)
+        {
+            DialogResult opcionSeleccionada = MessageBox.Show("Quiere deseleccionar el registro?", "Aviso", MessageBoxButtons.YesNo);
+
+            if (opcionSeleccionada == DialogResult.Yes)
+            {
+                //MessageBox.Show("Desmarco");
+                e.Item.Selected = false;
+                checkMarcado = false;
+
+                // deseleccionar los checks
+                foreach (ListViewItem item in listView1.Items)
+                {
+                    if (item != e.Item) // Verificar si el elemento no es el actualmente seleccionado
+                    {
+                        item.Checked = false; // Deseleccionar todos los demás elementos
+                    }
+                }
+            }
+        }
+        else
+        {
+            //MessageBox.Show("Marco");
+            checkMarcado = true;
+        }
+    }
+}
+*/
+
+
+
+/* ESTO VA A DESAPARECER
+internal void checkMarcadoTodos(bool cargaLista, ItemCheckedEventArgs e, TextBox text_referencia, string tabla, TextBox text_nombre)
+{
+    if (cargaLista == false)
+    {
+        string referencia = e.Item.Text;
+        text_referencia.Text = referencia;
+
+        Consultas consultas = new Consultas();
+        string nombre = consultas.obtenerCualquierRefDesdeNombre("nombre", tabla, "ref", referencia);
+        text_nombre.Text = nombre;
+    }
+}
+
+internal void checkMarcadoModificar(bool cargaLista, ItemCheckedEventArgs e, TextBox text_nombreactual, TextBox text_referenciaactual)
+{
+    if (cargaLista == false)
+    {
+        string referenciaActual = e.Item.Text;
+        text_referenciaactual.Text = referenciaActual;
+    }
+}*/
+
 
 
 

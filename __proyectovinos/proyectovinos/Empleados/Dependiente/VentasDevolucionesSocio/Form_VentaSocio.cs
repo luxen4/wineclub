@@ -167,8 +167,6 @@ namespace proyectovinos
                         itemAgregar.SubItems.Add(totalArticulo.ToString());
                         listView1.Items.Add(itemAgregar);
 
-                        
-
                         limpiarCampos();
                     }
                 }
@@ -193,6 +191,10 @@ namespace proyectovinos
           
         }
 
+        /// <summary>
+        /// Función que muestra la factura de una compra de un socio.
+        /// </summary>
+        /// <param name="refVent">The reference vent.</param>
         private void mostrarFactura(string refVent)
         {
             DialogResult opcionSeleccionada = MessageBox.Show("¿Quiere mostrar la factura?", "Aviso", MessageBoxButtons.YesNo);
@@ -376,7 +378,9 @@ namespace proyectovinos
         }
 
 
-        // Método que limpia los campos
+        /// <summary>
+        /// Método que limpia los campos
+        /// </summary>
         private void limpiarCampos()
         {
             combo_refarticulo.Text = "Seleccione";
@@ -395,12 +399,15 @@ namespace proyectovinos
             text_precioventa.Text = "0";
             text_total.Text = "0";
 
-            numeric_cantidad.Value = 0;
+            //numeric_cantidad.Value = 0;
+            numeric_cantidad.Enabled = false;
 
             button_anadir.Enabled = false;
             pictureBox1.Image = null;
             pictureBox_perfilsocio.Image = null;
             combo_refsocio.Text = "Seleccione";
+
+            listView1.Items.Clear();
         }
 
         private void listView1_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -430,6 +437,11 @@ namespace proyectovinos
 
         }
 
+        /// <summary>
+        /// Función-controlador que crea una compra.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void tERMINARCOMPRAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int id_predeterminado = consultas.idMax("id_ventasocio", "ventasocio") + 1;
@@ -506,15 +518,16 @@ namespace proyectovinos
                     // MessageBox.Show("Guardando factura");
                     Class_VentasDevolucionesSocio vent = new Class_VentasDevolucionesSocio();
                     refVent = consultas.obtenerCualquierRefDesdeId("ref", "ventasocio", "id_ventasocio", id_predeterminado);
-                    vent.mostrarFactura(refVent);
+                    vent.componerFactura(refVent);
                     mostrarFactura(refVent);
                 }
 
                 // Emitir el ticket, leer el ListView
                 aPdf(refVent);
+
                 limpiarCampos();
-                listView1.Items.Clear();
-                combo_reflinea.Enabled = false;
+                //listView1.Items.Clear();
+                //combo_reflinea.Enabled = false;
             }
             else
             {

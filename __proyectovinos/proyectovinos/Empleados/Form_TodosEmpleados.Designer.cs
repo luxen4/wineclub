@@ -56,7 +56,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.button_nuevoempleado = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.button_subirImagen = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.dateTime_fechanacimiento = new System.Windows.Forms.DateTimePicker();
             this.text_nombre = new System.Windows.Forms.TextBox();
@@ -275,7 +275,7 @@
             this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.button_nuevoempleado);
-            this.groupBox3.Controls.Add(this.button11);
+            this.groupBox3.Controls.Add(this.button_subirImagen);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.dateTime_fechanacimiento);
             this.groupBox3.Controls.Add(this.text_nombre);
@@ -323,9 +323,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(50, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 13);
+            this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 110;
-            this.label2.Text = "Ref.:";
+            this.label2.Text = "Ref:";
             // 
             // combo_roll
             // 
@@ -353,9 +353,9 @@
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Location = new System.Drawing.Point(484, 72);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(28, 13);
+            this.label14.Size = new System.Drawing.Size(38, 13);
             this.label14.TabIndex = 48;
-            this.label14.Text = "Roll:";
+            this.label14.Text = "Cargo:";
             // 
             // button_nuevoempleado
             // 
@@ -368,16 +368,15 @@
             this.button_nuevoempleado.UseVisualStyleBackColor = true;
             this.button_nuevoempleado.Click += new System.EventHandler(this.button_nuevoempleado_Click);
             // 
-            // button11
+            // button_subirImagen
             // 
-            this.button11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button11.BackgroundImage")));
-            this.button11.Location = new System.Drawing.Point(603, 84);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(91, 23);
-            this.button11.TabIndex = 51;
-            this.button11.Text = "Subir Fotografia";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.button_subirImagen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_subirImagen.BackgroundImage")));
+            this.button_subirImagen.Location = new System.Drawing.Point(603, 84);
+            this.button_subirImagen.Name = "button_subirImagen";
+            this.button_subirImagen.Size = new System.Drawing.Size(91, 23);
+            this.button_subirImagen.TabIndex = 51;
+            this.button_subirImagen.Text = "Subir Imagen";
+            this.button_subirImagen.UseVisualStyleBackColor = true;
             // 
             // label18
             // 
@@ -688,7 +687,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox combo_roll;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button_subirImagen;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.DateTimePicker dateTime_fechanacimiento;
         private System.Windows.Forms.TextBox text_nombre;

@@ -38,25 +38,39 @@ namespace proyectovinos.Caracteristicas.clasesvino
         {
             limpiarCampos('1');
         }
-
+        
         private void Form_TodasClasesVinoII_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
-            this.Top = this.Top + 10;
+            this.Top = this.Top + 20;
             id_predeterminado = consultas.referenciaPredeterminada(id_tabla, tabla, refPredeterminada, textBox_referencia);
-            habilitarDeshabilitarEnlaces(true, false, true, false, true, true);
+            ut.habilitarEnlacesMenuStrip(actualizarToolStripMenuItem, habilitarToolStripMenuItem, deshabilitarToolStripMenuItem, 
+                eliminarToolStripMenuItem, saveToolStripMenuItem, newToolStripMenuItem);
             groupBox1.Enabled = true;
             limpiarCampos('1');
         }
 
+        /// <summary>
+        /// Función-controlador para habilitar una clase de vino.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void habilitarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ut.habilitarOnOff_Caracteristica(tabla, "ref", referencia, '1');
-            limpiarCampos('0');
+            DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea habilitar el registro?", "Aviso", MessageBoxButtons.YesNo);
+            if (opcionSeleccionada == DialogResult.Yes)
+            {
+                ut.habilitarOnOff_Caracteristica(tabla, "ref", referencia, '1');
+                limpiarCampos('0');
+            }
         }
 
-      
 
+        /// <summary>
+        /// Función-controlador para deshabilitar una clase de vino.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void deshabilitarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult opcionSeleccionada = MessageBox.Show("¿Realmente desea deshabilitar el registro?", "Aviso", MessageBoxButtons.YesNo);
@@ -121,6 +135,11 @@ namespace proyectovinos.Caracteristicas.clasesvino
             }
         }
 
+        /// <summary>
+        /// Función-controlador para modificar una clase de vino.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (textBox_nombre.Text != "" || textBox_referencia.Text != "")
@@ -141,6 +160,11 @@ namespace proyectovinos.Caracteristicas.clasesvino
             }
         }
 
+        /// <summary>
+        /// Función-controlador para crear una nueva clase de vino.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
            
@@ -172,6 +196,11 @@ namespace proyectovinos.Caracteristicas.clasesvino
                 }
         }
 
+        /// <summary>
+        /// Función que imp`lementa la información en los campos del formulario al seleccionar una clase de vino.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="ItemCheckedEventArgs"/> instance containing the event data.</param>
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             if (cumplimentarTextos == true)
@@ -186,14 +215,32 @@ namespace proyectovinos.Caracteristicas.clasesvino
             }
         }
 
+        /// <summary>
+        /// Handles the CheckedChanged event of the radioButton_habilitado control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void radioButton_habilitado_CheckedChanged(object sender, EventArgs e)
         {
-            habilitarDeshabilitarEnlaces(true, false, true, false, true, true);
+            Utilidades ut = new Utilidades();
+            //ut.habilitarDeshabilitarEnlaces(true, false, true, false, true, true);
+            ut.habilitarEnlacesMenuStrip(actualizarToolStripMenuItem, habilitarToolStripMenuItem, deshabilitarToolStripMenuItem, eliminarToolStripMenuItem, saveToolStripMenuItem, newToolStripMenuItem);
+
+            
             groupBox1.Enabled = true;
             limpiarCampos('1');
         }
 
-
+        /*
+        /// <summary>
+        /// Habilitars the deshabilitar enlaces.
+        /// </summary>
+        /// <param name="v1">if set to <c>true</c> [v1].</param>
+        /// <param name="v2">if set to <c>true</c> [v2].</param>
+        /// <param name="v3">if set to <c>true</c> [v3].</param>
+        /// <param name="v4">if set to <c>true</c> [v4].</param>
+        /// <param name="v5">if set to <c>true</c> [v5].</param>
+        /// <param name="v6">if set to <c>true</c> [v6].</param>
         private void habilitarDeshabilitarEnlaces(bool v1, bool v2, bool v3, bool v4, bool v5, bool v6)
         {
             actualizarToolStripMenuItem.Enabled = v1;
@@ -202,12 +249,17 @@ namespace proyectovinos.Caracteristicas.clasesvino
             eliminarToolStripMenuItem.Enabled = v4;
             saveToolStripMenuItem.Enabled = v5;
             newToolStripMenuItem.Enabled = v6;
-        }
+        }*/
 
-
+        /// <summary>
+        /// Handles the CheckedChanged event of the radioButton_deshabilitado control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void radioButton_deshabilitado_CheckedChanged(object sender, EventArgs e)
         {
-            habilitarDeshabilitarEnlaces(false, true, false, true, false, false);
+            ut.deshabilitarEnlacesMenuStrip(actualizarToolStripMenuItem, habilitarToolStripMenuItem, deshabilitarToolStripMenuItem,
+                                   eliminarToolStripMenuItem, saveToolStripMenuItem, newToolStripMenuItem);
             groupBox5.Enabled = false;
             limpiarCampos('0');
         }
