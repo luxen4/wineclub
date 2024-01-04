@@ -65,5 +65,22 @@ namespace proyectovinos.ArticuloVino
                 form.Show();
             }
         }
+
+        /*
+      Form_DevolucionSocio formularioDevolucionSocio;
+          public void nuevaDevolucionSocio()
+      {
+          if (Application.OpenForms["Form_DevolucionSocio"] != null)
+          {
+              Application.OpenForms["Form_DevolucionSocio"].Activate();
+          }
+          else
+          {
+              formularioDevolucionSocio = new Form_DevolucionSocio();
+              //formulario.MdiParent = this;
+              formularioDevolucionSocio.Show();
+          }
+
+      }*/
     }
 }

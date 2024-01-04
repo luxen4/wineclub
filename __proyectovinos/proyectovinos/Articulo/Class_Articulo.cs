@@ -18,7 +18,11 @@ namespace proyectovinos.ArticuloVino
 
     public class Class_Articulo
     {
-        // Función que cumplimenta la lista de artículos
+        /// <summary>
+        /// Función que cumplimenta la lista de artículos
+        /// </summary>
+        /// <param name="listView1"></param>
+        /// <param name="activo"></param>
         public void cumplimentarListaArticulos(ListView listView1, char activo)
         {
             listView1.Items.Clear();
@@ -91,14 +95,26 @@ namespace proyectovinos.ArticuloVino
 
 
 
-        // Método que guarda la imagen de un articulo y la presenta en un PictureBox
+        /// <summary>
+        /// Método que guarda la imagen de un articulo y la presenta en un PictureBox
+        /// </summary>
+        /// <param name="id_proveedor"></param>
+        /// <param name="nombreclasevino"></param>
+        /// <param name="nombreImagen"></param>
+        /// <param name="pictureBox_articulo"></param>
         public void agregarImagenPredeterminada(int id_proveedor, string nombreclasevino, string nombreImagen, PictureBox pictureBox_articulo)
         {
             pictureBox_articulo.Image = Image.FromFile(ClaseCompartida.carpetaimg_absoluta + "proveedores/botellapredeterminada.jpg");
             pictureBox_articulo.Image.Save(ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/articulos/" + nombreclasevino + "/" + nombreImagen, System.Drawing.Imaging.ImageFormat.Jpeg);
         }
 
-        // Método que guarda la imagen de un articulo predeterminada y la presenta en un PictureBox
+        /// <summary>
+        /// Método que guarda la imagen de un articulo predeterminada y la presenta en un PictureBox
+        /// </summary>
+        /// <param name="id_proveedor"></param>
+        /// <param name="nombreclasevino"></param>
+        /// <param name="nombreImagen"></param>
+        /// <param name="pictureBox_articulo"></param>
         public void agregarImagen(int id_proveedor, string nombreclasevino, string nombreImagen, PictureBox pictureBox_articulo)
         {
             pictureBox_articulo.Image.Save(ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/articulos/" + nombreclasevino + "/" + nombreImagen, System.Drawing.Imaging.ImageFormat.Jpeg);
@@ -109,7 +125,10 @@ namespace proyectovinos.ArticuloVino
 
 
 
-        // Aviso de falta de existencias
+        /// <summary>
+        /// Aviso de falta de existencias
+        /// </summary>
+        /// <param name="id_articulo"></param>
         internal void comprobarFaltaExistenciasArticulo(int id_articulo)
         {
 
@@ -133,7 +152,12 @@ namespace proyectovinos.ArticuloVino
 
 
 
-        // Método que devuelve el precio de venta de un artículo
+        /// <summary>
+        /// Método que devuelve el precio de venta de un artículo
+        /// </summary>
+        /// <param name="refLinea"></param>
+        /// <param name="atributo_precio"></param>
+        /// <returns></returns>
         public decimal precioCosteVentaArticulo(string refLinea, string atributo_precio)
         {
 
@@ -168,7 +192,11 @@ namespace proyectovinos.ArticuloVino
 
 
 
-        // Existencias Predeterminadas de un artículo en almacén y Tienda
+        /// <summary>
+        /// Existencias Predeterminadas de un artículo en almacén y Tienda
+        /// </summary>
+        /// <param name="id_articulo"></param>
+        /// <returns></returns>
         public int[] existenciasPredeterminadasArticuloUbicacion(int id_articulo)
         {
 
@@ -203,7 +231,11 @@ namespace proyectovinos.ArticuloVino
         }
 
 
-        // Método que ajusta las existencias en tienda
+        /// <summary>
+        /// Método que ajusta las existencias en tienda
+        /// </summary>
+        /// <param name="listView1"></param>
+        /// <param name="i"></param>
         public void ajusteExistenciasTienda(ListView listView1, int i)
         {
 
@@ -227,7 +259,12 @@ namespace proyectovinos.ArticuloVino
         }
 
 
-        // Método que devuelve el nº de existencias de un artículo en la tienda
+        /// <summary>
+        /// Método que devuelve el nº de existencias de un artículo en la tienda
+        /// </summary>
+        /// <param name="id_lineacompraproveedor"></param>
+        /// <param name="id_articulo"></param>
+        /// <returns></returns>
         public int existenciasTiendaArticulo(int id_lineacompraproveedor, int id_articulo)
         {
 
@@ -260,7 +297,14 @@ namespace proyectovinos.ArticuloVino
 
 
 
-        // Método que devuelve el número de artículos que tiene una clase de vino
+        /// <summary>
+        /// Método que devuelve el número de artículos que tiene una clase de vino
+        /// </summary>
+        /// <param name="id_articulo"></param>
+        /// <param name="nombreTabla"></param>
+        /// <param name="atributoWhere"></param>
+        /// <param name="valorAributoWhere"></param>
+        /// <returns></returns>
         public int existeArticuloConCaracteristica(string id_articulo, string nombreTabla, string atributoWhere, int valorAributoWhere)
         {
             int numRegistros = 0;
@@ -293,7 +337,13 @@ namespace proyectovinos.ArticuloVino
         }
 
 
-        // Método que Registra una nueva linea de proveedor en una ubicación
+        /// <summary>
+        /// Método que Registra una nueva linea de proveedor en una ubicación
+        /// </summary>
+        /// <param name="id_ubicacion"></param>
+        /// <param name="id_lineacompraproveedor"></param>
+        /// <param name="id_articulo"></param>
+        /// <param name="existencias"></param>
         public void nuevaExistenciaAlmacenTienda(int id_ubicacion, int id_lineacompraproveedor, int id_articulo, int existencias)
         {
             ConexionBD con = new ConexionBD();
@@ -319,7 +369,12 @@ namespace proyectovinos.ArticuloVino
 
 
 
-        // Metodo que devuelve las existencias en almacén o tienda de un artículo
+        /// <summary>
+        /// Metodo que devuelve las existencias en almacén o tienda de un artículo
+        /// </summary>
+        /// <param name="id_ubicacion"></param>
+        /// <param name="id_articulo"></param>
+        /// <returns></returns>
         public int existenciasTotalesZona(int id_ubicacion, int id_articulo)
         {
             string ubicacion = "";
@@ -400,7 +455,13 @@ namespace proyectovinos.ArticuloVino
 
 
 
-        // Método que devuelve las existencias de un artículo en una zona de la tienda
+        /// <summary>
+        /// Método que devuelve las existencias de un artículo en una zona de la tienda
+        /// </summary>
+        /// <param name="id_ubicacion"></param>
+        /// <param name="id_articulo"></param>
+        /// <param name="id_lineacompraproveedor"></param>
+        /// <returns></returns>
         public int existenciasLineaZona(int id_ubicacion, int id_articulo, int id_lineacompraproveedor)
         {
 
@@ -446,7 +507,12 @@ namespace proyectovinos.ArticuloVino
 
 
 
-        // Metodo que devuelve las existencias totales de un artículo en una ubicación (para listado de todos los artículos)
+        /// <summary>
+        /// Metodo que devuelve las existencias totales de un artículo en una ubicación (para listado de todos los artículos)
+        /// </summary>
+        /// <param name="id_articulo"></param>
+        /// <param name="id_ubicacion"></param>
+        /// <returns></returns>
         public int existenciasRefUbicaciones(int id_articulo, int id_ubicacion)
         {
             int existencias = 0;
@@ -477,7 +543,16 @@ namespace proyectovinos.ArticuloVino
         }
 
         // 2veces usado
-        // Método que cumplimenta los datos de un Artículo seleccionado dispuesto a eliminar
+        /// <summary>
+        /// Método que cumplimenta los datos de un Artículo seleccionado dispuesto a eliminar
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="text_refarticulo"></param>
+        /// <param name="listView1"></param>
+        /// <param name="text_unidadesalmacen"></param>
+        /// <param name="text_unidadestienda"></param>
+        /// <param name="text_empaquetado"></param>
+        /// <param name="pictureBox1"></param>
         internal void articuloSeleccionado(ItemCheckedEventArgs e, TextBox text_refarticulo, ListView listView1, TextBox text_unidadesalmacen, TextBox text_unidadestienda, TextBox text_empaquetado, PictureBox pictureBox1)
         {
             string refArticulo = e.Item.Text;
@@ -504,7 +579,13 @@ namespace proyectovinos.ArticuloVino
         }
 
 
-        // Metodo que devuelve artículos filtrados por el nombre de una característica
+        /// <summary>
+        /// Metodo que devuelve artículos filtrados por el nombre de una característica
+        /// </summary>
+        /// <param name="nombreAtributo"></param>
+        /// <param name="valorAtributo"></param>
+        /// <param name="listView1"></param>
+        /// <param name="activo"></param>
         internal void listaArticulos_Filtrados(string nombreAtributo, int valorAtributo, ListView listView1, char activo)
         {
             listView1.Items.Clear();
@@ -580,7 +661,11 @@ namespace proyectovinos.ArticuloVino
             }
         }
 
-        // Existencias maximas en tienda
+        /// <summary>
+        /// Existencias maximas en tienda
+        /// </summary>
+        /// <param name="id_articulo"></param>
+        /// <returns></returns>
         internal int maxTienda(int id_articulo)
         {
             string ubicacion = "";
@@ -613,7 +698,11 @@ namespace proyectovinos.ArticuloVino
         }
 
 
-
+        /// <summary>
+        /// Nombres the caracteristicas articulos.
+        /// </summary>
+        /// <param name="id_articulo">The identifier articulo.</param>
+        /// <returns></returns>
         public string[] nombreCaracteristicasArticulos(int id_articulo)
         {
             string[] nombresCaracteristicas = new string[6];

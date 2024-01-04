@@ -65,7 +65,11 @@ namespace proyectovinos
         }
 
 
-        // Método Controlados que dirige la inserción de artículos a almacén desde una devolución de Socio
+        /// <summary>
+        /// Método Controlados que dirige la inserción de artículos a almacén desde una devolución de Socio
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_devolver_Click(object sender, EventArgs e)
         {
 
@@ -131,6 +135,11 @@ namespace proyectovinos
              
         }
 
+
+        /// <summary>
+        /// Función que inserta una devolucion de socio.
+        /// </summary>
+        /// <returns></returns>
         private bool insertarDevolucionSocio()
         {
             /*
@@ -179,24 +188,38 @@ namespace proyectovinos
 
 
 
-        // Método controlador que dirige la puesta de información de un Socio
+        /// <summary>
+        /// Método controlador que dirige la puesta de información de un Socio
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void combo_refcompraproveedor_SelectedIndexChanged(object sender, EventArgs e)
         {
             refVentaSocio = combo_refventasocio.Text;
             id_socio = consultaSocios.obtener_id_socioDesdeRefVentaSocio(refVentaSocio); 
 
             string [] datosSocio = socio.datosSocioo(id_socio);
-            label_nombresocio.Text = datosSocio[0];
+            label_nombresocio.Text = datosSocio[1] + ", " + datosSocio[0];
 
+            /* Forma antigua
             CumplimentarPictureBoxes cumplimentarPicture = new CumplimentarPictureBoxes();
             cumplimentarPicture.agregarImagenPictureBox(id_socio, pictureBox_perfilsocio);
+            */
+
+            string folderPathPropia = ClaseCompartida.carpetaimg_absoluta + "socios/" + id_socio + "/perfil/foto1.jpg";
+            string folderPathPredeterminada = ClaseCompartida.carpetaimg_absoluta + "socios/predeterminada.jpg";
+            ut.cargarImagen(pictureBox_perfilsocio, folderPathPropia, folderPathPredeterminada);
 
 
             cumpCombos.refrescarComboboxArticuloDesdeRefCompraProveedor(combo_refventasocio, combo_articulo);
             combo_articulo.Enabled = true;
         }
 
-        // Método controlador que dirige la puesta de información de un artículo 
+        /// <summary>
+        /// Método controlador que dirige la puesta de información de un artículo 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void combo_articulovino_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -237,8 +260,8 @@ namespace proyectovinos
 
             text_preciounidad.Text = precioUnidad( id_ventasocio ,id_articulo);
 
-            // Mostrar la Imagen del artículo seleccionado en el combobox
-            string nombreimagen = consultas.obtenerCualquierRefDesdeNombre("nombreimagen","articulo","ref",refArticulo);
+            // Mostrar la Imagen del artículo seleccionado en el pictureBox
+            /*string nombreimagen = consultas.obtenerCualquierRefDesdeNombre("nombreimagen","articulo","ref",refArticulo);
             try
             {
                 pictureBox_producto.Image = System.Drawing.Image.FromFile(ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/articulos/" + nombreClasevino + "/" + nombreimagen);
@@ -246,12 +269,25 @@ namespace proyectovinos
             catch (Exception ex)
             {
                 pictureBox_producto.Image = Image.FromFile(ClaseCompartida.carpetaimg_absoluta + "proveedores/botellapredeterminada.jpg");
-            }
+            }*/
+
+            string nombreimagen = consultas.obtenerCualquierRefDesdeNombre("nombreimagen", "articulo", "ref", refArticulo);
+
+            string folderPathPropia = ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor + "/articulos/" + nombreClasevino + "/" + nombreimagen;
+            string folderPathPredeterminada = ClaseCompartida.carpetaimg_absoluta + "proveedores/botellapredeterminada.jpg";
+            ut.cargarImagen(pictureBox_producto, folderPathPropia, folderPathPredeterminada);
+
+
 
         }
 
 
-
+        /// <summary>
+        /// Función que devuelve las unidades de un artículo que devolvio un socio.
+        /// </summary>
+        /// <param name="id_ventasocio">The identifier ventasocio.</param>
+        /// <param name="id_lineaventasocio">The identifier lineaventasocio.</param>
+        /// <returns></returns>
         private int unidadesDevolvio(int id_ventasocio, int id_lineaventasocio)
         {
             int unidades = 0;
@@ -265,7 +301,7 @@ namespace proyectovinos
                 string selectQuery = "select sum(unidades) as unidades from devolucionsocio where " +
                     " id_ventasocio = " + id_ventasocio + "";
 
-                MessageBox.Show(selectQuery);
+                //MessageBox.Show(selectQuery);
 
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
@@ -285,7 +321,12 @@ namespace proyectovinos
 
 
 
-        // Método que devuelve las unidades que compró un socio
+        /// <summary>
+        /// Método que devuelve las unidades que compró un socio
+        /// </summary>
+        /// <param name="id_ventasocio"></param>
+        /// <param name="id_articulo"></param>
+        /// <returns></returns>
         private int unidadesCompro(int id_ventasocio, int id_articulo)
         {
             int unidades = 0;
@@ -314,6 +355,13 @@ namespace proyectovinos
             return unidades;
         }
 
+
+        /// <summary>
+        /// Función que devuelve el precio de venta de un artículo.
+        /// </summary>
+        /// <param name="id_ventasocio">The identifier ventasocio.</param>
+        /// <param name="id_articulo">The identifier articulo.</param>
+        /// <returns></returns>
         public string precioUnidad(int id_ventasocio, int id_articulo)
             {
                 string resultado = "";
@@ -350,7 +398,6 @@ namespace proyectovinos
 
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-
             if (primeravez == 1)
             {
                 DialogResult opcionSeleccionada = MessageBox.Show("Quiere borrar el registro?", "Aviso", MessageBoxButtons.YesNo);
@@ -364,6 +411,11 @@ namespace proyectovinos
             }
         }
 
+        /// <summary>
+        /// Handles the ValueChanged event of the numeric_cantidad control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void numeric_cantidad_ValueChanged(object sender, EventArgs e)
         {
             if ((unidadesdevolvio + numeric_cantidad.Value) > unidadescompro)
@@ -400,6 +452,7 @@ namespace proyectovinos
             text_unidadestienda.Text = "";
             textBox_compro.Text = "";
             text_empaquetado.Text = "";
+            textBox_devolvio.Text = "";
             text_preciounidad.Text = "";
             text_total.Text = "";
             pictureBox_producto.Image = null;
@@ -413,7 +466,6 @@ namespace proyectovinos
         {
             this.Close();
         }
-
 
     }
 }

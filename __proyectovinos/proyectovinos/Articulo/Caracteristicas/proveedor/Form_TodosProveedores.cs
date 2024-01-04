@@ -41,6 +41,7 @@ namespace proyectovinos.Caracteristicas.proveedor
             cargarlista = true;
         }
 
+        private bool cargaLista = false;
 
         /// <summary>
         /// Handles the ItemChecked event of the listView1 control.
@@ -49,6 +50,23 @@ namespace proyectovinos.Caracteristicas.proveedor
         /// <param name="e">The <see cref="ItemCheckedEventArgs"/> instance containing the event data.</param>
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
+            while (cargaLista == false)
+            {
+                cargaLista = true;
+                ut.limpiarChecks(listView1, e);
+
+                referencia = e.Item.Text;
+                id_proveedor = consultas.obtenerCualquierId(nombreId, tabla, "ref", referencia);
+                string nombreProveedor = consultas.obtenerCualquierRefDesdeNombre("nombre", tabla, "ref", referencia);
+                text_nombreseleccionado.Text = nombreProveedor;
+                text_referenciaseleccionada.Text = referencia;
+                cumplimentarPictureBoxes.cumplimentarPictureBoxProveedor(id_proveedor, pictureBox1);
+
+            }
+            cargaLista = false;
+
+
+            /*
             if (cargarlista == true)
             {
                 referencia = e.Item.Text;
@@ -57,13 +75,20 @@ namespace proyectovinos.Caracteristicas.proveedor
                 text_nombreseleccionado.Text = nombreProveedor;
                 text_referenciaseleccionada.Text = referencia;
                 cumplimentarPictureBoxes.cumplimentarPictureBoxProveedor(id_proveedor, pictureBox1);
-            }
+            }*/
             // no vale text_nombreseleccionado.Text = ""; text_referenciaseleccionada.Text = "";
         }
 
 
         // Eliminar carpeta proveedor
         private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            metodo1();
+            //metodo2();
+            //deseleccionarChecks();
+        }
+
+        private void metodo2()
         {
             DialogResult opcionSeleccionada = MessageBox.Show("Quiere eliminar el registro?", "Aviso", MessageBoxButtons.YesNo);
 
@@ -89,8 +114,8 @@ namespace proyectovinos.Caracteristicas.proveedor
                     }
                     else
                     {
-                       bool eliminado = consultas.eliminarCaracteristica(tabla, "ref", referencia);     
-                        
+                        bool eliminado = consultas.eliminarCaracteristica(tabla, "ref", referencia);
+
                         // Eliminar su carpeta
                         if (eliminado == true)
                         {
@@ -123,7 +148,69 @@ namespace proyectovinos.Caracteristicas.proveedor
             {
                 MessageBox.Show("Selecione una referencia");
             }
-            deseleccionarChecks();
+        }
+
+        private void metodo1()
+        {
+            
+            if (referencia != "")
+            {
+                bool desea = ut.realmenteDesea("eliminar", "proveedor");
+                if (desea == true)
+                {
+
+                    Consultas consultas = new Consultas();
+                    int id = consultas.obtenerCualquierId(nombreId, tabla, "ref", referencia);
+
+                    Class_Articulo articulo = new Class_Articulo();
+                    //int existencias = articulo.existeArticuloConCaracteristica("id_articulo", "articulo", "id_articulo", id);
+                    int existencias = articulo.existeArticuloConCaracteristica("id_articulo", "articulo", "id_proveedor", id);
+
+                    if (existencias > 0)
+                    {
+                        MessageBox.Show(existencias + ClaseCompartida.msgArticulosTipo);
+                    }
+                    else
+                    {
+                        bool eliminado = consultas.eliminarCaracteristica(tabla, "ref", referencia);
+
+                        // Eliminar su carpeta
+                        if (eliminado == true)
+                        {
+                            string folderPath = ClaseCompartida.carpetaimg_absoluta + "proveedores/" + id_proveedor;
+                            try
+                            {
+                                Directory.Delete(folderPath, true);
+                                MessageBox.Show("Directorio eliminado: " + folderPath);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("The process failed: {0}", ex.Message);
+                            }
+
+                            ut.limpiarCamposEliminar(text_referenciaseleccionada, text_nombreseleccionado, check_seguro);
+
+                            prov.cumplimentarListaProveedores(listView1, '0');
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se ha eliminado, consulte con el administrador!");
+                        }
+                    }
+
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Tenga Cuidado");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione una referencia");
+            }
+
         }
 
 
@@ -170,6 +257,8 @@ namespace proyectovinos.Caracteristicas.proveedor
             desahilitarToolStripMenuItem.Enabled = true;
             radioButton1.Checked = true;
             cargarlista = true;
+
+            limpiarCampos();
         }
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -195,12 +284,13 @@ namespace proyectovinos.Caracteristicas.proveedor
                 MessageBox.Show("Selecione una referencia");
             }
 
-            deseleccionarChecks();
+            //deseleccionarChecks();
 
            
 
         }
 
+        /*
         private void deseleccionarChecks()
         {
             referencia = "";
@@ -214,7 +304,7 @@ namespace proyectovinos.Caracteristicas.proveedor
                     checkBox.Checked = false;
                 }
             }
-        }
+        }*/
 
         /// <summary>
         /// Handles the Click event of the habilitarToolStripMenuItem control.
@@ -242,7 +332,7 @@ namespace proyectovinos.Caracteristicas.proveedor
                     MessageBox.Show("Selecione una referencia");
                 }
 
-                deseleccionarChecks();
+                //deseleccionarChecks();
             }
 
         }

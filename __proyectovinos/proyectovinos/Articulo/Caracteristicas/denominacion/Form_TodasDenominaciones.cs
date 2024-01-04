@@ -184,6 +184,12 @@ namespace proyectovinos.Caracteristicas.denominacion
             }
         }
 
+
+        /// <summary>
+        /// Función que habilita o deshabilita el groupBox de modificar una catalogación.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void check_modificar_CheckedChanged(object sender, EventArgs e)
         {
             if (check_modificar.Checked == true)
@@ -196,7 +202,9 @@ namespace proyectovinos.Caracteristicas.denominacion
             }
         }
 
-
+        /// <summary>
+        /// Función que pone los campos en modo predeterminado.
+        /// </summary>
         private void limpiarCampos()
         {
             radioButton_habilitado.Checked = true;

@@ -140,9 +140,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(5, 24);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.Size = new System.Drawing.Size(62, 13);
             this.label4.TabIndex = 62;
-            this.label4.Text = "Referencia";
+            this.label4.Text = "Referencia:";
             // 
             // button_modificar
             // 
@@ -162,9 +162,9 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(148, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 60;
-            this.label5.Text = "Nombre";
+            this.label5.Text = "Nombre:";
             // 
             // radioButton_deshabilitado
             // 
@@ -194,7 +194,6 @@
             this.groupBox5.Size = new System.Drawing.Size(472, 89);
             this.groupBox5.TabIndex = 133;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "...";
             // 
             // button_eliminar
             // 
@@ -238,9 +237,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(146, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 88;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Nombre:";
             // 
             // textBox_referencia
             // 
@@ -256,9 +255,9 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(6, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(27, 13);
+            this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 90;
-            this.label6.Text = "Ref.";
+            this.label6.Text = "Ref.:";
             // 
             // check_segurohabilitardeshabilitareliminar
             // 
@@ -359,9 +358,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(5, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 62;
-            this.label2.Text = "Referencia";
+            this.label2.Text = "Referencia:";
             // 
             // button_nueva
             // 
@@ -381,9 +380,9 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(148, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 60;
-            this.label3.Text = "Nombre";
+            this.label3.Text = "Nombre:";
             // 
             // groupBox1
             // 
@@ -394,7 +393,7 @@
             this.groupBox1.Size = new System.Drawing.Size(356, 321);
             this.groupBox1.TabIndex = 130;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Catalogaciones";
+            this.groupBox1.Text = "Catalogaciones Habilitadas";
             // 
             // listView1
             // 

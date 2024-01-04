@@ -44,42 +44,80 @@ namespace proyectovinos.Caracteristicas.catalogacion
             limpiarCampos();
         }
 
+
+        private bool cargaLista=false;
+
+        /// <summary>
+        /// Handles the ItemChecked event of the listView1 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="ItemCheckedEventArgs"/> instance containing the event data.</param>
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            if (listaCargada == true)
+            while (cargaLista == false)
             {
-                referencia = listView1.Items[e.Item.Index].SubItems[0].Text;
+                cargaLista = true;
+                ut.limpiarChecks(listView1, e);
 
-                textBox_referencia.Text = referencia;
-                textBox_nombre.Text = listView1.Items[e.Item.Index].SubItems[1].Text;
+                if (listaCargada == true)
+                {
+                    referencia = listView1.Items[e.Item.Index].SubItems[0].Text;
 
-                textBox_referenciamodificar.Text = referencia;
-                textBox_nombremodificar.Text = listView1.Items[e.Item.Index].SubItems[1].Text;
+                    textBox_referencia.Text = referencia;
+                    textBox_nombre.Text = listView1.Items[e.Item.Index].SubItems[1].Text;
+
+                    textBox_referenciamodificar.Text = referencia;
+                    textBox_nombremodificar.Text = listView1.Items[e.Item.Index].SubItems[1].Text;
+                }
             }
+            cargaLista = false;
         }
+
+
 
         private void radioButton_habilitado_CheckedChanged(object sender, EventArgs e)
         {
-            listaCargada = false;
-            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '1');
-            listaCargada = true;
-            actualizarToolStripMenuItem.Enabled = true;
-            button_habilitar.Enabled = false;
-            button_deshabilitar.Enabled = true;
-            button_eliminar.Enabled = false;
+            habililitarDeshabilitarEnlaces( true, false, true, false, '1' );
         }
 
         private void radioButton_deshabilitado_CheckedChanged(object sender, EventArgs e)
         {
-            listaCargada = false;
-            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, '0');
-            listaCargada = true;
-            actualizarToolStripMenuItem.Enabled = false;
-            button_habilitar.Enabled = true;
-            button_deshabilitar.Enabled = false;
-            button_eliminar.Enabled = true;
+            habililitarDeshabilitarEnlaces(false, true, false, true, '0');
         }
 
+        /// <summary>
+        /// Función que habilita y deshabilita botones.
+        /// </summary>
+        /// <param name="v1">if set to <c>true</c> [v1].</param>
+        /// <param name="v2">if set to <c>true</c> [v2].</param>
+        /// <param name="v3">if set to <c>true</c> [v3].</param>
+        /// <param name="v4">if set to <c>true</c> [v4].</param>
+        /// <param name="opcion">The opcion.</param>
+        private void habililitarDeshabilitarEnlaces(bool v1, bool v2, bool v3, bool v4, char opcion)
+        {
+            if (opcion == '1')
+            {
+                groupBox1.Text = "Catalogaciones Habilitadas";
+            }
+            else { 
+                groupBox1.Text = "Catalogaciones Deshabilitadas";
+            }
+
+            listaCargada = false;
+            cumplimentarListas.cumplimentarLista("ref", "nombre", tabla, listView1, opcion);
+            listaCargada = true;
+            actualizarToolStripMenuItem.Enabled = v1;
+            button_habilitar.Enabled = v2;
+            button_deshabilitar.Enabled = v3;
+            button_eliminar.Enabled = v4;
+        }
+
+
+        /// <summary>
+        /// Función que habilita o deshabilita el broupbox de nueva.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void check_nueva_CheckedChanged(object sender, EventArgs e)
         {
             if (check_nueva.Checked == true)
@@ -159,6 +197,11 @@ namespace proyectovinos.Caracteristicas.catalogacion
             }
         }
 
+        /// <summary>
+        /// Función que habilita o desabilita el groupBox de modificar catalogación.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void check_modificar_CheckedChanged(object sender, EventArgs e)
         {
             if (check_modificar.Checked == true)

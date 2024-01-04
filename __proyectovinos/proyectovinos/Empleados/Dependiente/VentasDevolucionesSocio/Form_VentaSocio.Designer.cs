@@ -84,7 +84,8 @@
             this.mOVIMIENTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deAlmacénATiendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deTiendaAAlmacénToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tERMINARCOMPRAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.terminarCompra_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button_terminarcompra = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_cantidad)).BeginInit();
@@ -102,6 +103,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.button_terminarcompra);
             this.groupBox2.Controls.Add(this.groupBox5);
             this.groupBox2.Controls.Add(this.pictureBox3);
             this.groupBox2.Controls.Add(this.groupBox4);
@@ -638,7 +640,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.compraAProveedorToolStripMenuItem,
             this.mOVIMIENTOSToolStripMenuItem,
-            this.tERMINARCOMPRAToolStripMenuItem});
+            this.terminarCompra_ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(862, 24);
@@ -679,14 +681,29 @@
             this.deTiendaAAlmacénToolStripMenuItem.Text = "De Tienda a Almacén";
             this.deTiendaAAlmacénToolStripMenuItem.Click += new System.EventHandler(this.deTiendaAAlmacénToolStripMenuItem_Click);
             // 
-            // tERMINARCOMPRAToolStripMenuItem
+            // terminarCompra_ToolStripMenuItem
             // 
-            this.tERMINARCOMPRAToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tERMINARCOMPRAToolStripMenuItem.Image")));
-            this.tERMINARCOMPRAToolStripMenuItem.Margin = new System.Windows.Forms.Padding(450, 0, 0, 0);
-            this.tERMINARCOMPRAToolStripMenuItem.Name = "tERMINARCOMPRAToolStripMenuItem";
-            this.tERMINARCOMPRAToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
-            this.tERMINARCOMPRAToolStripMenuItem.Text = "Terminar Compra";
-            this.tERMINARCOMPRAToolStripMenuItem.Click += new System.EventHandler(this.tERMINARCOMPRAToolStripMenuItem_Click);
+            this.terminarCompra_ToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
+            this.terminarCompra_ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("terminarCompra_ToolStripMenuItem.Image")));
+            this.terminarCompra_ToolStripMenuItem.Margin = new System.Windows.Forms.Padding(450, 0, 0, 0);
+            this.terminarCompra_ToolStripMenuItem.Name = "terminarCompra_ToolStripMenuItem";
+            this.terminarCompra_ToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
+            this.terminarCompra_ToolStripMenuItem.Text = "Terminar Compra";
+            this.terminarCompra_ToolStripMenuItem.Click += new System.EventHandler(this.tERMINARCOMPRAToolStripMenuItem_Click);
+            // 
+            // button_terminarcompra
+            // 
+            this.button_terminarcompra.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_terminarcompra.BackgroundImage")));
+            this.button_terminarcompra.Image = ((System.Drawing.Image)(resources.GetObject("button_terminarcompra.Image")));
+            this.button_terminarcompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_terminarcompra.Location = new System.Drawing.Point(659, 265);
+            this.button_terminarcompra.Name = "button_terminarcompra";
+            this.button_terminarcompra.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button_terminarcompra.Size = new System.Drawing.Size(160, 42);
+            this.button_terminarcompra.TabIndex = 134;
+            this.button_terminarcompra.Text = "         Terminar Compra";
+            this.button_terminarcompra.UseVisualStyleBackColor = true;
+            this.button_terminarcompra.Click += new System.EventHandler(this.button_terminarcompra_Click);
             // 
             // Form_VentaSocio
             // 
@@ -781,9 +798,10 @@
         private System.Windows.Forms.TextBox text_catalogacion;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox text_proveedor;
-        private System.Windows.Forms.ToolStripMenuItem tERMINARCOMPRAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem terminarCompra_ToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolStripMenuItem compraAProveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deTiendaAAlmacénToolStripMenuItem;
+        private System.Windows.Forms.Button button_terminarcompra;
     }
 }

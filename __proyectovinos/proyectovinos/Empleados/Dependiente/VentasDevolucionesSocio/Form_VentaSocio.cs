@@ -90,7 +90,11 @@ namespace proyectovinos
             numeric_cantidad.Enabled = true;
         }
 
-    // 4 Método que muestra la foto de socio a partir de su referencia
+    /// <summary>
+    /// Método que muestra el nombre, apellidos y la foto de socio a partir de su referencia
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
         private void combo_refsocio_SelectedIndexChanged(object sender, EventArgs e)
         {
             refSocio = combo_refsocio.Text;
@@ -102,7 +106,7 @@ namespace proyectovinos
 
             try
             {
-                string selectQuery = "select nombre, apellidos from socio where id_socio= " + id_socio;
+                string selectQuery = "select nombre, apellidos, activo from socio where id_socio= " + id_socio;
 
                 conexionBD.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, conexionBD);
@@ -112,6 +116,21 @@ namespace proyectovinos
                 {
                     string nombre = reader.GetString("nombre");
                     string apellidos = reader.GetString("apellidos");
+                    char activo = Char.Parse( reader.GetString("activo"));
+
+                    if (activo == '0')
+                    {
+                        MessageBox.Show("Este socio se encuentra inhabilitado por algún motivo, " +
+                            "\n si desea volver a confiar en él, habilítelo ");
+                        terminarCompra_ToolStripMenuItem.Enabled = false;
+                        terminarCompra_ToolStripMenuItem.BackColor = Color.Red;
+                    }
+                    else {
+                        terminarCompra_ToolStripMenuItem.Enabled = true;
+                        terminarCompra_ToolStripMenuItem.BackColor = Color.Transparent;
+                    }
+
+
                     label_nombresocio.Text = apellidos + ", " + nombre;
                     string nombreApellidos = nombre + apellidos;
                     nombreApellidos = ut.limpiezaDeString(nombreApellidos);
@@ -483,6 +502,11 @@ namespace proyectovinos
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void tERMINARCOMPRAToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            if (listView1.Items.Count > 0)
+            {
+
+
             int id_predeterminado = consultas.idMax("id_ventasocio", "ventasocio") + 1;
 
             // id_empleado
@@ -572,6 +596,19 @@ namespace proyectovinos
             {
                 MessageBox.Show("Seleccione Sócio");
             }
+
+
+
+
+
+
+
+            }
+            else {
+                MessageBox.Show("No ha añadido ningún artículo");
+            }
+
+
         }
 
         private void compraAProveedorToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -622,6 +659,118 @@ namespace proyectovinos
             combo_reflinea.Enabled = true;
         }
 
+        private void button_terminarcompra_Click(object sender, EventArgs e)
+        {
+
+            if (listView1.Items.Count > 0)
+            {
+
+
+                int id_predeterminado = consultas.idMax("id_ventasocio", "ventasocio") + 1;
+
+                // id_empleado
+                string refEmpleado = ClaseCompartida.refe;
+                id_empleado = consultas.obtenerCualquierId("id_empleado", "empleado", "ref", refEmpleado);
+
+                // id_socio
+                string refSocio = combo_refsocio.Text;
+                id_socio = consultas.obtenerCualquierId("id_socio", "socio", "ref", refSocio);
+
+                // fecha de la compra
+                DateTime fechaActual = DateTime.Now;
+                string fechaFormateada = ut.fechaTimeStam(fechaActual);
+
+                bool insertadoVentaSocio = consultaSocios.registrarVentaSocio(id_predeterminado, id_empleado, id_socio, fechaFormateada);
+
+
+
+                bool insertadoLineaVenta = true;
+
+                if (combo_refsocio.Text != "Seleccione")
+                {
+                    for (int i = 0; i < listView1.Items.Count; i++)
+                    {
+                        int id_lineaventasocio = consultas.idMax("id_lineaventasocio", "lineaventasocio") + 1;
+                        int id_ventasocio = consultas.idMax("id_ventasocio", "ventasocio");
+                        int id_compraproveedor = consultas.obtenerCualquierId("id_compraproveedor", "lineacompraproveedor", "ref", refLinea);
+
+                        refArticulo = listView1.Items[i].SubItems[0].Text;
+                        id_articulo = consultas.obtenerCualquierId("id_articulo", "articulo", "ref", refArticulo);
+
+                        int unidadesAcomprar = Int32.Parse(listView1.Items[i].SubItems[4].Text);
+
+                        // Precio Venta por artículo, no meto el total ya que escaparía el precio de venta del artículo en ese momento 
+                        string precioVentaTexto = listView1.Items[i].SubItems[5].Text;
+                        precioVentaTexto = precioVentaTexto.Replace(",", ".");
+
+                        insertadoLineaVenta = insertarLineaVentaSocio(id_lineaventasocio, id_ventasocio, id_compraproveedor, id_articulo, unidadesAcomprar, precioVentaTexto);
+
+
+                        //Resta de existencias en tienda
+                        if (insertadoLineaVenta == true)
+                        {
+                            string unidadesArticuloTexto = listView1.Items[i].SubItems[4].Text;
+
+                            // Existencias en tienda
+                            string refLinea = listView1.Items[i].SubItems[1].Text;
+                            int id_lineacompraproveedor = consultas.obtenerCualquierId("id_lineacompraproveedor", "lineacompraproveedor", "ref", refLinea);
+
+                            int unidadesTienda = articulo.existenciasTiendaArticulo(id_lineacompraproveedor, id_articulo);
+                            int totalExistenciasTienda = unidadesTienda - Int32.Parse(unidadesArticuloTexto);
+
+                            // Ajuste existencias en tienda
+                            Class_AlmacenTienda almacenTienda = new Class_AlmacenTienda();
+                            almacenTienda.ajusteExistenciasCualquierUbicacion(id_lineacompraproveedor, totalExistenciasTienda, id_articulo, "tienda");
+
+                        }
+                        else
+                        {
+                            // MessageBox.Show("Línea de venta no insertada");
+                            insertadoLineaVenta = false;
+                            break;  // si pasa aquí, también que elimine la venta a socio pués está realizada pero sin linea de venta
+
+                        }
+                    }
+                    string refVent = "";
+
+                    // Si inserta que haga factura
+                    if (insertadoVentaSocio == true && insertadoLineaVenta == true)
+                    {
+                        // Si lo inserta ya podemos crear el pdf de la factura
+                        // MessageBox.Show("Guardando factura");
+                        Class_VentasDevolucionesSocio vent = new Class_VentasDevolucionesSocio();
+                        refVent = consultas.obtenerCualquierRefDesdeId("ref", "ventasocio", "id_ventasocio", id_predeterminado);
+                        vent.componerFactura(refVent);
+                        mostrarFactura(refVent);
+                    }
+
+                    // Emitir el ticket, leer el ListView
+                    aPdf(refVent);
+
+                    limpiarCampos();
+                    //listView1.Items.Clear();
+                    //combo_reflinea.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione Sócio");
+                }
+
+
+
+
+
+
+
+            }
+            else
+            {
+                MessageBox.Show("No ha añadido ningún artículo");
+            }
+
+
+        }
+
         private void combo_reflinea_MouseHover(object sender, EventArgs e)
         {
             /*if (combo_reflinea.Items.Count == 0) {
@@ -640,7 +789,11 @@ namespace proyectovinos
 
         }
 
-        // Carga para el artículo 1
+        /// <summary>
+        /// Carga para el artículo 1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cargaArticulo1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             text_proveedor.Text = "MARQUÉS DE CÁCERES";

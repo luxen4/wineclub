@@ -216,8 +216,8 @@ namespace proyectovinos
         }
 
 
-        // Socios
-        internal void agregarImagenPictureBox(int id_socio, PictureBox pictureBox1)
+        // Socios sustituye la de utilidades
+        /*internal void agregarImagenPictureBox(int id_socio, PictureBox pictureBox1)
         {
             try
             {
@@ -237,7 +237,7 @@ namespace proyectovinos
                     pictureBox1.Image = Image.FromStream(stream.BaseStream);
                 }
             }
-        }
+        }*/
     }
 }
 

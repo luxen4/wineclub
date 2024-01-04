@@ -261,7 +261,6 @@
     </Compile>
     <Compile Include="_CumplimentarInputs\CumplimentarListas.cs" />
     <Compile Include="_CumplimentarInputs\CumplimentarComboboxes.cs" />
-    <Compile Include="AperturaFormulariosArticulo.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
